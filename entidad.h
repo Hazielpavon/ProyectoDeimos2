@@ -1,7 +1,7 @@
 // entidad.h
 #pragma once
+
 #include <QPointF>
-#include "tranformacion.h"
 #include "sprite.h"
 #include "componentefisico.h"
 #include "componentesalud.h"
@@ -12,37 +12,41 @@ public:
     entidad();
     ~entidad();
 
-    // Llamado desde MainWindow cada frame:
-    void actualizar(float dt);
-
-    // Para que MainWindow inicie el salto:
     void startJump();
+    void startAttack();
 
-    // Accesores básicos:
-    tranformacion& transform()       { return m_transformacion; }
-    componentefisico& fisica()        { return m_componenteFisico; }
-    componentesalud& salud()          { return m_componenteSalud; }
-    Sprite& sprite()                  { return m_sprite; }
-    bool Isjumping() {return m_isJumping; }
-    // Saber si actualmente “mira” a la izquierda:
-    bool facingleft() const           { return m_facingLeft; }
+    void actualizar(float dt);
+    void actualizarSalto(float dt);
+    void actualizarAnimacion(float dt);
+
+    bool Isjumping() const { return m_isJumping; }
+    bool IsAttacking() const { return m_isAttacking; }
+    bool facingleft() const { return m_facingLeft; }
+
+    Sprite       &sprite()       { return m_sprite; }
+    const Sprite &sprite() const { return m_sprite; }
+
+    tranformacion    &transform()    { return m_transformacion; }
+    const tranformacion &transform() const { return m_transformacion; }
+
+    componentefisico       &fisica()       { return m_componenteFisico; }
+    const componentefisico &fisica() const { return m_componenteFisico; }
+
+    componentesalud        &salud()        { return m_componenteSalud; }
+    const componentesalud  &salud() const  { return m_componenteSalud; }
 
 private:
-    void actualizarAnimacion(float dt);
-    void actualizarSalto(float dt);
+    tranformacion    m_transformacion;
+    Sprite       m_sprite;
+    componentefisico       m_componenteFisico;
+    componentesalud        m_componenteSalud;
 
-    tranformacion   m_transformacion;
-    Sprite           m_sprite;
-    componentefisico m_componenteFisico;
-    componentesalud  m_componenteSalud;
-
-    // ←◆◆◆ Atributos nuevos para salto ◆◆◆→
-    bool   m_isJumping;         // ¿está en el aire?
-    float  m_verticalVelocity;  // velocidad actual en Y (px/s)
-    float  m_groundY;           // coordenada Y considerada “suelo” (punto de partida)
-    static constexpr float GRAVITY = 800.0f;   // gravedad en px/s²
-    static constexpr float JUMP_VELOCITY = 450.0f; // velocidad inicial del salto (px/s hacia arriba)
-    bool   m_facingLeft;        // para saber hacia dónde mira al acabar el salto
-
-    // ─────────────────────────────────────────
+    bool         m_isJumping;
+    bool         m_isAttacking;
+    float        m_verticalVelocity;
+    float        m_groundY;
+    bool         m_facingLeft;
+    // constantes para salto
+    static constexpr float JUMP_VELOCITY = 350.0f;
+    static constexpr float GRAVITY       = 980.0f;
 };

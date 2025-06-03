@@ -118,5 +118,17 @@
         <file>resources/0_Blood_Demon_Sliding_003.png</file>
         <file>resources/0_Blood_Demon_Sliding_004.png</file>
         <file>resources/0_Blood_Demon_Sliding_005.png</file>
+        <file>resources/0_Blood_Demon_Slashing_000.png</file>
+        <file>resources/0_Blood_Demon_Slashing_001.png</file>
+        <file>resources/0_Blood_Demon_Slashing_002.png</file>
+        <file>resources/0_Blood_Demon_Slashing_003.png</file>
+        <file>resources/0_Blood_Demon_Slashing_004.png</file>
+        <file>resources/0_Blood_Demon_Slashing_005.png</file>
+        <file>resources/0_Blood_Demon_Slashing_006.png</file>
+        <file>resources/0_Blood_Demon_Slashing_007.png</file>
+        <file>resources/0_Blood_Demon_Slashing_008.png</file>
+        <file>resources/0_Blood_Demon_Slashing_009.png</file>
+        <file>resources/0_Blood_Demon_Slashing_010.png</file>
+        <file>resources/0_Blood_Demon_Slashing_011.png</file>
     </qresource>
 </RCC>

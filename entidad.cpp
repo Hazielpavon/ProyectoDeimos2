@@ -8,35 +8,40 @@ entidad::entidad()
     , m_componenteFisico(&m_transformacion)
     , m_componenteSalud()
     , m_isJumping(false)
+    , m_isAttacking(false)
     , m_verticalVelocity(0.0f)
     , m_groundY(0.0f)
     , m_facingLeft(false)
 {
-    // 1) Carga de animaciones básicas
-    m_sprite.loadFrames(SpriteState::Sliding,":/resources/0_Blood_Demon_Sliding_",6);
-    m_sprite.generateMirroredFrames(SpriteState::Sliding,SpriteState::SlidingLeft);
+    // 1) Animación “Slashing” (golpe)
+    m_sprite.loadFrames(SpriteState::Slashing,      ":/resources/0_Blood_Demon_Slashing_",     12);
+    m_sprite.generateMirroredFrames(SpriteState::Slashing, SpriteState::Slashingleft);
 
-    m_sprite.loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",  24);
-    m_sprite.loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",     16);
-    m_sprite.loadFrames(SpriteState::IdleLeft,":/resources/0_Blood_Demon_IdleL_",    16);
-    m_sprite.loadFrames(SpriteState::WalkingLeft, ":/resources/0_Blood_Demon_WalkingL_", 24);
+    // 2) Animación “Walking” / “WalkingLeft”
+    m_sprite.loadFrames(SpriteState::Walking,       ":/resources/0_Blood_Demon_Walking_",      24);
+    m_sprite.loadFrames(SpriteState::WalkingLeft,   ":/resources/0_Blood_Demon_WalkingL_",     24);
 
-    // 2) Animación de salto (loop)
-    m_sprite.loadFrames(SpriteState::Jump,":/resources/0_Blood_Demon_Jump Loop_",   6);
-    m_sprite.generateMirroredFrames(SpriteState::Jump,      SpriteState::JumpLeft);
+    // 3) Animación “Idle” / “IdleLeft”
+    m_sprite.loadFrames(SpriteState::Idle,          ":/resources/0_Blood_Demon_Idle_",         16);
+    m_sprite.loadFrames(SpriteState::IdleLeft,      ":/resources/0_Blood_Demon_IdleL_",        16);
 
-    // 3) Animación de correr
-    m_sprite.loadFrames(SpriteState::Running,":/resources/0_Blood_Demon_Running_",  12);
-    m_sprite.generateMirroredFrames(SpriteState::Running,   SpriteState::RunningLeft);
+    // 4) Animación “Jump” / “JumpLeft”
+    m_sprite.loadFrames(SpriteState::Jump,          ":/resources/0_Blood_Demon_Jump Loop_",     6);
+    m_sprite.generateMirroredFrames(SpriteState::Jump, SpriteState::JumpLeft);
 
-    // 4) Animación de deslizar (sliding)
+    // 5) Animación “Running” / “RunningLeft”
+    m_sprite.loadFrames(SpriteState::Running,       ":/resources/0_Blood_Demon_Running_",      12);
+    m_sprite.generateMirroredFrames(SpriteState::Running, SpriteState::RunningLeft);
 
+    // 6) Animación “Sliding” / “SlidingLeft”
+    m_sprite.loadFrames(SpriteState::Sliding,       ":/resources/0_Blood_Demon_Sliding_",       6);
+    m_sprite.generateMirroredFrames(SpriteState::Sliding, SpriteState::SlidingLeft);
 
-    // Ajustes generales (fps y tamaño)
+    // Ajustes generales (FPS + tamaño de dibujo)
     m_sprite.setFPS(12);
     m_sprite.setSize(128, 128);
 
-    // Estado inicial
+    // Estado inicial es Idle
     m_sprite.setState(SpriteState::Idle);
     m_componenteSalud.setHP(100);
 }
@@ -48,7 +53,8 @@ entidad::~entidad()
 
 void entidad::startJump()
 {
-    if (m_isJumping) return;  // no hacer doble salto
+    // No permitimos saltar si ya estamos en salto o ya atacando
+    if (m_isJumping || m_isAttacking) return;
 
     m_groundY = m_transformacion.getPosition().y();
     m_verticalVelocity = -JUMP_VELOCITY;
@@ -61,36 +67,49 @@ void entidad::startJump()
     }
 }
 
+void entidad::startAttack()
+{
+    // Si ya está saltando o ya en medio de ataque, no hacemos nada
+    if (m_isJumping || m_isAttacking) return;
+
+    m_isAttacking = true;
+    if (m_facingLeft) {
+        m_sprite.setState(SpriteState::Slashingleft);
+    } else {
+        m_sprite.setState(SpriteState::Slashing);
+    }
+}
+
 void entidad::actualizar(float dt)
 {
-    // 1) Si estamos en salto, actualizamos la física del salto
+    // Física de salto
     if (m_isJumping) {
         actualizarSalto(dt);
     }
 
-    // 2) Actualizamos el componente físico (posición XY)
+    // Actualizar posición según velocidad
     m_componenteFisico.actualizar(dt);
 
-    // 3) Ajustamos la posición de dibujo centrándola:
+    // Ajustar posición de dibujo (centrar el sprite)
     QPointF posF = m_transformacion.getPosition();
-    int spriteW = m_sprite.getSize().width();
-    int spriteH = m_sprite.getSize().height();
-    int drawX = int(posF.x() - (spriteW * 0.5f));
-    int drawY = int(posF.y() - (spriteH * 0.5f));
-    m_sprite.setPosition(drawX, drawY);
+    int w = m_sprite.getSize().width();
+    int h = m_sprite.getSize().height();
+    m_sprite.setPosition(int(posF.x() - w/2.0f),
+                         int(posF.y() - h/2.0f));
 
-    // 4) Si seguimos saltando, solo actualizamos el frame de salto:
+    // Si está saltando → solo advance frame de salto
     if (m_isJumping) {
         m_sprite.update(dt);
     }
     else {
-        // 5) Si no estamos en el aire, actualizamos la animación de suelo
+        // Si no está saltando → actualizar según estado (including attack)
         actualizarAnimacion(dt);
     }
 
-    // 6) Salud (si quieres dibujar barra, etc.)
+    // Actualizar salud, timers, etc.
     m_componenteSalud.actualizar(dt);
 }
+
 
 void entidad::actualizarSalto(float dt)
 {
@@ -98,13 +117,13 @@ void entidad::actualizarSalto(float dt)
     pos.setY(pos.y() + m_verticalVelocity * dt);
     m_verticalVelocity += GRAVITY * dt;
 
-    // Al llegar o pasar el suelo, detenemos salto
+    // Si toca el suelo, detenemos salto
     if (pos.y() >= m_groundY) {
         pos.setY(m_groundY);
         m_verticalVelocity = 0.0f;
         m_isJumping = false;
 
-        // Al aterrizar, volvemos a Idle (mirando a izquierda o derecha)
+        // Al aterrizar, regresamos a Idle (mirando a la dirección que corresponda)
         if (m_facingLeft) {
             m_sprite.setState(SpriteState::IdleLeft);
         } else {
@@ -117,50 +136,91 @@ void entidad::actualizarSalto(float dt)
 void entidad::actualizarAnimacion(float dt)
 {
     float vx = m_componenteFisico.velocity().x();
-
-    // 1) Si ya estamos en Sliding o SlidingLeft, avanzamos sus frames y salimos
     SpriteState estadoActual = m_sprite.getState();
-    if (estadoActual == SpriteState::Sliding || estadoActual == SpriteState::SlidingLeft) {
+
+    // 1) Si estamos en medio de un ataque, avanzamos sus fotogramas:
+    if (estadoActual == SpriteState::Slashing
+        || estadoActual == SpriteState::Slashingleft)
+    {
+        // Avanzar un fotograma de la animación de “slashing”:
         m_sprite.update(dt);
+
+        // Obtenemos el vector de QPixmap de ese estado:
+        const QVector<QPixmap> &framesAtk = m_sprite.framesForState(estadoActual);
+
+        // Control para asegurarnos de recorrer todos los fotogramas antes de volver a suelo
+        static bool hasReachedLastFrame = false;
+
+        // Si aún no habíamos llegado al último fotograma, pero ahora sí:
+        if (!hasReachedLastFrame &&
+            m_sprite.currentFrameIndex() == framesAtk.size() - 1)
+        {
+            hasReachedLastFrame = true;
+        }
+
+        // Una vez que llegamos al último fotograma y volvemos a índice 0,
+        // marcamos que se terminó el ataque y regresamos a animación de suelo:
+        if (hasReachedLastFrame && m_sprite.currentFrameIndex() == 0)
+        {
+            hasReachedLastFrame = false;
+            m_isAttacking = false;
+
+            // Al terminar el ataque, volvemos a Idle/Walking/Running según vx:
+            if (qFuzzyCompare(vx, 0.0f)) {
+                if (m_facingLeft) m_sprite.setState(SpriteState::IdleLeft);
+                else              m_sprite.setState(SpriteState::Idle);
+            }
+            else if (vx < 0.0f) {
+                m_facingLeft = true;
+                const float runThreshold = 160.0f;
+                if (qAbs(vx) > runThreshold)
+                    m_sprite.setState(SpriteState::RunningLeft);
+                else
+                    m_sprite.setState(SpriteState::WalkingLeft);
+            }
+            else {
+                m_facingLeft = false;
+                const float runThreshold = 160.0f;
+                if (vx > runThreshold)
+                    m_sprite.setState(SpriteState::Running);
+                else
+                    m_sprite.setState(SpriteState::Walking);
+            }
+        }
+
+        // Ya hemos avanzado un fotograma de ataque, no hacemos nada más:
         return;
     }
 
-    // 2) Si estamos en salto (aunque debería haber sido detectado en empezar de actualizar),
-    //    solo avanzamos el frame de salto
+    // 2) Si estamos en salto, avanzamos ese fotograma y salimos:
     if (m_isJumping) {
         m_sprite.update(dt);
         return;
     }
 
-    // 3) Si velocidad horizontal es casi cero → Idle
+    // 3) Si no estamos atacando ni saltando → animaciones de suelo (Idle/Walking/Running):
     if (qFuzzyCompare(vx, 0.0f)) {
-        if (m_facingLeft) {
-            m_sprite.setState(SpriteState::IdleLeft);
-        } else {
-            m_sprite.setState(SpriteState::Idle);
-        }
+        if (m_facingLeft) m_sprite.setState(SpriteState::IdleLeft);
+        else              m_sprite.setState(SpriteState::Idle);
     }
-    // 4) Movimiento a la izquierda
     else if (vx < 0.0f) {
         m_facingLeft = true;
         const float runThreshold = 160.0f;
-        if (qAbs(vx) > runThreshold) {
+        if (qAbs(vx) > runThreshold)
             m_sprite.setState(SpriteState::RunningLeft);
-        } else {
+        else
             m_sprite.setState(SpriteState::WalkingLeft);
-        }
     }
-    // 5) Movimiento a la derecha
     else { // vx > 0
         m_facingLeft = false;
         const float runThreshold = 160.0f;
-        if (vx > runThreshold) {
+        if (vx > runThreshold)
             m_sprite.setState(SpriteState::Running);
-        } else {
+        else
             m_sprite.setState(SpriteState::Walking);
-        }
     }
 
-    // 6) Avanzamos el frame de la animación elegida
+    // Avanzar el fotograma de la animación elegida:
     m_sprite.update(dt);
 }
+

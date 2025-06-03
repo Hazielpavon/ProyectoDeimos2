@@ -2,14 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTimer>
-#include <QKeyEvent>
+
+// Incluimos los headers de nuestras pantallas, no solo QWidget
+#include "pantallainicio.h"
+#include "menuopciones.h"
+#include "pantallacarga.h"
 #include "entidad.h"
-
-class PantallaInicio;
-class MenuOpciones;
-class PantallaCarga;
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,42 +20,39 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-protected:
 
-    void paintEvent(QPaintEvent *event) override;
+protected:
+    // Para capturar teclas y clics de mouse
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
-
-private slots:
-    void onGameLoop();
+    void mousePressEvent(QMouseEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
-    QWidget *pantallaActual;
-    PantallaInicio *pantallaInicio;
-    MenuOpciones *menuOpciones;
-    PantallaCarga *pantallaCarga;
-    void mostrarPantalla(QWidget *pantalla);
     Ui::MainWindow *ui;
 
-    // Nuestro “jugador” (la entidad que contiene el Sprite, Transformacion, etc.)
-    entidad *m_player = nullptr;
+    // Declaramos punteros con su tipo concreto, no como QWidget*
+    PantallaInicio   *pantallaInicio;
+    MenuOpciones     *menuOpciones;
+    PantallaCarga    *pantallaCarga;
 
-    // Timer para game-loop
-    QTimer *m_timer = nullptr;
+    QWidget          *pantallaActual; // Único puntero genérico para mostrar/ocultar
 
-    // Flags de teclas
-    bool m_upPressed;
-    bool m_downPressed;
+    entidad          *m_player;
+    QTimer           *m_timer;
+    float             m_dt = 1.0f / 60.0f;
+
+    // Flags de entrada
     bool m_leftPressed;
     bool m_rightPressed;
     bool m_shiftPressed;
-    bool m_cPressed;    // ahora detectaremos C en lugar de Ctrl
+    bool m_cPressed;
 
-    // Constante delta-time fijo (en segundos)
-    const float m_dt = 0.016f;  // ≈60 FPS
-
-    // Función auxiliar para procesar el estado de las teclas y actualizar velocidad de m_player
+    void mostrarPantalla(QWidget *pant);
     void processInput();
+
+private slots:
+    void onGameLoop();
 };
 
 #endif // MAINWINDOW_H

@@ -1,145 +1,123 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "menuopciones.h"
-#include "pantallainicio.h"
-#include "PantallaCarga.h"
+
 #include <QPainter>
 #include <QDebug>
-#include "videointro.h"
+#include <QTimer>
+#include <QKeyEvent>
+#include <QMouseEvent>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-    pantallaActual(nullptr),
+    ui(new Ui::MainWindow),
     pantallaInicio(nullptr),
     menuOpciones(nullptr),
     pantallaCarga(nullptr),
-    ui(new Ui::MainWindow),
+    pantallaActual(nullptr),
     m_player(nullptr),
     m_timer(nullptr),
-    m_upPressed(false),
-    m_downPressed(false),
     m_leftPressed(false),
     m_rightPressed(false),
     m_shiftPressed(false),
     m_cPressed(false)
 {
-    // Tamaño fijo para el área de juego
+    ui->setupUi(this);
     setFixedSize(950, 650);
-     ui->setupUi(this);
 
-    connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
-
-        // 1) Creamos la entidad/jugador:
-        m_player = new entidad();
-        // Cargamos todas las animaciones del personaje
-        m_player->sprite().loadFrames(SpriteState::Sliding,":/resources/0_Blood_Demon_Sliding_",6);
-        m_player->sprite().generateMirroredFrames(SpriteState::Sliding,SpriteState::SlidingLeft);
-
-        m_player->sprite().loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",24);
-        m_player->sprite().loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",16);
-        m_player->sprite().loadFrames(SpriteState::IdleLeft, ":/resources/0_Blood_Demon_IdleL_",16);
-        m_player->sprite().loadFrames(SpriteState::WalkingLeft,":/resources/0_Blood_Demon_WalkingL_",24);
-        m_player->sprite().loadFrames(SpriteState::Jump, ":/resources/0_Blood_Demon_Jump Loop_",6);
-        m_player->sprite().generateMirroredFrames(SpriteState::Jump,SpriteState::JumpLeft);
-        m_player->sprite().loadFrames(SpriteState::Running, ":/resources/0_Blood_Demon_Running_",12);
-        m_player->sprite().generateMirroredFrames(SpriteState::Running,SpriteState::RunningLeft);
-
-
-         m_player->sprite().setSize(128, 128);
-         float centerX = float(width())  / 2.0f;
-         float centerY = float(height()) / 2.0f;
-
-         m_player->transform().setPosition(centerX, centerY);
-         m_player->sprite().setState(SpriteState::Idle);
-
-         m_timer = new QTimer(this);
-         connect(m_timer, &QTimer::timeout, this, &MainWindow::onGameLoop);
-
-         m_timer->start(int(m_dt * 1000));
-
-         setFocusPolicy(Qt::StrongFocus);
-         setFocus();
-
-         QWidget *temp = new QWidget(this);
-         setCentralWidget(temp);
-
-         temp->show();
-         delete temp;
-    });
-
-    setFocusPolicy(Qt::NoFocus);
-
+    // 1) Creamos la pantalla de inicio (PantallaInicio hereda de QWidget y tiene Q_OBJECT)
     pantallaInicio = new PantallaInicio(this);
 
+    // Conectamos su señal iniciarJuegoPresionado() al slot/lambda correspondiente
     connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado, this, [=]() {
-        // Si se presiona el boton de iniciar Juego
-
+        // Abrir menú de opciones
         if (!menuOpciones) {
             menuOpciones = new MenuOpciones(this);
             connect(menuOpciones, &MenuOpciones::nuevaPartida, this, [=]() {
-             // Se selecciono nueva partida
-
-                // Creamos la pantalla de carga
+                // Crear pantalla de carga
                 pantallaCarga = new PantallaCarga(this);
 
-                // Ahora que pantallaCarga existe, conectamos su señal:
+                // Conectamos la señal cargaCompletada() de PantallaCarga
                 connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
-
-
-                    // Creamos la pantalla de video y cargamos el video
-                    // VideoIntro *video = new VideoIntro(this);
-                    // mostrarPantalla(video);
-                    // connect(video, &VideoIntro::videoTerminado, this, [=]() {
-
+                    // Cuando termine la carga, arrancamos la entidad/jugador
                     m_player = new entidad();
-                    m_player->transform().setPosition(width()/2 - 32, height()/2 - 32);
 
+                    // Re-cargamos animaciones en m_player
+                    m_player->sprite().loadFrames(SpriteState::Slashing, ":/resources/0_Blood_Demon_Slashing_", 12);
+                    m_player->sprite().generateMirroredFrames(SpriteState::Slashing, SpriteState::Slashingleft);
+
+                    m_player->sprite().loadFrames(SpriteState::Walking, ":/resources/0_Blood_Demon_Walking_", 24);
+                    m_player->sprite().loadFrames(SpriteState::WalkingLeft, ":/resources/0_Blood_Demon_WalkingL_", 24);
+                    m_player->sprite().loadFrames(SpriteState::Idle, ":/resources/0_Blood_Demon_Idle_", 16);
+                    m_player->sprite().loadFrames(SpriteState::IdleLeft, ":/resources/0_Blood_Demon_IdleL_", 16);
+
+                    m_player->sprite().loadFrames(SpriteState::Jump, ":/resources/0_Blood_Demon_Jump Loop_", 6);
+                    m_player->sprite().generateMirroredFrames(SpriteState::Jump, SpriteState::JumpLeft);
+
+                    m_player->sprite().loadFrames(SpriteState::Running, ":/resources/0_Blood_Demon_Running_", 12);
+                    m_player->sprite().generateMirroredFrames(SpriteState::Running, SpriteState::RunningLeft);
+
+                    m_player->sprite().loadFrames(SpriteState::Sliding, ":/resources/0_Blood_Demon_Sliding_", 6);
+                    m_player->sprite().generateMirroredFrames(SpriteState::Sliding, SpriteState::SlidingLeft);
+
+                    m_player->sprite().setSize(128, 128);
+                    float centerX = float(width()) / 2.0f;
+                    float centerY = float(height()) / 2.0f;
+                    m_player->transform().setPosition(centerX, centerY);
+                    m_player->sprite().setState(SpriteState::Idle);
+
+                    // Arrancamos el timer del game loop
                     m_timer = new QTimer(this);
                     connect(m_timer, &QTimer::timeout, this, &MainWindow::onGameLoop);
                     m_timer->start(int(m_dt * 1000));
+
                     setFocusPolicy(Qt::StrongFocus);
                     setFocus();
 
+                    // Ponemos un widget “fantasma” para que paintEvent dibuje el jugador
                     QWidget *temp = new QWidget(this);
                     setCentralWidget(temp);
                     temp->show();
                     delete temp;
-
-                    // });
-
                 });
+
                 mostrarPantalla(pantallaCarga);
             });
         }
         mostrarPantalla(menuOpciones);
     });
+
+    // Mostramos la pantalla de inicio por defecto
     mostrarPantalla(pantallaInicio);
 }
-MainWindow::~MainWindow() {
+
+MainWindow::~MainWindow()
+{
     if (m_timer) {
         m_timer->stop();
         delete m_timer;
     }
     delete m_player;
-
     delete ui;
 }
-void MainWindow::mostrarPantalla(QWidget *pantalla)
+
+void MainWindow::mostrarPantalla(QWidget *pant)
 {
     if (pantallaActual)
         pantallaActual->hide();
-    pantallaActual = pantalla;
+    pantallaActual = pant;
     setCentralWidget(pantallaActual);
     pantallaActual->show();
 }
+
 void MainWindow::onGameLoop()
 {
-    if (!m_player)
-        return;
+    if (!m_player) return;
     processInput();
     m_player->actualizar(m_dt);
-    update();
+    update();  // obligar a repintar
 }
+
+
 void MainWindow::paintEvent(QPaintEvent * /*event*/)
 {
     QPainter painter(this);
@@ -151,13 +129,13 @@ void MainWindow::paintEvent(QPaintEvent * /*event*/)
         m_player->salud().dibujar(painter, posSprite);
     }
 }
+
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (!m_player) {
         QMainWindow::keyPressEvent(event);
         return;
     }
-
     switch (event->key()) {
     case Qt::Key_A:
     case Qt::Key_Left:
@@ -170,7 +148,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Shift:
         m_shiftPressed = true;
         break;
-    case Qt::Key_C:      // <— Ahora detectamos C en lugar de Ctrl
+    case Qt::Key_C:
         m_cPressed = true;
         break;
     case Qt::Key_Space:
@@ -187,7 +165,6 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
         QMainWindow::keyReleaseEvent(event);
         return;
     }
-
     switch (event->key()) {
     case Qt::Key_A:
     case Qt::Key_Left:
@@ -200,7 +177,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
     case Qt::Key_Shift:
         m_shiftPressed = false;
         break;
-    case Qt::Key_C:      // <— Ahora “soltamos” C
+    case Qt::Key_C:
         m_cPressed = false;
         break;
     default:
@@ -208,34 +185,43 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
     }
 }
 
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    if (!m_player) {
+        // Si aún no existe el jugador, lo dejamos pasar a QMainWindow
+        QMainWindow::mousePressEvent(event);
+        return;
+    }
+
+    // Si hacen clic izquierdo, disparamos el ataque:
+    if (event->button() == Qt::LeftButton) {
+        m_player->startAttack();
+    } else {
+        QMainWindow::mousePressEvent(event);
+    }
+}
+
 void MainWindow::processInput()
 {
     if (!m_player) return;
 
-    // 1) Calculamos la velocidad horizontal (vx) según A/D y Shift
+    // 1) Calculamos vx
     float baseSpeed = 160.0f;
     float moveSpeed = m_shiftPressed ? (baseSpeed * 2.0f) : baseSpeed;
-
     float vx = 0.0f;
-    if (m_leftPressed && !m_rightPressed) {
-        vx = -moveSpeed;
-    }
-    else if (m_rightPressed && !m_leftPressed) {
-        vx = +moveSpeed;
-    }
-    else {
-        vx = 0.0f;
-    }
+    if (m_leftPressed && !m_rightPressed)      vx = -moveSpeed;
+    else if (m_rightPressed && !m_leftPressed) vx = +moveSpeed;
+    else                                       vx = 0.0f;
 
-    // 2) Asignamos la velocidad al componente físico
+    // 2) Asignamos la velocidad
     m_player->fisica().setVelocity(vx, 0.0f);
 
-    // 3) Si el personaje está en salto, no cambiamos la animación
-    if (m_player->Isjumping()) {
+    // 3) Si está saltando o en ataque, salimos sin cambiar animación:
+    if (m_player->Isjumping() || m_player->IsAttacking()) {
         return;
     }
 
-    // 4) Checkear “Sliding” (C + movimiento horizontal)
+    // 4) Chequeo de “sliding” (tecla C + movimiento)
     if (m_cPressed && vx < 0.0f) {
         m_player->sprite().setState(SpriteState::SlidingLeft);
         return;
@@ -245,33 +231,25 @@ void MainWindow::processInput()
         return;
     }
 
-    // 5) Si no estamos deslizando, asignamos “Walking/Running/Idle”
+    // 5) Si no deslizamos, asignamos Walking/Running/Idle:
     if (vx < 0.0f) {
-        if (m_shiftPressed) {
+        if (m_shiftPressed)
             m_player->sprite().setState(SpriteState::RunningLeft);
-        } else {
+        else
             m_player->sprite().setState(SpriteState::WalkingLeft);
-        }
     }
     else if (vx > 0.0f) {
-        if (m_shiftPressed) {
+        if (m_shiftPressed)
             m_player->sprite().setState(SpriteState::Running);
-        } else {
+        else
             m_player->sprite().setState(SpriteState::Walking);
-        }
     }
     else {
         // vx == 0 → Idle
-        if (m_player->facingleft()) {
+        if (m_player->facingleft())
             m_player->sprite().setState(SpriteState::IdleLeft);
-        } else {
+        else
             m_player->sprite().setState(SpriteState::Idle);
-        }
     }
 }
-
-
-
-
-
 
