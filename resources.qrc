@@ -112,5 +112,11 @@
         <file>resources/0_Blood_Demon_Running_009.png</file>
         <file>resources/0_Blood_Demon_Running_010.png</file>
         <file>resources/0_Blood_Demon_Running_011.png</file>
+        <file>resources/0_Blood_Demon_Sliding_000.png</file>
+        <file>resources/0_Blood_Demon_Sliding_001.png</file>
+        <file>resources/0_Blood_Demon_Sliding_002.png</file>
+        <file>resources/0_Blood_Demon_Sliding_003.png</file>
+        <file>resources/0_Blood_Demon_Sliding_004.png</file>
+        <file>resources/0_Blood_Demon_Sliding_005.png</file>
     </qresource>
 </RCC>

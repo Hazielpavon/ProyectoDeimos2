@@ -16,6 +16,8 @@ enum class SpriteState {
     JumpLeft,
     Running,
     RunningLeft,
+    Sliding,
+    SlidingLeft
    // Faltan mas estados (Este metodo funciona para varios Sprites para todos, faltan un par de modificaciones con las rutas)
 };
 
@@ -35,13 +37,13 @@ public:
     void setSize(int w, int h);
     QSize getSize() const { return m_drawSize; }
 
+    SpriteState getState(){ return m_state; }
     void setState(SpriteState newState);
     void setFPS(int framesPerSecond);
 
     void update(float dt);
     void draw(QPainter &painter) const;
 
-    void loadFrames(const QString &prefix, int count);
     \
 private:
     int m_frameIndex;

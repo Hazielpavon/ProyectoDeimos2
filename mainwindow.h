@@ -51,6 +51,8 @@ private:
     bool m_leftPressed;
     bool m_rightPressed;
     bool m_shiftPressed;
+    bool m_cPressed;    // ahora detectaremos C en lugar de Ctrl
+
     // Constante delta-time fijo (en segundos)
     const float m_dt = 0.016f;  // ≈60 FPS
 

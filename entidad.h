@@ -23,7 +23,7 @@ public:
     componentefisico& fisica()        { return m_componenteFisico; }
     componentesalud& salud()          { return m_componenteSalud; }
     Sprite& sprite()                  { return m_sprite; }
-
+    bool Isjumping() {return m_isJumping; }
     // Saber si actualmente “mira” a la izquierda:
     bool facingleft() const           { return m_facingLeft; }
 

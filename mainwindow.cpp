@@ -20,7 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_downPressed(false),
     m_leftPressed(false),
     m_rightPressed(false),
-    m_shiftPressed(false)
+    m_shiftPressed(false),
+    m_cPressed(false)
 {
     // Tamaño fijo para el área de juego
     setFixedSize(950, 650);
@@ -31,6 +32,9 @@ MainWindow::MainWindow(QWidget *parent)
         // 1) Creamos la entidad/jugador:
         m_player = new entidad();
         // Cargamos todas las animaciones del personaje
+        m_player->sprite().loadFrames(SpriteState::Sliding,":/resources/0_Blood_Demon_Sliding_",6);
+        m_player->sprite().generateMirroredFrames(SpriteState::Sliding,SpriteState::SlidingLeft);
+
         m_player->sprite().loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",24);
         m_player->sprite().loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",16);
         m_player->sprite().loadFrames(SpriteState::IdleLeft, ":/resources/0_Blood_Demon_IdleL_",16);
@@ -120,7 +124,6 @@ MainWindow::~MainWindow() {
 
     delete ui;
 }
-
 void MainWindow::mostrarPantalla(QWidget *pantalla)
 {
     if (pantallaActual)
@@ -129,7 +132,6 @@ void MainWindow::mostrarPantalla(QWidget *pantalla)
     setCentralWidget(pantallaActual);
     pantallaActual->show();
 }
-
 void MainWindow::onGameLoop()
 {
     if (!m_player)
@@ -138,7 +140,6 @@ void MainWindow::onGameLoop()
     m_player->actualizar(m_dt);
     update();
 }
-
 void MainWindow::paintEvent(QPaintEvent * /*event*/)
 {
     QPainter painter(this);
@@ -150,8 +151,6 @@ void MainWindow::paintEvent(QPaintEvent * /*event*/)
         m_player->salud().dibujar(painter, posSprite);
     }
 }
-
-
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (!m_player) {
@@ -170,6 +169,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_Shift:
         m_shiftPressed = true;
+        break;
+    case Qt::Key_C:      // <— Ahora detectamos C en lugar de Ctrl
+        m_cPressed = true;
         break;
     case Qt::Key_Space:
         m_player->startJump();
@@ -198,6 +200,9 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
     case Qt::Key_Shift:
         m_shiftPressed = false;
         break;
+    case Qt::Key_C:      // <— Ahora “soltamos” C
+        m_cPressed = false;
+        break;
     default:
         QMainWindow::keyReleaseEvent(event);
     }
@@ -207,11 +212,11 @@ void MainWindow::processInput()
 {
     if (!m_player) return;
 
+    // 1) Calculamos la velocidad horizontal (vx) según A/D y Shift
     float baseSpeed = 160.0f;
     float moveSpeed = m_shiftPressed ? (baseSpeed * 2.0f) : baseSpeed;
 
     float vx = 0.0f;
-
     if (m_leftPressed && !m_rightPressed) {
         vx = -moveSpeed;
     }
@@ -222,8 +227,25 @@ void MainWindow::processInput()
         vx = 0.0f;
     }
 
+    // 2) Asignamos la velocidad al componente físico
     m_player->fisica().setVelocity(vx, 0.0f);
 
+    // 3) Si el personaje está en salto, no cambiamos la animación
+    if (m_player->Isjumping()) {
+        return;
+    }
+
+    // 4) Checkear “Sliding” (C + movimiento horizontal)
+    if (m_cPressed && vx < 0.0f) {
+        m_player->sprite().setState(SpriteState::SlidingLeft);
+        return;
+    }
+    else if (m_cPressed && vx > 0.0f) {
+        m_player->sprite().setState(SpriteState::Sliding);
+        return;
+    }
+
+    // 5) Si no estamos deslizando, asignamos “Walking/Running/Idle”
     if (vx < 0.0f) {
         if (m_shiftPressed) {
             m_player->sprite().setState(SpriteState::RunningLeft);
@@ -239,7 +261,7 @@ void MainWindow::processInput()
         }
     }
     else {
-
+        // vx == 0 → Idle
         if (m_player->facingleft()) {
             m_player->sprite().setState(SpriteState::IdleLeft);
         } else {
@@ -247,6 +269,9 @@ void MainWindow::processInput()
         }
     }
 }
+
+
+
 
 
 
