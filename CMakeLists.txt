@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(ProyectDeimos VERSION 0.1 LANGUAGES CXX)
+project(ProyectDeimos2 VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -51,17 +51,17 @@ set(PROJECT_SOURCES
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(ProyectDeimos
+    qt_add_executable(ProyectDeimos2
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 else()
     if(ANDROID)
-        add_library(ProyectDeimos SHARED
+        add_library(ProyectDeimos2 SHARED
             ${PROJECT_SOURCES}
         )
     else()
-        add_executable(ProyectDeimos
+        add_executable(ProyectDeimos2
             ${PROJECT_SOURCES}
         )
     endif()
@@ -70,7 +70,7 @@ endif()
 # ——————————————
 #  Linkea Widgets y Multimedia
 # ——————————————
-target_link_libraries(ProyectDeimos
+target_link_libraries(ProyectDeimos2
     PRIVATE
         Qt${QT_VERSION_MAJOR}::Widgets
         Qt${QT_VERSION_MAJOR}::Multimedia
@@ -81,18 +81,18 @@ target_link_libraries(ProyectDeimos
 #  Copiar carpeta Sprites/
 # ——————————————
 add_custom_command(
-    TARGET ProyectDeimos POST_BUILD
+    TARGET ProyectDeimos2 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/Sprites
-        $<TARGET_FILE_DIR:ProyectDeimos>/Sprites
+        $<TARGET_FILE_DIR:ProyectDeimos2>/Sprites
 )
 
 # Opciones para iOS/macOS
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.ProyectDeimos)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.ProyectDeimos2)
 endif()
 
-set_target_properties(ProyectDeimos PROPERTIES
+set_target_properties(ProyectDeimos2 PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -101,7 +101,7 @@ set_target_properties(ProyectDeimos PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS ProyectDeimos
+install(TARGETS ProyectDeimos2
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
