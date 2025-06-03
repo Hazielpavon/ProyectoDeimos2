@@ -47,8 +47,6 @@ set(PROJECT_SOURCES
     pantallacarga.cpp
     videointro.h
     videointro.cpp
-    juegowidget.h
-    juegowidget.cpp
     resources.qrc
 )
 
@@ -110,5 +108,5 @@ install(TARGETS ProyectDeimos2
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(ProyectDeimos)
+    qt_finalize_executable(ProyectDeimos2)
 endif()
