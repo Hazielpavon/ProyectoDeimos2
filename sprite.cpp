@@ -1,8 +1,9 @@
-// sprite.cpp
 #include "sprite.h"
 #include <QDebug>
 #include <QCoreApplication>
 #include <QDir>
+#include <QPainter>
+#include <QTransform>  // Para transformar y voltear pixmaps
 
 Sprite::Sprite()
     : m_frameIndex(0)
@@ -16,15 +17,11 @@ Sprite::Sprite()
 
 void Sprite::loadFrames(SpriteState state, const QString &prefix, int count)
 {
-    // Borra cualquier frame antiguo para ese estado:
     m_frames[state].clear();
     m_frameIndex = 0;
     m_timeAccumulator = 0.0f;
-
-    // Si el prefijo empieza con “:/”, es recurso embebido:
     const bool esRecurso = prefix.startsWith(":/");
 
-    // Si no es recurso, podemos calcular projectRoot (no lo usamos aquí salvo en disco)
     QString exeDir, projectRoot;
     if (!esRecurso) {
         exeDir      = QCoreApplication::applicationDirPath();
@@ -33,6 +30,7 @@ void Sprite::loadFrames(SpriteState state, const QString &prefix, int count)
 
     for (int i = 0; i < count; ++i) {
         QString number = QString("%1").arg(i, 3, 10, QChar('0'));
+
         QString path;
         if (esRecurso) {
             path = prefix + number + ".png";
@@ -44,7 +42,7 @@ void Sprite::loadFrames(SpriteState state, const QString &prefix, int count)
         if (pix.isNull()) {
             qWarning() << "[loadFrames] NO pudo cargar:" << path;
         } else {
-            qDebug() << "[loadFrames] Cargó:" << path << " size" << pix.size();
+            qDebug() << "[loadFrames] Cargó:" << path << "size" << pix.size();
         }
         m_frames[state].append(pix);
     }
@@ -69,14 +67,15 @@ void Sprite::generateMirroredFrames(SpriteState srcState, SpriteState dstState)
             m_frames[dstState].append(flipped);
         }
     }
-    qDebug() << "[Sprite] Generados " << m_frames[dstState].size()
-             << " frames espejados de estado " << static_cast<int>(srcState)
-             << " hacia " << static_cast<int>(dstState);
+    qDebug() << "[Sprite] Generados" << m_frames[dstState].size()
+             << "frames espejados de estado" << static_cast<int>(srcState)
+             << "hacia" << static_cast<int>(dstState);
 }
 
 void Sprite::setPosition(int x, int y)
 {
-    m_pos = QPoint(x, y);
+    m_pos.setX(x);
+    m_pos.setY(y);
 }
 
 void Sprite::setSize(int w, int h)
@@ -105,7 +104,6 @@ void Sprite::update(float dt)
     const QVector<QPixmap> &currentFrames = m_frames.value(m_state);
     if (currentFrames.isEmpty())
         return;
-
     m_timeAccumulator += dt;
     while (m_timeAccumulator >= m_secondsPerFrame) {
         m_timeAccumulator -= m_secondsPerFrame;
@@ -118,11 +116,9 @@ void Sprite::draw(QPainter &painter) const
     const QVector<QPixmap> &currentFrames = m_frames.value(m_state);
     if (currentFrames.isEmpty())
         return;
-
     const QPixmap &orig = currentFrames.at(m_frameIndex);
     if (orig.isNull())
         return;
-
     QPixmap scaledPix = orig.scaled(
         m_drawSize.width(),
         m_drawSize.height(),
@@ -130,4 +126,12 @@ void Sprite::draw(QPainter &painter) const
         Qt::SmoothTransformation
         );
     painter.drawPixmap(m_pos.x(), m_pos.y(), scaledPix);
+}
+
+QPixmap Sprite::currentFrame() const
+{
+    const QVector<QPixmap> &vec = m_frames.value(m_state);
+    if (vec.isEmpty())
+        return QPixmap(); // frame vacío si no hay pixmaps cargados
+    return vec.at(m_frameIndex);
 }

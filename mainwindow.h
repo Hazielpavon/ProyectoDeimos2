@@ -2,12 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-// Incluimos los headers de nuestras pantallas, no solo QWidget
-#include "pantallainicio.h"
-#include "menuopciones.h"
-#include "pantallacarga.h"
+#include <QTimer>
+#include <QKeyEvent>
 #include "entidad.h"
+
+class PantallaInicio;
+class MenuOpciones;
+class PantallaCarga;
+class TutorialScene;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,37 +24,34 @@ public:
     ~MainWindow();
 
 protected:
-    // Para capturar teclas y clics de mouse
+    void paintEvent(QPaintEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
-    void paintEvent(QPaintEvent *event) override;
+
+private slots:
+    void onGameLoop();
 
 private:
     Ui::MainWindow *ui;
 
-    // Declaramos punteros con su tipo concreto, no como QWidget*
-    PantallaInicio   *pantallaInicio;
-    MenuOpciones     *menuOpciones;
-    PantallaCarga    *pantallaCarga;
+    entidad *m_player;
+    QTimer  *m_timer;
 
-    QWidget          *pantallaActual; // Único puntero genérico para mostrar/ocultar
-
-    entidad          *m_player;
-    QTimer           *m_timer;
-    float             m_dt = 1.0f / 60.0f;
-
-    // Flags de entrada
+    bool m_upPressed;
+    bool m_downPressed;
     bool m_leftPressed;
     bool m_rightPressed;
     bool m_shiftPressed;
-    bool m_cPressed;
 
-    void mostrarPantalla(QWidget *pant);
+    const float m_dt = 0.016f; // ~60 FPS
+
+    QWidget *pantallaActual;
+    PantallaInicio *pantallaInicio;
+    MenuOpciones   *menuOpciones;
+    PantallaCarga  *pantallaCarga;
+
     void processInput();
-
-private slots:
-    void onGameLoop();
+    void mostrarPantalla(QWidget *pantalla);
 };
 
 #endif // MAINWINDOW_H
