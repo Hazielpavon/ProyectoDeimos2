@@ -114,5 +114,6 @@
         <file>resources/0_Blood_Demon_Running_011.png</file>
         <file>resources/templo_silencio.PNG</file>
         <file>resources/tutorial.png</file>
+        <file>resources/raices_olvidadas.png</file>
     </qresource>
 </RCC>
