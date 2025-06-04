@@ -2,10 +2,11 @@
 #include "ui_mainwindow.h"
 #include "menuopciones.h"
 #include "pantallainicio.h"
-#include "PantallaCarga.h"
+#include "pantallacarga.h"
 #include <QPainter>
 #include <QDebug>
 #include "videointro.h"
+#include "tutorialscene.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -81,25 +82,28 @@ MainWindow::MainWindow(QWidget *parent)
                 // Ahora que pantallaCarga existe, conectamos su señal:
                 connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
 
+                    TutorialScene* tutorial = new TutorialScene(this);
+                    mostrarPantalla(tutorial);
+
 
                     // Creamos la pantalla de video y cargamos el video
                     // VideoIntro *video = new VideoIntro(this);
                     // mostrarPantalla(video);
                     // connect(video, &VideoIntro::videoTerminado, this, [=]() {
 
-                    m_player = new entidad();
-                    m_player->transform().setPosition(width()/2 - 32, height()/2 - 32);
+                    // m_player = new entidad();
+                    // m_player->transform().setPosition(width()/2 - 32, height()/2 - 32);
 
-                    m_timer = new QTimer(this);
-                    connect(m_timer, &QTimer::timeout, this, &MainWindow::onGameLoop);
-                    m_timer->start(int(m_dt * 1000));
-                    setFocusPolicy(Qt::StrongFocus);
-                    setFocus();
+                    // m_timer = new QTimer(this);
+                    // connect(m_timer, &QTimer::timeout, this, &MainWindow::onGameLoop);
+                    // m_timer->start(int(m_dt * 1000));
+                    // setFocusPolicy(Qt::StrongFocus);
+                    // setFocus();
 
-                    QWidget *temp = new QWidget(this);
-                    setCentralWidget(temp);
-                    temp->show();
-                    delete temp;
+                    // QWidget *temp = new QWidget(this);
+                    // setCentralWidget(temp);
+                    // temp->show();
+                    // delete temp;
 
                     // });
 

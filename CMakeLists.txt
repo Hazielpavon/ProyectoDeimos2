@@ -54,6 +54,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ProyectDeimos2
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        tutorialscene.h tutorialscene.cpp
     )
 else()
     if(ANDROID)

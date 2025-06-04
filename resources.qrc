@@ -112,5 +112,7 @@
         <file>resources/0_Blood_Demon_Running_009.png</file>
         <file>resources/0_Blood_Demon_Running_010.png</file>
         <file>resources/0_Blood_Demon_Running_011.png</file>
+        <file>resources/templo_silencio.PNG</file>
+        <file>resources/tutorial.png</file>
     </qresource>
 </RCC>
