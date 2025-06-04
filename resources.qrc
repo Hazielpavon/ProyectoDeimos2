@@ -1,9 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/inicio.png</file>
-        <file>resources/menu_Op.png</file>
-        <file>resources/cargando.png</file>
-        <file>resources/historia.mp4</file>
+        <!-- Imágenes de Idle -->
         <file>resources/0_Blood_Demon_Idle_000.png</file>
         <file>resources/0_Blood_Demon_Idle_001.png</file>
         <file>resources/0_Blood_Demon_Idle_002.png</file>
@@ -22,6 +19,8 @@
         <file>resources/0_Blood_Demon_Idle_015.png</file>
         <file>resources/0_Blood_Demon_Idle_016.png</file>
         <file>resources/0_Blood_Demon_Idle_017.png</file>
+
+        <!-- Imágenes de IdleL (Idle volteado) -->
         <file>resources/0_Blood_Demon_IdleL_000.png</file>
         <file>resources/0_Blood_Demon_IdleL_001.png</file>
         <file>resources/0_Blood_Demon_IdleL_002.png</file>
@@ -40,12 +39,16 @@
         <file>resources/0_Blood_Demon_IdleL_015.png</file>
         <file>resources/0_Blood_Demon_IdleL_016.png</file>
         <file>resources/0_Blood_Demon_IdleL_017.png</file>
+
+        <!-- Imágenes de JumpStart -->
         <file>resources/0_Blood_Demon_JumpStart_000.png</file>
         <file>resources/0_Blood_Demon_JumpStart_001.png</file>
         <file>resources/0_Blood_Demon_JumpStart_002.png</file>
         <file>resources/0_Blood_Demon_JumpStart_003.png</file>
         <file>resources/0_Blood_Demon_JumpStart_004.png</file>
         <file>resources/0_Blood_Demon_JumpStart_005.png</file>
+
+        <!-- Imágenes de Walking -->
         <file>resources/0_Blood_Demon_Walking_000.png</file>
         <file>resources/0_Blood_Demon_Walking_001.png</file>
         <file>resources/0_Blood_Demon_Walking_002.png</file>
@@ -70,6 +73,8 @@
         <file>resources/0_Blood_Demon_Walking_021.png</file>
         <file>resources/0_Blood_Demon_Walking_022.png</file>
         <file>resources/0_Blood_Demon_Walking_023.png</file>
+
+        <!-- Imágenes de WalkingL -->
         <file>resources/0_Blood_Demon_WalkingL_000.png</file>
         <file>resources/0_Blood_Demon_WalkingL_001.png</file>
         <file>resources/0_Blood_Demon_WalkingL_002.png</file>
@@ -94,12 +99,16 @@
         <file>resources/0_Blood_Demon_WalkingL_021.png</file>
         <file>resources/0_Blood_Demon_WalkingL_022.png</file>
         <file>resources/0_Blood_Demon_WalkingL_023.png</file>
+
+        <!-- Imágenes de JumpLoop -->
         <file>resources/0_Blood_Demon_Jump Loop_000.png</file>
         <file>resources/0_Blood_Demon_Jump Loop_001.png</file>
         <file>resources/0_Blood_Demon_Jump Loop_002.png</file>
         <file>resources/0_Blood_Demon_Jump Loop_003.png</file>
         <file>resources/0_Blood_Demon_Jump Loop_004.png</file>
         <file>resources/0_Blood_Demon_Jump Loop_005.png</file>
+
+        <!-- Imágenes de Running -->
         <file>resources/0_Blood_Demon_Running_000.png</file>
         <file>resources/0_Blood_Demon_Running_001.png</file>
         <file>resources/0_Blood_Demon_Running_002.png</file>
@@ -112,12 +121,8 @@
         <file>resources/0_Blood_Demon_Running_009.png</file>
         <file>resources/0_Blood_Demon_Running_010.png</file>
         <file>resources/0_Blood_Demon_Running_011.png</file>
-        <file>resources/0_Blood_Demon_Sliding_000.png</file>
-        <file>resources/0_Blood_Demon_Sliding_001.png</file>
-        <file>resources/0_Blood_Demon_Sliding_002.png</file>
-        <file>resources/0_Blood_Demon_Sliding_003.png</file>
-        <file>resources/0_Blood_Demon_Sliding_004.png</file>
-        <file>resources/0_Blood_Demon_Sliding_005.png</file>
+
+        <!-- Imágenes de Slashing -->
         <file>resources/0_Blood_Demon_Slashing_000.png</file>
         <file>resources/0_Blood_Demon_Slashing_001.png</file>
         <file>resources/0_Blood_Demon_Slashing_002.png</file>
@@ -130,5 +135,22 @@
         <file>resources/0_Blood_Demon_Slashing_009.png</file>
         <file>resources/0_Blood_Demon_Slashing_010.png</file>
         <file>resources/0_Blood_Demon_Slashing_011.png</file>
+
+        <!-- Imágenes de Sliding -->
+        <file>resources/0_Blood_Demon_Sliding_000.png</file>
+        <file>resources/0_Blood_Demon_Sliding_001.png</file>
+        <file>resources/0_Blood_Demon_Sliding_002.png</file>
+        <file>resources/0_Blood_Demon_Sliding_003.png</file>
+        <file>resources/0_Blood_Demon_Sliding_004.png</file>
+        <file>resources/0_Blood_Demon_Sliding_005.png</file>
+
+        <!-- Otros recursos -->
+        <file>resources/cargando.png</file>
+        <file>resources/historia.mp4</file>
+        <file>resources/inicio.png</file>
+        <file>resources/menu_Op.png</file>
+        <file>resources/templo_silencio.PNG</file>
+        <file>resources/tutorial.png</file>
     </qresource>
 </RCC>
+

@@ -1,11 +1,18 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 #include <QPainter>
 #include <QDebug>
 #include <QTimer>
 #include <QKeyEvent>
 #include <QMouseEvent>
+#include "menuopciones.h"
+#include "pantallainicio.h"
+#include "pantallacarga.h"
+#include <QPainter>
+#include <QDebug>
+#include "jugador.h"
+//#include "videointro.h"
+#include "tutorialscene.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -29,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Conectamos su señal iniciarJuegoPresionado() al slot/lambda correspondiente
     connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado, this, [=]() {
+
+
         // Abrir menú de opciones
         if (!menuOpciones) {
             menuOpciones = new MenuOpciones(this);
@@ -73,11 +82,29 @@ MainWindow::MainWindow(QWidget *parent)
                     setFocusPolicy(Qt::StrongFocus);
                     setFocus();
 
-                    // Ponemos un widget “fantasma” para que paintEvent dibuje el jugador
-                    QWidget *temp = new QWidget(this);
-                    setCentralWidget(temp);
-                    temp->show();
-                    delete temp;
+                    // Creamos la pantalla de video y cargamos el video
+                    // VideoIntro *video = new VideoIntro(this);
+                    // mostrarPantalla(video);
+                    // connect(video, &VideoIntro::videoTerminado, this, [=]() {
+
+                    TutorialScene* tutorial = new TutorialScene(this, m_player);
+                    mostrarPantalla(tutorial);
+
+                     m_timer = new QTimer(this);
+                     connect(m_timer, &QTimer::timeout, this, &MainWindow::onGameLoop);
+                     m_timer->start(int(m_dt * 1000));
+                     setFocusPolicy(Qt::StrongFocus);
+                     setFocus();
+
+                     QWidget *temp = new QWidget(this);
+                     setCentralWidget(temp);
+                     temp->show();
+
+
+                     delete temp;
+
+                    // });
+
                 });
 
                 mostrarPantalla(pantallaCarga);
