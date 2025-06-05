@@ -6,6 +6,7 @@
 #include "tutorialscene.h"
 #include <QPainter>
 #include <QDebug>
+#include "nivelraicesolvidadas.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -42,14 +43,18 @@ MainWindow::MainWindow(QWidget *parent)
 
                     m_player = new entidad();
                     // 1) Cargar TODOS los frames del sprite (igual que siempre):
-                    m_player->sprite().loadFrames(SpriteState::Walking,      ":/resources/0_Blood_Demon_Walking_",   24);
-                    m_player->sprite().loadFrames(SpriteState::Idle,         ":/resources/0_Blood_Demon_Idle_",      16);
-                    m_player->sprite().loadFrames(SpriteState::IdleLeft,     ":/resources/0_Blood_Demon_IdleL_",     16);
-                    m_player->sprite().loadFrames(SpriteState::WalkingLeft,  ":/resources/0_Blood_Demon_WalkingL_",  24);
-                    m_player->sprite().loadFrames(SpriteState::Jump,         ":/resources/0_Blood_Demon_Jump Loop_",  6);
+                    m_player->sprite().loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",24);
+                    m_player->sprite().loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",16);
+                    m_player->sprite().loadFrames(SpriteState::IdleLeft,":/resources/0_Blood_Demon_IdleL_",16);
+                    m_player->sprite().loadFrames(SpriteState::WalkingLeft,":/resources/0_Blood_Demon_WalkingL_",24);
+                    m_player->sprite().loadFrames(SpriteState::Jump,":/resources/0_Blood_Demon_Jump Loop_",6);
                     m_player->sprite().generateMirroredFrames(SpriteState::Jump,     SpriteState::JumpLeft);
-                    m_player->sprite().loadFrames(SpriteState::Running,      ":/resources/0_Blood_Demon_Running_",   12);
+                    m_player->sprite().loadFrames(SpriteState::Running,":/resources/0_Blood_Demon_Running_",12);
                     m_player->sprite().generateMirroredFrames(SpriteState::Running,  SpriteState::RunningLeft);
+                    m_player->sprite().loadFrames(SpriteState::Slashing,":/resources/0_Blood_Demon_Slashing_",12);
+                    m_player->sprite().generateMirroredFrames(SpriteState::Slashing,  SpriteState::SlashingLeft);
+                    m_player->sprite().loadFrames(SpriteState::Slidding,":/resources/0_Blood_Demon_Sliding_",6);
+                    m_player->sprite().generateMirroredFrames(SpriteState::Slidding,  SpriteState::SliddingLeft);
                     m_player->sprite().setSize(128, 128);
 
                     // 2) Lo colocamos provisionalmente en el centro (TutorialScene lo reubicará en el suelo):
@@ -59,11 +64,16 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->sprite().setState(SpriteState::Idle);
 
                     // 3) Creamos la NUEVA TutorialScene (la que dibuja con QPainter)
-                    TutorialScene *tutorial = new TutorialScene(m_player, this);
-                    mostrarPantalla(tutorial);
+                  //  TutorialScene *tutorial = new TutorialScene(m_player, this);
+                  //  mostrarPantalla(tutorial);
+                   //  tutorial->setFocus();
 
+
+                    NivelRaicesOlvidadas *n = new NivelRaicesOlvidadas(m_player, this);
+                    mostrarPantalla(n);
+                    n->setFocus();
                     // 4) ¡Clave! Darle foco inmediatamente para que reciba teclas:
-                    tutorial->setFocus();
+
 
                 });
 
@@ -90,67 +100,6 @@ void MainWindow::mostrarPantalla(QWidget *pantalla)
     setCentralWidget(pantallaActual);
     pantallaActual->show();
 }
-
-void MainWindow::keyPressEvent(QKeyEvent *event)
-{
-    // Durante el tutorial, TutorialScene se queda con el foco y maneja teclas,
-    // así que aquí solo procesamos si m_player existe y estamos dibujando fuera del tutorial:
-    if (!m_player) {
-        QMainWindow::keyPressEvent(event);
-        return;
-    }
-
-    switch (event->key()) {
-    case Qt::Key_A:
-    case Qt::Key_Left:
-        m_leftPressed = true;
-        break;
-    case Qt::Key_D:
-    case Qt::Key_Right:
-        m_rightPressed = true;
-        break;
-    case Qt::Key_Shift:
-        m_shiftPressed = true;
-        break;
-    case Qt::Key_Space:
-        m_player->startJump();
-        break;
-    default:
-        QMainWindow::keyPressEvent(event);
-    }
-}
-
-void MainWindow::keyReleaseEvent(QKeyEvent *event)
-{
-    if (!m_player) {
-        QMainWindow::keyReleaseEvent(event);
-        return;
-    }
-
-    switch (event->key()) {
-    case Qt::Key_A:
-    case Qt::Key_Left:
-        m_leftPressed = false;
-        break;
-    case Qt::Key_D:
-    case Qt::Key_Right:
-        m_rightPressed = false;
-        break;
-    case Qt::Key_Shift:
-        m_shiftPressed = false;
-        break;
-    default:
-        QMainWindow::keyReleaseEvent(event);
-    }
-}
-
-// Como no usamos onGameLoop durante el tutorial, podéis dejarlo vacío o eliminarlo:
-void MainWindow::onGameLoop()
-{
-    // No hace nada mientras estemos en TutorialScene,
-    // porque la propia TutorialScene maneja su timer interno.
-}
-
 void MainWindow::paintEvent(QPaintEvent * /*event*/)
 {
     // (Opcional) Si querías pintar algo extra en MainWindow, lo dejas aquí.
