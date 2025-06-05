@@ -85,6 +85,12 @@ private:
     float m_tiempoParaMostrarGolpear;
     bool m_golpearYaMostrado;
     bool m_yaGolpeó;
+
+    QGraphicsPixmapItem* m_instruccionMapaItem;
+    bool m_mostrarMapaPendiente;
+    float m_tiempoParaMostrarMapa;
+    bool m_mapaYaMostrado;
+    bool m_yaAbrioMapa;
 };
 
 #endif

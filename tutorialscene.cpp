@@ -55,7 +55,13 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
     m_golpearYaMostrado(false),
     m_mainWindow(mainWindow),
     m_mapaRegiones(nullptr),
-    m_regionActual("Templo del Silencio")
+    m_regionActual("Templo del Silencio"),
+    m_instruccionMapaItem (nullptr),
+    m_mostrarMapaPendiente(false),
+    m_tiempoParaMostrarMapa (0.0f),
+    m_mapaYaMostrado (false),
+    m_yaAbrioMapa (false)
+
 {
     setFixedSize(int(WINDOW_WIDTH), int(WINDOW_HEIGHT));
     setFocusPolicy(Qt::StrongFocus);
@@ -255,6 +261,16 @@ void TutorialScene::keyPressEvent(QKeyEvent *event)
             m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
             m_mapaRegiones->raise();
         }
+
+        if (!m_yaAbrioMapa) {
+            m_yaAbrioMapa = true;
+
+            if (m_instruccionMapaItem) {
+                m_scene->removeItem(m_instruccionMapaItem);
+                delete m_instruccionMapaItem;
+                m_instruccionMapaItem = nullptr;
+            }
+        }
         break;
     case Qt::Key_C:
         if (m_player && m_player->isOnGround()) {
@@ -379,6 +395,12 @@ void TutorialScene::onFrame()
     if (m_instruccionGolpearItem) {
         m_instruccionGolpearItem->setPos(nuevaX - m_instruccionGolpearItem->pixmap().width() / 2, nuevaY - tamSpr.height() - 120);
     }
+    if (m_instruccionMapaItem) {
+        m_instruccionMapaItem->setPos(
+            nuevaX - m_instruccionMapaItem->pixmap().width() / 2,
+            nuevaY - tamSpr.height() - 120
+            );
+    }
 
     if (m_view && m_jugadorItem) {
         m_view->centerOn(m_jugadorItem);
@@ -485,5 +507,31 @@ void TutorialScene::onFrame()
         delete m_instruccionGolpearItem;
         m_instruccionGolpearItem = nullptr;
     }
-}
 
+    if (m_yaGolpeó && m_golpearYaMostrado && !m_yaAbrioMapa &&
+        !m_mostrarMapaPendiente &&
+        m_instruccionCaminarItem == nullptr &&
+        m_instruccionSaltarItem == nullptr &&
+        m_instruccionCorrerItem == nullptr &&
+        m_instruccionDashItem == nullptr &&
+        m_instruccionGolpearItem == nullptr &&
+        m_instruccionMapaItem == nullptr)
+    {
+        m_mostrarMapaPendiente = true;
+        m_tiempoParaMostrarMapa = 2.0f;
+    }
+
+if (m_mostrarMapaPendiente) {
+    m_tiempoParaMostrarMapa -= m_dt;
+    if (m_tiempoParaMostrarMapa <= 0.0f) {
+        QPixmap pixMapa(":/resources/mapa.png");
+        if (!pixMapa.isNull()) {
+            m_instruccionMapaItem = new QGraphicsPixmapItem(pixMapa);
+            m_instruccionMapaItem->setZValue(5);
+            m_scene->addItem(m_instruccionMapaItem);
+        }
+        m_mapaYaMostrado = true;
+        m_mostrarMapaPendiente = false;
+    }
+}
+}
