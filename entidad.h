@@ -19,14 +19,17 @@ public:
     void startJump();
 
     // Accesores básicos:
+    void setGroundY(float newGroundY) { m_groundY = newGroundY; }
     tranformacion& transform()       { return m_transformacion; }
     componentefisico& fisica()        { return m_componenteFisico; }
     componentesalud& salud()          { return m_componenteSalud; }
     Sprite& sprite()                  { return m_sprite; }
-
+    void setLastDirection(SpriteState dir);
+    SpriteState getLastDirection() const;
     // Saber si actualmente “mira” a la izquierda:
     bool facingleft() const           { return m_facingLeft; }
-
+    void setOnGround(bool enSuelo);
+    bool isOnGround() const;
 private:
     void actualizarAnimacion(float dt);
     void actualizarSalto(float dt);
@@ -35,7 +38,8 @@ private:
     Sprite           m_sprite;
     componentefisico m_componenteFisico;
     componentesalud  m_componenteSalud;
-
+    bool m_onGround = false;
+    SpriteState m_lastDirection = SpriteState::Idle;
     // ←◆◆◆ Atributos nuevos para salto ◆◆◆→
     bool   m_isJumping;         // ¿está en el aire?
     float  m_verticalVelocity;  // velocidad actual en Y (px/s)
