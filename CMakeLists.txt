@@ -27,10 +27,10 @@ set(PROJECT_SOURCES
     menuopciones.cpp
     entidad.h
     entidad.cpp
-    colatareas.h
-    colatareas.cpp
-    hilotrabajo.h
-    hilotrabajo.cpp
+
+
+
+
     tranformacion.h
     tranformacion.cpp
     sprite.h
