@@ -41,6 +41,16 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, QWidget *parent)
     , m_tiempoParaMostrarCorrer(0.0f)
     , m_correrYaMostrado(false)
     , m_yaCorrió(false)
+    , m_instruccionDashItem(nullptr)
+    , m_mostrarDashPendiente(false)
+    , m_tiempoParaMostrarDash(0.0f)
+    , m_dashYaMostrado(false)
+    , m_yaHizoDash(false)
+    , m_instruccionGolpearItem(nullptr)
+    , m_mostrarGolpearPendiente(false)
+    , m_tiempoParaMostrarGolpear(0.0f)
+    , m_golpearYaMostrado(false)
+    , m_yaGolpeó(false)
 {
     setFixedSize(int(WINDOW_WIDTH), int(WINDOW_HEIGHT));
 
@@ -181,8 +191,17 @@ void TutorialScene::mousePressEvent(QMouseEvent *event)
         } else {
             m_player->reproducirAnimacionTemporal(SpriteState::Slashing, 0.6f);
         }
-    }
 
+        // ✅ Registrar que ya golpeó
+        m_yaGolpeó = true;
+
+        // ✅ Eliminar la instrucción si está activa
+        if (m_instruccionGolpearItem) {
+            m_scene->removeItem(m_instruccionGolpearItem);
+            delete m_instruccionGolpearItem;
+            m_instruccionGolpearItem = nullptr;
+        }
+    }
 }
 
 // Captura de teclas
@@ -202,6 +221,7 @@ void TutorialScene::keyPressEvent(QKeyEvent *event)
             } else if (vx < 0.0f) {
                 m_player->reproducirAnimacionTemporal(SpriteState::SliddingLeft, 0.5f);
             }
+            m_yaHizoDash = true; // ⬅️ AÑADE ESTA LÍNEA
         }
         break;
 
@@ -331,6 +351,20 @@ void TutorialScene::onFrame()
             );
     }
 
+    if (m_instruccionDashItem) {
+        m_instruccionDashItem->setPos(
+            nuevaX - m_instruccionDashItem->pixmap().width() / 2,
+            nuevaY - tamSpr.height() - 120
+            );
+    }
+
+    if (m_instruccionGolpearItem) {
+        m_instruccionGolpearItem->setPos(
+            nuevaX - m_instruccionGolpearItem->pixmap().width() / 2,
+            nuevaY - tamSpr.height() - 120
+            );
+    }
+
     if (m_view && m_jugadorItem) {
         m_view->centerOn(m_jugadorItem);
     }
@@ -366,6 +400,42 @@ void TutorialScene::onFrame()
         m_instruccionCorrerItem = nullptr;
     }
 
+    // Mostrar instrucción de Dash si ya corrió y no ha hecho Dash
+    if (m_yaCorrió && m_correrYaMostrado && !m_yaHizoDash && !m_mostrarDashPendiente &&
+        m_instruccionCaminarItem == nullptr &&
+        m_instruccionSaltarItem == nullptr &&
+        m_instruccionCorrerItem == nullptr &&
+        m_instruccionDashItem == nullptr)
+    {
+        m_mostrarDashPendiente = true;
+        m_tiempoParaMostrarDash = 2.0f;
+    }
+
+    if (m_yaHizoDash && m_instruccionDashItem) {
+        m_scene->removeItem(m_instruccionDashItem);
+        delete m_instruccionDashItem;
+        m_instruccionDashItem = nullptr;
+    }
+
+    // Mostrar instrucción de Golpear si ya hizo Dash y no ha golpeado
+    if (m_yaHizoDash && m_dashYaMostrado && !m_yaGolpeó && !m_mostrarGolpearPendiente &&
+        m_instruccionCaminarItem == nullptr &&
+        m_instruccionSaltarItem == nullptr &&
+        m_instruccionCorrerItem == nullptr &&
+        m_instruccionDashItem == nullptr &&
+        m_instruccionGolpearItem == nullptr)
+    {
+        m_mostrarGolpearPendiente = true;
+        m_tiempoParaMostrarGolpear = 2.0f;
+    }
+
+    // Eliminar instrucción si ya golpeó
+    if (m_yaGolpeó && m_instruccionGolpearItem) {
+        m_scene->removeItem(m_instruccionGolpearItem);
+        delete m_instruccionGolpearItem;
+        m_instruccionGolpearItem = nullptr;
+    }
+
     // Contador regresivo para mostrar la imagen de salto
     if (m_mostrarSaltarPendiente) {
         m_tiempoParaMostrarSaltar -= m_dt;
@@ -392,6 +462,34 @@ void TutorialScene::onFrame()
             }
             m_correrYaMostrado = true;
             m_mostrarCorrerPendiente = false;
+        }
+    }
+    // Contador regresivo para mostrar la imagen de Dash
+    if (m_mostrarDashPendiente) {
+        m_tiempoParaMostrarDash -= m_dt;
+        if (m_tiempoParaMostrarDash <= 0.0f) {
+            QPixmap pixDash(":/resources/dash.png"); // asegurate de tener esta imagen en recursos
+            if (!pixDash.isNull()) {
+                m_instruccionDashItem = new QGraphicsPixmapItem(pixDash);
+                m_instruccionDashItem->setZValue(5);
+                m_scene->addItem(m_instruccionDashItem);
+            }
+            m_dashYaMostrado = true;
+            m_mostrarDashPendiente = false;
+        }
+    }
+    // Contador regresivo para mostrar la imagen de Golpear
+    if (m_mostrarGolpearPendiente) {
+        m_tiempoParaMostrarGolpear -= m_dt;
+        if (m_tiempoParaMostrarGolpear <= 0.0f) {
+            QPixmap pixGolpear(":/resources/golpear.png");
+            if (!pixGolpear.isNull()) {
+                m_instruccionGolpearItem = new QGraphicsPixmapItem(pixGolpear);
+                m_instruccionGolpearItem->setZValue(5);
+                m_scene->addItem(m_instruccionGolpearItem);
+            }
+            m_golpearYaMostrado = true;
+            m_mostrarGolpearPendiente = false;
         }
     }
 }

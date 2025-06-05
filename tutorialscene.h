@@ -83,6 +83,18 @@ private:
     float m_tiempoParaMostrarCorrer;
     bool m_correrYaMostrado;
     bool m_yaCorrió;
+
+    QGraphicsPixmapItem *m_instruccionDashItem;
+    bool m_mostrarDashPendiente;
+    float m_tiempoParaMostrarDash;
+    bool m_dashYaMostrado;
+    bool m_yaHizoDash;
+
+    QGraphicsPixmapItem* m_instruccionGolpearItem;
+    bool m_mostrarGolpearPendiente;
+    float m_tiempoParaMostrarGolpear;
+    bool m_golpearYaMostrado;
+    bool m_yaGolpeó;
 };
 
 #endif // TUTORIALSCENE_H
