@@ -168,6 +168,24 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, QWidget *parent)
 }
 
 // Captura de teclas
+void TutorialScene::mousePressEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+    if (!m_player) return;
+
+    // Mouse click (ataque)
+    if (m_player->isOnGround()) {
+        if (m_player->getLastDirection() == SpriteState::WalkingLeft ||
+            m_player->getLastDirection() == SpriteState::RunningLeft) {
+            m_player->reproducirAnimacionTemporal(SpriteState::SlashingLeft, 0.6f);
+        } else {
+            m_player->reproducirAnimacionTemporal(SpriteState::Slashing, 0.6f);
+        }
+    }
+
+}
+
+// Captura de teclas
 void TutorialScene::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
@@ -175,9 +193,23 @@ void TutorialScene::keyPressEvent(QKeyEvent *event)
     case Qt::Key_D: m_moverDer = true; break;
     case Qt::Key_Shift: m_shiftPresionado = true; break;
     case Qt::Key_Space: m_saltoSolicitado = true; break;
-    default: QWidget::keyPressEvent(event);
+    // Tecla C (sliding)
+    case Qt::Key_C:
+        if (m_player && m_player->isOnGround()) {
+            float vx = m_player->fisica().velocity().x();
+            if (vx > 0.0f) {
+                m_player->reproducirAnimacionTemporal(SpriteState::Slidding, 0.5f);
+            } else if (vx < 0.0f) {
+                m_player->reproducirAnimacionTemporal(SpriteState::SliddingLeft, 0.5f);
+            }
+        }
+        break;
+
+    default:
+        QWidget::keyPressEvent(event);
     }
 }
+
 
 void TutorialScene::keyReleaseEvent(QKeyEvent *event)
 {

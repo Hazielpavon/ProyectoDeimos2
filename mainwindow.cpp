@@ -64,14 +64,14 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->sprite().setState(SpriteState::Idle);
 
                     // 3) Creamos la NUEVA TutorialScene (la que dibuja con QPainter)
-                  //  TutorialScene *tutorial = new TutorialScene(m_player, this);
-                  //  mostrarPantalla(tutorial);
-                   //  tutorial->setFocus();
+                    TutorialScene *tutorial = new TutorialScene(m_player, this);
+                    mostrarPantalla(tutorial);
+                    tutorial->setFocus();
 
 
-                    NivelRaicesOlvidadas *n = new NivelRaicesOlvidadas(m_player, this);
-                    mostrarPantalla(n);
-                    n->setFocus();
+                   // NivelRaicesOlvidadas *n = new NivelRaicesOlvidadas(m_player, this);
+                   // mostrarPantalla(n);
+                   // n->setFocus();
                     // 4) ¡Clave! Darle foco inmediatamente para que reciba teclas:
 
 

@@ -21,7 +21,7 @@ protected:
     // Capturar eventos de teclado
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
-
+    void mousePressEvent(QMouseEvent *event)override;
 private slots:
     // Slot que se llamará cada 16 ms para actualizar física, animación y centrar la cámara
     void onFrame();
