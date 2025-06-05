@@ -18,7 +18,10 @@ entidad::entidad()
     m_sprite.generateMirroredFrames(SpriteState::Jump, SpriteState::JumpLeft);
     m_sprite.loadFrames(SpriteState::Running, ":/resources/0_Blood_Demon_Running_", 12);
     m_sprite.generateMirroredFrames(SpriteState::Running, SpriteState::RunningLeft);
-
+    m_sprite.loadFrames(SpriteState::Slashing,":/resources/0_Blood_Demon_Slashing_",12);
+    m_sprite.generateMirroredFrames(SpriteState::Slashing,  SpriteState::SlashingLeft);
+    m_sprite.loadFrames(SpriteState::Slidding,":/resources/0_Blood_Demon_Sliding_",6);
+    m_sprite.generateMirroredFrames(SpriteState::Slidding,  SpriteState::SliddingLeft);
     m_sprite.setFPS(12);
     m_sprite.setSize(128, 128);
     m_sprite.setState(SpriteState::Idle);
@@ -46,14 +49,31 @@ SpriteState entidad::getLastDirection() const {
 void entidad::startJump() {
     if (!m_onGround) return;
 
-    qDebug() << "[entidad] ¡Salto iniciado!";
     m_componenteFisico.setVelocity(m_componenteFisico.velocity().x(), -550.0f);
     m_onGround = false;
 
     m_sprite.setState(m_facingLeft ? SpriteState::JumpLeft : SpriteState::Jump);
 }
+void entidad::reproducirAnimacionTemporal(SpriteState estado, float duracionSegundos) {
+    m_animacionTemporal = estado;
+    m_tiempoAnimacionTemporal = duracionSegundos;
+    m_sprite.setState(estado);
+}
 
 void entidad::actualizar(float dt) {
+
+    if (m_tiempoAnimacionTemporal > 0.0f) {
+        m_tiempoAnimacionTemporal -= dt;
+        m_sprite.setState(m_animacionTemporal);
+        m_sprite.update(dt);
+    } else {
+        if (m_onGround) {
+            actualizarAnimacion(dt);
+        } else {
+            m_sprite.update(dt);
+        }
+    }
+
     if (!m_onGround) {
         float nuevaVy = m_componenteFisico.velocity().y() + 980.0f * dt;
         m_componenteFisico.setVelocity(m_componenteFisico.velocity().x(), nuevaVy);
@@ -70,11 +90,6 @@ void entidad::actualizar(float dt) {
     int drawY = int(pos.y() - spriteSize.height() * 0.5f);
     m_sprite.setPosition(drawX, drawY);
 
-    if (m_onGround) {
-        actualizarAnimacion(dt);
-    } else {
-        m_sprite.update(dt);
-    }
 
     m_componenteSalud.actualizar(dt);
     m_onGround = false;

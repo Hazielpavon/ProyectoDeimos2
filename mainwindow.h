@@ -23,14 +23,6 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-protected:
-    void paintEvent(QPaintEvent *event) override;
-    void keyPressEvent(QKeyEvent *event) override;
-    void keyReleaseEvent(QKeyEvent *event) override;
-
-private slots:
-    void onGameLoop();
-
 private:
     Ui::MainWindow *ui;
 
@@ -43,14 +35,13 @@ private:
     bool m_rightPressed;
     bool m_shiftPressed;
 
-    const float m_dt = 0.016f; // ~60 FPS
-
+    const float m_dt = 0.016f;
+    void paintEvent(QPaintEvent * );
     QWidget *pantallaActual;
     PantallaInicio *pantallaInicio;
     MenuOpciones   *menuOpciones;
     PantallaCarga  *pantallaCarga;
 
-    void processInput();
     void mostrarPantalla(QWidget *pantalla);
 };
 
