@@ -132,6 +132,11 @@
         <file>resources/menu_Op.png</file>
         <file>resources/tutorial.png</file>
         <file>resources/raices_olvidadas.png</file>
-        <file>resources/templo_silencio.jpg</file>
+        <file>resources/templo_silencio.png</file>
+        <file>resources/caminar.png</file>
+        <file>resources/correr.png</file>
+        <file>resources/dash.png</file>
+        <file>resources/golpear.png</file>
+        <file>resources/saltar.png</file>
     </qresource>
 </RCC>

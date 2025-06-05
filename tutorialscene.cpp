@@ -31,17 +31,27 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, QWidget *parent)
     m_sueloItem(nullptr),
     m_limiteSueloCentroY(0),
     m_dt(1.0f / FPS)
+    , m_instruccionCaminarItem(nullptr)
+    , m_instruccionSaltarItem(nullptr)
+    , m_mostrarSaltarPendiente(false)
+    , m_tiempoParaMostrarSaltar(2.0f)
+    , m_saltoYaMostrado(false)
+    , m_instruccionCorrerItem(nullptr)
+    , m_mostrarCorrerPendiente(false)
+    , m_tiempoParaMostrarCorrer(0.0f)
+    , m_correrYaMostrado(false)
+    , m_yaCorrió(false)
 {
     setFixedSize(int(WINDOW_WIDTH), int(WINDOW_HEIGHT));
 
     // Zoom-out del fondo
-    QPixmap pixFondoOriginal(":/resources/templo_silencio.jpg");
+    QPixmap pixFondoOriginal(":/resources/templo_silencio.png");
     if (pixFondoOriginal.isNull()) {
         qWarning() << "[TutorialScene] Error al cargar fondo";
     }
     QPixmap pixFondo = pixFondoOriginal.scaled(
-        pixFondoOriginal.width() * 0.8,
-        pixFondoOriginal.height() * 0.8,
+        pixFondoOriginal.width() * 0.9,
+        pixFondoOriginal.height() * 0.9,
         Qt::KeepAspectRatioByExpanding,
         Qt::SmoothTransformation
         );
@@ -69,7 +79,7 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, QWidget *parent)
     visualPlataforma->setBrush(QColor(80, 80, 80));
     visualPlataforma->setPen(Qt::NoPen);
     visualPlataforma->setZValue(0.5);
-    visualPlataforma->setPos(300 - 60, topPlatY - 40); // X corregido
+    visualPlataforma->setPos(1000 - 60, topPlatY - 40); // X corregido
     m_scene->addItem(visualPlataforma);
 
     // COLISIÓN
@@ -77,7 +87,7 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, QWidget *parent)
     m_plataformaItem->setBrush(Qt::NoBrush);
     m_plataformaItem->setPen(Qt::NoPen);
     m_plataformaItem->setZValue(1);
-    m_plataformaItem->setPos(300 - 60, topPlatY); // misma corrección
+    m_plataformaItem->setPos(1000 - 60, topPlatY); // misma corrección
     m_scene->addItem(m_plataformaItem);
 
 
@@ -126,13 +136,18 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, QWidget *parent)
         }
     }
 
-    QPixmap pixCartel(":/resources/tutorial.png");
-    if (!pixCartel.isNull()) {
-        m_cartelItem = new QGraphicsPixmapItem(pixCartel);
-        m_cartelItem->setZValue(4);
-        m_cartelItem->setPos(20, 20);
-        m_scene->addItem(m_cartelItem);
+    QPixmap pixCaminar(":/resources/caminar.png"); // Asegúrate de tener esa imagen en tus recursos
+    if (!pixCaminar.isNull()) {
+        m_instruccionCaminarItem = new QGraphicsPixmapItem(pixCaminar);
+        m_instruccionCaminarItem->setZValue(5); // por encima del jugador
+        // Posicionamos arriba del jugador (se actualizará en onFrame)
+        m_scene->addItem(m_instruccionCaminarItem);
+
     }
+    // Iniciar variables de salto
+    m_instruccionSaltarItem = nullptr;
+    m_mostrarSaltarPendiente = false;
+    m_tiempoParaMostrarSaltar = 2.0f; // 2 segundos después de caminar
 
     m_view = new QGraphicsView(m_scene, this);
     m_view->setFixedSize(int(WINDOW_WIDTH), int(WINDOW_HEIGHT));
@@ -244,6 +259,13 @@ void TutorialScene::onFrame()
     if (m_saltoSolicitado && m_player->isOnGround()) {
         m_player->startJump();
         m_yaSaltó = true;
+
+        // Quitar instrucción de salto si existe
+        if (m_instruccionSaltarItem) {
+            m_scene->removeItem(m_instruccionSaltarItem);
+            delete m_instruccionSaltarItem;
+            m_instruccionSaltarItem = nullptr;
+        }
     }
     m_saltoSolicitado = false;
 
@@ -255,6 +277,27 @@ void TutorialScene::onFrame()
         nuevaX - frameActual.width() / 2,
         nuevaY - frameActual.height() / 2
         );
+    // Actualiza posición de instrucción de caminar (si existe)
+    if (m_instruccionCaminarItem) {
+        m_instruccionCaminarItem->setPos(
+            nuevaX - m_instruccionCaminarItem->pixmap().width() / 2,
+            nuevaY - tamSpr.height() - 120 // un poco más arriba que antes
+            );
+    }
+
+    // Actualiza posición de instrucción de saltar (si existe)
+    if (m_instruccionSaltarItem) {
+        m_instruccionSaltarItem->setPos(
+            nuevaX - m_instruccionSaltarItem->pixmap().width() / 2,
+            nuevaY - tamSpr.height() - 120
+            );
+    }
+    if (m_instruccionCorrerItem) {
+        m_instruccionCorrerItem->setPos(
+            nuevaX - m_instruccionCorrerItem->pixmap().width() / 2,
+            nuevaY - tamSpr.height() - 120
+            );
+    }
 
     if (m_view && m_jugadorItem) {
         m_view->centerOn(m_jugadorItem);
@@ -262,10 +305,62 @@ void TutorialScene::onFrame()
 
     if (m_moverIzq || m_moverDer) m_yaCaminó = true;
 
-    if (m_cartelItem && m_yaCaminó && m_yaSaltó) {
-        m_scene->removeItem(m_cartelItem);
-        delete m_cartelItem;
-        m_cartelItem = nullptr;
+
+    if (m_yaCaminó && m_instruccionCaminarItem) {
+        m_scene->removeItem(m_instruccionCaminarItem);
+        delete m_instruccionCaminarItem;
+        m_instruccionCaminarItem = nullptr;
+    }
+    // Empezar a contar para mostrar la instrucción de saltar
+    if (m_yaCaminó && !m_yaSaltó && !m_mostrarSaltarPendiente && m_instruccionCaminarItem == nullptr &&
+        m_instruccionSaltarItem == nullptr && m_instruccionCorrerItem == nullptr)
+    {
+        m_mostrarSaltarPendiente = true;
+        m_tiempoParaMostrarSaltar = 2.0f;
+    }
+    if (m_yaSaltó && m_saltoYaMostrado && !m_yaCorrió && !m_mostrarCorrerPendiente &&
+        m_instruccionCaminarItem == nullptr && m_instruccionSaltarItem == nullptr && m_instruccionCorrerItem == nullptr)
+    {
+        m_mostrarCorrerPendiente = true;
+        m_tiempoParaMostrarCorrer = 2.0f;
+    }
+
+    if ((m_moverIzq || m_moverDer) && m_shiftPresionado) {
+        m_yaCorrió = true;
+    }
+    if (m_yaCorrió && m_instruccionCorrerItem) {
+        m_scene->removeItem(m_instruccionCorrerItem);
+        delete m_instruccionCorrerItem;
+        m_instruccionCorrerItem = nullptr;
+    }
+
+    // Contador regresivo para mostrar la imagen de salto
+    if (m_mostrarSaltarPendiente) {
+        m_tiempoParaMostrarSaltar -= m_dt;
+        if (m_tiempoParaMostrarSaltar <= 0.0f) {
+            QPixmap pixSaltar(":/resources/saltar.png"); // asegúrate de tener esta imagen en tu .qrc
+            if (!pixSaltar.isNull()) {
+                m_instruccionSaltarItem = new QGraphicsPixmapItem(pixSaltar);
+                m_instruccionSaltarItem->setZValue(5);
+                m_scene->addItem(m_instruccionSaltarItem);
+                m_saltoYaMostrado = true;
+            }
+            m_mostrarSaltarPendiente = false;
+        }
+    }
+    // Contador regresivo para mostrar la imagen de correr
+    if (m_mostrarCorrerPendiente) {
+        m_tiempoParaMostrarCorrer -= m_dt;
+        if (m_tiempoParaMostrarCorrer <= 0.0f) {
+            QPixmap pixCorrer(":/resources/correr.png"); // asegurate de tener esta imagen en recursos
+            if (!pixCorrer.isNull()) {
+                m_instruccionCorrerItem = new QGraphicsPixmapItem(pixCorrer);
+                m_instruccionCorrerItem->setZValue(5);
+                m_scene->addItem(m_instruccionCorrerItem);
+            }
+            m_correrYaMostrado = true;
+            m_mostrarCorrerPendiente = false;
+        }
     }
 }
 
