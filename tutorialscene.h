@@ -2,60 +2,74 @@
 #define TUTORIALSCENE_H
 
 #include <QWidget>
-#include <QGraphicsScene>
+#include <QTimer>
+#include <QKeyEvent>
 #include <QGraphicsView>
-#include <QGraphicsEllipseItem>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
-#include <QKeyEvent>
-#include <QTimer>
+#include <QGraphicsScene>
+#include "entidad.h"
 
 class TutorialScene : public QWidget {
     Q_OBJECT
 
 public:
-    explicit TutorialScene(QWidget *parent = nullptr);
+    // Constructor: recibe el puntero a la entidad (jugador) creado desde MainWindow
+    explicit TutorialScene(entidad *jugadorPrincipal, QWidget *parent = nullptr);
+
+protected:
+    // Capturar eventos de teclado
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
 
 private slots:
-    void actualizarMovimiento();
+    // Slot que se llamará cada 16 ms para actualizar física, animación y centrar la cámara
+    void onFrame();
 
 private:
-    // Escena y vista
-    QGraphicsScene *scene;
-    QGraphicsView *view;
+    // Puntero a la entidad (lógica + animaciones)
+    entidad   *m_player;
 
-    // Elementos del juego
-    QGraphicsEllipseItem *jugador;
-    QGraphicsRectItem *piso;
-    QGraphicsRectItem *plataforma;
+    // Timer interno para ~60 FPS
+    QTimer    *m_timer;
 
-    // Imagen del tutorial
-    QGraphicsPixmapItem *imagenTutorial;
+    // Flags de entrada de teclado
+    bool       m_moverIzq;         // A presionado
+    bool       m_moverDer;         // D presionado
+    bool       m_shiftPresionado;  // Shift presionado
+    bool       m_saltoSolicitado;  // Espacio presionado
 
-    // Timer de animación
-    QTimer *timer;
+    // Flags para ocultar el cartel “TUTORIAL” tras caminar y saltar
+    bool       m_yaCaminó;
+    bool       m_yaSaltó;
 
-    // Movimiento
-    bool moverIzquierda = false;
-    bool moverDerecha = false;
+    // Vista y escena de Qt Graphics
+    QGraphicsView   *m_view;
+    QGraphicsScene  *m_scene;
 
-    // Física
-    qreal velocidadY;
-    qreal gravedad;
-    qreal limiteSueloY;
+    // Ítems en la escena:
+    QGraphicsPixmapItem *m_fondoItem;       // Fondo (“templo_silencio.PNG”)
+    QGraphicsPixmapItem *m_cartelItem;      // Cartel “tutorial.png”
+    QGraphicsPixmapItem *m_jugadorItem;     // Ítem que dibuja el sprite del jugador
+    QGraphicsRectItem  *m_plataformaItem;   // Plataforma intermedia (gris)
+    QGraphicsRectItem  *m_sueloItem;        // Suelo invisible (colisión)
 
-    // Fondo
-    int fondoAncho;
-    int fondoAlto;
+    // Dimensiones de la ventana
+    static constexpr int WINDOW_WIDTH  = 950;
+    static constexpr int WINDOW_HEIGHT = 650;
 
-    // Estado del tutorial
-    bool mensajeMostrado = false;
-    bool mensajeSaltoMostrado = false;
-    bool jugadorYaSeMovio = false;
-    bool saltoHabilitado = false;
-    bool yaSalto = false;
+    // Tamaño de la plataforma
+    static constexpr int PLAT_WIDTH  = 120;
+    static constexpr int PLAT_HEIGHT = 20;
+
+    // Margen “suelo gráfico” dentro del PNG de fondo (40 px desde abajo)
+    static constexpr int SUELO_GRAFICO_ALTURA = 40;
+
+    // Delta‐time fijo
+    const float m_dt = 0.016f;  // ≈ 60 FPS
+
+    // Variables auxiliares
+    int m_limiteSueloCentroY;  // Coordenada Y del “centro” del sprite cuando esté en el suelo
 };
 
 #endif // TUTORIALSCENE_H

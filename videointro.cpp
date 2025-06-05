@@ -16,7 +16,6 @@ VideoIntro::VideoIntro(QWidget *parent)
 
     player->setVideoOutput(videoWidget);
 
-    // ✅ CORREGIDO: usar QUrl para recursos
     player->setSource(QUrl("qrc:/resources/historia.mp4"));
 
     connect(player, &QMediaPlayer::mediaStatusChanged, this, [=](QMediaPlayer::MediaStatus status) {

@@ -127,3 +127,11 @@ void Sprite::draw(QPainter &painter) const
         );
     painter.drawPixmap(m_pos.x(), m_pos.y(), scaledPix);
 }
+
+QPixmap Sprite::currentFrame() const
+{
+    const QVector<QPixmap> &vec = m_frames.value(m_state);
+    if (vec.isEmpty())
+        return QPixmap(); // frame vacío si no hay pixmaps cargados
+    return vec.at(m_frameIndex);
+}
