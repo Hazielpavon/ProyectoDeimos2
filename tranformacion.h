@@ -11,7 +11,7 @@ public:
     QPointF getPosition() const;
 
 private:
-    QPointF m_pos; // Representa la posición “de los pies” en coordenadas lógicas
+    QPointF m_pos;
 };
 
 #endif // TRANFORMACION_H

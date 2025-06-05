@@ -138,5 +138,6 @@
         <file>resources/golpear.png</file>
         <file>resources/saltar.png</file>
         <file>resources/raices_olvidadas.png</file>
+        <file>resources/Regiones.png</file>
     </qresource>
 </RCC>

@@ -9,12 +9,17 @@
 #include "entidad.h"
 #include <QTimer>
 #include <QKeyEvent>
+#include "mapawidget.h"
+#include <QLabel>
+#include <QMouseEvent>
+
+class MainWindow;
 
 class NivelRaicesOlvidadas : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NivelRaicesOlvidadas(entidad *jugadorPrincipal, QWidget *parent = nullptr);
+    explicit NivelRaicesOlvidadas(entidad *jugadorPrincipal, MainWindow *mainWindow, QWidget *parent = nullptr);
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
@@ -22,6 +27,10 @@ protected:
 private slots:
     void onFrame();
 private:
+    MainWindow* m_mainWindow;
+    QLabel* m_mapaRegiones;
+    QString m_regionActual = "Raices Olvidadas";
+    MapaWidget *m_minimapa;
     QGraphicsView *view;
     QGraphicsScene *scene;
     int fondoAncho;

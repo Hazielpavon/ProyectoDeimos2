@@ -89,16 +89,12 @@ void entidad::actualizar(float dt) {
     int drawX = int(pos.x() - spriteSize.width() * 0.5f);
     int drawY = int(pos.y() - spriteSize.height() * 0.5f);
     m_sprite.setPosition(drawX, drawY);
-
-
     m_componenteSalud.actualizar(dt);
     m_onGround = false;
 }
-
 void entidad::actualizarAnimacion(float dt) {
     float vx = m_componenteFisico.velocity().x();
     const float runThreshold = 160.0f;
-
     if (qFuzzyCompare(vx, 0.0f)) {
         if (m_lastDirection == SpriteState::WalkingLeft || m_facingLeft)
             m_sprite.setState(SpriteState::IdleLeft);
@@ -113,6 +109,5 @@ void entidad::actualizarAnimacion(float dt) {
         m_lastDirection = SpriteState::Walking;
         m_sprite.setState(vx > runThreshold ? SpriteState::Running : SpriteState::Walking);
     }
-
     m_sprite.update(dt);
 }

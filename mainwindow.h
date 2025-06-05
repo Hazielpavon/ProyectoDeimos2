@@ -22,7 +22,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    void mostrarPantalla(QWidget *pantalla);
 private:
     Ui::MainWindow *ui;
 
@@ -42,7 +42,7 @@ private:
     MenuOpciones   *menuOpciones;
     PantallaCarga  *pantallaCarga;
 
-    void mostrarPantalla(QWidget *pantalla);
+
 };
 
 #endif // MAINWINDOW_H

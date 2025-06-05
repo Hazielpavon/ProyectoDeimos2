@@ -41,8 +41,6 @@ void Sprite::loadFrames(SpriteState state, const QString &prefix, int count)
         QPixmap pix(path);
         if (pix.isNull()) {
             qWarning() << "[loadFrames] NO pudo cargar:" << path;
-        } else {
-            qDebug() << "[loadFrames] Cargó:" << path << "size" << pix.size();
         }
         m_frames[state].append(pix);
     }
@@ -53,9 +51,7 @@ void Sprite::generateMirroredFrames(SpriteState srcState, SpriteState dstState)
     m_frames[dstState].clear();
 
     if (!m_frames.contains(srcState) || m_frames[srcState].isEmpty()) {
-        qWarning() << "[Sprite] Aviso: no hay frames en srcState"
-                   << static_cast<int>(srcState)
-                   << "para generarlos espejados.";
+        qWarning() << "[Sprite] Aviso: no hay frames en srcState"<< static_cast<int>(srcState) << "para generarlos espejados.";
         return;
     }
 
@@ -67,11 +63,7 @@ void Sprite::generateMirroredFrames(SpriteState srcState, SpriteState dstState)
             m_frames[dstState].append(flipped);
         }
     }
-    qDebug() << "[Sprite] Generados" << m_frames[dstState].size()
-             << "frames espejados de estado" << static_cast<int>(srcState)
-             << "hacia" << static_cast<int>(dstState);
 }
-
 void Sprite::setPosition(int x, int y)
 {
     m_pos.setX(x);
@@ -119,12 +111,7 @@ void Sprite::draw(QPainter &painter) const
     const QPixmap &orig = currentFrames.at(m_frameIndex);
     if (orig.isNull())
         return;
-    QPixmap scaledPix = orig.scaled(
-        m_drawSize.width(),
-        m_drawSize.height(),
-        Qt::KeepAspectRatio,
-        Qt::SmoothTransformation
-        );
+    QPixmap scaledPix = orig.scaled(m_drawSize.width(), m_drawSize.height(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
     painter.drawPixmap(m_pos.x(), m_pos.y(), scaledPix);
 }
 
@@ -132,6 +119,6 @@ QPixmap Sprite::currentFrame() const
 {
     const QVector<QPixmap> &vec = m_frames.value(m_state);
     if (vec.isEmpty())
-        return QPixmap(); // frame vacío si no hay pixmaps cargados
+        return QPixmap();
     return vec.at(m_frameIndex);
 }

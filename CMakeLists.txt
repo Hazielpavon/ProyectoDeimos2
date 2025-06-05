@@ -58,6 +58,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         tutorialscene.h tutorialscene.cpp
         nivelraicesolvidadas.h nivelraicesolvidadas.cpp
+        mapawidget.h mapawidget.cpp
     )
 else()
     if(ANDROID)
