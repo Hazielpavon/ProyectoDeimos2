@@ -8,6 +8,7 @@
 #include <QDebug>
 #include "nivelraicesolvidadas.h"
 #include "videointro.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow),
@@ -50,14 +51,24 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->transform().setPosition(centerX, centerY);
                     m_player->sprite().setState(SpriteState::Idle);
 
-                    VideoIntro* introVideo = new VideoIntro(this);
 
-                    connect(introVideo, &VideoIntro::videoTerminado, this, [=]() {
-                        TutorialScene *tutorial = new TutorialScene(m_player, this);
-                        mostrarPantalla(tutorial);
-                        tutorial->setFocus();
+                    VideoIntro* primerVideo = new VideoIntro(this);
+                    primerVideo->setVideo("qrc:/resources/historia.mp4");
+
+                    connect(primerVideo, &VideoIntro::videoTerminado, this, [=]() {
+                        VideoIntro* segundoVideo = new VideoIntro(this);
+                        segundoVideo->setVideo("qrc:/resources/intro_silencion.mp4");
+
+                        connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
+                            TutorialScene *tutorial = new TutorialScene(m_player, this);
+                            mostrarPantalla(tutorial);
+                            tutorial->setFocus();
+                        });
+
+                        mostrarPantalla(segundoVideo);
                     });
-                    mostrarPantalla(introVideo);
+
+                    mostrarPantalla(primerVideo);
 
                 });
 

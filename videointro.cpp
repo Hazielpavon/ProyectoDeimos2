@@ -10,13 +10,11 @@ VideoIntro::VideoIntro(QWidget *parent)
     videoWidget->setFixedSize(this->size());
 
     player = new QMediaPlayer(this);
-    QAudioOutput *audioOutput = new QAudioOutput(this);
+    audioOutput = new QAudioOutput(this);
     player->setAudioOutput(audioOutput);
     audioOutput->setVolume(0.8);
 
     player->setVideoOutput(videoWidget);
-
-    player->setSource(QUrl("qrc:/resources/historia.mp4"));
 
     connect(player, &QMediaPlayer::mediaStatusChanged, this, [=](QMediaPlayer::MediaStatus status) {
         if (status == QMediaPlayer::EndOfMedia) {
@@ -24,6 +22,9 @@ VideoIntro::VideoIntro(QWidget *parent)
             this->close();
         }
     });
+}
 
+void VideoIntro::setVideo(const QString &ruta) {
+    player->setSource(QUrl(ruta));
     player->play();
 }
