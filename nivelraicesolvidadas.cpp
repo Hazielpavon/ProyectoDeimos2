@@ -44,8 +44,8 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad *jugadorPrincipal, QWidget *p
         qWarning() << "[TutorialScene] Error al cargar fondo";
     }
     QPixmap pixFondo = pixFondoOriginal.scaled(
-        pixFondoOriginal.width() * 0.8,
-        pixFondoOriginal.height() * 0.8,
+        pixFondoOriginal.width() * 0.9,
+        pixFondoOriginal.height() * 0.9,
         Qt::KeepAspectRatioByExpanding,
         Qt::SmoothTransformation
         );

@@ -70,6 +70,19 @@ private:
 
     // Variables auxiliares
     int m_limiteSueloCentroY;  // Coordenada Y del “centro” del sprite cuando esté en el suelo
+
+    QGraphicsPixmapItem *m_instruccionCaminarItem;
+
+    QGraphicsPixmapItem *m_instruccionSaltarItem;
+    bool m_mostrarSaltarPendiente;
+    float m_tiempoParaMostrarSaltar;
+    bool m_saltoYaMostrado;
+
+    QGraphicsPixmapItem* m_instruccionCorrerItem;
+    bool m_mostrarCorrerPendiente;
+    float m_tiempoParaMostrarCorrer;
+    bool m_correrYaMostrado;
+    bool m_yaCorrió;
 };
 
 #endif // TUTORIALSCENE_H
