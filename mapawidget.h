@@ -1,17 +1,17 @@
-#ifndef MAPAWINDOW_H
-#define MAPAWINDOW_H
+#ifndef MAPAWIDGET_H
+#define MAPAWIDGET_H
 
-#include <QMainWindow>
+#include <QWidget>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QKeyEvent>
 
-class MapaWindow : public QMainWindow
+class MapaWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit MapaWindow(QWidget *parent = nullptr);
+    explicit MapaWidget(QWidget *parent = nullptr);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -21,4 +21,4 @@ private:
     QGraphicsScene *scene;
 };
 
-#endif // MAPAWINDOW_H
+#endif // MAPAWIDGET_H

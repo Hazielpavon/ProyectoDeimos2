@@ -174,37 +174,37 @@ void NivelRaicesOlvidadas::mousePressEvent(QMouseEvent *event)
     }
 
 
-QWidget::mousePressEvent(event);
-    if (m_mapaRegiones && m_mapaRegiones->isVisible()) {
-        QPoint posMapa = m_mapaRegiones->mapFromParent(event->pos());
+// QWidget::mousePressEvent(event);
+//     if (m_mapaRegiones && m_mapaRegiones->isVisible()) {
+//         QPoint posMapa = m_mapaRegiones->mapFromParent(event->pos());
 
-        QRect zonaTemplo(30, 30, 100, 80);
-        QRect zonaRaices(40, 170, 100, 80);
+//         QRect zonaTemplo(30, 30, 100, 80);
+//         QRect zonaRaices(40, 170, 100, 80);
 
-        if (zonaTemplo.contains(posMapa)) {
-            if (m_regionActual == "Raices Olvidadas") {
-                m_regionActual = "Templo del Silencio";
-                m_mapaRegiones->hide();
+//         if (zonaTemplo.contains(posMapa)) {
+//             if (m_regionActual == "Raices Olvidadas") {
+//                 m_regionActual = "Templo del Silencio";
+//                 m_mapaRegiones->hide();
 
-                TutorialScene *tutorial = new TutorialScene(m_player, m_mainWindow);
-                m_mainWindow->mostrarPantalla(tutorial);
-                tutorial->setFocus();
-                return;
-            }
-        }
-        else if (zonaRaices.contains(posMapa)) {
-            if (m_regionActual == "Templo del Silencio") {
-                m_regionActual = "Raices Olvidadas";
-                m_mapaRegiones->hide();
+//                 TutorialScene *tutorial = new TutorialScene(m_player, m_mainWindow);
+//                 m_mainWindow->mostrarPantalla(tutorial);
+//                 tutorial->setFocus();
+//                 return;
+//             }
+//         }
+//         else if (zonaRaices.contains(posMapa)) {
+//             if (m_regionActual == "Templo del Silencio") {
+//                 m_regionActual = "Raices Olvidadas";
+//                 m_mapaRegiones->hide();
 
-                NivelRaicesOlvidadas *escenaRaices = new NivelRaicesOlvidadas(m_player, m_mainWindow);
-                m_mainWindow->mostrarPantalla(escenaRaices);
-                escenaRaices->setFocus();
-                return;
-            }
-        }
-    }
-}
+//                 NivelRaicesOlvidadas *escenaRaices = new NivelRaicesOlvidadas(m_player, m_mainWindow);
+//                 m_mainWindow->mostrarPantalla(escenaRaices);
+//                 escenaRaices->setFocus();
+//                 return;
+//             }
+//         }
+//     }
+// }
 
 void NivelRaicesOlvidadas::keyPressEvent(QKeyEvent *event)
 {
@@ -221,12 +221,12 @@ void NivelRaicesOlvidadas::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Space:
         m_saltoSolicitado = true;
         break;
-    case Qt::Key_Tab:
-        if (m_mapaRegiones) {
-            m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
-            m_mapaRegiones->raise();
-        }
-        break;
+    // case Qt::Key_Tab:
+    //     if (m_mapaRegiones) {
+    //         m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
+    //         m_mapaRegiones->raise();
+    //     }
+    //     break;
     case Qt::Key_C:
         if (m_player && m_player->isOnGround()) {
             float vx = m_player->fisica().velocity().x();
