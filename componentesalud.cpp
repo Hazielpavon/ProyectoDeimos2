@@ -30,7 +30,7 @@ void componentesalud::aplicarDano(int dmg)
 
 void componentesalud::actualizar(float /*dt*/)
 {
-    // Aquí podrías regenerar vida, temporizadores, etc.
+    // regenerar vida, temporizadores, etc.
 }
 
 void componentesalud::dibujar(QPainter &painter, const QPoint &posSprite)

@@ -1,9 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/inicio.png</file>
-        <file>resources/menu_Op.png</file>
-        <file>resources/cargando.png</file>
-        <file>resources/historia.mp4</file>
         <file>resources/0_Blood_Demon_Idle_000.png</file>
         <file>resources/0_Blood_Demon_Idle_001.png</file>
         <file>resources/0_Blood_Demon_Idle_002.png</file>
@@ -112,8 +108,39 @@
         <file>resources/0_Blood_Demon_Running_009.png</file>
         <file>resources/0_Blood_Demon_Running_010.png</file>
         <file>resources/0_Blood_Demon_Running_011.png</file>
-        <file>resources/templo_silencio.PNG</file>
+        <file>resources/0_Blood_Demon_Slashing_000.png</file>
+        <file>resources/0_Blood_Demon_Slashing_001.png</file>
+        <file>resources/0_Blood_Demon_Slashing_002.png</file>
+        <file>resources/0_Blood_Demon_Slashing_003.png</file>
+        <file>resources/0_Blood_Demon_Slashing_004.png</file>
+        <file>resources/0_Blood_Demon_Slashing_005.png</file>
+        <file>resources/0_Blood_Demon_Slashing_006.png</file>
+        <file>resources/0_Blood_Demon_Slashing_007.png</file>
+        <file>resources/0_Blood_Demon_Slashing_008.png</file>
+        <file>resources/0_Blood_Demon_Slashing_009.png</file>
+        <file>resources/0_Blood_Demon_Slashing_010.png</file>
+        <file>resources/0_Blood_Demon_Slashing_011.png</file>
+        <file>resources/0_Blood_Demon_Sliding_000.png</file>
+        <file>resources/0_Blood_Demon_Sliding_001.png</file>
+        <file>resources/0_Blood_Demon_Sliding_002.png</file>
+        <file>resources/0_Blood_Demon_Sliding_003.png</file>
+        <file>resources/0_Blood_Demon_Sliding_004.png</file>
+        <file>resources/0_Blood_Demon_Sliding_005.png</file>
+        <file>resources/cargando.png</file>
+        <file>resources/historia.mp4</file>
+        <file>resources/inicio.png</file>
+        <file>resources/menu_Op.png</file>
         <file>resources/tutorial.png</file>
+        <file>resources/templo_silencio.png</file>
+        <file>resources/caminar.png</file>
+        <file>resources/correr.png</file>
+        <file>resources/dash.png</file>
+        <file>resources/golpear.png</file>
+        <file>resources/saltar.png</file>
         <file>resources/raices_olvidadas.png</file>
+        <file>resources/Regiones.png</file>
+        <file>resources/intro_silencion.mp4</file>
+        <file>resources/intro_raices.mp4</file>
+        <file>resources/mapa.png</file>
     </qresource>
 </RCC>

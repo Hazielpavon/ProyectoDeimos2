@@ -1,61 +1,96 @@
 #ifndef TUTORIALSCENE_H
 #define TUTORIALSCENE_H
-
+#include <QLabel>
 #include <QWidget>
-#include <QGraphicsScene>
+#include <QTimer>
+#include <QKeyEvent>
 #include <QGraphicsView>
-#include <QGraphicsEllipseItem>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
-#include <QKeyEvent>
-#include <QTimer>
+#include <QGraphicsScene>
+#include "entidad.h"
+#include "mapawidget.h"
+class MainWindow; // Forward declaration
+
+// En la clase:
 
 class TutorialScene : public QWidget {
     Q_OBJECT
 
 public:
-    explicit TutorialScene(QWidget *parent = nullptr);
+   explicit TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, QWidget *parent = nullptr);
+
+protected:
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
-
+    void mousePressEvent(QMouseEvent *event)override;
 private slots:
-    void actualizarMovimiento();
-
+    void onFrame();
 private:
-    // Escena y vista
-    QGraphicsScene *scene;
-    QGraphicsView *view;
+    MainWindow* m_mainWindow;
+    QLabel* m_mapaRegiones;
+    QString m_regionActual;
+    MapaWidget *m_minimapa;
+    entidad   *m_player;
+    QTimer    *m_timer;
+    bool       m_moverIzq;
+    bool       m_moverDer;
+    bool       m_shiftPresionado;
+    bool       m_saltoSolicitado;
+    bool       m_yaCaminó;
+    bool       m_yaSaltó;
+    QGraphicsView   *m_view;
+    QGraphicsScene  *m_scene;
+    QGraphicsPixmapItem *m_fondoItem;
+    QGraphicsPixmapItem *m_cartelItem;
+    QGraphicsPixmapItem *m_jugadorItem;
+    QGraphicsRectItem  *m_plataformaItem;
+    QGraphicsRectItem  *m_sueloItem;
 
-    // Elementos del juego
-    QGraphicsEllipseItem *jugador;
-    QGraphicsRectItem *piso;
-    QGraphicsRectItem *plataforma;
+    static constexpr int WINDOW_WIDTH  = 950;
+    static constexpr int WINDOW_HEIGHT = 650;
 
-    // Imagen del tutorial
-    QGraphicsPixmapItem *imagenTutorial;
+    static constexpr int PLAT_WIDTH  = 120;
+    static constexpr int PLAT_HEIGHT = 20;
 
-    // Timer de animación
-    QTimer *timer;
 
-    // Movimiento
-    bool moverIzquierda = false;
-    bool moverDerecha = false;
+    static constexpr int SUELO_GRAFICO_ALTURA = 40;
 
-    // Física
-    qreal velocidadY;
-    qreal gravedad;
-    qreal limiteSueloY;
+    // Delta‐time fijo
+    const float m_dt = 0.016f;
 
-    // Fondo
-    int fondoAncho;
-    int fondoAlto;
+    int m_limiteSueloCentroY;
 
-    // Estado del tutorial
-    bool mensajeMostrado = false;
-    bool mensajeSaltoMostrado = false;
-    bool jugadorYaSeMovio = false;
-    bool saltoHabilitado = false;
-    bool yaSalto = false;
+    QGraphicsPixmapItem *m_instruccionCaminarItem;
+
+    QGraphicsPixmapItem *m_instruccionSaltarItem;
+    bool m_mostrarSaltarPendiente;
+    float m_tiempoParaMostrarSaltar;
+    bool m_saltoYaMostrado;
+
+    QGraphicsPixmapItem* m_instruccionCorrerItem;
+    bool m_mostrarCorrerPendiente;
+    float m_tiempoParaMostrarCorrer;
+    bool m_correrYaMostrado;
+    bool m_yaCorrió;
+
+    QGraphicsPixmapItem *m_instruccionDashItem;
+    bool m_mostrarDashPendiente;
+    float m_tiempoParaMostrarDash;
+    bool m_dashYaMostrado;
+    bool m_yaHizoDash;
+
+    QGraphicsPixmapItem* m_instruccionGolpearItem;
+    bool m_mostrarGolpearPendiente;
+    float m_tiempoParaMostrarGolpear;
+    bool m_golpearYaMostrado;
+    bool m_yaGolpeó;
+
+    QGraphicsPixmapItem* m_instruccionMapaItem;
+    bool m_mostrarMapaPendiente;
+    float m_tiempoParaMostrarMapa;
+    bool m_mapaYaMostrado;
+    bool m_yaAbrioMapa;
 };
 
-#endif // TUTORIALSCENE_H
+#endif

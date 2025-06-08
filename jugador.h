@@ -5,6 +5,7 @@ class Jugador
 {
 public:
     Jugador();
+
 };
 
 #endif // JUGADOR_H
