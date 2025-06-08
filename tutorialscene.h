@@ -28,7 +28,7 @@ private slots:
     void onFrame();
 private:
     MainWindow* m_mainWindow;
-    QLabel* m_mapaRegiones;
+    MapaWidget* m_mapaRegiones;
     QString m_regionActual;
     MapaWidget *m_minimapa;
     entidad   *m_player;

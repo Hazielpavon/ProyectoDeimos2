@@ -4,7 +4,7 @@
 #include <QGraphicsItem>
 #include "nivelraicesolvidadas.h"
 #include "mainwindow.h"
-#include "mapawindow.h"
+#include "mapawidget.h"
 // Constantes locales (reemplazo de constantes.h)
 #include "tutorialscene.h"
 #include <QPainter>
@@ -165,29 +165,7 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
         m_scene->addItem(m_instruccionCaminarItem);
     }
 
-    m_mapaRegiones = new QLabel(this);
-    QPixmap mapaPix(":/resources/Regiones.png");
-    if (mapaPix.isNull()) {
-        qWarning() << "[TutorialScene] No se pudo cargar :/resources/Regiones.png";
-    }
-
-    QPixmap mapaEscalado = mapaPix.scaled(400, 300, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    m_mapaRegiones->setPixmap(mapaEscalado);
-
-    constexpr int MAP_WIDTH  = 400;
-    constexpr int MAP_HEIGHT = 300;
-    int xCentroMapa = (int(WINDOW_WIDTH)  - MAP_WIDTH)  / 2;
-    int yCentroMapa = (int(WINDOW_HEIGHT) - MAP_HEIGHT) / 2;
-    m_mapaRegiones->setGeometry(xCentroMapa, yCentroMapa, MAP_WIDTH, MAP_HEIGHT);
-
-    m_mapaRegiones->setStyleSheet("background-color: rgba(0, 0, 0, 180);""border: 2px solid white;");
-
-    m_mapaRegiones->setVisible(false);
-    m_mapaRegiones->raise();
-
-
-    connect(m_timer, &QTimer::timeout, this, &TutorialScene::onFrame);
-    m_timer->start(int(m_dt * 1000));
+m_mapaRegiones = new MapaWidget(this);  // Ventana de mapa interactivo
 }
 
 void TutorialScene::mousePressEvent(QMouseEvent *event)
@@ -267,11 +245,8 @@ void TutorialScene::keyPressEvent(QKeyEvent *event)
             }
             m_mapaRegiones->raise();
         }
-
-        // Mostrar instrucción solo la primera vez
         if (!m_yaAbrioMapa) {
             m_yaAbrioMapa = true;
-
             if (m_instruccionMapaItem) {
                 m_scene->removeItem(m_instruccionMapaItem);
                 delete m_instruccionMapaItem;
