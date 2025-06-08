@@ -1,34 +1,40 @@
-#include "mapawidget.h"
-#include <QPainter>
-#include <QMouseEvent>
+#include "mapawindow.h"
+#include <QGraphicsPixmapItem>
+#include <QScrollBar>
+#include <QDebug>
 
-MapaWidget::MapaWidget(QWidget *parent)
-    : QWidget(parent)
+MapaWindow::MapaWindow(QWidget *parent)
+    : QMainWindow(parent)
 {
-    setFixedSize(200, 150);
-    setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);
-    setAttribute(Qt::WA_TranslucentBackground);
-    setAttribute(Qt::WA_ShowWithoutActivating);
+    setFixedSize(950, 650); // Tamaño de ventana como el juego
+
+    scene = new QGraphicsScene(this);
+
+    QPixmap fondo(":/resources/mapa_regiones.png");
+    if (fondo.isNull()) {
+        qDebug() << "No se cargó la imagen del mapa.";
+        fondo = QPixmap(2000, 1200); // Imagen de respaldo vacía
+        fondo.fill(Qt::darkGray);
+    }
+
+    // Insertamos imagen de tamaño más grande en la escena
+    QGraphicsPixmapItem *item = new QGraphicsPixmapItem(fondo);
+    scene->addItem(item);
+    scene->setSceneRect(0, 0, fondo.width(), fondo.height()); // Extensión de scroll
+
+    view = new QGraphicsView(scene, this);
+    view->setRenderHint(QPainter::Antialiasing);
+    view->setDragMode(QGraphicsView::ScrollHandDrag); // mover con click arrastrando
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    view->setFixedSize(950, 650);
+
+    setCentralWidget(view);
 }
 
-void MapaWidget::paintEvent(QPaintEvent *)
+void MapaWindow::keyPressEvent(QKeyEvent *event)
 {
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
-
-    // Fondo semitransparente
-    painter.setBrush(QColor(30, 30, 30, 200));
-    painter.setPen(Qt::NoPen);
-    painter.drawRoundedRect(rect(), 10, 10);
-
-    // Zonas interactivas (puedes modificarlas)
-    painter.setBrush(QColor(0, 120, 255, 180));
-    painter.drawRect(30, 30, 40, 40); // Zona 1
-    painter.setBrush(QColor(255, 100, 0, 180));
-    painter.drawRect(120, 60, 40, 40); // Zona 2
-}
-
-void MapaWidget::mousePressEvent(QMouseEvent *event)
-{
-    emit zonaSeleccionada(event->pos());
+    if (event->key() == Qt::Key_Tab) {
+        this->close(); // cerrar ventana si vuelve a presionar TAB
+    }
 }

@@ -1,20 +1,24 @@
-#ifndef MAPAWIDGET_H
-#define MAPAWIDGET_H
+#ifndef MAPAWINDOW_H
+#define MAPAWINDOW_H
 
-#include <QWidget>
+#include <QMainWindow>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QKeyEvent>
 
-class MapaWidget : public QWidget
+class MapaWindow : public QMainWindow
 {
     Q_OBJECT
-public:
-    explicit MapaWidget(QWidget *parent = nullptr);
 
-signals:
-    void zonaSeleccionada(const QPoint &puntoMapa);
+public:
+    explicit MapaWindow(QWidget *parent = nullptr);
 
 protected:
-    void paintEvent(QPaintEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
+
+private:
+    QGraphicsView *view;
+    QGraphicsScene *scene;
 };
 
-#endif // MAPAWIDGET_H
+#endif // MAPAWINDOW_H

@@ -52,25 +52,25 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->sprite().setState(SpriteState::Idle);
 
 
-                    VideoIntro* primerVideo = new VideoIntro(this);
-                    primerVideo->setVideo("qrc:/resources/historia.mp4");
+                    // VideoIntro* primerVideo = new VideoIntro(this);
+                    // primerVideo->setVideo("qrc:/resources/historia.mp4");
 
-                    connect(primerVideo, &VideoIntro::videoTerminado, this, [=]() {
-                        VideoIntro* segundoVideo = new VideoIntro(this);
-                        segundoVideo->setVideo("qrc:/resources/intro_silencion.mp4");
+                    // connect(primerVideo, &VideoIntro::videoTerminado, this, [=]() {
+                    //     VideoIntro* segundoVideo = new VideoIntro(this);
+                    //     segundoVideo->setVideo("qrc:/resources/intro_silencion.mp4");
 
-                        connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
+                        // connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
                             TutorialScene *tutorial = new TutorialScene(m_player, this);
                             mostrarPantalla(tutorial);
                             tutorial->setFocus();
                         });
 
-                        mostrarPantalla(segundoVideo);
-                    });
+                //         mostrarPantalla(segundoVideo);
+                //     });
 
-                    mostrarPantalla(primerVideo);
+                //     mostrarPantalla(primerVideo);
 
-                });
+                // });
 
                 mostrarPantalla(pantallaCarga);
             });
