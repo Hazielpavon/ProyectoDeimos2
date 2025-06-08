@@ -4,10 +4,12 @@
 #include <QGraphicsItem>
 #include "nivelraicesolvidadas.h"
 #include "mainwindow.h"
+#include "mapawindow.h"
 // Constantes locales (reemplazo de constantes.h)
 #include "tutorialscene.h"
 #include <QPainter>
 #include <QDebug>
+
 
 // Constantes locales (mismas que en NivelRaicesOlvidadas)
 constexpr float WINDOW_WIDTH     = 950.0f;
@@ -258,10 +260,15 @@ void TutorialScene::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_Tab:
         if (m_mapaRegiones) {
-            m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
+            if (!m_mapaRegiones->isVisible()) {
+                m_mapaRegiones->show();
+            } else {
+                m_mapaRegiones->close();
+            }
             m_mapaRegiones->raise();
         }
 
+        // Mostrar instrucción solo la primera vez
         if (!m_yaAbrioMapa) {
             m_yaAbrioMapa = true;
 
