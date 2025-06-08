@@ -172,7 +172,7 @@ void NivelRaicesOlvidadas::mousePressEvent(QMouseEvent *event)
             m_player->reproducirAnimacionTemporal(SpriteState::Slashing, 0.6f);
         }
     }
-
+}
 
 // QWidget::mousePressEvent(event);
 //     if (m_mapaRegiones && m_mapaRegiones->isVisible()) {
