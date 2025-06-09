@@ -142,5 +142,6 @@
         <file>resources/intro_raices.mp4</file>
         <file>resources/mapa.png</file>
         <file>resources/raices_olvidadas.png</file>
+        <file>resources/raices_olvidadas2.png</file>
     </qresource>
 </RCC>

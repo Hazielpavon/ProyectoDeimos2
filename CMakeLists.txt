@@ -27,10 +27,10 @@ set(PROJECT_SOURCES
     menuopciones.cpp
     entidad.h
     entidad.cpp
+    ObjetosYColisiones.cpp
 
 
-
-
+    ObjetosYColisiones.h
     tranformacion.h
     tranformacion.cpp
     sprite.h

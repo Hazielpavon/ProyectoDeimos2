@@ -60,9 +60,14 @@ MainWindow::MainWindow(QWidget *parent)
                     //     segundoVideo->setVideo("qrc:/resources/intro_silencion.mp4");
 
                         // connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
-                            TutorialScene *tutorial = new TutorialScene(m_player, this);
-                            mostrarPantalla(tutorial);
-                            tutorial->setFocus();
+                         //   TutorialScene *tutorial = new TutorialScene(m_player, this);
+                          //  mostrarPantalla(tutorial);
+                           // tutorial->setFocus();
+
+
+                    NivelRaicesOlvidadas *n = new NivelRaicesOlvidadas(m_player, this);
+                    mostrarPantalla(n);
+                    n->setFocus();
                         });
 
                 //         mostrarPantalla(segundoVideo);
