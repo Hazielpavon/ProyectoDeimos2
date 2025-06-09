@@ -137,10 +137,10 @@
         <file>resources/dash.png</file>
         <file>resources/golpear.png</file>
         <file>resources/saltar.png</file>
-        <file>resources/raices_olvidadas.png</file>
         <file>resources/Regiones.png</file>
         <file>resources/intro_silencion.mp4</file>
         <file>resources/intro_raices.mp4</file>
         <file>resources/mapa.png</file>
+        <file>resources/raices_olvidadas.png</file>
     </qresource>
 </RCC>
