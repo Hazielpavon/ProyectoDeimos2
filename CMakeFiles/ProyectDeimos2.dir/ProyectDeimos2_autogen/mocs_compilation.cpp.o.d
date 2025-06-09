@@ -1061,6 +1061,8 @@ CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o: \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
   /opt/homebrew/include/QtGui/qpainterpath.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/../../ObjetosYColisiones.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/moc_pantallacarga.cpp \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/../../pantallacarga.h \

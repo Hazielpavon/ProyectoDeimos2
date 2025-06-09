@@ -200,6 +200,30 @@ ProyectDeimos2_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2_autogen.dir/build.make CMakeFiles/ProyectDeimos2_autogen.dir/build
 .PHONY : ProyectDeimos2_autogen/fast
 
+ObjetosYColisiones.o: ObjetosYColisiones.cpp.o
+.PHONY : ObjetosYColisiones.o
+
+# target to build an object file
+ObjetosYColisiones.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o
+.PHONY : ObjetosYColisiones.cpp.o
+
+ObjetosYColisiones.i: ObjetosYColisiones.cpp.i
+.PHONY : ObjetosYColisiones.i
+
+# target to preprocess a source file
+ObjetosYColisiones.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.i
+.PHONY : ObjetosYColisiones.cpp.i
+
+ObjetosYColisiones.s: ObjetosYColisiones.cpp.s
+.PHONY : ObjetosYColisiones.s
+
+# target to generate assembly for a file
+ObjetosYColisiones.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.s
+.PHONY : ObjetosYColisiones.cpp.s
+
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.o: ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o
 .PHONY : ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.o
 
@@ -695,6 +719,9 @@ help:
 	@echo "... ProyectDeimos2_autogen"
 	@echo "... ProyectDeimos2_autogen_timestamp_deps"
 	@echo "... ProyectDeimos2"
+	@echo "... ObjetosYColisiones.o"
+	@echo "... ObjetosYColisiones.i"
+	@echo "... ObjetosYColisiones.s"
 	@echo "... ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.o"
 	@echo "... ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.i"
 	@echo "... ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.s"

@@ -967,6 +967,13 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /opt/homebrew/include/QtWidgets/qsizepolicy.h \
   /opt/homebrew/include/QtGui/qcursor.h \
   /opt/homebrew/include/QtGui/qbitmap.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QTimer \
+  /opt/homebrew/lib/QtCore.framework/Headers/qtimer.h \
+  /opt/homebrew/include/QtCore/qbasictimer.h \
+  /opt/homebrew/include/QtCore/qabstracteventdispatcher.h \
+  /opt/homebrew/include/QtCore/qeventloop.h \
+  /opt/homebrew/include/QtCore/qdeadlinetimer.h \
+  /opt/homebrew/include/QtCore/qelapsedtimer.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsView \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsview.h \
   /opt/homebrew/include/QtGui/qpainter.h \
@@ -982,7 +989,12 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
   /opt/homebrew/include/QtGui/qpainterpath.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+  /opt/homebrew/include/QtGui/qpicture.h \
+  /opt/homebrew/include/QtCore/qiodevice.h \
+  /opt/homebrew/include/QtGui/qtextdocument.h \
+  /opt/homebrew/include/QtCore/qurl.h \
   /Users/anavalle/Documents/ProyectoDeimos2/entidad.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPointF \
   /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h \
@@ -1003,18 +1015,17 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QTimer \
-  /opt/homebrew/lib/QtCore.framework/Headers/qtimer.h \
-  /opt/homebrew/include/QtCore/qbasictimer.h \
-  /opt/homebrew/include/QtCore/qabstracteventdispatcher.h \
-  /opt/homebrew/include/QtCore/qeventloop.h \
-  /opt/homebrew/include/QtCore/qdeadlinetimer.h \
-  /opt/homebrew/include/QtCore/qelapsedtimer.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
+  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsItem \
+  /Users/anavalle/Documents/ProyectoDeimos2/tutorialscene.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent \
   /opt/homebrew/lib/QtGui.framework/Headers/qevent.h \
   /opt/homebrew/include/QtCore/qcoreevent.h \
-  /opt/homebrew/include/QtCore/qiodevice.h \
-  /opt/homebrew/include/QtCore/qurl.h \
   /opt/homebrew/include/QtGui/qeventpoint.h \
   /opt/homebrew/include/QtGui/qvector2d.h \
   /opt/homebrew/include/QtGui/qvectornd.h \
@@ -1038,15 +1049,6 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPair \
   /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
-  /opt/homebrew/include/QtGui/qpicture.h \
-  /opt/homebrew/include/QtGui/qtextdocument.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QMouseEvent \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsItem \
-  /Users/anavalle/Documents/ProyectoDeimos2/tutorialscene.h \
   /Users/anavalle/Documents/ProyectoDeimos2/mainwindow.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \

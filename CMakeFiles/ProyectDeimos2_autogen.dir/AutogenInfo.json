@@ -530,6 +530,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h",
+			"MU",
+			"EWIEGA46WW/moc_ObjetosYColisiones.cpp",
+			null
+		],
+		[
 			"/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.h",
 			"MU",
 			"EWIEGA46WW/moc_clickablelabel.cpp",
@@ -705,6 +711,11 @@
 	"SETTINGS_FILE" : "/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/ProyectDeimos2_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.cpp",
+			"MU",
+			null
+		],
 		[
 			"/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.cpp",
 			"MU",

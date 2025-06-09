@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "ProyectDeimos2_autogen/timestamp" "custom" "ProyectDeimos2_autogen/deps"
+  "/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.cpp" "CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o.d"
   "/Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp" "CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o.d"
   "/Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/mocs_compilation.cpp" "CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o.d"
   "/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.cpp" "CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o.d"

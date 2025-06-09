@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ProyectDeimos2_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/ProyectDeimos2_autogen.dir/ParseCache.txt"
   "ProyectDeimos2_autogen"
+  "CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o"
+  "CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o.d"
   "CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o"
   "CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o.d"
   "CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o"

@@ -1045,7 +1045,8 @@ CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsItem \
   /Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QMouseEvent \
+  /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
   /Users/anavalle/Documents/ProyectoDeimos2/mainwindow.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \

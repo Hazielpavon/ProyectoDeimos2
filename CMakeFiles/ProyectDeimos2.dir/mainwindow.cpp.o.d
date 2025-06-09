@@ -1067,7 +1067,8 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
   /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
   /Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QMouseEvent \
+  /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
   /Users/anavalle/Documents/ProyectoDeimos2/videointro.h \
   /opt/homebrew/lib/QtMultimedia.framework/Headers/QMediaPlayer \
   /opt/homebrew/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
