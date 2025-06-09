@@ -22,7 +22,7 @@ void GrafoMapa::conectar(const QString &origen, const QString &destino, int peso
 void GrafoMapa::cargarRegiones()
 {
     agregarRegion("Templo del Silencio", QPoint(225, 260));
-    agregarRegion("Raises Olvidadas", QPoint(225, 400));
+    agregarRegion("Raices Olvidadas", QPoint(225, 400));
     agregarRegion("Ciudad Inversa", QPoint(380, 260));
     agregarRegion("Torre de la Marca", QPoint(450, 380));
     agregarRegion("Máquina del Olvido", QPoint(613, 288));

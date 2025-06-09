@@ -1019,10 +1019,12 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/QObject \
   /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+  /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QPair \
+  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
   /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsItem \
-  /Users/anavalle/Documents/ProyectoDeimos2/tutorialscene.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent \
   /opt/homebrew/lib/QtGui.framework/Headers/qevent.h \
   /opt/homebrew/include/QtCore/qcoreevent.h \
@@ -1045,11 +1047,6 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /opt/homebrew/include/QtGui/qinputmethod.h \
   /opt/homebrew/include/QtCore/qlocale.h \
   /opt/homebrew/include/QtGui/qguiapplication_platform.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QPair \
-  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/mainwindow.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
-  /opt/homebrew/include/QtWidgets/qtabwidget.h
+  /opt/homebrew/lib/QtGui.framework/Headers/QMouseEvent \
+  /opt/homebrew/lib/QtGui.framework/Headers/QImage \
+  /opt/homebrew/lib/QtGui.framework/Headers/qimage.h

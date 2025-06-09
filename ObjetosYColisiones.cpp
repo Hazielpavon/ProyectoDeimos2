@@ -78,4 +78,3 @@ void ObjetosYColisiones::resolveCollisions(entidad* player, float /*dt*/)
     // 4) aplica piePos
     player->transform().setPosition(footPos.x(), footPos.y());
 }
-
