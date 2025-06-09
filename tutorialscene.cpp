@@ -66,8 +66,9 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
 
 {
     setFixedSize(int(WINDOW_WIDTH), int(WINDOW_HEIGHT));
-    setFocusPolicy(Qt::StrongFocus);
-    setFocus();
+    setFocusPolicy(Qt::StrongFocus);   // Importante
+    activateWindow();                  // Hace visible y activa esta ventana
+    setFocus(Qt::OtherFocusReason);   // Fuerza el foco del teclado aquí
 
     QPixmap pixFondoOriginal(":/resources/templo_silencio.png");
     if (pixFondoOriginal.isNull()) {
@@ -151,6 +152,8 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setFrameShape(QFrame::NoFrame);
     m_view->move(0, 0);
+
+    // IMPORTANTE: no puede tener foco ni mouse
     m_view->setFocusPolicy(Qt::NoFocus);
     m_view->setAttribute(Qt::WA_TransparentForMouseEvents);
 
@@ -165,7 +168,22 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
         m_scene->addItem(m_instruccionCaminarItem);
     }
 
-m_mapaRegiones = new MapaWidget(this);  // Ventana de mapa interactivo
+m_mapaRegiones = new MapaWidget("Templo del Silencio", this);  // ✅ Orden correcto
+    m_mapaRegiones->setWindowModality(Qt::NonModal);  // ← para que no bloquee
+    m_mapaRegiones->setFocusPolicy(Qt::NoFocus);      // ← que no robe el foco
+    m_mapaRegiones->setAttribute(Qt::WA_ShowWithoutActivating);
+
+    this->activateWindow();
+    this->setFocus(Qt::OtherFocusReason);
+
+    connect(m_mapaRegiones, &MapaWidget::mapaCerrado, this, [this]() {
+        activateWindow();
+        setFocus(Qt::OtherFocusReason);
+    });
+
+    // Al final del constructor de TutorialScene
+    connect(m_timer, &QTimer::timeout, this, &TutorialScene::onFrame);
+    m_timer->start(1000.0f / FPS);
 }
 
 void TutorialScene::mousePressEvent(QMouseEvent *event)
@@ -243,8 +261,8 @@ void TutorialScene::keyPressEvent(QKeyEvent *event)
             } else {
                 m_mapaRegiones->close();
             }
-            m_mapaRegiones->raise();
         }
+
         if (!m_yaAbrioMapa) {
             m_yaAbrioMapa = true;
             if (m_instruccionMapaItem) {
@@ -516,4 +534,14 @@ if (m_mostrarMapaPendiente) {
         m_mostrarMapaPendiente = false;
     }
 }
+
+
+}
+
+bool TutorialScene::event(QEvent *event)
+{
+    if (event->type() == QEvent::FocusIn) {
+        qDebug() << "[FOCO] TutorialScene recibió el foco";
+    }
+    return QWidget::event(event);
 }

@@ -142,5 +142,7 @@
         <file>resources/intro_silencion.mp4</file>
         <file>resources/intro_raices.mp4</file>
         <file>resources/mapa.png</file>
+        <file>resources/mapaa.png</file>
+        <file>resources/mapa_centrado.png</file>
     </qresource>
 </RCC>

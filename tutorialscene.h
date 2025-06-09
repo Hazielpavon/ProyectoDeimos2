@@ -24,6 +24,7 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
     void mousePressEvent(QMouseEvent *event)override;
+    bool event(QEvent *event) override;
 private slots:
     void onFrame();
 private:
@@ -46,6 +47,7 @@ private:
     QGraphicsPixmapItem *m_jugadorItem;
     QGraphicsRectItem  *m_plataformaItem;
     QGraphicsRectItem  *m_sueloItem;
+    MapaWidget *m_mapaWidget = nullptr;
 
     static constexpr int WINDOW_WIDTH  = 950;
     static constexpr int WINDOW_HEIGHT = 650;

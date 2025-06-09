@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_ProyectDeimos2_FILE /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2)
+set(__QT_DEPLOY_TARGET_ProyectDeimos2_TYPE EXECUTABLE)
