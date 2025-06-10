@@ -6,6 +6,7 @@
 #include <QPixmap>
 #include <QImage>
 #include <algorithm>
+#include "mapawidget.h"
 
 // Constants
 static constexpr float WINDOW_W   = 950.0f;
@@ -41,7 +42,6 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad* jugador,
     , m_view(nullptr)
     , m_scene(new QGraphicsScene(this))
     , m_colManager(new ObjetosYColisiones(m_scene, this))
-    , m_mapaRegiones(nullptr)
     , m_playerItem(nullptr)
     , m_moveLeft(false)
     , m_moveRight(false)
@@ -52,6 +52,7 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad* jugador,
     , m_bgWidth(0)
     , m_bgHeight(0)
     , m_secondBgShown(false)
+    ,m_mapaRegiones(nullptr)
     , m_currentRegion("Raices Olvidadas")
 {
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
@@ -116,21 +117,18 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad* jugador,
         m_playerItem->setPos(footX, footY);
     }
 
-    // Mapa región (oculto)
-    m_mapaRegiones = new QLabel(this);
-    QPixmap mapImg(":/resources/Regiones.png");
-    if (!mapImg.isNull()) {
-        m_mapaRegiones->setPixmap(mapImg.scaled(400,300,
-                                                Qt::KeepAspectRatio,
-                                                Qt::SmoothTransformation));
-        m_mapaRegiones->setStyleSheet(
-            "background-color: rgba(0,0,0,180);"
-            "border: 2px solid white;");
-    }
-    m_mapaRegiones->setGeometry((WINDOW_W - 400.0f)/2.0f,
-                                (WINDOW_H - 300.0f)/2.0f,
-                                400,300);
-    m_mapaRegiones->hide();
+    m_mapaRegiones = new MapaWidget("Raices Olvidadas", this);  // ✅ Orden correcto
+    m_mapaRegiones->setWindowModality(Qt::NonModal);  // ← para que no bloquee
+    m_mapaRegiones->setFocusPolicy(Qt::NoFocus);      // ← que no robe el foco
+    m_mapaRegiones->setAttribute(Qt::WA_ShowWithoutActivating);
+
+    this->activateWindow();
+    this->setFocus(Qt::OtherFocusReason);
+
+    connect(m_mapaRegiones, &MapaWidget::mapaCerrado, this, [this]() {
+        activateWindow();
+        setFocus(Qt::OtherFocusReason);
+    });
 
     connect(m_timer, &QTimer::timeout,
             this, &NivelRaicesOlvidadas::onFrame);
@@ -150,6 +148,15 @@ void NivelRaicesOlvidadas::keyPressEvent(QKeyEvent* event)
             auto state = vx > 0.0f ? SpriteState::Slidding
                                    : SpriteState::SliddingLeft;
             m_player->reproducirAnimacionTemporal(state,0.5f);
+        }
+        break;
+    case Qt::Key_M:
+        if (m_mapaRegiones) {
+            if (!m_mapaRegiones->isVisible()) {
+                m_mapaRegiones->show();
+            } else {
+                m_mapaRegiones->close();
+            }
         }
         break;
     default:

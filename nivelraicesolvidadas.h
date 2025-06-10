@@ -9,6 +9,7 @@
 #include <QLabel>
 #include "entidad.h"
 #include "ObjetosYColisiones.h"
+#include "mapawidget.h"
 
 class MainWindow;
 
@@ -35,8 +36,9 @@ private:
     QGraphicsView*        m_view;
     QGraphicsScene*       m_scene;
     ObjetosYColisiones*   m_colManager;
-    QLabel*               m_mapaRegiones;
+    // QLabel*               m_mapaRegiones;
     QGraphicsPixmapItem*  m_playerItem;
+    MapaWidget* m_mapaRegiones;
 
     bool                  m_moveLeft;
     bool                  m_moveRight;
