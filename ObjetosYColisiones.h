@@ -1,9 +1,11 @@
-// ObjetosYColisiones.h
-#pragma once
+#ifndef OBJETOSYCOLISIONES_H
+#define OBJETOSYCOLISIONES_H
 
 #include <QObject>
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
+#include <QColor>
+#include <QRectF>
 #include <vector>
 
 class entidad;
@@ -15,12 +17,18 @@ public:
     explicit ObjetosYColisiones(QGraphicsScene* scene, QObject* parent = nullptr);
 
     QGraphicsRectItem* addRect(const QRectF& area,
-                               const QColor& color = QColor(80,80,80),
-                               bool collisionOnly = false);
-    void resolveCollisions(entidad* player, float dt);
+                               const QColor& color,
+                               bool collisionOnly);
+
+    // Ahora el hitbox usa pixSize.width() y pixSize.height() sin escalado
+    void resolveCollisions(entidad* player,
+                           const QSize& pixSize,
+                           float dt);
 
 private:
-    struct Objeto { QGraphicsRectItem* visual; QGraphicsRectItem* hitbox; };
-    std::vector<Objeto> m_objetos;
-    QGraphicsScene*     m_scene;
+    struct Obj { QGraphicsRectItem* vis; QGraphicsRectItem* hitbox; };
+    std::vector<Obj> m_objetos;
+    QGraphicsScene*  m_scene;
 };
+
+#endif // OBJETOSYCOLISIONES_H

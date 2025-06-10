@@ -1,36 +1,25 @@
-#ifndef JUGADOR_H
-#define JUGADOR_H
-
-#include <vector>
-#include <any>
+#pragma once
 #include "entidad.h"
+#include <QPainter>
+#include <QString>
+#include <QSet>
 
-class Jugador
+class Jugador : public entidad
 {
 public:
     Jugador();
 
-    entidad&       getVida()       { return vida; }
-    const entidad& getVida() const { return vida; }
+    // Inventario de llaves
+    void addKey(const QString &keyId);
+    bool hasKey(const QString &keyId) const;
+    void useKey(const QString &keyId);
 
-    std::vector<std::any>&       getObjetos()       { return objetos; }
-    const std::vector<std::any>& getObjetos() const { return objetos; }
+    // Override aplicación de daño para disparar animación de muerte
+    void aplicarDano(int dmg);
 
-    std::vector<std::any>&       getLlaves()       { return llaves; }
-    const std::vector<std::any>& getLlaves() const { return llaves; }
-
-    // métodos genéricos para agregar
-    template<typename T>
-    void agregarObjeto(const T& obj) { objetos.push_back(obj); }
-
-    template<typename T>
-    void agregarLlave(const T& llave) { llaves.push_back(llave); }
-
+    // Dibuja la HUD (barra de vida) en la esquina superior izquierda
+    void drawHUD(QPainter &painter, const QRect &viewportRect) const;
 
 private:
-    entidad               vida;
-    std::vector<std::any> objetos;
-    std::vector<std::any> llaves;
+    QSet<QString>  m_keys;
 };
-
-#endif // JUGADOR_H

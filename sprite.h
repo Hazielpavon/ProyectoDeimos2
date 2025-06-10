@@ -18,7 +18,9 @@ enum class SpriteState {
     Slashing,
     SlashingLeft,
     Slidding,
-    SliddingLeft
+    SliddingLeft,
+    dead,
+    deadleft
 };
 
 class Sprite

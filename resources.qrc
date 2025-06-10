@@ -144,5 +144,21 @@
         <file>resources/mapa.png</file>
         <file>resources/mapaa.png</file>
         <file>resources/mapa_centrado.png</file>
+        <file>resources/raices_olvidadas2.png</file>
+        <file>resources/0_Blood_Demon_Dying_000.png</file>
+        <file>resources/0_Blood_Demon_Dying_001.png</file>
+        <file>resources/0_Blood_Demon_Dying_002.png</file>
+        <file>resources/0_Blood_Demon_Dying_003.png</file>
+        <file>resources/0_Blood_Demon_Dying_004.png</file>
+        <file>resources/0_Blood_Demon_Dying_005.png</file>
+        <file>resources/0_Blood_Demon_Dying_006.png</file>
+        <file>resources/0_Blood_Demon_Dying_007.png</file>
+        <file>resources/0_Blood_Demon_Dying_008.png</file>
+        <file>resources/0_Blood_Demon_Dying_009.png</file>
+        <file>resources/0_Blood_Demon_Dying_010.png</file>
+        <file>resources/0_Blood_Demon_Dying_011.png</file>
+        <file>resources/0_Blood_Demon_Dying_012.png</file>
+        <file>resources/0_Blood_Demon_Dying_013.png</file>
+        <file>resources/0_Blood_Demon_Dying_014.png</file>
     </qresource>
 </RCC>

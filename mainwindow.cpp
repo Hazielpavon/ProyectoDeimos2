@@ -8,6 +8,7 @@
 #include <QDebug>
 #include "nivelraicesolvidadas.h"
 #include "videointro.h"
+#include "jugador.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -32,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
             connect(menuOpciones, &MenuOpciones::nuevaPartida, this, [=]() {
                 pantallaCarga = new PantallaCarga(this);
                 connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
-                    m_player = new entidad();
+                    m_player = new Jugador();
                     m_player->sprite().loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",24);
                     m_player->sprite().loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",16);
                     m_player->sprite().loadFrames(SpriteState::IdleLeft,":/resources/0_Blood_Demon_IdleL_",16);
@@ -45,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->sprite().generateMirroredFrames(SpriteState::Slashing,  SpriteState::SlashingLeft);
                     m_player->sprite().loadFrames(SpriteState::Slidding,":/resources/0_Blood_Demon_Sliding_",6);
                     m_player->sprite().generateMirroredFrames(SpriteState::Slidding,  SpriteState::SliddingLeft);
+                    m_player->sprite().loadFrames(SpriteState::dead,":/resources/0_Blood_Demon_Dying_",15);
+                    m_player->sprite().generateMirroredFrames(SpriteState::dead,  SpriteState::deadleft);
                     m_player->sprite().setSize(128, 128);
                     float centerX = width()  / 2.0f;
                     float centerY = height() / 2.0f;

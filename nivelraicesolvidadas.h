@@ -1,25 +1,23 @@
-// nivelraicesolvidadas.h
 #pragma once
-
 #include <QWidget>
 #include <QTimer>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
-#include <QLabel>
-#include "entidad.h"
+#include <QGraphicsRectItem>
 #include "ObjetosYColisiones.h"
-#include "mapawidget.h"
+#include "entidad.h"
 
 class MainWindow;
+class MapaWidget;
 
 class NivelRaicesOlvidadas : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NivelRaicesOlvidadas(entidad* jugador,
-                                  MainWindow* mainWindow,
-                                  QWidget* parent = nullptr);
+    NivelRaicesOlvidadas(entidad* jugador,
+                         MainWindow* mainWindow,
+                         QWidget* parent = nullptr);
 
 protected:
     void keyPressEvent(QKeyEvent* event) override;
@@ -30,25 +28,30 @@ private slots:
     void onFrame();
 
 private:
-    entidad*              m_player;
-    MainWindow*           m_mainWindow;
-    QTimer*               m_timer;
-    QGraphicsView*        m_view;
-    QGraphicsScene*       m_scene;
-    ObjetosYColisiones*   m_colManager;
-    // QLabel*               m_mapaRegiones;
-    QGraphicsPixmapItem*  m_playerItem;
-    MapaWidget* m_mapaRegiones;
+    QPointF m_spawnPos;
+    bool m_deathScheduled = false;
+     QGraphicsPixmapItem* m_bg2Item;
+    static constexpr int HUD_W      = 350;
+    static constexpr int HUD_H      = 35;
+    static constexpr int HUD_MARGIN = 10;
+    QGraphicsRectItem* m_hudBorder = nullptr;
+    QGraphicsRectItem* m_hudBar    = nullptr;
+    QGraphicsTextItem* m_hudText   = nullptr;
+    entidad*             m_player;
+    MainWindow*          m_mainWindow;
+    QTimer*              m_timer;
+    QGraphicsView*       m_view;
+    QGraphicsScene*      m_scene;
+    ObjetosYColisiones*  m_colManager;
+    QGraphicsPixmapItem* m_playerItem;
+    QGraphicsRectItem*   m_debugBox;   // ← nuestra caja roja
 
-    bool                  m_moveLeft;
-    bool                  m_moveRight;
-    bool                  m_run;
-    bool                  m_jumpRequested;
-
-    float                 m_dt;
-    int                   m_repeatCount;
-    int                   m_bgWidth;
-    int                   m_bgHeight;
-    bool                  m_secondBgShown;
-    QString               m_currentRegion;
+    // estados de entrada
+    bool m_moveLeft, m_moveRight, m_run, m_jumpRequested;
+    float m_dt;
+    int   m_repeatCount;
+    int   m_bgWidth, m_bgHeight;
+    bool  m_secondBgShown;
+    MapaWidget*         m_mapaRegiones;
+    QString             m_currentRegion;
 };
