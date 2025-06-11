@@ -989,12 +989,14 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
   /opt/homebrew/include/QtGui/qpainterpath.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
-  /opt/homebrew/include/QtGui/qpicture.h \
-  /opt/homebrew/include/QtCore/qiodevice.h \
-  /opt/homebrew/include/QtGui/qtextdocument.h \
-  /opt/homebrew/include/QtCore/qurl.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+  /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
+  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QColor \
+  /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
+  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
   /Users/anavalle/Documents/ProyectoDeimos2/entidad.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPointF \
   /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h \
@@ -1015,14 +1017,25 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QObject \
-  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
   /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QList \
+  /opt/homebrew/lib/QtCore.framework/Headers/qlist.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h \
+  /opt/homebrew/include/QtGui/qpicture.h \
+  /opt/homebrew/include/QtCore/qiodevice.h \
+  /opt/homebrew/include/QtGui/qtextdocument.h \
+  /opt/homebrew/include/QtCore/qurl.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h \
+  /opt/homebrew/include/QtWidgets/qabstractbutton.h \
   /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPair \
   /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QPen \
+  /opt/homebrew/lib/QtGui.framework/Headers/qpen.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QFont \
+  /opt/homebrew/lib/QtGui.framework/Headers/qfont.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
   /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent \
@@ -1049,4 +1062,7 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /opt/homebrew/include/QtGui/qguiapplication_platform.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QMouseEvent \
   /opt/homebrew/lib/QtGui.framework/Headers/QImage \
-  /opt/homebrew/lib/QtGui.framework/Headers/qimage.h
+  /opt/homebrew/lib/QtGui.framework/Headers/qimage.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/jugador.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QSet \
+  /opt/homebrew/lib/QtCore.framework/Headers/qset.h

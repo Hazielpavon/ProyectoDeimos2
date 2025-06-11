@@ -1038,6 +1038,10 @@ CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o: \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
   /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QList \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h \
+  /opt/homebrew/include/QtWidgets/qabstractbutton.h \
   /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPair \
   /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
@@ -1047,6 +1051,10 @@ CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QObject \
+  /opt/homebrew/lib/QtGui.framework/Headers/QColor \
+  /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
+  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
   /Users/anavalle/Documents/ProyectoDeimos2/mainwindow.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \

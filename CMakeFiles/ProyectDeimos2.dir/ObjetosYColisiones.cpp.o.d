@@ -963,6 +963,10 @@ CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o: \
   /opt/homebrew/include/QtCore/qhash.h \
   /opt/homebrew/include/QtCore/qvarlengtharray.h \
   /opt/homebrew/include/QtGui/qpainterpath.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QColor \
+  /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
+  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
   /Users/anavalle/Documents/ProyectoDeimos2/entidad.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPointF \
   /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h \
@@ -986,4 +990,6 @@ CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o: \
   /opt/homebrew/include/QtGui/qtextoption.h \
   /opt/homebrew/include/QtGui/qfontinfo.h \
   /opt/homebrew/include/QtGui/qfontvariableaxis.h \
-  /opt/homebrew/include/QtGui/qfontmetrics.h
+  /opt/homebrew/include/QtGui/qfontmetrics.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h

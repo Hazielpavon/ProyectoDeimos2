@@ -254,7 +254,7 @@ void TutorialScene::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Space:
         m_saltoSolicitado = true;
         break;
-    case Qt::Key_Tab:
+    case Qt::Key_M:
         if (m_mapaRegiones) {
             if (!m_mapaRegiones->isVisible()) {
                 m_mapaRegiones->show();

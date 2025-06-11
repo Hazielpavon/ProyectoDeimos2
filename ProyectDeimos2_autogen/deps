@@ -815,6 +815,7 @@ ProyectDeimos2_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect \
+	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString \
@@ -959,6 +960,7 @@ ProyectDeimos2_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
+	/opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter \

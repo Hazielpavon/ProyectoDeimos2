@@ -79,8 +79,11 @@ ProyectDeimos2_autogen/timestamp: CMakeFiles/ProyectDeimos2.dir/compiler_depend.
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources.qrc
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: CMakeFiles/ProyectDeimos2_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_003.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_011.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_002.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_006.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_014.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_012.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_016.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_010.png
@@ -91,6 +94,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idl
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_009.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_011.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_014.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_012.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_003.png
@@ -100,10 +104,12 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/correr.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_017.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sliding_005.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_016.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_018.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_006.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_003.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_013.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sliding_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_020.png
@@ -119,6 +125,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idl
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_023.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_008.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_020.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_008.png
@@ -130,6 +137,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Run
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/mapa.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_008.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_003.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/intro_raices.mp4
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_001.png
@@ -138,6 +146,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idl
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_011.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_010.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_009.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_012.png
@@ -152,9 +161,11 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Wal
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_013.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Regiones.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_021.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_015.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_015.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/raices_olvidadas2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_015.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_002.png
@@ -168,6 +179,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sli
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_002.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_000.png
@@ -180,9 +192,11 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sla
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sliding_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_011.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_005.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_022.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_011.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_009.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_019.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_014.png
@@ -204,6 +218,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Wal
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/golpear.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/raices_olvidadas.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/templo_silencio.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_013.png
@@ -219,6 +234,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/mapa_centrado.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_015.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_023.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_012.png

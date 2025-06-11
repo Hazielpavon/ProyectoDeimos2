@@ -1061,6 +1061,7 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o: \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsScene \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
   /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QList \
   /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPair \
   /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
@@ -1069,6 +1070,10 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QObject \
+  /opt/homebrew/lib/QtGui.framework/Headers/QColor \
+  /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
+  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
   /Users/anavalle/Documents/ProyectoDeimos2/videointro.h \
   /opt/homebrew/lib/QtMultimedia.framework/Headers/QMediaPlayer \
   /opt/homebrew/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
@@ -1082,4 +1087,7 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o: \
   /opt/homebrew/include/QtMultimediaWidgets/qtmultimediawidgetsglobal.h \
   /opt/homebrew/include/QtMultimediaWidgets/qtmultimediawidgetsexports.h \
   /opt/homebrew/lib/QtMultimedia.framework/Headers/QAudioOutput \
-  /opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h
+  /opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/jugador.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QSet \
+  /opt/homebrew/lib/QtCore.framework/Headers/qset.h
