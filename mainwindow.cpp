@@ -9,6 +9,7 @@
 #include "nivelraicesolvidadas.h"
 #include "videointro.h"
 #include "jugador.h"
+#include "niveltorredelamarca.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -68,9 +69,15 @@ MainWindow::MainWindow(QWidget *parent)
                            // tutorial->setFocus();
 
 
-                    NivelRaicesOlvidadas *n = new NivelRaicesOlvidadas(m_player, this);
+                   // NivelRaicesOlvidadas *n = new NivelRaicesOlvidadas(m_player, this);
+                   // mostrarPantalla(n);
+                   // n->setFocus();
+
+
+                    niveltorredelamarca *n = new niveltorredelamarca(m_player, this);
                     mostrarPantalla(n);
                     n->setFocus();
+
                         });
 
                 //         mostrarPantalla(segundoVideo);

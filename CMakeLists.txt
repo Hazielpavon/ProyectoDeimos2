@@ -60,6 +60,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         nivelraicesolvidadas.h nivelraicesolvidadas.cpp
         mapawidget.h mapawidget.cpp
         grafomapa.h grafomapa.cpp
+        niveltorredelamarca.h niveltorredelamarca.cpp
+        resources/Torre_De_La_Marca.png resources/Torre_De_La_Marca2.png
+
 
     )
 else()

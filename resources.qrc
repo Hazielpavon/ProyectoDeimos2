@@ -160,5 +160,7 @@
         <file>resources/0_Blood_Demon_Dying_012.png</file>
         <file>resources/0_Blood_Demon_Dying_013.png</file>
         <file>resources/0_Blood_Demon_Dying_014.png</file>
+        <file>resources/Torre_De_La_Marca.png</file>
+        <file>resources/Torre_De_La_Marca2.png</file>
     </qresource>
 </RCC>
