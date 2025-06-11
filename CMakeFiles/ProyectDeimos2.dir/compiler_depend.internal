@@ -820,6 +820,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -964,6 +965,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -2193,6 +2195,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -2337,6 +2340,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -3566,6 +3570,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -3710,6 +3715,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -4939,6 +4945,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -5083,6 +5090,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -6312,6 +6320,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -6456,6 +6465,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -7685,6 +7695,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -7829,6 +7840,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -9058,6 +9070,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -9202,6 +9215,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -10431,6 +10445,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -10575,6 +10590,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -11804,6 +11820,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -11948,6 +11965,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -13177,6 +13195,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -13321,6 +13340,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -14550,6 +14570,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -14694,6 +14715,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -15923,6 +15945,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPointF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRect
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSizeF
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QString
@@ -16067,6 +16090,7 @@
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h
+ /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent
  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter
@@ -17447,21 +17471,27 @@ CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o
  /opt/homebrew/include/QtWidgets/qtwidgets-config.h
  /opt/homebrew/include/QtWidgets/qtwidgetsexports.h
  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h
+ /opt/homebrew/lib/QtCore.framework/Headers/QDebug
  /opt/homebrew/lib/QtCore.framework/Headers/QMap
  /opt/homebrew/lib/QtCore.framework/Headers/QObject
  /opt/homebrew/lib/QtCore.framework/Headers/QPoint
  /opt/homebrew/lib/QtCore.framework/Headers/QPointF
+ /opt/homebrew/lib/QtCore.framework/Headers/QRectF
  /opt/homebrew/lib/QtCore.framework/Headers/QSize
  /opt/homebrew/lib/QtCore.framework/Headers/QString
  /opt/homebrew/lib/QtCore.framework/Headers/QVector
+ /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h
  /opt/homebrew/lib/QtCore.framework/Headers/qmap.h
  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qrect.h
  /opt/homebrew/lib/QtCore.framework/Headers/qsize.h
  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h
  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h
+ /opt/homebrew/lib/QtGui.framework/Headers/QColor
  /opt/homebrew/lib/QtGui.framework/Headers/QPainter
  /opt/homebrew/lib/QtGui.framework/Headers/QPixmap
+ /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem
@@ -18518,11 +18548,13 @@ CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o
  /opt/homebrew/include/QtWidgets/qtwidgetsexports.h
  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h
  /opt/homebrew/include/QtWidgets/qwidget.h
+ /opt/homebrew/lib/QtCore.framework/Headers/QList
  /opt/homebrew/lib/QtCore.framework/Headers/QMap
  /opt/homebrew/lib/QtCore.framework/Headers/QObject
  /opt/homebrew/lib/QtCore.framework/Headers/QPair
  /opt/homebrew/lib/QtCore.framework/Headers/QPoint
  /opt/homebrew/lib/QtCore.framework/Headers/QPointF
+ /opt/homebrew/lib/QtCore.framework/Headers/QRectF
  /opt/homebrew/lib/QtCore.framework/Headers/QSize
  /opt/homebrew/lib/QtCore.framework/Headers/QString
  /opt/homebrew/lib/QtCore.framework/Headers/QTimer
@@ -18531,13 +18563,16 @@ CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o
  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qrect.h
  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h
  /opt/homebrew/lib/QtCore.framework/Headers/qtimer.h
  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h
+ /opt/homebrew/lib/QtGui.framework/Headers/QColor
  /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent
  /opt/homebrew/lib/QtGui.framework/Headers/QMouseEvent
  /opt/homebrew/lib/QtGui.framework/Headers/QPainter
  /opt/homebrew/lib/QtGui.framework/Headers/QPixmap
+ /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h
  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h
@@ -23273,12 +23308,14 @@ CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o
  /opt/homebrew/include/QtCore/qxptype_traits.h
  /opt/homebrew/include/QtCore/qyieldcpu.h
  /opt/homebrew/lib/QtCore.framework/Headers/QDebug
+ /opt/homebrew/lib/QtCore.framework/Headers/QList
  /opt/homebrew/lib/QtCore.framework/Headers/QMap
  /opt/homebrew/lib/QtCore.framework/Headers/QPair
  /opt/homebrew/lib/QtCore.framework/Headers/QPoint
  /opt/homebrew/lib/QtCore.framework/Headers/QString
  /opt/homebrew/lib/QtCore.framework/Headers/QVector
  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qlist.h
  /opt/homebrew/lib/QtCore.framework/Headers/qmap.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h
@@ -23475,7 +23512,6 @@ CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__charconv/traits.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/convert_to_timespec.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/duration.h
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/file_clock.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/high_resolution_clock.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/steady_clock.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/system_clock.h
@@ -23881,14 +23917,12 @@ CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__variant/monostate.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__verbose_abort
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/any
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/array
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/atomic
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/bit
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cctype
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cerrno
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/climits
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/clocale
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cmath
@@ -23907,7 +23941,6 @@ CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/errno.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/exception
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/execution
- /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/functional
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ios
@@ -24144,6 +24177,7 @@ CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o
  /opt/homebrew/include/QtCore/qgenericatomic.h
  /opt/homebrew/include/QtCore/qglobal.h
  /opt/homebrew/include/QtCore/qglobalstatic.h
+ /opt/homebrew/include/QtCore/qhash.h
  /opt/homebrew/include/QtCore/qhashfunctions.h
  /opt/homebrew/include/QtCore/qiodevicebase.h
  /opt/homebrew/include/QtCore/qiterable.h
@@ -24238,11 +24272,13 @@ CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o
  /opt/homebrew/lib/QtCore.framework/Headers/QMap
  /opt/homebrew/lib/QtCore.framework/Headers/QPoint
  /opt/homebrew/lib/QtCore.framework/Headers/QPointF
+ /opt/homebrew/lib/QtCore.framework/Headers/QSet
  /opt/homebrew/lib/QtCore.framework/Headers/QSize
  /opt/homebrew/lib/QtCore.framework/Headers/QString
  /opt/homebrew/lib/QtCore.framework/Headers/QVector
  /opt/homebrew/lib/QtCore.framework/Headers/qmap.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qset.h
  /opt/homebrew/lib/QtCore.framework/Headers/qsize.h
  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h
  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h
@@ -26096,6 +26132,7 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o
  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h
  /Users/anavalle/Documents/ProyectoDeimos2/entidad.h
  /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h
+ /Users/anavalle/Documents/ProyectoDeimos2/jugador.h
  /Users/anavalle/Documents/ProyectoDeimos2/mainwindow.h
  /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h
  /Users/anavalle/Documents/ProyectoDeimos2/menuopciones.h
@@ -26320,11 +26357,14 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o
  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h
  /opt/homebrew/include/QtWidgets/qwidget.h
  /opt/homebrew/lib/QtCore.framework/Headers/QDebug
+ /opt/homebrew/lib/QtCore.framework/Headers/QList
  /opt/homebrew/lib/QtCore.framework/Headers/QMap
  /opt/homebrew/lib/QtCore.framework/Headers/QObject
  /opt/homebrew/lib/QtCore.framework/Headers/QPair
  /opt/homebrew/lib/QtCore.framework/Headers/QPoint
  /opt/homebrew/lib/QtCore.framework/Headers/QPointF
+ /opt/homebrew/lib/QtCore.framework/Headers/QRectF
+ /opt/homebrew/lib/QtCore.framework/Headers/QSet
  /opt/homebrew/lib/QtCore.framework/Headers/QSize
  /opt/homebrew/lib/QtCore.framework/Headers/QString
  /opt/homebrew/lib/QtCore.framework/Headers/QTimer
@@ -26333,12 +26373,16 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o
  /opt/homebrew/lib/QtCore.framework/Headers/qmap.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qrect.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qset.h
  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h
  /opt/homebrew/lib/QtCore.framework/Headers/qtimer.h
  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h
+ /opt/homebrew/lib/QtGui.framework/Headers/QColor
  /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent
  /opt/homebrew/lib/QtGui.framework/Headers/QPainter
  /opt/homebrew/lib/QtGui.framework/Headers/QPixmap
+ /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h
  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h
@@ -27343,6 +27387,7 @@ CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o
  /opt/homebrew/include/QtGui/qpaintdevice.h
  /opt/homebrew/include/QtGui/qpalette.h
  /opt/homebrew/include/QtGui/qpen.h
+ /opt/homebrew/include/QtGui/qpicture.h
  /opt/homebrew/include/QtGui/qpixelformat.h
  /opt/homebrew/include/QtGui/qpixmap.h
  /opt/homebrew/include/QtGui/qpointingdevice.h
@@ -27352,6 +27397,7 @@ CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o
  /opt/homebrew/include/QtGui/qrgba64.h
  /opt/homebrew/include/QtGui/qscreen.h
  /opt/homebrew/include/QtGui/qscreen_platform.h
+ /opt/homebrew/include/QtGui/qtextdocument.h
  /opt/homebrew/include/QtGui/qtextoption.h
  /opt/homebrew/include/QtGui/qtgui-config.h
  /opt/homebrew/include/QtGui/qtguiexports.h
@@ -27360,11 +27406,15 @@ CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o
  /opt/homebrew/include/QtGui/qvector2d.h
  /opt/homebrew/include/QtGui/qvectornd.h
  /opt/homebrew/include/QtGui/qwindowdefs.h
+ /opt/homebrew/include/QtWidgets/qabstractbutton.h
+ /opt/homebrew/include/QtWidgets/qframe.h
  /opt/homebrew/include/QtWidgets/qsizepolicy.h
  /opt/homebrew/include/QtWidgets/qtwidgets-config.h
  /opt/homebrew/include/QtWidgets/qtwidgetsexports.h
  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h
+ /opt/homebrew/include/QtWidgets/qwidget.h
  /opt/homebrew/lib/QtCore.framework/Headers/QDebug
+ /opt/homebrew/lib/QtCore.framework/Headers/QList
  /opt/homebrew/lib/QtCore.framework/Headers/QMap
  /opt/homebrew/lib/QtCore.framework/Headers/QPair
  /opt/homebrew/lib/QtCore.framework/Headers/QPoint
@@ -27373,6 +27423,7 @@ CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o
  /opt/homebrew/lib/QtCore.framework/Headers/QTimer
  /opt/homebrew/lib/QtCore.framework/Headers/QVector
  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qlist.h
  /opt/homebrew/lib/QtCore.framework/Headers/qmap.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h
@@ -27386,7 +27437,11 @@ CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o
  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h
+ /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel
+ /opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton
  /opt/homebrew/lib/QtWidgets.framework/Headers/QWidget
+ /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h
+ /opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qwidget.h
 
 CMakeFiles/ProyectDeimos2.dir/menuopciones.cpp.o
@@ -29222,6 +29277,7 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o
  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h
  /Users/anavalle/Documents/ProyectoDeimos2/entidad.h
  /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h
+ /Users/anavalle/Documents/ProyectoDeimos2/jugador.h
  /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h
  /Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h
  /Users/anavalle/Documents/ProyectoDeimos2/sprite.h
@@ -29410,6 +29466,7 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o
  /opt/homebrew/include/QtGui/qvector2d.h
  /opt/homebrew/include/QtGui/qvectornd.h
  /opt/homebrew/include/QtGui/qwindowdefs.h
+ /opt/homebrew/include/QtWidgets/qabstractbutton.h
  /opt/homebrew/include/QtWidgets/qabstractscrollarea.h
  /opt/homebrew/include/QtWidgets/qframe.h
  /opt/homebrew/include/QtWidgets/qgraphicsscene.h
@@ -29420,43 +29477,57 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o
  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h
  /opt/homebrew/include/QtWidgets/qwidget.h
  /opt/homebrew/lib/QtCore.framework/Headers/QDebug
+ /opt/homebrew/lib/QtCore.framework/Headers/QList
  /opt/homebrew/lib/QtCore.framework/Headers/QMap
  /opt/homebrew/lib/QtCore.framework/Headers/QObject
  /opt/homebrew/lib/QtCore.framework/Headers/QPair
  /opt/homebrew/lib/QtCore.framework/Headers/QPoint
  /opt/homebrew/lib/QtCore.framework/Headers/QPointF
+ /opt/homebrew/lib/QtCore.framework/Headers/QRectF
+ /opt/homebrew/lib/QtCore.framework/Headers/QSet
  /opt/homebrew/lib/QtCore.framework/Headers/QSize
  /opt/homebrew/lib/QtCore.framework/Headers/QString
  /opt/homebrew/lib/QtCore.framework/Headers/QTimer
  /opt/homebrew/lib/QtCore.framework/Headers/QVector
  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qlist.h
  /opt/homebrew/lib/QtCore.framework/Headers/qmap.h
  /opt/homebrew/lib/QtCore.framework/Headers/qobject.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qrect.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qset.h
  /opt/homebrew/lib/QtCore.framework/Headers/qsize.h
  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h
  /opt/homebrew/lib/QtCore.framework/Headers/qtimer.h
  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h
+ /opt/homebrew/lib/QtGui.framework/Headers/QColor
+ /opt/homebrew/lib/QtGui.framework/Headers/QFont
  /opt/homebrew/lib/QtGui.framework/Headers/QImage
  /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent
  /opt/homebrew/lib/QtGui.framework/Headers/QMouseEvent
  /opt/homebrew/lib/QtGui.framework/Headers/QPainter
+ /opt/homebrew/lib/QtGui.framework/Headers/QPen
  /opt/homebrew/lib/QtGui.framework/Headers/QPixmap
+ /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h
  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h
+ /opt/homebrew/lib/QtGui.framework/Headers/qfont.h
  /opt/homebrew/lib/QtGui.framework/Headers/qimage.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h
+ /opt/homebrew/lib/QtGui.framework/Headers/qpen.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem
  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem
  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsScene
  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsView
  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel
+ /opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton
  /opt/homebrew/lib/QtWidgets.framework/Headers/QWidget
  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsscene.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsview.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h
+ /opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qwidget.h
 
 CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o
@@ -34317,6 +34388,7 @@ CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o
  /opt/homebrew/include/QtGui/qvector2d.h
  /opt/homebrew/include/QtGui/qvectornd.h
  /opt/homebrew/include/QtGui/qwindowdefs.h
+ /opt/homebrew/include/QtWidgets/qabstractbutton.h
  /opt/homebrew/include/QtWidgets/qabstractscrollarea.h
  /opt/homebrew/include/QtWidgets/qframe.h
  /opt/homebrew/include/QtWidgets/qgraphicsscene.h
@@ -34328,11 +34400,13 @@ CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o
  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h
  /opt/homebrew/include/QtWidgets/qwidget.h
  /opt/homebrew/lib/QtCore.framework/Headers/QDebug
+ /opt/homebrew/lib/QtCore.framework/Headers/QList
  /opt/homebrew/lib/QtCore.framework/Headers/QMap
  /opt/homebrew/lib/QtCore.framework/Headers/QObject
  /opt/homebrew/lib/QtCore.framework/Headers/QPair
  /opt/homebrew/lib/QtCore.framework/Headers/QPoint
  /opt/homebrew/lib/QtCore.framework/Headers/QPointF
+ /opt/homebrew/lib/QtCore.framework/Headers/QRectF
  /opt/homebrew/lib/QtCore.framework/Headers/QSize
  /opt/homebrew/lib/QtCore.framework/Headers/QString
  /opt/homebrew/lib/QtCore.framework/Headers/QTimer
@@ -34341,12 +34415,15 @@ CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o
  /opt/homebrew/lib/QtCore.framework/Headers/qmap.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h
  /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h
+ /opt/homebrew/lib/QtCore.framework/Headers/qrect.h
  /opt/homebrew/lib/QtCore.framework/Headers/qstring.h
  /opt/homebrew/lib/QtCore.framework/Headers/qtimer.h
  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h
+ /opt/homebrew/lib/QtGui.framework/Headers/QColor
  /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent
  /opt/homebrew/lib/QtGui.framework/Headers/QPainter
  /opt/homebrew/lib/QtGui.framework/Headers/QPixmap
+ /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h
  /opt/homebrew/lib/QtGui.framework/Headers/qevent.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h
  /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h
@@ -34357,12 +34434,14 @@ CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o
  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsView
  /opt/homebrew/lib/QtWidgets.framework/Headers/QLabel
  /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow
+ /opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton
  /opt/homebrew/lib/QtWidgets.framework/Headers/QWidget
  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsscene.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsview.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qlabel.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h
+ /opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h
  /opt/homebrew/lib/QtWidgets.framework/Headers/qwidget.h
 
 CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o

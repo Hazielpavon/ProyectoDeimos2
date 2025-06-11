@@ -15,7 +15,7 @@ void GrafoMapa::conectar(const QString &origen, const QString &destino, int peso
 {
     if (m_grafo.contains(origen) && m_grafo.contains(destino)) {
         m_grafo[origen].append(qMakePair(destino, peso));
-        m_grafo[destino].append(qMakePair(origen, peso)); // bidireccional
+        m_grafo[destino].append(qMakePair(origen, peso));
     }
 }
 
@@ -28,15 +28,49 @@ void GrafoMapa::cargarRegiones()
     agregarRegion("Máquina del Olvido", QPoint(613, 288));
     agregarRegion("Mente Vacía", QPoint(618, 402));
 
+    agregarRutaManual("Templo del Silencio", "Ciudad Inversa", {
+        QPoint(150, 260), QPoint(180, 270),QPoint(190, 270), QPoint(200, 275),QPoint(210, 280),QPoint(230, 280), QPoint(250, 290),
+          QPoint(270, 295),QPoint(285, 300), QPoint(300, 260)
+    });
+
+    agregarRutaManual("Templo del Silencio", "Raices Olvidadas", {
+        QPoint(150, 260), QPoint(180, 270),QPoint(190, 270), QPoint(200, 275),QPoint(210, 280),QPoint(230, 280), QPoint(250, 290),
+        QPoint(270, 295),QPoint(285, 300), QPoint(285, 305),QPoint(280, 310), QPoint(275, 315), QPoint(270, 320),  QPoint(250, 340),
+         QPoint(225, 355),QPoint(210, 365), QPoint(195, 370), QPoint(190, 380), QPoint(180, 390),QPoint(170, 390),   QPoint(150, 400)
+     });
+
+
+    agregarRutaManual("Raices Olvidadas", "Torre de la Marca", {
+        QPoint(150, 400), QPoint(170, 390), QPoint(180, 390), QPoint(190, 380),QPoint(195, 370),QPoint(210, 365), QPoint(225, 355),
+        QPoint(235, 355),QPoint(245, 358), QPoint(255, 360),QPoint(270, 370), QPoint(290, 385), QPoint(305, 395), QPoint(320, 400),
+         QPoint(340, 395), QPoint(350, 385),    QPoint(360, 380)
+     });
+
+
+     agregarRutaManual("Ciudad Inversa", "Máquina del Olvido", {
+    QPoint(300, 260), QPoint(310, 260),  QPoint(320, 255), QPoint(340, 250), QPoint(350, 250), QPoint(370, 258),QPoint(400, 274),
+     QPoint(420, 288), QPoint(440, 305), QPoint(460, 315),QPoint(470, 320),QPoint(490, 290),QPoint(500, 280), QPoint(510, 280), QPoint(530, 288)
+    });
+
+    agregarRutaManual("Máquina del Olvido", "Mente Vacía", {
+        QPoint(530, 288),  QPoint(510, 280), QPoint(500, 280), QPoint(490, 290),QPoint(470, 320),QPoint(490, 330),QPoint(505, 335),
+                                                             QPoint(510, 340)
+});
+    agregarRutaManual("Torre de la Marca", "Mente Vacía", {
+         QPoint(380, 380), QPoint(390, 380),QPoint(400, 390), QPoint(410, 395), QPoint(430, 410),  QPoint(450, 420), QPoint(470, 420),
+         QPoint(490, 420), QPoint(505, 410),  QPoint(520, 400)
+   });
+
 }
 
 void GrafoMapa::conectarRegiones()
 {
-    conectar("Templo del Silencio", "Torre de la Marca", 2);
-    conectar("Torre de la Marca", "Máquina del Olvido", 3);
-    conectar("Máquina del Olvido", "Pozo de los Caídos", 4);
-    conectar("Pozo de los Caídos", "Raíces Olvidadas", 2);
-    conectar("Raíces Olvidadas", "Ciudad Inversa", 5);
+    conectar("Templo del Silencio", "Ciudad Inversa", 2);
+    conectar("Templo del Silencio", "Raices Olvidadas", 2);
+    conectar("Raices Olvidadas", "Torre de la Marca", 2);
+    conectar("Ciudad Inversa", "Máquina del Olvido", 2);
+    conectar("Máquina del Olvido", "Mente Vacía", 2);
+    conectar("Torre de la Marca", "Mente Vacía", 2);
 }
 
 QList<QString> GrafoMapa::rutaMasCorta(const QString &inicio, const QString &fin)
@@ -99,4 +133,55 @@ std::optional<QPoint> GrafoMapa::posicion(const QString &region) const
         return m_posiciones[region];
     }
     return std::nullopt;
+}
+
+QList<QPair<QString, QString>> GrafoMapa::conexionesVisibles() const {
+    QList<QPair<QString, QString>> conexiones;
+
+    for (auto it = m_grafo.begin(); it != m_grafo.end(); ++it) {
+        const QString &origen = it.key();
+        for (const auto &dest : it.value()) {
+            const QString &destino = dest.first;
+            if (origen < destino) {
+                conexiones.append(qMakePair(origen, destino));
+            }
+        }
+    }
+
+    return conexiones;
+}
+
+QList<QString> GrafoMapa::vecinosDe(const QString &region) const {
+    QList<QString> vecinos;
+    if (m_grafo.contains(region)) {
+        for (const auto &par : m_grafo[region]) {
+            vecinos.append(par.first);
+        }
+    }
+    return vecinos;
+}
+
+QVector<QString> GrafoMapa::conexionesDesde(const QString &region) const {
+    QVector<QString> conexiones;
+    if (m_grafo.contains(region)) {
+        for (const auto &par : m_grafo[region]) {
+            conexiones.append(par.first);
+        }
+    }
+    return conexiones;
+}
+
+void GrafoMapa::agregarRutaManual(const QString &origen, const QString &destino, const QVector<QPoint> &puntos)
+{
+    m_rutasManuales[qMakePair(origen, destino)] = puntos;
+    m_rutasManuales[qMakePair(destino, origen)] = puntos;
+}
+
+QVector<QPoint> GrafoMapa::rutaManual(const QString &origen, const QString &destino) const
+{
+    auto clave = qMakePair(origen, destino);
+    if (m_rutasManuales.contains(clave)) {
+        return m_rutasManuales.value(clave);
+    }
+    return {};
 }

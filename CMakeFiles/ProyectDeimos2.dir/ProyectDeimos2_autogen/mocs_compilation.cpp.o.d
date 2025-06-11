@@ -964,6 +964,10 @@ CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o: \
   /opt/homebrew/include/QtCore/qhash.h \
   /opt/homebrew/include/QtCore/qvarlengtharray.h \
   /opt/homebrew/include/QtGui/qpainterpath.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QColor \
+  /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
+  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
   /opt/homebrew/include/QtCore/qtmochelpers.h \
   /opt/homebrew/include/QtCore/qtmocconstants.h \
   /opt/homebrew/include/QtCore/q20algorithm.h \
@@ -1049,14 +1053,15 @@ CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o: \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/moc_mapawidget.cpp \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/../../mapawidget.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QList \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h \
+  /opt/homebrew/include/QtWidgets/qabstractbutton.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/../../grafomapa.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPair \
   /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/moc_menuopciones.cpp \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/../../menuopciones.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QPushButton \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qpushbutton.h \
-  /opt/homebrew/include/QtWidgets/qabstractbutton.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/moc_nivelraicesolvidadas.cpp \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/../../nivelraicesolvidadas.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsView \
