@@ -1,11 +1,25 @@
-#ifndef JUGADOR_H
-#define JUGADOR_H
+#pragma once
+#include "entidad.h"
+#include <QPainter>
+#include <QString>
+#include <QSet>
 
-class Jugador
+class Jugador : public entidad
 {
 public:
     Jugador();
 
-};
+    // Inventario de llaves
+    void addKey(const QString &keyId);
+    bool hasKey(const QString &keyId) const;
+    void useKey(const QString &keyId);
 
-#endif // JUGADOR_H
+    // Override aplicación de daño para disparar animación de muerte
+    void aplicarDano(int dmg);
+
+    // Dibuja la HUD (barra de vida) en la esquina superior izquierda
+    void drawHUD(QPainter &painter, const QRect &viewportRect) const;
+
+private:
+    QSet<QString>  m_keys;
+};

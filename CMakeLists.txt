@@ -27,10 +27,10 @@ set(PROJECT_SOURCES
     menuopciones.cpp
     entidad.h
     entidad.cpp
+    ObjetosYColisiones.cpp
 
 
-
-
+    ObjetosYColisiones.h
     tranformacion.h
     tranformacion.cpp
     sprite.h
@@ -59,6 +59,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         tutorialscene.h tutorialscene.cpp
         nivelraicesolvidadas.h nivelraicesolvidadas.cpp
         mapawidget.h mapawidget.cpp
+        grafomapa.h grafomapa.cpp
 
     )
 else()

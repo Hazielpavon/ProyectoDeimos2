@@ -1,40 +1,81 @@
-#include "mapawindow.h"
-#include <QGraphicsPixmapItem>
-#include <QScrollBar>
+#include "mapawidget.h"
+#include <QPainter>
+#include <QKeyEvent>
 #include <QDebug>
 
-MapaWindow::MapaWindow(QWidget *parent)
-    : QMainWindow(parent)
+MapaWidget::MapaWidget(const QString &regionInicial, QWidget *parent)
+    : QWidget(parent),
+    m_jugadorSprite(new Sprite),
+    m_timer(new QTimer(this)),
+    m_regionActual(regionInicial)
 {
-    setFixedSize(950, 650); // Tamaño de ventana como el juego
+    setFixedSize(950, 650);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+    setAttribute(Qt::WA_TranslucentBackground);
 
-    scene = new QGraphicsScene(this);
-
-    QPixmap fondo(":/resources/mapa_regiones.png");
-    if (fondo.isNull()) {
-        qDebug() << "No se cargó la imagen del mapa.";
-        fondo = QPixmap(2000, 1200); // Imagen de respaldo vacía
-        fondo.fill(Qt::darkGray);
+    m_imagenMapa.load(":/resources/mapa_centrado.png");
+    if (m_imagenMapa.isNull()) {
+        qDebug() << "⚠️ No se pudo cargar mapa_centrado.png";
     }
 
-    // Insertamos imagen de tamaño más grande en la escena
-    QGraphicsPixmapItem *item = new QGraphicsPixmapItem(fondo);
-    scene->addItem(item);
-    scene->setSceneRect(0, 0, fondo.width(), fondo.height()); // Extensión de scroll
+    m_grafo.cargarRegiones();
+    m_grafo.conectarRegiones();
 
-    view = new QGraphicsView(scene, this);
-    view->setRenderHint(QPainter::Antialiasing);
-    view->setDragMode(QGraphicsView::ScrollHandDrag); // mover con click arrastrando
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    view->setFixedSize(950, 650);
+    m_jugadorSprite->loadFrames(SpriteState::Idle, ":/resources/0_Blood_Demon_Idle_", 10);
+    m_jugadorSprite->setSize(90, 90);
+    m_jugadorSprite->setState(SpriteState::Idle);
+    m_jugadorSprite->setFPS(6);
 
-    setCentralWidget(view);
+    QPoint pos = m_grafo.posicionRegion(m_regionActual);
+    m_jugadorSprite->setPosition(pos.x(), pos.y());
+
+    connect(m_timer, &QTimer::timeout, this, &MapaWidget::onFrame);
+    m_timer->start(1000 / 60);
 }
 
-void MapaWindow::keyPressEvent(QKeyEvent *event)
+MapaWidget::~MapaWidget()
+{
+    delete m_jugadorSprite;
+}
+
+void MapaWidget::setRegionActual(const QString &region)
+{
+    m_regionActual = region;
+    QPoint pos = m_grafo.posicionRegion(region);
+    m_jugadorSprite->setPosition(pos.x(), pos.y());
+    update();
+}
+
+void MapaWidget::onFrame()
+{
+    m_jugadorSprite->update(0.016f);
+    update();
+}
+
+void MapaWidget::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    painter.setBrush(QColor(0, 0, 0, 150));
+    painter.setPen(Qt::NoPen);
+    painter.drawRect(rect());
+
+    if (!m_imagenMapa.isNull()) {
+        int x = (width() - m_imagenMapa.width()) / 2;
+        int y = (height() - m_imagenMapa.height()) / 2;
+        painter.drawPixmap(x, y, m_imagenMapa);
+    }
+
+    if (m_jugadorSprite) {
+        m_jugadorSprite->draw(painter);
+    }
+}
+
+void MapaWidget::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Tab) {
-        this->close(); // cerrar ventana si vuelve a presionar TAB
+        emit mapaCerrado();
+        close();
     }
 }

@@ -24,11 +24,12 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
     void mousePressEvent(QMouseEvent *event)override;
+    bool event(QEvent *event) override;
 private slots:
     void onFrame();
 private:
     MainWindow* m_mainWindow;
-    QLabel* m_mapaRegiones;
+    MapaWidget* m_mapaRegiones;
     QString m_regionActual;
     MapaWidget *m_minimapa;
     entidad   *m_player;
@@ -46,6 +47,7 @@ private:
     QGraphicsPixmapItem *m_jugadorItem;
     QGraphicsRectItem  *m_plataformaItem;
     QGraphicsRectItem  *m_sueloItem;
+    MapaWidget *m_mapaWidget = nullptr;
 
     static constexpr int WINDOW_WIDTH  = 950;
     static constexpr int WINDOW_HEIGHT = 650;

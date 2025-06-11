@@ -9,8 +9,8 @@
 class entidad
 {
 public:
+    virtual ~entidad() = default;
     entidad();
-    ~entidad();
     void actualizar(float dt);
     void startJump();
     void setGroundY(float newGroundY) { m_groundY = newGroundY; }
@@ -24,6 +24,10 @@ public:
     void setOnGround(bool enSuelo);
     bool isOnGround() const;
     void reproducirAnimacionTemporal(SpriteState estado, float duracionSegundos);
+    componentesalud  m_componenteSalud;
+    int currentHP() const { return m_componenteSalud.currentHP(); }
+    int maxHP()     const { return m_componenteSalud.maxHP(); }
+    void setHP(int hp) { m_componenteSalud.setHP(hp); }
 private:
     void actualizarAnimacion(float dt);
     void actualizarSalto(float dt);
@@ -32,7 +36,6 @@ private:
     tranformacion   m_transformacion;
     Sprite           m_sprite;
     componentefisico m_componenteFisico;
-    componentesalud  m_componenteSalud;
     bool m_onGround = false;
     SpriteState m_lastDirection = SpriteState::Idle;
     bool   m_isJumping;

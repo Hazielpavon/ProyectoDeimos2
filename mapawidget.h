@@ -1,24 +1,38 @@
-#ifndef MAPAWINDOW_H
-#define MAPAWINDOW_H
+#ifndef MAPAWIDGET_H
+#define MAPAWIDGET_H
 
-#include <QMainWindow>
-#include <QGraphicsView>
-#include <QGraphicsScene>
-#include <QKeyEvent>
+#include <QWidget>
+#include <QPixmap>
+#include <QTimer>
+#include "sprite.h"
+#include "grafomapa.h"
 
-class MapaWindow : public QMainWindow
+class MapaWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit MapaWindow(QWidget *parent = nullptr);
+    explicit MapaWidget(const QString& regionActual, QWidget *parent = nullptr);
+    ~MapaWidget();  // ✅ Declarar el destructor
+
+    void setRegionActual(const QString &region);  // ✅ Declarar esta función
+
+signals:
+    void mapaCerrado();
 
 protected:
+    void paintEvent(QPaintEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
 
+private slots:
+    void onFrame();
+
 private:
-    QGraphicsView *view;
-    QGraphicsScene *scene;
+    QPixmap m_imagenMapa;
+    Sprite *m_jugadorSprite;
+    QTimer *m_timer;
+    QString m_regionActual;
+    GrafoMapa m_grafo;
 };
 
-#endif // MAPAWINDOW_H
+#endif // MAPAWIDGET_H
