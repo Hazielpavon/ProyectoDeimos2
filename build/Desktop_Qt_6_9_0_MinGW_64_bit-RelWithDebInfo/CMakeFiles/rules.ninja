@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -S"C:\Users\Jorge Aguirre\Desktop\pROYECTO 22\ProyectoDeimos2" -B"C:\Users\Jorge Aguirre\Desktop\pROYECTO 22\ProyectoDeimos2\build\Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo"
+  command = C:\Qt\Tools\CMake_64\bin\cmake.exe --regenerate-during-build -S"C:\Users\Jorge Aguirre\Desktop\test 6\ProyectoDeimos2" -B"C:\Users\Jorge Aguirre\Desktop\test 6\ProyectoDeimos2\build\Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo"
   description = Re-running CMake...
   generator = 1
 

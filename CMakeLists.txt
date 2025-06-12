@@ -60,6 +60,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         nivelraicesolvidadas.h nivelraicesolvidadas.cpp
         mapawidget.h mapawidget.cpp
         grafomapa.h grafomapa.cpp
+        bringerofdeath.h bringerofdeath.cpp
+        combatemanager.h combatemanager.cpp
 
     )
 else()

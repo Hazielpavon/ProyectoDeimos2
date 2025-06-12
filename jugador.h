@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QString>
 #include <QSet>
+#include <QDebug>
 
 class Jugador : public entidad
 {
