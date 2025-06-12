@@ -131,7 +131,6 @@
         <file>resources/inicio.png</file>
         <file>resources/menu_Op.png</file>
         <file>resources/tutorial.png</file>
-        <file>resources/templo_silencio.png</file>
         <file>resources/caminar.png</file>
         <file>resources/correr.png</file>
         <file>resources/dash.png</file>
@@ -201,5 +200,8 @@
         <file>resources/Bringer-of-Death_Walk_6.png</file>
         <file>resources/Bringer-of-Death_Walk_7.png</file>
         <file>resources/Bringer-of-Death_Walk_8.png</file>
+        <file>resources/templo del silencio.png</file>
+        <file>resources/Ciudad_Inversa.png</file>
+        <file>resources/Ciudad_Inversa2.png</file>
     </qresource>
 </RCC>

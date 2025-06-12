@@ -9,7 +9,8 @@
 #include "tutorialscene.h"
 #include <QPainter>
 #include <QDebug>
-
+#include <iostream>
+using namespace std;
 
 // Constantes locales (mismas que en NivelRaicesOlvidadas)
 constexpr float WINDOW_WIDTH     = 950.0f;
@@ -70,7 +71,7 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
     activateWindow();                  // Hace visible y activa esta ventana
     setFocus(Qt::OtherFocusReason);   // Fuerza el foco del teclado aquí
 
-    QPixmap pixFondoOriginal(":/resources/templo_silencio.png");
+    QPixmap pixFondoOriginal(":/resources/templo del silencio.png");
     if (pixFondoOriginal.isNull()) {
         qWarning() << "[TutorialScene] Error al cargar :/resources/templo_silencio.png";
     }
@@ -78,7 +79,7 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
 
     int fondoW = pixFondo.width();
     int fondoH = pixFondo.height();
-    const int repeticiones = 3;
+    const int repeticiones = 1;
 
     m_scene = new QGraphicsScene(0, 0, fondoW * repeticiones, fondoH, this);
     for (int i = 0; i < repeticiones; ++i) {
@@ -113,13 +114,16 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
 
     if (m_player) {
         QSize tamSprite = m_player->sprite().getSize();
-        float yCentro = float(sueloY) - float(tamSprite.height()) + (tamSprite.height() / 2.0f);
-        float xCentro = (300 - 60) + (PLAT_WIDTH + 120) / 2.0f;
+        // sueloY = fondoH - 40
+        float yCentro = float(sueloY) - float(tamSprite.height())/2.0f;
+        // plataforma centrada en X
+        float xCentro = float(300 - 60) + (PLAT_WIDTH + 120)/2.0f;
 
         m_player->transform().setPosition(xCentro, yCentro);
         m_player->setOnGround(true);
         m_limiteSueloCentroY = yCentro;
     }
+
 
     if (m_player) {
         QPointF posIni = m_player->transform().getPosition();
@@ -309,6 +313,25 @@ void TutorialScene::onFrame()
 {
     if (!m_player) return;
 
+    float x = m_player->transform().getPosition().x();
+    // en lugar de y = 651 exacto, mira si está en el suelo:
+    bool onGround = m_player->isOnGround();
+
+    cout << x << endl;
+    if (x >= 2333.33 && x <= 2584.61f && onGround) {
+        m_timer->stop();
+        m_mainWindow->cargarNivel("RaicesOlvidadas");
+        return;
+    }
+
+    // tramo “Ciudad Inversa”
+    if (x >= 3117.35f && onGround) {
+        m_timer->stop();
+        m_mainWindow->cargarNivel("CiudadInversa");
+        return;
+    }
+
+
     float velocidadBase = 160.0f;
     float vx = 0.0f;
     if (m_moverIzq) vx = -velocidadBase;
@@ -334,6 +357,10 @@ void TutorialScene::onFrame()
     float vyPost = m_player->fisica().velocity().y();
     float pie    = nuevaY + (tamSpr.height() / 2.0f);
     float cabeza = nuevaY - (tamSpr.height() / 2.0f);
+
+
+
+
 
     if (rectJugador.intersects(rectPlataforma) &&
         vyPost >= 0.0f &&

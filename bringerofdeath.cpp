@@ -105,8 +105,8 @@ void BringerOfDeath::updateAI(float dt)
         setEstado(Estado::Attack);
         m_velX = 0;
         m_mode  = Mode::Attack;
-        // mira al revés de donde esté el jugador
-        m_facingRight = !(dx >= 0.0f);
+        // mira en la dirección del jugador
+        m_facingRight = (dx >= 0.0f);
         return;
     }
 

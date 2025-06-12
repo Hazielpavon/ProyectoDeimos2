@@ -30,6 +30,7 @@ public:
     explicit NivelRaicesOlvidadas(entidad*   jugador,
                                   MainWindow* mainWindow,
                                   QWidget*   parent = nullptr);
+
 protected:
     void keyPressEvent   (QKeyEvent*  event) override;
     void keyReleaseEvent (QKeyEvent*  event) override;
@@ -40,7 +41,7 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
-
+    bool bossDefeated = false;
     QGraphicsRectItem* m_debugBossHitbox = nullptr;
     entidad*             m_player          = nullptr;
     MainWindow*          m_mainWindow      = nullptr;
