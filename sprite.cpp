@@ -2,26 +2,28 @@
 #include <QDebug>
 #include <QCoreApplication>
 #include <QDir>
-#include <QPainter>
-#include <QTransform>  // Para transformar y voltear pixmaps
+#include <QTransform>
 
+/* ---------- Constructor ---------- */
 Sprite::Sprite()
     : m_frameIndex(0)
     , m_timeAccumulator(0.0f)
-    , m_secondsPerFrame(1.0f / 12.0f)
+    , m_secondsPerFrame(1.0f / 12.0f)   // 12 fps por defecto
     , m_state(SpriteState::Idle)
     , m_drawSize(64, 64)
     , m_pos(0, 0)
-{
-}
+{}
 
-void Sprite::loadFrames(SpriteState state, const QString &prefix, int count)
+/* ---------- Carga de frames ---------- */
+void Sprite::loadFrames(SpriteState state,
+                        const QString& prefix,
+                        int count)
 {
     m_frames[state].clear();
-    m_frameIndex = 0;
+    m_frameIndex      = 0;
     m_timeAccumulator = 0.0f;
-    const bool esRecurso = prefix.startsWith(":/");
 
+    const bool esRecurso = prefix.startsWith(":/");
     QString exeDir, projectRoot;
     if (!esRecurso) {
         exeDir      = QCoreApplication::applicationDirPath();
@@ -32,93 +34,90 @@ void Sprite::loadFrames(SpriteState state, const QString &prefix, int count)
         QString number = QString("%1").arg(i, 3, 10, QChar('0'));
 
         QString path;
-        if (esRecurso) {
+        if (esRecurso)
             path = prefix + number + ".png";
-        } else {
-            QString relPath = prefix + number + ".png";
-            path = QDir(projectRoot).absoluteFilePath(relPath);
-        }
+        else
+            path = QDir(projectRoot).absoluteFilePath(prefix + number + ".png");
+
         QPixmap pix(path);
-        if (pix.isNull()) {
-            qWarning() << "[loadFrames] NO pudo cargar:" << path;
-        }
+        if (pix.isNull())
+            qWarning() << "[Sprite] No pudo cargar:" << path;
+
         m_frames[state].append(pix);
     }
 }
 
-void Sprite::generateMirroredFrames(SpriteState srcState, SpriteState dstState)
+/* ---------- Frames espejados ---------- */
+void Sprite::generateMirroredFrames(SpriteState srcState,
+                                    SpriteState dstState)
 {
     m_frames[dstState].clear();
 
     if (!m_frames.contains(srcState) || m_frames[srcState].isEmpty()) {
-        qWarning() << "[Sprite] Aviso: no hay frames en srcState"<< static_cast<int>(srcState) << "para generarlos espejados.";
+        qWarning() << "[Sprite] No hay frames en" << int(srcState)
+        << "para espejar.";
         return;
     }
-
-    for (const QPixmap &orig : m_frames[srcState]) {
-        if (orig.isNull()) {
+    for (const QPixmap& orig : m_frames[srcState]) {
+        if (orig.isNull())
             m_frames[dstState].append(QPixmap());
-        } else {
-            QPixmap flipped = orig.transformed(QTransform().scale(-1, 1));
-            m_frames[dstState].append(flipped);
-        }
+        else
+            m_frames[dstState].append(
+                orig.transformed(QTransform().scale(-1, 1)));
     }
 }
-void Sprite::setPosition(int x, int y)
-{
-    m_pos.setX(x);
-    m_pos.setY(y);
-}
 
-void Sprite::setSize(int w, int h)
-{
-    m_drawSize = QSize(w, h);
-}
+/* ---------- Transformaciones ---------- */
+void Sprite::setPosition(int x, int y) { m_pos = {x, y}; }
+void Sprite::setSize(int w, int h)     { m_drawSize = {w, h}; }
 
+/* ---------- Cambiar estado ---------- */
 void Sprite::setState(SpriteState newState)
 {
     if (m_state != newState) {
-        m_state = newState;
-        m_frameIndex = 0;
+        m_state           = newState;
+        m_frameIndex      = 0;
         m_timeAccumulator = 0.0f;
     }
 }
 
-void Sprite::setFPS(int framesPerSecond)
+/* ---------- FPS ---------- */
+void Sprite::setFPS(int fps)
 {
-    if (framesPerSecond > 0) {
-        m_secondsPerFrame = 1.0f / float(framesPerSecond);
-    }
+    if (fps > 0) m_secondsPerFrame = 1.0f / float(fps);
 }
 
+/* ---------- Update por dt ---------- */
 void Sprite::update(float dt)
 {
-    const QVector<QPixmap> &currentFrames = m_frames.value(m_state);
-    if (currentFrames.isEmpty())
-        return;
+    const QVector<QPixmap>& frames = m_frames.value(m_state);
+    if (frames.isEmpty()) return;
+
     m_timeAccumulator += dt;
     while (m_timeAccumulator >= m_secondsPerFrame) {
         m_timeAccumulator -= m_secondsPerFrame;
-        m_frameIndex = (m_frameIndex + 1) % currentFrames.size();
+        m_frameIndex = (m_frameIndex + 1) % frames.size();
     }
 }
 
-void Sprite::draw(QPainter &painter) const
+/* ---------- Draw ---------- */
+void Sprite::draw(QPainter& painter) const
 {
-    const QVector<QPixmap> &currentFrames = m_frames.value(m_state);
-    if (currentFrames.isEmpty())
-        return;
-    const QPixmap &orig = currentFrames.at(m_frameIndex);
-    if (orig.isNull())
-        return;
-    QPixmap scaledPix = orig.scaled(m_drawSize.width(), m_drawSize.height(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
-    painter.drawPixmap(m_pos.x(), m_pos.y(), scaledPix);
+    const QVector<QPixmap>& frames = m_frames.value(m_state);
+    if (frames.isEmpty()) return;
+
+    const QPixmap& orig = frames.at(m_frameIndex);
+    if (orig.isNull())   return;
+
+    QPixmap scaled = orig.scaled(m_drawSize,
+                                 Qt::KeepAspectRatio,
+                                 Qt::SmoothTransformation);
+    painter.drawPixmap(m_pos.x(), m_pos.y(), scaled);
 }
 
+/* ---------- currentFrame ---------- */
 QPixmap Sprite::currentFrame() const
 {
-    const QVector<QPixmap> &vec = m_frames.value(m_state);
-    if (vec.isEmpty())
-        return QPixmap();
-    return vec.at(m_frameIndex);
+    const QVector<QPixmap>& vec = m_frames.value(m_state);
+    return vec.isEmpty() ? QPixmap() : vec.at(m_frameIndex);
 }

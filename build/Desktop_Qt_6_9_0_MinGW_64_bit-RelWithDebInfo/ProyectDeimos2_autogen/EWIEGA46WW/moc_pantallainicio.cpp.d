@@ -1,5 +1,5 @@
-C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/moc_pantallainicio.cpp: C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/pantallainicio.h \
-  C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/moc_predefs.h \
+C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/moc_pantallainicio.cpp: C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallainicio.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/moc_predefs.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20iterator.h \

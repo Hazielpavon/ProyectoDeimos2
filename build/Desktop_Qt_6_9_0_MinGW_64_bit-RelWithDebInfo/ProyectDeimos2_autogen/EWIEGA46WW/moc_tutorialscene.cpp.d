@@ -1,8 +1,9 @@
-C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/moc_tutorialscene.cpp: C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/tutorialscene.h \
-  C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/moc_predefs.h \
+C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/moc_tutorialscene.cpp: C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/tutorialscene.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/moc_predefs.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QMap \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/QPair \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QPoint \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QPointF \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QRect \
@@ -202,7 +203,6 @@ C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/build/Desktop_Qt_6_
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QLabel \
-  C:/Qt/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qframe.h \
@@ -210,10 +210,8 @@ C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/build/Desktop_Qt_6_
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qgraphicsview.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
-  C:/Qt/6.9.0/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
-  C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -429,9 +427,10 @@ C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/build/Desktop_Qt_6_
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/componentefisico.h \
-  C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/componentesalud.h \
-  C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/entidad.h \
-  C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/mapawidget.h \
-  C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/sprite.h \
-  C:/Users/Jorge\ Aguirre/Desktop/pROYECTO\ 22/ProyectoDeimos2/tranformacion.h
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentefisico.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentesalud.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/entidad.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/grafomapa.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/mapawidget.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/sprite.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/tranformacion.h
