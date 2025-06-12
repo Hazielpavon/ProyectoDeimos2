@@ -1,34 +1,44 @@
-#ifndef OBJETOSYCOLISIONES_H
-#define OBJETOSYCOLISIONES_H
-
+#pragma once
 #include <QObject>
-#include <QGraphicsScene>
 #include <QGraphicsRectItem>
-#include <QColor>
-#include <QRectF>
-#include <vector>
+#include <QVector>
+#include <QSize>
 
-class entidad;
+struct ColObj {
+    QGraphicsRectItem* visual;
+    QGraphicsRectItem* hitbox;
+};
 
-class ObjetosYColisiones : public QObject
-{
+class entidad;      // forward
+class Enemigo;     // forward
+
+class ObjetosYColisiones : public QObject {
     Q_OBJECT
 public:
     explicit ObjetosYColisiones(QGraphicsScene* scene, QObject* parent = nullptr);
 
+    // añade un rect (hitbox invisible + opcional visual)
     QGraphicsRectItem* addRect(const QRectF& area,
-                               const QColor& color,
-                               bool collisionOnly);
+                               const QColor& color = Qt::NoBrush,
+                               bool collisionOnly = true);
 
-    // Ahora el hitbox usa pixSize.width() y pixSize.height() sin escalado
+    // colisión para jugador
     void resolveCollisions(entidad* player,
                            const QSize& pixSize,
                            float dt);
 
-private:
-    struct Obj { QGraphicsRectItem* vis; QGraphicsRectItem* hitbox; };
-    std::vector<Obj> m_objetos;
-    QGraphicsScene*  m_scene;
-};
+    // colisión para enemigo
+    void resolveCollisions(Enemigo* e,
+                           const QSize& pixSize,
+                           float dt);
 
-#endif // OBJETOSYCOLISIONES_H
+private:
+    QGraphicsScene* m_scene;
+    QVector<ColObj> m_objetos;
+
+    // factores ajustados
+    static constexpr float HITBOX_W_FACTOR_P = 0.40f;
+    static constexpr float HITBOX_H_FACTOR_P = 0.71f;
+    static constexpr float HITBOX_W_FACTOR_E = 0.40f;
+    static constexpr float HITBOX_H_FACTOR_E = 0.60f;
+};

@@ -32,7 +32,7 @@ class Enemigo : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    enum class Estado { Idle, Walk, Attack, Hurt, Death };
+    enum class Estado { Idle, Walk, Attack, Hurt, Death,IdleLeft, WalkLeft, AttackLeft, HurtLeft};
 
     explicit Enemigo(QObject* parent = nullptr);
 
@@ -40,7 +40,7 @@ public:
     virtual void update(float dt) = 0;
 
     /* -------- Salud -------- */
-    void takeDamage(int dmg);
+    virtual void takeDamage(int dmg);
     bool isDead()    const { return m_estado == Estado::Death; }
     int  currentHP() const { return m_hp; }
     int  maxHP()     const { return m_maxHP; }

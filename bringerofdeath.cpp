@@ -2,23 +2,65 @@
 #include "entidad.h"
 #include <QDebug>
 #include <QString>
-
+#include "jugador.h"
 /* ---------- Carga de sprites (Idle/Walk/Attack/Hurt/Death) ---------- */
 namespace {
 const qreal SCALE = 1.6;
-Animacion cargar(const QString& patt,int n){
-    Animacion a; a.fps=8.0f;
-    for(int i=1;i<=n;++i){
+static constexpr float ATTACK_RANGE = 40.0f;
+static constexpr float DETECT_RANGE = 250.0f;
+static constexpr float Y_TOLERANCE  = 10.0f;
+Animacion cargar(const QString& patt, int n, bool mirror = false) {
+    Animacion a;
+    a.fps = 8.0f;
+    QTransform flip;
+    if (mirror) {
+        // escalar X por -1 para reflejar horizontalmente:
+        flip.scale(-1, 1);
+    }
+
+    for (int i = 1; i <= n; ++i) {
         QPixmap p(patt.arg(i));
-        if(!p.isNull())
-            a.frames.append(p.scaled(p.size()*SCALE,
-                                     Qt::KeepAspectRatio,
-                                     Qt::SmoothTransformation));
+        if (p.isNull()) continue;
+
+        // 1) escalamos al tamaño deseado
+        QPixmap scaled = p.scaled(p.size() * SCALE,
+                                  Qt::KeepAspectRatio,
+                                  Qt::SmoothTransformation);
+
+        // 2) si mirror, aplicamos la transformación
+        if (mirror) {
+            scaled = scaled.transformed(flip);
+        }
+
+        a.frames.append(scaled);
     }
     return a;
 }
 }
+#include <QGraphicsScene>  // para que scene() esté completo
 
+void BringerOfDeath::onDeathAnimFinished()
+{
+    if (scene()) {
+        scene()->removeItem(this);
+    }
+    deleteLater();
+}
+
+
+QRectF BringerOfDeath::boundingRect() const {
+    // Acá devolvemos un rect centrado en (0,0) con el tamaño actual del pixmap:
+    const auto& px = pixmap();
+    float w = px.width();
+    float h = px.height();
+    return QRectF(-w/2, -h/2, w, h);
+}
+
+QPainterPath BringerOfDeath::shape() const {
+    QPainterPath p;
+    p.addRect(boundingRect());
+    return p;
+}
 BringerOfDeath::BringerOfDeath(QObject* parent)
     : Enemigo(parent)
 {
@@ -28,62 +70,140 @@ BringerOfDeath::BringerOfDeath(QObject* parent)
     addAnim(Estado::Hurt  , cargar(":/resources/Bringer-of-Death_Hurt_%1.png"  ,4));
     addAnim(Estado::Death , cargar(":/resources/Bringer-of-Death_Death_%1.png" ,4));
 
-    setOffset(-pixmap().width()/2, -pixmap().height()/2);
+    Animacion& idleAnim = animActual();
+    if (!idleAnim.frames.isEmpty()) {
+        QPixmap first = idleAnim.frames.first();
+        setOffset(-first.width()/2, -first.height()/2);
+        setTransformOriginPoint(first.width()/2, first.height()/2);
+    }
+    m_flipTransform.scale(-1, 1);
 }
 
 /* ---------- IA principal ---------- */
+// BringerOfDeath.cpp (debes tener definidos ATTACK_RANGE, DETECT_RANGE, Y_TOLERANCE)
+
 void BringerOfDeath::updateAI(float dt)
 {
     if (!target()) return;
 
-    float dx = target()->transform().getPosition().x() - pos().x();
-    float dist = std::abs(dx);
+    // 1) Posiciones en X/Y
+    float bossX   = pos().x();
+    float playerX = target()->transform().getPosition().x();
+    float dx      = playerX - bossX;
 
-    /* Muerto */
-    if (isDead())           { m_velX = 0.0f; return; }
+    // pies en Y
+    float bossFootY = sceneBoundingRect().bottom();
+    Jugador* pj = dynamic_cast<Jugador*>(target());
+    float playerFootY = pj && pj->graphicsItem()
+                            ? pj->graphicsItem()->sceneBoundingRect().bottom()
+                            : bossFootY;  // si no podemos, igualamos
 
-    /* Si está recibiendo daño, deja pasar la animación Hurt 0.3 s */
-    if (m_estado == Estado::Hurt) {
-        m_patrolTime += dt;
-        if (m_patrolTime >= 0.3f) { m_patrolTime = 0.0f; setEstado(Estado::Idle); }
-        return;
-    }
-
-    /* Ataque si está muy cerca */
-    constexpr float ATTACK_RANGE = 40.0f;
-    if (dist < ATTACK_RANGE) {
+    // 2) ATAQUE si entra en rango X/Y
+    if (qAbs(dx) < ATTACK_RANGE &&
+        qAbs(playerFootY - bossFootY) < Y_TOLERANCE)
+    {
         setEstado(Estado::Attack);
-        m_velX = 0.0f;
+        m_velX = 0;
+        m_mode  = Mode::Attack;
+        // mira al revés de donde esté el jugador
+        m_facingRight = !(dx >= 0.0f);
         return;
     }
 
-    /* Persecución si está dentro de 250 px */
-    constexpr float DETECT_RANGE = 250.0f;
-    if (dist < DETECT_RANGE) {
-        m_velX = (dx > 0 ? 1 : -1) * 90.0f;
+    // 3) PERSECUCIÓN si está a X<DETECT
+    if (qAbs(dx) < DETECT_RANGE) {
         setEstado(Estado::Walk);
+        m_velX = (dx > 0 ? +1 : -1) * 90.0f;
+        m_mode  = Mode::Chase;
+        // mira en misma dirección que la velocidad
+        m_facingRight = (dx >= 0.0f);
         return;
     }
 
-    /* Patrulla simple (cambia de dirección cada 2 s) */
-    m_patrolTime += dt;
-    if (m_patrolTime > 2.0f) { m_patrolDir = -m_patrolDir; m_patrolTime = 0.0f; }
-    m_velX = m_patrolDir * 60.0f;
+    // 4) PATRULLA
     setEstado(Estado::Walk);
+    m_patrolTime += dt;
+    if (m_patrolTime > 2.0f) {
+        m_patrolDir  = -m_patrolDir;
+        m_patrolTime = 0.0f;
+    }
+    m_velX      = m_patrolDir * 60.0f;
+    m_mode      = Mode::Patrol;
+    // mira hacia donde camina
+    m_facingRight = (m_patrolDir > 0);
 }
 
-/* ---------- Bucle update ---------- */
+void BringerOfDeath::takeDamage(int dmg)
+{
+    if (isDead()) return;
+    Enemigo::takeDamage(dmg);
+    if (isDead()) {
+        // arrancamos la muerte
+        m_deathStarted  = true;
+        m_deathFinished = false;
+        m_deathTimer    = 2.0f;
+        setEstado(Estado::Death);
+        // reiniciamos índice y acumulador para Death
+        auto &deathAnim = animActual();
+        deathAnim.idx  = 0;
+        deathAnim.acum = 0.0f;
+    }
+}
+
 void BringerOfDeath::update(float dt)
 {
-    /* IA decide velocidad y estado */
-    updateAI(dt);
+    // 1) Si no ha muerto, IA + física normal
+    if (!m_deathStarted) {
+        updateAI(dt);
+        constexpr float GRAV = 600.0f;
+        m_velY += GRAV * dt;
+        moveBy(m_velX * dt, m_velY * dt);
+    }
 
-    /* 1) Animación */
-    Animacion& anim = animActual();
-    if (anim.avanzar(dt)) setPixmap(anim.actual());
+    // 2) Avanzar animación (SIEMPRE)
+    auto &anim  = animActual();
+    anim.avanzar(dt);
+    QPixmap frame = anim.actual();
 
-    /* 2) Física básica (solo gravedad + velX de IA) */
-    constexpr float GRAV = 600.0f;
-    m_velY += GRAV * dt;
-    moveBy(m_velX * dt, m_velY * dt);
+    // 3) Mirror si corresponde
+    if (m_facingRight)
+        frame = frame.transformed(QTransform().scale(-1,1));
+
+    setPixmap(frame);
+    setOffset(-frame.width()/2.0, -frame.height()/2.0);
+
+    // 4) Si estamos en muerte, controlar final
+    if (m_deathStarted) {
+        const int lastIndex = int(anim.frames.size()) - 1;
+        const float frameDur = 1.0f / anim.fps;
+
+        // Cuando llegamos al último frame...
+        if (anim.idx == lastIndex) {
+            // Si aún no hemos marcado finished, iniciamos temporizador
+            if (!m_deathFinished) {
+                m_deathFinished = true;
+                m_deathTimer    = 2.0f;
+            } else {
+                // Esperamos al menos 1 frame de duración para que sea visible
+                m_deathTimer += dt;
+                if (m_deathTimer >= frameDur) {
+                    // eliminamos de la escena y destruye
+                    if (scene()) scene()->removeItem(this);
+                    deleteLater();
+                }
+            }
+        }
+        // NO llamamos a moveBy ni updateAI de nuevo
+        return;
+    }
+
+    // 5) Si no morimos, seguimos normales (ya hecho IA y física arriba)
 }
+
+
+
+
+
+
+
+

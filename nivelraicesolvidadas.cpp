@@ -115,17 +115,33 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
 
     // ---- Enemigo (Bringer-of-Death) ----
     auto* boss = new BringerOfDeath(this);
-    QSize bSz  = boss->pixmap().size();
-    boss->setPos(platX+(PLAT_WIDTH+120.0f)/2.0f,
-                 platY - bSz.height()/2.0f);
+    QSize bSz = boss->pixmap().size();
+    boss->setPos(platX + (PLAT_WIDTH+120.0f)/2,
+                 platY - bSz.height()/2);
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
+
+    // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
-    m_debugBossHitbox->setPen(QPen(Qt::red, 2, Qt::DashLine));
+    m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
     m_debugBossHitbox->setBrush(Qt::NoBrush);
-    m_debugBossHitbox->setZValue(10);  // por encima para que siempre se vea
+    m_debugBossHitbox->setZValue(10);
     m_scene->addItem(m_debugBossHitbox);
+
+
+    float barW = 100, barH = 8;
+    m_bossHpBorder = new QGraphicsRectItem(0,0, barW, barH);
+    m_bossHpBorder->setPen(QPen(Qt::black));
+    m_bossHpBorder->setBrush(Qt::NoBrush);
+    m_bossHpBorder->setZValue(11);
+    m_bossHpBar = new QGraphicsRectItem(1,1, barW-2, barH-2);
+    m_bossHpBar->setPen(Qt::NoPen);
+    m_bossHpBar->setBrush(QColor(200,0,0));
+    m_bossHpBar->setZValue(12);
+    m_scene->addItem(m_bossHpBorder);
+    m_scene->addItem(m_bossHpBar);
+
 
     // ---- Gestor de Combate ----
     Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
@@ -216,96 +232,97 @@ void NivelRaicesOlvidadas::mousePressEvent(QMouseEvent*)
  * ========================================================= */
 void NivelRaicesOlvidadas::onFrame()
 {
-    if(!m_player) return;
+    if (!m_player) return;
 
-    /* ——— Entrada salto + movimiento horiz ——— */
-    if(!m_deathScheduled && m_jumpRequested && m_player->isOnGround()){
+    // — Entrada de salto y movimiento horizontal —
+    if (!m_deathScheduled && m_jumpRequested && m_player->isOnGround()) {
         m_player->fisica().setVelocity(
-            m_player->fisica().velocity().x(), -500.0f);
+            m_player->fisica().velocity().x(),
+            -500.0f
+            );
         m_player->setOnGround(false);
     }
     m_jumpRequested = false;
 
     float vx = 0.0f;
-    if(!m_deathScheduled){
-        if(m_moveLeft)  vx = -160.0f;
-        if(m_moveRight) vx =  160.0f;
-        if(m_run && vx!=0) vx *= 2.0f;
+    if (!m_deathScheduled) {
+        if (m_moveLeft)  vx = -160.0f;
+        if (m_moveRight) vx =  160.0f;
+        if (m_run && vx != 0.0f) vx *= 2.0f;
     }
-    m_player->fisica().setVelocity(vx,
-                                   m_player->fisica().velocity().y());
+    m_player->fisica().setVelocity(
+        vx,
+        m_player->fisica().velocity().y()
+        );
 
+    // — Actualizar jugador —
     m_player->actualizar(m_dt);
     QSize sprSz = m_player->sprite().getSize();
     m_colManager->resolveCollisions(m_player, sprSz, m_dt);
 
-    /* ——— Enemigos ——— */
-    // ‣ Iteramos usando qAsConst para no invalidar el contenedor
-    // ——— física del jugador ———a
-    for (Enemigo* e : qAsConst(m_enemigos)) {
+    // — Actualizar enemigos —
+    for (Enemigo* e : std::as_const(m_enemigos)) {
         e->update(m_dt);
-        QSize  eSz = e->pixmap().size();
-        QRectF rectE(e->pos().x() - eSz.width()/2.0,
-                     e->pos().y() - eSz.height()/2.0,
-                     eSz.width(), eSz.height());
-        QRectF rectPlat(300.0-60.0f,
-                        (m_bgHeight-40.0f)-160.0f,
-                        PLAT_WIDTH+120.0f, PLAT_HEIGHT);
-        float sueloY = m_bgHeight-40.0f;
-        float pie    = e->pos().y() + eSz.height()/2.0f;
-        if (!m_enemigos.isEmpty() && m_debugBossHitbox) {
-            Enemigo* boss = m_enemigos.first();  // asumimos que el jefe es el primero
-            QRectF bb = boss->sceneBoundingRect();
-            m_debugBossHitbox->setRect(bb);
-        }
-        // Plataforma
-        if (rectE.intersects(rectPlat) &&
-            e->velY() >= 0.0f &&
-            pie >= rectPlat.top())
-        {
-            e->setPos(e->pos().x(),
-                      rectPlat.top() - eSz.height()/2.0f - 1);
-            e->setVelY(0.0f);
-        }
-        // Suelo
-        else if (pie >= sueloY) {
-            e->setPos(e->pos().x(),
-                      sueloY - eSz.height()/2.0f - 1);
-            e->setVelY(0.0f);
+        if (!e->isDead()){
+        QSize eSz = e->pixmap().size();
+        m_colManager->resolveCollisions(e, eSz, m_dt);
         }
     }
 
-    /* ——— Combate ——— */
+    // — Debug hitbox y barra de vida en escena —
+    if (!m_enemigos.isEmpty()) {
+        Enemigo* boss = m_enemigos.first();
+        QRectF sb = boss->sceneBoundingRect();
+
+        // Debug hitbox
+        m_debugBossHitbox->setRect(0, 0, sb.width(), sb.height());
+        m_debugBossHitbox->setPos(sb.topLeft());
+
+        // Barra de vida
+        float frac = float(boss->currentHP()) / boss->maxHP();
+        float bw   = m_bossHpBorder->rect().width();
+        float bh   = m_bossHpBorder->rect().height();
+        float x0   = sb.left() + (sb.width() - bw) / 2.0f;
+        float y0   = sb.top()  - bh - 4.0f;
+
+        m_bossHpBorder->setRect(0, 0, bw, bh);
+        m_bossHpBorder->setPos(x0, y0);
+
+        float innerW = (bw - 2.0f) * frac;
+        m_bossHpBar->setRect(1, 1, innerW, bh - 2.0f);
+        m_bossHpBar->setPos(x0, y0);
+    }
+
+    // — Combate —
     if (m_combate) m_combate->update(m_dt);
 
-    /* ——— Render jugador + cámara ——— */
+    // — Render del jugador y cámara —
     QPixmap pix = trimBottom(
         m_player->sprite().currentFrame()
-            .scaled(sprSz, Qt::KeepAspectRatio,
-                    Qt::SmoothTransformation));
+            .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
+        );
     QPointF footPos = m_player->transform().getPosition();
     m_playerItem->setPixmap(pix);
     m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
     m_playerItem->setPos(footPos);
     m_view->centerOn(footPos);
 
-    /* ——— Fondo secundario ——— */
-    if(!m_secondBgShown &&
-        footPos.x() >= m_bgWidth - WINDOW_W/2.0f){
-        if(m_bg2Item) m_bg2Item->setVisible(true);
-        m_secondBgShown = true;
-    }
-
-    /* ——— HUD ——— */
-    QPointF tl = m_view->mapToScene(0,0);
-    float frac = float(m_player->currentHP())/
-                 float(m_player->maxHP());
-    m_hudBorder->setPos(tl.x()+HUD_MARGIN, tl.y()+HUD_MARGIN);
-    m_hudBar->setRect(tl.x()+HUD_MARGIN+1, tl.y()+HUD_MARGIN+1,
-                      (HUD_W-2)*frac, HUD_H-2);
-    int pct = int(frac*100.0f + 0.5f);
-    m_hudText->setPlainText(QString::number(pct)+"%");
+    // — HUD —
+    QPointF tl = m_view->mapToScene(0, 0);
+    float hpFrac = float(m_player->currentHP()) / m_player->maxHP();
+    m_hudBorder->setPos(tl.x() + HUD_MARGIN, tl.y() + HUD_MARGIN);
+    m_hudBar->setRect(
+        tl.x() + HUD_MARGIN + 1,
+        tl.y() + HUD_MARGIN + 1,
+        (HUD_W - 2) * hpFrac,
+        HUD_H - 2
+        );
+    int pct = int(hpFrac * 100.0f + 0.5f);
+    m_hudText->setPlainText(QString::number(pct) + "%");
     QRectF rTxt = m_hudText->boundingRect();
-    m_hudText->setPos(tl.x()+HUD_MARGIN+(HUD_W-rTxt.width())/2.0f,
-                      tl.y()+HUD_MARGIN+(HUD_H-rTxt.height())/2.0f);
+    m_hudText->setPos(
+        tl.x() + HUD_MARGIN + (HUD_W - rTxt.width()) / 2.0f,
+        tl.y() + HUD_MARGIN + (HUD_H - rTxt.height()) / 2.0f
+        );
 }
+

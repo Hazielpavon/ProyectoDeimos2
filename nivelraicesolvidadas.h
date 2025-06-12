@@ -46,6 +46,8 @@ private:
     MainWindow*          m_mainWindow      = nullptr;
     QPointF              m_spawnPos;
     bool                 m_deathScheduled  = false;
+    QGraphicsRectItem* m_bossHpBorder = nullptr;
+    QGraphicsRectItem* m_bossHpBar    = nullptr;
 
     /* Enemigos y combate */
     QVector<Enemigo*>    m_enemigos;                // enemigos vivos

@@ -15,10 +15,7 @@ class niveltorredelamarca : public QWidget
 {
     Q_OBJECT
 public:
-    niveltorredelamarca(entidad* jugador,
-                         MainWindow* mainWindow,
-                         QWidget* parent = nullptr);
-
+    niveltorredelamarca(entidad* jugador,MainWindow* mainWindow,QWidget* parent = nullptr);
 protected:
     void keyPressEvent(QKeyEvent* event) override;
     void keyReleaseEvent(QKeyEvent* event) override;
@@ -26,7 +23,6 @@ protected:
 
 private slots:
     void onFrame();
-
 private:
     QPointF m_spawnPos;
     bool m_deathScheduled = false;
@@ -44,9 +40,7 @@ private:
     QGraphicsScene*      m_scene;
     ObjetosYColisiones*  m_colManager;
     QGraphicsPixmapItem* m_playerItem;
-    QGraphicsRectItem*   m_debugBox;   // ← nuestra caja roja
-
-    // estados de entrada
+    QGraphicsRectItem*   m_debugBox;
     bool m_moveLeft, m_moveRight, m_run, m_jumpRequested;
     float m_dt;
     int   m_repeatCount;

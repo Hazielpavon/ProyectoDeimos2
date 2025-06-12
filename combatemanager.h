@@ -18,10 +18,10 @@ public:
 
 private:
     Jugador*           m_player    = nullptr;
-    QVector<Enemigo*>& m_enemigos;            // referencia al vector del Nivel
-    float               m_playerCd  = 0.0f;   // ← inicializado
+    QVector<Enemigo*>& m_enemigos;
+    float               m_playerCd  = 0.0f;
     float               m_enemyCd   = 0.0f;
-
+    float m_bossCd = 0.0f;
     // helpers de hit-box
     QRectF espadaRect(Jugador* j) const;
     QRectF garraRect(Enemigo*  e) const;

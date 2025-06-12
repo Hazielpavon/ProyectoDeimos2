@@ -1,4 +1,3 @@
-// CombateManager.cpp
 #include "CombateManager.h"
 #include "jugador.h"
 #include "Enemigo.h"
@@ -61,6 +60,7 @@ void CombateManager::update(float dt)
     // enfriamientos
     m_playerCd = qMax(0.0f, m_playerCd - dt);
     m_enemyCd  = qMax(0.0f, m_enemyCd  - dt);
+    m_bossCd  = qMax(0.0f, m_bossCd  - dt);
 
     // 1) ATAQUE DEL JUGADOR
     if (m_playerCd <= 0.0f) {
@@ -74,10 +74,11 @@ void CombateManager::update(float dt)
                 Enemigo* e = m_enemigos[i];
                 if (!e || e->isDead()) continue;
                 QRectF rectE = e->sceneBoundingRect();
-                if (hit.intersects(rectE)) {
+                if (hit.intersects(rectE) && m_bossCd <= 0.0f) {
                     e->takeDamage(DMG_P2E);
                     m_playerCd = COOLDOWN;
-                    break;  // sólo un golpe
+                    m_bossCd   = COOLDOWN;
+                    break;
                 }
             }
         }
