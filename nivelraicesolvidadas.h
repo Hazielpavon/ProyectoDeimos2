@@ -41,6 +41,7 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+    QGraphicsRectItem* m_debugBossHitbox = nullptr;
     entidad*             m_player          = nullptr;
     MainWindow*          m_mainWindow      = nullptr;
     QPointF              m_spawnPos;

@@ -109,6 +109,8 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
         m_playerItem->setZValue(3);
         m_scene->addItem(m_playerItem);
         m_playerItem->setPos(m_spawnPos);
+        auto jug = dynamic_cast<Jugador*>(m_player);
+        if (jug) jug->setGraphicsItem(m_playerItem);
     }
 
     // ---- Enemigo (Bringer-of-Death) ----
@@ -119,6 +121,11 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
+    m_debugBossHitbox = new QGraphicsRectItem;
+    m_debugBossHitbox->setPen(QPen(Qt::red, 2, Qt::DashLine));
+    m_debugBossHitbox->setBrush(Qt::NoBrush);
+    m_debugBossHitbox->setZValue(10);  // por encima para que siempre se vea
+    m_scene->addItem(m_debugBossHitbox);
 
     // ---- Gestor de Combate ----
     Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
@@ -228,42 +235,42 @@ void NivelRaicesOlvidadas::onFrame()
     m_player->fisica().setVelocity(vx,
                                    m_player->fisica().velocity().y());
 
-    /* ——— Física + colisiones jugador ——— */
     m_player->actualizar(m_dt);
     QSize sprSz = m_player->sprite().getSize();
     m_colManager->resolveCollisions(m_player, sprSz, m_dt);
 
     /* ——— Enemigos ——— */
-    for(Enemigo* e : m_enemigos){
+    // ‣ Iteramos usando qAsConst para no invalidar el contenedor
+    // ——— física del jugador ———a
+    for (Enemigo* e : qAsConst(m_enemigos)) {
         e->update(m_dt);
-
-        // Colisiones verticales (plataforma y suelo)
-        QSize eSz = e->pixmap().size();
+        QSize  eSz = e->pixmap().size();
         QRectF rectE(e->pos().x() - eSz.width()/2.0,
                      e->pos().y() - eSz.height()/2.0,
                      eSz.width(), eSz.height());
-
-        QRectF rectPlat(300.0-60.0,
+        QRectF rectPlat(300.0-60.0f,
                         (m_bgHeight-40.0f)-160.0f,
                         PLAT_WIDTH+120.0f, PLAT_HEIGHT);
-
-        float sueloY = m_bgHeight - 40.0f;
+        float sueloY = m_bgHeight-40.0f;
         float pie    = e->pos().y() + eSz.height()/2.0f;
-
+        if (!m_enemigos.isEmpty() && m_debugBossHitbox) {
+            Enemigo* boss = m_enemigos.first();  // asumimos que el jefe es el primero
+            QRectF bb = boss->sceneBoundingRect();
+            m_debugBossHitbox->setRect(bb);
+        }
         // Plataforma
         if (rectE.intersects(rectPlat) &&
             e->velY() >= 0.0f &&
             pie >= rectPlat.top())
         {
             e->setPos(e->pos().x(),
-                      rectPlat.top() - eSz.height()/2.0f - 1); // -1 px
+                      rectPlat.top() - eSz.height()/2.0f - 1);
             e->setVelY(0.0f);
         }
         // Suelo
-        else if (pie >= sueloY)
-        {
+        else if (pie >= sueloY) {
             e->setPos(e->pos().x(),
-                      sueloY - eSz.height()/2.0f - 1);          // -1 px
+                      sueloY - eSz.height()/2.0f - 1);
             e->setVelY(0.0f);
         }
     }

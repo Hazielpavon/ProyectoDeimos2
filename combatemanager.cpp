@@ -1,98 +1,111 @@
+// CombateManager.cpp
 #include "CombateManager.h"
 #include "jugador.h"
 #include "Enemigo.h"
-#include "sprite.h"
+#include <QGraphicsPixmapItem>
 #include <QtMath>
+#include <QDebug>
 
-/* ---- Parámetros ---- */
 static constexpr float COOLDOWN = 0.4f;
-static constexpr int   DMG_P2E  = 1;   // daño jugador→enemigo
-static constexpr int   DMG_E2P  = 1;   // daño enemigo→jugador
-static constexpr int   REACH_P  = 25;  // alcance espada extra
-static constexpr int   REACH_E  = 20;  // alcance garra extra
+static constexpr int   DMG_P2E  = 1;
+static constexpr int   DMG_E2P  = 1;
+static constexpr int   REACH_P  = 25;
+static constexpr int   REACH_E  = 20;
 
-/* ---------- Helpers de hit-box ---------- */
+CombateManager::CombateManager(Jugador* player,
+                               QVector<Enemigo*>& enemigos,
+                               QObject* parent)
+    : QObject(parent)
+    , m_player(player)
+    , m_enemigos(enemigos)
+    , m_playerCd(0.0f)
+    , m_enemyCd(0.0f)
+{
+    // nada más
+}
+
 QRectF CombateManager::espadaRect(Jugador* j) const
 {
-    QSize  spr = j->sprite().getSize();
-    QPointF p  = j->transform().getPosition();
-    int w = spr.width(), h = spr.height();
+    // Partimos del rect real en escena
+    // (necesitamos exponer en Jugador un getter al QGraphicsPixmapItem*)
+    QGraphicsPixmapItem* item = j->graphicsItem();
+    QRectF r = item->sceneBoundingRect();
 
-    bool left = (j->sprite().getState() == SpriteState::SlashingLeft);
-    return left
-               ? QRectF(p.x() - w/2 - REACH_P, p.y() - h, w/2 + REACH_P, h)
-               : QRectF(p.x(),               p.y() - h, w/2 + REACH_P, h);
+    // expandimos hacia donde esté slashing
+    auto st = j->sprite().getState();
+    if (st == SpriteState::SlashingLeft)
+        r.adjust(-REACH_P, 0, 0, 0);
+    else
+        r.adjust(0, 0, +REACH_P, 0);
+
+    return r;
 }
 
 QRectF CombateManager::garraRect(Enemigo* e) const
 {
-    QSize  sz = e->pixmap().size();
-    QPointF p = e->pos();
-    int dir = (e->velX() >= 0) ? 1 : -1;
-    if (e->estado() != Enemigo::Estado::Attack) dir = 1;
+    QRectF r = e->sceneBoundingRect();
 
-    return dir > 0
-               ? QRectF(p.x(),                   p.y()-sz.height()/2,
-                        sz.width()/2+REACH_E,    sz.height())
-               : QRectF(p.x()-sz.width()/2-REACH_E, p.y()-sz.height()/2,
-                        sz.width()/2+REACH_E,        sz.height());
+    // sólo añadimos reach en el frame de ataque
+    if (e->estado() == Enemigo::Estado::Attack) {
+        int dir = (e->velX() >= 0 ? +1 : -1);
+        if (dir > 0)  r.adjust(0, 0, +REACH_E, 0);
+        else          r.adjust(-REACH_E, 0, 0,  0);
+    }
+    return r;
 }
 
-/* ---------- Constructor ---------- */
-CombateManager::CombateManager(Jugador* player,
-                               QVector<Enemigo*>& enemigos,
-                               QObject* parent)
-    : QObject(parent), m_player(player), m_enemigos(enemigos)
-{}
-
-/* ---------- update ---------- */
 void CombateManager::update(float dt)
 {
     if (!m_player) return;
 
+    // enfriamientos
     m_playerCd = qMax(0.0f, m_playerCd - dt);
     m_enemyCd  = qMax(0.0f, m_enemyCd  - dt);
 
-    /* ===== Ataque del Jugador ===== */
-    SpriteState st = m_player->sprite().getState();
-    bool attacking = (st == SpriteState::Slashing ||
-                      st == SpriteState::SlashingLeft);
-
-    if (attacking && m_playerCd <= 0.0f) {
-        QRectF hit = espadaRect(m_player);
-        for (Enemigo* e : m_enemigos) {
-            if (!e || e->isDead()) continue;
-
-            QSize sz = e->pixmap().size();
-            QRectF rectE(e->pos().x() - sz.width()/2.0,
-                         e->pos().y() - sz.height()/2.0,
-                         sz.width(), sz.height());
-
-            if (hit.intersects(rectE)) {
-                e->takeDamage(DMG_P2E);
-                m_playerCd = COOLDOWN;
+    // 1) ATAQUE DEL JUGADOR
+    if (m_playerCd <= 0.0f) {
+        auto st = m_player->sprite().getState();
+        if (st == SpriteState::Slashing ||
+            st == SpriteState::SlashingLeft)
+        {
+            QRectF hit = espadaRect(m_player);
+            int n = m_enemigos.size();
+            for (int i = 0; i < n; ++i) {
+                Enemigo* e = m_enemigos[i];
+                if (!e || e->isDead()) continue;
+                QRectF rectE = e->sceneBoundingRect();
+                if (hit.intersects(rectE)) {
+                    e->takeDamage(DMG_P2E);
+                    m_playerCd = COOLDOWN;
+                    break;  // sólo un golpe
+                }
             }
         }
     }
 
-    /* ===== Ataque del Enemigo ===== */
+    // 2) ATAQUE DEL ENEMIGO
     if (m_enemyCd <= 0.0f) {
-        QSize ps  = m_player->sprite().getSize();
-        QPointF pp = m_player->transform().getPosition();
-        QRectF rectP(pp.x() - ps.width()/2.0,
-                     pp.y() - ps.height(),
-                     ps.width(), ps.height());
+        // 1) Obtén el pixmap del jugador y comprueba nullptr
+        QGraphicsPixmapItem* pItem = m_player->graphicsItem();
+        if (!pItem) {
+            qWarning() << "[CombateManager] graphicsItem del jugador no set!";
+            return;
+        }
+        QRectF rectP = pItem->sceneBoundingRect();
 
-        for (Enemigo* e : m_enemigos) {
+        // 2) Ahora el bucle por índices
+        int n = m_enemigos.size();
+        for (int i = 0; i < n; ++i) {
+            Enemigo* e = m_enemigos[i];
             if (!e || e->isDead()) continue;
             if (e->estado() != Enemigo::Estado::Attack) continue;
 
-            int idx = e->frameIndex();          // frame actual
-            if (idx < 1 || idx > 2) continue;   // golpe frames 1-2
+            int frame = e->frameIndex();
 
             if (garraRect(e).intersects(rectP)) {
                 m_player->aplicarDano(DMG_E2P);
                 m_enemyCd = COOLDOWN;
+                break;
             }
         }
     }

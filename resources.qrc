@@ -162,5 +162,44 @@
         <file>resources/0_Blood_Demon_Dying_014.png</file>
         <file>resources/Torre_De_La_Marca.png</file>
         <file>resources/Torre_De_La_Marca2.png</file>
+        <file>resources/Bringer-of-Death_Attack_1.png</file>
+        <file>resources/Bringer-of-Death_Attack_2.png</file>
+        <file>resources/Bringer-of-Death_Attack_3.png</file>
+        <file>resources/Bringer-of-Death_Attack_4.png</file>
+        <file>resources/Bringer-of-Death_Attack_5.png</file>
+        <file>resources/Bringer-of-Death_Attack_6.png</file>
+        <file>resources/Bringer-of-Death_Attack_7.png</file>
+        <file>resources/Bringer-of-Death_Attack_8.png</file>
+        <file>resources/Bringer-of-Death_Attack_9.png</file>
+        <file>resources/Bringer-of-Death_Attack_10.png</file>
+        <file>resources/Bringer-of-Death_Death_1.png</file>
+        <file>resources/Bringer-of-Death_Death_2.png</file>
+        <file>resources/Bringer-of-Death_Death_3.png</file>
+        <file>resources/Bringer-of-Death_Death_4.png</file>
+        <file>resources/Bringer-of-Death_Death_5.png</file>
+        <file>resources/Bringer-of-Death_Death_6.png</file>
+        <file>resources/Bringer-of-Death_Death_7.png</file>
+        <file>resources/Bringer-of-Death_Death_8.png</file>
+        <file>resources/Bringer-of-Death_Death_9.png</file>
+        <file>resources/Bringer-of-Death_Death_10.png</file>
+        <file>resources/Bringer-of-Death_Hurt_1.png</file>
+        <file>resources/Bringer-of-Death_Hurt_2.png</file>
+        <file>resources/Bringer-of-Death_Hurt_3.png</file>
+        <file>resources/Bringer-of-Death_Idle_1.png</file>
+        <file>resources/Bringer-of-Death_Idle_2.png</file>
+        <file>resources/Bringer-of-Death_Idle_3.png</file>
+        <file>resources/Bringer-of-Death_Idle_4.png</file>
+        <file>resources/Bringer-of-Death_Idle_5.png</file>
+        <file>resources/Bringer-of-Death_Idle_6.png</file>
+        <file>resources/Bringer-of-Death_Idle_7.png</file>
+        <file>resources/Bringer-of-Death_Idle_8.png</file>
+        <file>resources/Bringer-of-Death_Walk_1.png</file>
+        <file>resources/Bringer-of-Death_Walk_2.png</file>
+        <file>resources/Bringer-of-Death_Walk_3.png</file>
+        <file>resources/Bringer-of-Death_Walk_4.png</file>
+        <file>resources/Bringer-of-Death_Walk_5.png</file>
+        <file>resources/Bringer-of-Death_Walk_6.png</file>
+        <file>resources/Bringer-of-Death_Walk_7.png</file>
+        <file>resources/Bringer-of-Death_Walk_8.png</file>
     </qresource>
 </RCC>

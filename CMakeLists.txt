@@ -28,8 +28,10 @@ set(PROJECT_SOURCES
     entidad.h
     entidad.cpp
     ObjetosYColisiones.cpp
-
-
+    BringerOfDeath.cpp
+    CombateManager.cpp
+    BringerOfDeath.h
+    CombateManager.h
     ObjetosYColisiones.h
     tranformacion.h
     tranformacion.cpp
