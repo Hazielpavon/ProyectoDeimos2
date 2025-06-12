@@ -5,7 +5,7 @@
 #include "Enemigo.h"
 #include "BringerOfDeath.h"
 #include "CombateManager.h"
-
+#include <iostream>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
@@ -15,7 +15,7 @@
 #include <QImage>
 #include <algorithm>
 #include <QDebug>
-
+using namespace std;
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
 static constexpr float WINDOW_H    = 650.0f;
@@ -116,8 +116,7 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     // ---- Enemigo (Bringer-of-Death) ----
     auto* boss = new BringerOfDeath(this);
     QSize bSz = boss->pixmap().size();
-    boss->setPos(platX + (PLAT_WIDTH+120.0f)/2,
-                 platY - bSz.height()/2);
+    boss->setPos(4072.33,651 );
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
@@ -127,7 +126,6 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
     m_debugBossHitbox->setBrush(Qt::NoBrush);
     m_debugBossHitbox->setZValue(10);
-    m_scene->addItem(m_debugBossHitbox);
 
 
     float barW = 100, barH = 8;
@@ -257,16 +255,25 @@ void NivelRaicesOlvidadas::onFrame()
 
     // — Actualizar jugador —
     m_player->actualizar(m_dt);
+     cout << "En x: "<<m_player->transform().getPosition().x() << "En y:" <<m_player->transform().getPosition().y();
     QSize sprSz = m_player->sprite().getSize();
     m_colManager->resolveCollisions(m_player, sprSz, m_dt);
+
+
+    if (!m_secondBgShown
+        && m_player->transform().getPosition().x() >= (m_bgWidth - WINDOW_W/2.0f))
+    {
+        m_secondBgShown = true;
+        if (m_bg2Item)
+            m_bg2Item->setVisible(true);
+    }
 
     // — Actualizar enemigos —
     for (Enemigo* e : std::as_const(m_enemigos)) {
         e->update(m_dt);
-        if (!e->isDead()){
         QSize eSz = e->pixmap().size();
         m_colManager->resolveCollisions(e, eSz, m_dt);
-        }
+
     }
 
     // — Debug hitbox y barra de vida en escena —

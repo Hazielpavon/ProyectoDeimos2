@@ -132,27 +132,23 @@ void BringerOfDeath::updateAI(float dt)
     // mira hacia donde camina
     m_facingRight = (m_patrolDir > 0);
 }
-
 void BringerOfDeath::takeDamage(int dmg)
 {
     if (isDead()) return;
     Enemigo::takeDamage(dmg);
     if (isDead()) {
-        // arrancamos la muerte
         m_deathStarted  = true;
-        m_deathFinished = false;
-        m_deathTimer    = 2.0f;
+        m_deathTimer    = 0.0f;
         setEstado(Estado::Death);
-        // reiniciamos índice y acumulador para Death
-        auto &deathAnim = animActual();
-        deathAnim.idx  = 0;
-        deathAnim.acum = 0.0f;
+        auto &a = animActual();
+        a.idx  = 0;
+        a.acum = 0.0f;
     }
 }
 
 void BringerOfDeath::update(float dt)
 {
-    // 1) Si no ha muerto, IA + física normal
+    // 1) Física y IA normales
     if (!m_deathStarted) {
         updateAI(dt);
         constexpr float GRAV = 600.0f;
@@ -160,44 +156,36 @@ void BringerOfDeath::update(float dt)
         moveBy(m_velX * dt, m_velY * dt);
     }
 
-    // 2) Avanzar animación (SIEMPRE)
-    auto &anim  = animActual();
+    // 2) Animación
+    auto &anim = animActual();
     anim.avanzar(dt);
-    QPixmap frame = anim.actual();
+    // forzar que no haga loop en Death
+    if (m_deathStarted) {
+        int last = int(anim.frames.size()) - 1;
+        if (anim.idx > last) anim.idx = last;
+    }
 
-    // 3) Mirror si corresponde
+    // 3) Pintar frame
+    QPixmap frame = anim.actual();
     if (m_facingRight)
         frame = frame.transformed(QTransform().scale(-1,1));
-
     setPixmap(frame);
     setOffset(-frame.width()/2.0, -frame.height()/2.0);
 
-    // 4) Si estamos en muerte, controlar final
+    // 4) Si estamos en Death, ocultamos al terminar y salimos
     if (m_deathStarted) {
-        const int lastIndex = int(anim.frames.size()) - 1;
-        const float frameDur = 1.0f / anim.fps;
-
-        // Cuando llegamos al último frame...
-        if (anim.idx == lastIndex) {
-            // Si aún no hemos marcado finished, iniciamos temporizador
-            if (!m_deathFinished) {
-                m_deathFinished = true;
-                m_deathTimer    = 2.0f;
-            } else {
-                // Esperamos al menos 1 frame de duración para que sea visible
-                m_deathTimer += dt;
-                if (m_deathTimer >= frameDur) {
-                    // eliminamos de la escena y destruye
-                    if (scene()) scene()->removeItem(this);
-                    deleteLater();
-                }
+        int lastIdx    = int(anim.frames.size()) - 1;
+        float frameDur = 1.0f / anim.fps;
+        if (anim.idx == lastIdx) {
+            m_deathTimer += dt;
+            if (m_deathTimer >= frameDur) {
+                // solo lo ocultamos, NO lo borramos
+                setVisible(false);
+                // dejamos que NivelRaicesOlvidadas lo elimine
             }
         }
-        // NO llamamos a moveBy ni updateAI de nuevo
         return;
     }
-
-    // 5) Si no morimos, seguimos normales (ya hecho IA y física arriba)
 }
 
 
