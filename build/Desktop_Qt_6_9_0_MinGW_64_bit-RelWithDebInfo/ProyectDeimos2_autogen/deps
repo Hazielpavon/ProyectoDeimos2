@@ -153,7 +153,6 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qversiontagging.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qyieldcpu.h \
-	C:/Qt/6.9.0/mingw_64/include/QtGui/QColor \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QKeyEvent \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QMouseEvent \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QPainter \
@@ -764,6 +763,8 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/menuopciones.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/nivelraicesolvidadas.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/nivelraicesolvidadas.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/niveltorredelamarca.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/niveltorredelamarca.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallacarga.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallacarga.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallainicio.cpp \

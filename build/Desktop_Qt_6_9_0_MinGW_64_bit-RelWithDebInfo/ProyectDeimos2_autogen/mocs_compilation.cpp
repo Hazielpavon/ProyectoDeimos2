@@ -8,6 +8,7 @@
 #include "EWIEGA46WW/moc_mapawidget.cpp"
 #include "EWIEGA46WW/moc_menuopciones.cpp"
 #include "EWIEGA46WW/moc_nivelraicesolvidadas.cpp"
+#include "EWIEGA46WW/moc_niveltorredelamarca.cpp"
 #include "EWIEGA46WW/moc_pantallacarga.cpp"
 #include "EWIEGA46WW/moc_pantallainicio.cpp"
 #include "EWIEGA46WW/moc_tutorialscene.cpp"

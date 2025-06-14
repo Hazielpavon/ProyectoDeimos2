@@ -201,5 +201,6 @@
         <file>resources/Bringer-of-Death_Walk_6.png</file>
         <file>resources/Bringer-of-Death_Walk_7.png</file>
         <file>resources/Bringer-of-Death_Walk_8.png</file>
+        <file>resources/Inventario.png</file>
     </qresource>
 </RCC>

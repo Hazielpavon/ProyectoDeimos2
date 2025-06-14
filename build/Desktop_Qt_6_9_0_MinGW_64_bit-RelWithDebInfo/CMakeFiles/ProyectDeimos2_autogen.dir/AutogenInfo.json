@@ -501,6 +501,12 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/niveltorredelamarca.h",
+			"MU",
+			"EWIEGA46WW/moc_niveltorredelamarca.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/pantallacarga.h",
 			"MU",
 			"EWIEGA46WW/moc_pantallacarga.cpp",
@@ -687,6 +693,11 @@
 		],
 		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/nivelraicesolvidadas.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/niveltorredelamarca.cpp",
 			"MU",
 			null
 		],

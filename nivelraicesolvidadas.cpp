@@ -57,6 +57,23 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
     setFocusPolicy(Qt::StrongFocus);
 
+    /* ---------- Inventario (una sola imagen) ---------- */
+    m_invVisible = false;                         // miembro bool en .h
+
+    m_inventario = new QLabel(this);              // ¡HIJO DEL NIVEL!
+    QPixmap invPix(":/resources/Inventario.png"); // ← ruta exacta del qrc
+
+    if (invPix.isNull())
+        qWarning() << "No se cargó :/resources/Inventario.png – revisa el qrc";
+
+    m_inventario->setPixmap(invPix);
+    m_inventario->adjustSize();                   // al tamaño real
+    m_inventario->setAttribute(Qt::WA_TransparentForMouseEvents);
+    m_inventario->move( (width()  - m_inventario->width())  / 2,
+                       (height() - m_inventario->height()) / 2 );
+    m_inventario->hide();                         // inicia oculto
+                        // empieza invisible
+
     // ---- Fondo ----
     QPixmap bgOrig(":/resources/raices_olvidadas.png");
     QPixmap bg = bgOrig.scaled(bgOrig.size()*0.9,
@@ -187,26 +204,57 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
  * ========================================================= */
 void NivelRaicesOlvidadas::keyPressEvent(QKeyEvent* e)
 {
-    if(m_deathScheduled) return;
-    switch(e->key()){
-    case Qt::Key_A:     m_moveLeft  = true;  break;
-    case Qt::Key_D:     m_moveRight = true;  break;
-    case Qt::Key_Shift: m_run       = true;  break;
-    case Qt::Key_Space: m_jumpRequested = true; break;
-    case Qt::Key_M:
-        m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
+    if (m_deathScheduled) return;
+
+    switch (e->key()) {
+
+    case Qt::Key_A:
+        m_moveLeft  = true;
         break;
+
+    case Qt::Key_D:
+        m_moveRight = true;
+        break;
+
+    case Qt::Key_Shift:
+        m_run = true;
+        break;
+
+    case Qt::Key_Space:
+        m_jumpRequested = true;
+        break;
+
+    case Qt::Key_M:
+        if (m_mapaRegiones)
+            m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
+        break;
+
     case Qt::Key_C:
-        if(m_player && m_player->isOnGround()){
+        if (m_player && m_player->isOnGround()) {
             float vx = m_player->fisica().velocity().x();
-            SpriteState st = vx>0.0f ? SpriteState::Slidding
-                                       : SpriteState::SliddingLeft;
-            m_player->reproducirAnimacionTemporal(st,0.5f);
+            SpriteState st = (vx > 0.0f)
+                                 ? SpriteState::Slidding
+                                 : SpriteState::SliddingLeft;
+            m_player->reproducirAnimacionTemporal(st, 0.5f);
         }
         break;
-    default: QWidget::keyPressEvent(e);
+
+    /* ---------- Inventario ---------- */
+    case Qt::Key_I:
+        if (m_inventario) {
+            m_invVisible = !m_invVisible;
+            m_inventario->setVisible(m_invVisible);
+            if (m_invVisible)
+                m_inventario->raise();    // siempre encima
+        }
+        break;
+
+    /* -------------------------------- */
+    default:
+        QWidget::keyPressEvent(e);
     }
 }
+
 void NivelRaicesOlvidadas::keyReleaseEvent(QKeyEvent* e)
 {
     if(m_deathScheduled) return;
@@ -217,6 +265,7 @@ void NivelRaicesOlvidadas::keyReleaseEvent(QKeyEvent* e)
     default: QWidget::keyReleaseEvent(e);
     }
 }
+
 void NivelRaicesOlvidadas::mousePressEvent(QMouseEvent*)
 {
     if(!m_player || !m_player->isOnGround()) return;
