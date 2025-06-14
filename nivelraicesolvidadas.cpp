@@ -5,7 +5,7 @@
 #include "Enemigo.h"
 #include "BringerOfDeath.h"
 #include "CombateManager.h"
-
+#include <QRandomGenerator>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
@@ -15,7 +15,11 @@
 #include <QImage>
 #include <algorithm>
 #include <QDebug>
+#include <iostream>
+#include "mainwindow.h"
 
+using namespace std;
+using namespace std;
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
 static constexpr float WINDOW_H    = 650.0f;
@@ -56,24 +60,7 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
 {
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
     setFocusPolicy(Qt::StrongFocus);
-
-    /* ---------- Inventario (una sola imagen) ---------- */
-    m_invVisible = false;                         // miembro bool en .h
-
-    m_inventario = new QLabel(this);              // ¡HIJO DEL NIVEL!
-    QPixmap invPix(":/resources/Inventario.png"); // ← ruta exacta del qrc
-
-    if (invPix.isNull())
-        qWarning() << "No se cargó :/resources/Inventario.png – revisa el qrc";
-
-    m_inventario->setPixmap(invPix);
-    m_inventario->adjustSize();                   // al tamaño real
-    m_inventario->setAttribute(Qt::WA_TransparentForMouseEvents);
-    m_inventario->move( (width()  - m_inventario->width())  / 2,
-                       (height() - m_inventario->height()) / 2 );
-    m_inventario->hide();                         // inicia oculto
-                        // empieza invisible
-
+    setFocus();
     // ---- Fondo ----
     QPixmap bgOrig(":/resources/raices_olvidadas.png");
     QPixmap bg = bgOrig.scaled(bgOrig.size()*0.9,
@@ -106,14 +93,51 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     m_view->setAttribute(Qt::WA_TransparentForMouseEvents);
 
     // ---- Plataformas / suelo ----
-    float platX = 300.0f - (PLAT_WIDTH+120.0f)/2.0f;
-    float platY = (m_bgHeight-40.0f) - 160.0f;
-    m_colManager->addRect({platX, platY,
-                           PLAT_WIDTH+120.0f, PLAT_HEIGHT},
-                          QColor(80,80,80), false);
-    m_colManager->addRect({0.0f, m_bgHeight-40.0f,
-                           float(m_bgWidth*2),40.0f},
-                          Qt::NoBrush, true);
+    float startX = 299.0f;
+    float endX   = 3592.33f;
+    float minY   = 200.0f;                // altura mínima
+    float maxY   = m_bgHeight - 40.0f - 100.0f; // 100px por encima del suelo
+    int   count  = 15;
+    float minGapX = 50.0f;  // mínimo espacio horizontal entre plataformas
+    float minGapY = 40.0f;  // mínimo espacio vertical entre plataformas
+
+    // preparamos un vector para recordar las rects y poder comprobar distancias
+    // tras haber inicializado m_bgWidth, m_bgHeight, etc.
+
+    static constexpr float PLAT_W = PLAT_WIDTH;
+    static constexpr float PLAT_H = PLAT_HEIGHT;
+
+
+    // Suelo (collisionOnly = true)
+    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
+
+
+
+    // Plataformas manuales, bien distribuidas entre x=[299,3592] y y=[150,450]
+    const QVector<QRectF> plataformas = {
+        // Δx ≈ 400, Δy ≤ 100
+        {  600.0f, 550.0f, PLAT_W, PLAT_H },  // Desde suelo
+        { 1000.0f, 500.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
+        { 1400.0f, 450.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
+        { 1800.0f, 520.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 70
+        { 2200.0f, 430.0f, PLAT_W, PLAT_H },  // Δx=400, bajada de 90
+        { 2600.0f, 530.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 100
+        { 3000.0f, 480.0f, PLAT_W, PLAT_H }   // Δx=400, bajada de 50
+    };
+
+    for (const QRectF &r : plataformas) {
+        m_colManager->addRect(r,
+                              QColor(80,80,80),
+                              false);
+    }
+
+
+
+
+
+
+
+    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
     // ---- Jugador ----
     if(m_player){
@@ -133,8 +157,7 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     // ---- Enemigo (Bringer-of-Death) ----
     auto* boss = new BringerOfDeath(this);
     QSize bSz = boss->pixmap().size();
-    boss->setPos(platX + (PLAT_WIDTH+120.0f)/2,
-                 platY - bSz.height()/2);
+    boss->setPos(4072.33,651 );
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
@@ -144,7 +167,6 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
     m_debugBossHitbox->setBrush(Qt::NoBrush);
     m_debugBossHitbox->setZValue(10);
-    m_scene->addItem(m_debugBossHitbox);
 
 
     float barW = 100, barH = 8;
@@ -207,49 +229,30 @@ void NivelRaicesOlvidadas::keyPressEvent(QKeyEvent* e)
     if (m_deathScheduled) return;
 
     switch (e->key()) {
-
-    case Qt::Key_A:
-        m_moveLeft  = true;
-        break;
-
-    case Qt::Key_D:
-        m_moveRight = true;
-        break;
-
-    case Qt::Key_Shift:
-        m_run = true;
-        break;
+    case Qt::Key_A:     m_moveLeft  = true;  break;
+    case Qt::Key_D:     m_moveRight = true;  break;
+    case Qt::Key_Shift: m_run       = true;  break;
 
     case Qt::Key_Space:
-        m_jumpRequested = true;
+        // sólo al primer evento, no auto‐repeat:
+        if (!e->isAutoRepeat()) {
+            m_jumpRequested = true;
+        }
         break;
 
     case Qt::Key_M:
-        if (m_mapaRegiones)
-            m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
+        m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
         break;
 
     case Qt::Key_C:
         if (m_player && m_player->isOnGround()) {
             float vx = m_player->fisica().velocity().x();
-            SpriteState st = (vx > 0.0f)
-                                 ? SpriteState::Slidding
-                                 : SpriteState::SliddingLeft;
-            m_player->reproducirAnimacionTemporal(st, 0.5f);
+            SpriteState st = vx>0.0f ? SpriteState::Slidding
+                                       : SpriteState::SliddingLeft;
+            m_player->reproducirAnimacionTemporal(st,0.5f);
         }
         break;
 
-    /* ---------- Inventario ---------- */
-    case Qt::Key_I:
-        if (m_inventario) {
-            m_invVisible = !m_invVisible;
-            m_inventario->setVisible(m_invVisible);
-            if (m_invVisible)
-                m_inventario->raise();    // siempre encima
-        }
-        break;
-
-    /* -------------------------------- */
     default:
         QWidget::keyPressEvent(e);
     }
@@ -265,7 +268,6 @@ void NivelRaicesOlvidadas::keyReleaseEvent(QKeyEvent* e)
     default: QWidget::keyReleaseEvent(e);
     }
 }
-
 void NivelRaicesOlvidadas::mousePressEvent(QMouseEvent*)
 {
     if(!m_player || !m_player->isOnGround()) return;
@@ -283,16 +285,114 @@ void NivelRaicesOlvidadas::onFrame()
 {
     if (!m_player) return;
 
-    // — Entrada de salto y movimiento horizontal —
-    if (!m_deathScheduled && m_jumpRequested && m_player->isOnGround()) {
-        m_player->fisica().setVelocity(
-            m_player->fisica().velocity().x(),
-            -500.0f
-            );
-        m_player->setOnGround(false);
-    }
-    m_jumpRequested = false;
+    QPointF footPos1 = m_player->transform().getPosition();
+    float x = footPos1.x();
+    float y = footPos1.y();
 
+    // 1) Si se sale por la izquierda, volvemos al tutorial
+    if (x < 0.0f) {
+        m_timer->stop();
+        m_mainWindow->cargarNivel("Tutorial");
+        return;
+    }
+
+    // 2) Si llega al tramo de la Torre de la Marca
+    if (x >= 5467.0f && x <= 5693.67f && qFuzzyCompare(y, 651.0f) && bossDefeated) {
+        m_timer->stop();
+        m_mainWindow->cargarNivel("TorreDeLaMarca");
+        return;
+    }
+
+    // 3) Si avanza más allá de la Ciudad Inversa
+    if (x >= 6245.67f && bossDefeated ) {
+        m_timer->stop();
+        m_mainWindow->cargarNivel("CiudadInversa");
+        return;
+    }
+
+
+
+    // ——— ZONA LETAL Y SECUENCIA DE MUERTE ———
+    if (!m_deathScheduled && m_player->currentHP() <= 0) {
+        auto* jug = dynamic_cast<Jugador*>(m_player);
+        // 1.1) Detener movimiento y asegurar en suelo
+        m_player->fisica().setVelocity(0, 0);
+        jug->setOnGround(true);
+        // 1.2) Lanzar animación de muerte
+        jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
+        m_deathScheduled = true;
+        // 1.3) Ocultar sprite y respawn con temporizadores
+        QTimer::singleShot(1000, this, [this]() { m_playerItem->setVisible(false); });
+        QTimer::singleShot(2000, this, [this, jug]() {
+            // reposición idéntica a tu código de respawn…
+            m_player->transform().setPosition(35,0);
+            m_player->fisica().setVelocity(0,0);
+            jug->setOnGround(true);
+            jug->sprite().setState(SpriteState::Idle);
+            jug->setHP(jug->maxHP());
+            m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
+            m_playerItem->setVisible(true);
+            m_deathScheduled = false;
+        });
+        return;  // salimos, no procesamos nada más hasta el respawn
+    }
+    if (!m_deathScheduled) {
+        if (auto* jug = dynamic_cast<Jugador*>(m_player)) {
+            QPointF footPos = m_player->transform().getPosition();
+            float x = footPos.x();
+            float y = footPos.y();
+            constexpr float epsY = 1.0f;
+            bool atY      = (y >= 651.0f - epsY && y <= 651.0f + epsY);
+            bool inZone1  = (x >=  299.0f  && x <= 3104.33f);
+            bool inZone2  = (x >= 3373.67f && x <= 3592.33f);
+
+            if (atY && (inZone1 || inZone2) && jug->currentHP() > 0) {
+                // 1) Detener movimiento y asegurar contacto con el suelo
+                m_player->fisica().setVelocity(0, 0);
+                jug->setOnGround(true);
+
+                // 2) Matar al jugador y lanzar animación “dead”
+                jug->aplicarDano(jug->currentHP());
+                jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
+                m_deathScheduled = true;
+
+                // 3) Tras 1s ocultar el sprite (dejamos ver la animación un rato)
+                QTimer::singleShot(1000, this, [this]() {
+                    m_playerItem->setVisible(false);
+                });
+
+                // 4) Tras 2s, respawnear al jugador y resetear flags
+                QTimer::singleShot(2000, this, [this, jug]() {
+                    // reposicionar al spawn original
+                    m_player->transform().setPosition(50,0);
+                    // frenar velocidad
+                    m_player->fisica().setVelocity(0, 0);
+                    jug->setOnGround(true);
+                    // resetear animación y vida
+                    jug->sprite().setState(SpriteState::Idle);
+                    jug->setHP(jug->maxHP());
+                    // limpiar inputs
+                    m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
+                    // volver a mostrar sprite
+                    m_playerItem->setVisible(true);
+                    // permitir muertes futuras
+                    m_deathScheduled = false;
+                });
+
+                // salimos de onFrame para no procesar nada más mientras morimos
+                return;
+            }
+        }
+    }
+
+    // ——— Entrada salto + movimiento horiz ———
+    if (m_jumpRequested && m_player->isOnGround()) {
+        constexpr float JUMP_VY = -500.0f;
+        auto v = m_player->fisica().velocity();
+        m_player->fisica().setVelocity(v.x(), JUMP_VY);
+        m_player->setOnGround(false);
+        m_jumpRequested = false;
+    }
     float vx = 0.0f;
     if (!m_deathScheduled) {
         if (m_moveLeft)  vx = -160.0f;
@@ -304,48 +404,54 @@ void NivelRaicesOlvidadas::onFrame()
         m_player->fisica().velocity().y()
         );
 
-    // — Actualizar jugador —
+    // ——— Actualizar jugador + colisiones ———
     m_player->actualizar(m_dt);
     QSize sprSz = m_player->sprite().getSize();
     m_colManager->resolveCollisions(m_player, sprSz, m_dt);
 
-    // — Actualizar enemigos —
-    for (Enemigo* e : std::as_const(m_enemigos)) {
-        e->update(m_dt);
-        if (!e->isDead()){
-        QSize eSz = e->pixmap().size();
-        m_colManager->resolveCollisions(e, eSz, m_dt);
-        }
+    // ——— Mostrar segundo fondo si tocsa ———
+    if (!m_secondBgShown &&
+        m_player->transform().getPosition().x() >= (m_bgWidth - WINDOW_W/2.0f))
+    {
+        m_bg2Item->setVisible(true);
+        m_secondBgShown = true;
     }
 
-    // — Debug hitbox y barra de vida en escena —
+    // ——— Actualizar enemigos ———
+    for (Enemigo* e : std::as_const(m_enemigos)) {
+        e->update(m_dt);
+        QSize eSz = e->pixmap().size();
+        m_colManager->resolveCollisions(e, eSz, m_dt);
+    }
+    if (!bossDefeated && !m_enemigos.isEmpty()) {
+        Enemigo* boss = m_enemigos.first();
+        if (boss->isDead()) {
+            bossDefeated = true;
+        }
+    }
+    // ——— Debug hitbox y barra de vida del boss ———
     if (!m_enemigos.isEmpty()) {
         Enemigo* boss = m_enemigos.first();
         QRectF sb = boss->sceneBoundingRect();
-
-        // Debug hitbox
+        // hitbox
         m_debugBossHitbox->setRect(0, 0, sb.width(), sb.height());
         m_debugBossHitbox->setPos(sb.topLeft());
-
-        // Barra de vida
+        // barra
         float frac = float(boss->currentHP()) / boss->maxHP();
-        float bw   = m_bossHpBorder->rect().width();
-        float bh   = m_bossHpBorder->rect().height();
-        float x0   = sb.left() + (sb.width() - bw) / 2.0f;
-        float y0   = sb.top()  - bh - 4.0f;
-
-        m_bossHpBorder->setRect(0, 0, bw, bh);
-        m_bossHpBorder->setPos(x0, y0);
-
-        float innerW = (bw - 2.0f) * frac;
-        m_bossHpBar->setRect(1, 1, innerW, bh - 2.0f);
-        m_bossHpBar->setPos(x0, y0);
+        float bw = m_bossHpBorder->rect().width();
+        float bh = m_bossHpBorder->rect().height();
+        float x0 = sb.left() + (sb.width() - bw)/2.0f;
+        float y0 = sb.top()  - bh - 4.0f;
+        m_bossHpBorder->setRect(0,0,bw,bh);
+        m_bossHpBorder->setPos(x0,y0);
+        m_bossHpBar->setRect(1,1,(bw-2)*frac, bh-2);
+        m_bossHpBar->setPos(x0,y0);
     }
 
-    // — Combate —
+    // ——— Combate ———
     if (m_combate) m_combate->update(m_dt);
 
-    // — Render del jugador y cámara —
+    // ——— Render jugador + cámara ———
     QPixmap pix = trimBottom(
         m_player->sprite().currentFrame()
             .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
@@ -356,22 +462,21 @@ void NivelRaicesOlvidadas::onFrame()
     m_playerItem->setPos(footPos);
     m_view->centerOn(footPos);
 
-    // — HUD —
-    QPointF tl = m_view->mapToScene(0, 0);
+    // ——— HUD ———
+    QPointF tl = m_view->mapToScene(0,0);
     float hpFrac = float(m_player->currentHP()) / m_player->maxHP();
-    m_hudBorder->setPos(tl.x() + HUD_MARGIN, tl.y() + HUD_MARGIN);
+    m_hudBorder->setPos(tl.x()+HUD_MARGIN, tl.y()+HUD_MARGIN);
     m_hudBar->setRect(
-        tl.x() + HUD_MARGIN + 1,
-        tl.y() + HUD_MARGIN + 1,
-        (HUD_W - 2) * hpFrac,
-        HUD_H - 2
+        tl.x()+HUD_MARGIN+1, tl.y()+HUD_MARGIN+1,
+        (HUD_W-2)*hpFrac, HUD_H-2
         );
-    int pct = int(hpFrac * 100.0f + 0.5f);
+    int pct = int(hpFrac*100.0f + 0.5f);
     m_hudText->setPlainText(QString::number(pct) + "%");
-    QRectF rTxt = m_hudText->boundingRect();
+    QRectF rt = m_hudText->boundingRect();
     m_hudText->setPos(
-        tl.x() + HUD_MARGIN + (HUD_W - rTxt.width()) / 2.0f,
-        tl.y() + HUD_MARGIN + (HUD_H - rTxt.height()) / 2.0f
+        tl.x()+HUD_MARGIN + (HUD_W-rt.width())/2.0f,
+        tl.y()+HUD_MARGIN + (HUD_H-rt.height())/2.0f
         );
 }
+
 

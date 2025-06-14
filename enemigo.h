@@ -72,8 +72,8 @@ protected:
     float  m_velX = 0.0f;
     float  m_velY = 0.0f;
 
-    int    m_maxHP = 3;
-    int    m_hp    = 3;
+    int    m_maxHP = 100;
+    int    m_hp    = 100;
 
     entidad* m_target = nullptr;
 };

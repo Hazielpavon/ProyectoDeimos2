@@ -1,103 +1,90 @@
-#include "niveltorredelamarca.h"
+#include "niveltorredelamarca.h".h"
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
-#include <QPen>
-#include <QFont>
+#include "jugador.h"
+#include "Enemigo.h"
+#include "BringerOfDeath.h"
+#include "CombateManager.h"
+#include <QRandomGenerator>
 #include <QGraphicsPixmapItem>
-#include <QDebug>
+#include <QGraphicsRectItem>
+#include <QGraphicsTextItem>
+#include <QFrame>
 #include <QKeyEvent>
 #include <QMouseEvent>
-#include <QPixmap>
 #include <QImage>
 #include <algorithm>
-#include "jugador.h"
-// Constantes de ventana, FPS y plataforma
+#include <QDebug>
+#include <iostream>
+#include "mainwindow.h"
+
+using namespace std;
+using namespace std;
+// ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
 static constexpr float WINDOW_H    = 650.0f;
 static constexpr float FPS         = 60.0f;
 static constexpr float PLAT_WIDTH  = 200.0f;
 static constexpr float PLAT_HEIGHT = 20.0f;
 
-// Helper para recortar filas transparentes en la parte inferior
-static QPixmap trimBottom(const QPixmap& pix) {
+// HUD
+static constexpr float HUD_W = 350.0f;
+static constexpr float HUD_H = 35.0f;
+static constexpr float HUD_MARGIN = 10.0f;
+
+/* Auxiliar: recorta líneas transparentes inferiores */
+static QPixmap trimBottom(const QPixmap& pix)
+{
     QImage img = pix.toImage()
     .convertToFormat(QImage::Format_ARGB32_Premultiplied);
     int maxY = -1;
-    for (int y = 0; y < img.height(); ++y) {
-        for (int x = 0; x < img.width(); ++x) {
-            if (qAlpha(img.pixel(x, y)) > 0) {
-                maxY = std::max(maxY, y);
-            }
-        }
-    }
-    if (maxY >= 0 && maxY < img.height() - 1) {
-        return pix.copy(0, 0, pix.width(), maxY + 1);
-    }
-    return pix;
+    for (int y=0; y<img.height(); ++y)
+        for (int x=0; x<img.width(); ++x)
+            if (qAlpha(img.pixel(x,y))>0) maxY = std::max(maxY,y);
+    return (maxY>=0 && maxY<img.height()-1)
+               ? pix.copy(0,0,pix.width(),maxY+1)
+               : pix;
 }
 
-niveltorredelamarca::niveltorredelamarca(entidad* jugador,
+// =========================================================
+niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
                                            MainWindow* mainWindow,
-                                           QWidget* parent)
+                                           QWidget*   parent)
     : QWidget(parent)
     , m_player(jugador)
     , m_mainWindow(mainWindow)
     , m_timer(new QTimer(this))
-    , m_view(nullptr)
     , m_scene(new QGraphicsScene(this))
     , m_colManager(new ObjetosYColisiones(m_scene, this))
-    , m_playerItem(nullptr)
-    , m_moveLeft(false)
-    , m_moveRight(false)
-    , m_run(false)
-    , m_jumpRequested(false)
-    , m_dt(1.0f / FPS)
-    , m_repeatCount(1)
-    , m_bgWidth(0)
-    , m_bgHeight(0)
-    , m_secondBgShown(false)
-    , m_mapaRegiones(nullptr)
-    , m_currentRegion("Raices Olvidadas")
+    , m_dt(1.0f/FPS)
 {
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
     setFocusPolicy(Qt::StrongFocus);
-
+    setFocus();
     // ---- Fondo ----
     QPixmap bgOrig(":/resources/Torre_De_La_Marca.png");
-    if (bgOrig.isNull()) qWarning() << "Error al cargar fondo";
-    QPixmap bg = bgOrig.scaled(bgOrig.size() * 0.9,
+    QPixmap bg = bgOrig.scaled(bgOrig.size()*0.9,
                                Qt::KeepAspectRatioByExpanding,
                                Qt::SmoothTransformation);
     m_bgWidth  = bg.width();
     m_bgHeight = bg.height();
-    m_scene->setSceneRect(0, 0, m_bgWidth * 2, m_bgHeight);
-
-    for (int i = 0; i < m_repeatCount; ++i) {
-        auto* itemBG = m_scene->addPixmap(bg);
-        itemBG->setZValue(0);
-        itemBG->setPos(i * m_bgWidth, 0);
+    m_scene->setSceneRect(0,0,m_bgWidth*2, m_bgHeight);
+    for (int i=0;i<2;++i){
+        auto* item = m_scene->addPixmap(bg);
+        item->setZValue(0);  item->setPos(i*m_bgWidth,0);
     }
-    // -- Segunda imagen, oculta al principio --
     QPixmap bg2Orig(":/resources/Torre_De_La_Marca2.png");
-    if (bg2Orig.isNull()) {
-        qWarning() << "Error al cargar raices_olvidadas2";
-    } else {
-        // escalado idéntico al primero
-        QPixmap bg2 = bg2Orig.scaled(
-            QSize(m_bgWidth, m_bgHeight),
-            Qt::KeepAspectRatioByExpanding,
-            Qt::SmoothTransformation
-            );
-        m_bg2Item = m_scene->addPixmap(bg2);
+    if(!bg2Orig.isNull()){
+        m_bg2Item = m_scene->addPixmap(
+            bg2Orig.scaled(m_bgWidth, m_bgHeight,
+                           Qt::KeepAspectRatioByExpanding,
+                           Qt::SmoothTransformation));
+        m_bg2Item->setPos(m_bgWidth,0);
         m_bg2Item->setZValue(0);
-        m_bg2Item->setPos(m_bgWidth, 0);
         m_bg2Item->setVisible(false);
     }
 
-
-
-
-    // ---- View ----
+    // ---- Vista ----
     m_view = new QGraphicsView(m_scene, this);
     m_view->setFixedSize(int(WINDOW_W), int(WINDOW_H));
     m_view->setFrameShape(QFrame::NoFrame);
@@ -105,270 +92,330 @@ niveltorredelamarca::niveltorredelamarca(entidad* jugador,
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setAttribute(Qt::WA_TransparentForMouseEvents);
 
-    // ---- Plataformas ----
-    float platX = 300.0f - (PLAT_WIDTH + 120.0f)/2.0f;
-    float platY = (m_bgHeight - 40.0f) - 160.0f;
-    m_colManager->addRect(
-        QRectF(platX, platY,
-               PLAT_WIDTH + 120.0f,
-               PLAT_HEIGHT),
-        QColor(80,80,80), false);
-    m_colManager->addRect(
-        QRectF(0.0f,
-               m_bgHeight - 40.0f,
-               float(m_bgWidth * 2),
-               40.0f),
-        Qt::NoBrush, true);
+    // ---- Plataformas / suelo ----
+    float startX = 299.0f;
+    float endX   = 3592.33f;
+    float minY   = 200.0f;                // altura mínima
+    float maxY   = m_bgHeight - 40.0f - 100.0f; // 100px por encima del suelo
+    int   count  = 15;
+    float minGapX = 50.0f;  // mínimo espacio horizontal entre plataformas
+    float minGapY = 40.0f;  // mínimo espacio vertical entre plataformas
 
+    // preparamos un vector para recordar las rects y poder comprobar distancias
+    // tras haber inicializado m_bgWidth, m_bgHeight, etc.
+
+    static constexpr float PLAT_W = PLAT_WIDTH;
+    static constexpr float PLAT_H = PLAT_HEIGHT;
+
+
+    // Suelo (collisionOnly = true)
+    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
+
+
+
+    // Plataformas manuales, bien distribuidas entre x=[299,3592] y y=[150,450]
+    const QVector<QRectF> plataformas = {
+        // Δx ≈ 400, Δy ≤ 100
+        {  600.0f, 550.0f, PLAT_W, PLAT_H },  // Desde suelo
+        { 1000.0f, 500.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
+        { 1400.0f, 450.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
+        { 1800.0f, 520.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 70
+        { 2200.0f, 430.0f, PLAT_W, PLAT_H },  // Δx=400, bajada de 90
+        { 2600.0f, 530.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 100
+        { 3000.0f, 480.0f, PLAT_W, PLAT_H }   // Δx=400, bajada de 50
+    };
+
+    for (const QRectF &r : plataformas) {
+        m_colManager->addRect(r,
+                              QColor(80,80,80),
+                              false);
+    }
+
+
+
+
+
+
+
+    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
     // ---- Jugador ----
-    if (m_player) {
-        float footX =35;
-        float footY = 0;
-        m_player->transform().setPosition(footX, footY);
+    if(m_player){
+        m_spawnPos = QPointF(35,0);
+        m_player->transform().setPosition(
+            m_spawnPos.x(), m_spawnPos.y());
         m_player->setOnGround(true);
-        m_spawnPos = QPointF(footX, footY);
-        // Creamos el QGraphicsPixmapItem (vacío aún)
+
         m_playerItem = new QGraphicsPixmapItem;
         m_playerItem->setZValue(3);
         m_scene->addItem(m_playerItem);
-        m_playerItem->setPos(footX, footY);
+        m_playerItem->setPos(m_spawnPos);
+        auto jug = dynamic_cast<Jugador*>(m_player);
+        if (jug) jug->setGraphicsItem(m_playerItem);
     }
 
-    // ---- Mapa ----
+    // ---- Enemigo (Bringer-of-Death) ----
+    auto* boss = new BringerOfDeath(this);
+    QSize bSz = boss->pixmap().size();
+    boss->setPos(4072.33,651 );
+    boss->setTarget(m_player);
+    m_scene->addItem(boss);
+    m_enemigos.append(boss);
+
+    // debug hitbox en escena
+    m_debugBossHitbox = new QGraphicsRectItem;
+    m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
+    m_debugBossHitbox->setBrush(Qt::NoBrush);
+    m_debugBossHitbox->setZValue(10);
+
+
+    float barW = 100, barH = 8;
+    m_bossHpBorder = new QGraphicsRectItem(0,0, barW, barH);
+    m_bossHpBorder->setPen(QPen(Qt::black));
+    m_bossHpBorder->setBrush(Qt::NoBrush);
+    m_bossHpBorder->setZValue(11);
+    m_bossHpBar = new QGraphicsRectItem(1,1, barW-2, barH-2);
+    m_bossHpBar->setPen(Qt::NoPen);
+    m_bossHpBar->setBrush(QColor(200,0,0));
+    m_bossHpBar->setZValue(12);
+    m_scene->addItem(m_bossHpBorder);
+    m_scene->addItem(m_bossHpBar);
+
+
+    // ---- Gestor de Combate ----
+    Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
+    if (!jugadorPtr) {
+        qCritical() << "[NivelRaicesOlvidadas] m_player no es Jugador!";
+    } else {
+        m_combate = new CombateManager(jugadorPtr, m_enemigos, this);
+    }
+
+    // ---- Mapa + HUD (igual que antes) ----
     m_mapaRegiones = new MapaWidget("Raices Olvidadas", this);
-    m_mapaRegiones->setWindowModality(Qt::NonModal);
-    m_mapaRegiones->setFocusPolicy(Qt::NoFocus);
-    m_mapaRegiones->setAttribute(Qt::WA_ShowWithoutActivating);
+    connect(m_mapaRegiones,&MapaWidget::mapaCerrado,
+            this,[this](){ activateWindow(); setFocus(); });
 
-    activateWindow();
-    setFocus(Qt::OtherFocusReason);
-
-    connect(m_mapaRegiones, &MapaWidget::mapaCerrado, this, [this]() {
-        activateWindow();
-        setFocus(Qt::OtherFocusReason);
-    });
-
-    m_hudBorder = new QGraphicsRectItem(0, 0, HUD_W, HUD_H);
+    m_hudBorder = new QGraphicsRectItem(0,0,HUD_W,HUD_H);
     m_hudBorder->setPen(QPen(Qt::black));
     m_hudBorder->setBrush(Qt::NoBrush);
-    m_hudBorder->setZValue(100);  // siempre delante
+    m_hudBorder->setZValue(100);
     m_hudBorder->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudBorder);
 
-    // 2) Barra interior (verde)
-    m_hudBar = new QGraphicsRectItem(1, 1, HUD_W-2, HUD_H-2);
+    m_hudBar = new QGraphicsRectItem(1,1,HUD_W-2,HUD_H-2);
     m_hudBar->setPen(Qt::NoPen);
     m_hudBar->setBrush(QColor(50,205,50));
     m_hudBar->setZValue(101);
     m_hudBar->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudBar);
 
-    // 3) Texto porcentaje
     m_hudText = new QGraphicsTextItem("100%");
+    QFont f; f.setPointSize(14);
+    m_hudText->setFont(f);
     m_hudText->setDefaultTextColor(Qt::white);
-    QFont fnt;
-    fnt.setPointSize(14);
-    m_hudText->setFont(fnt);
     m_hudText->setZValue(102);
     m_hudText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudText);
 
-    connect(m_timer, &QTimer::timeout,
-            this, &niveltorredelamarca::onFrame);
-    m_timer->start(int(m_dt * 1000));
+    connect(m_timer,&QTimer::timeout,this,&niveltorredelamarca::onFrame);
+    m_timer->start(int(m_dt*1000));
 }
 
-void niveltorredelamarca::keyPressEvent(QKeyEvent* event)
+/* =========================================================//---------------------------------------------------------------------------------------
+ *  Entrada (no cambia)
+ * ========================================================= */
+void niveltorredelamarca::keyPressEvent(QKeyEvent* e)
 {
     if (m_deathScheduled) return;
-    switch (event->key()) {
-    case Qt::Key_A:     m_moveLeft      = true;  break;
-    case Qt::Key_D:     m_moveRight     = true;  break;
-    case Qt::Key_Shift: m_run           = true;  break;
-    case Qt::Key_Space: m_jumpRequested = true;  break;
+
+    switch (e->key()) {
+    case Qt::Key_A:     m_moveLeft  = true;  break;
+    case Qt::Key_D:     m_moveRight = true;  break;
+    case Qt::Key_Shift: m_run       = true;  break;
+
+    case Qt::Key_Space:
+        // sólo al primer evento, no auto‐repeat:
+        if (!e->isAutoRepeat()) {
+            m_jumpRequested = true;
+        }
+        break;
+
+    case Qt::Key_M:
+        m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
+        break;
+
     case Qt::Key_C:
         if (m_player && m_player->isOnGround()) {
             float vx = m_player->fisica().velocity().x();
-            auto  state = vx > 0.0f
-                             ? SpriteState::Slidding
-                             : SpriteState::SliddingLeft;
-            m_player->reproducirAnimacionTemporal(state, 0.5f);
+            SpriteState st = vx>0.0f ? SpriteState::Slidding
+                                       : SpriteState::SliddingLeft;
+            m_player->reproducirAnimacionTemporal(st,0.5f);
         }
         break;
-    case Qt::Key_M:
-        if (m_mapaRegiones) {
-            if (!m_mapaRegiones->isVisible())
-                m_mapaRegiones->show();
-            else
-                m_mapaRegiones->close();
-        }
-        break;
+
     default:
-        QWidget::keyPressEvent(event);
+        QWidget::keyPressEvent(e);
     }
 }
 
-void niveltorredelamarca::keyReleaseEvent(QKeyEvent* event)
+void niveltorredelamarca::keyReleaseEvent(QKeyEvent* e)
 {
-    if (m_deathScheduled) return;
-    switch (event->key()) {
+    if(m_deathScheduled) return;
+    switch(e->key()){
     case Qt::Key_A:     m_moveLeft  = false; break;
     case Qt::Key_D:     m_moveRight = false; break;
-    case Qt::Key_Shift: m_run        = false; break;
-    default:
-        QWidget::keyReleaseEvent(event);
+    case Qt::Key_Shift: m_run       = false; break;
+    default: QWidget::keyReleaseEvent(e);
     }
 }
-
-void niveltorredelamarca::mousePressEvent(QMouseEvent* event)
+void niveltorredelamarca::mousePressEvent(QMouseEvent*)
 {
-
-    if (!m_player || !m_player->isOnGround()) return;
-    auto dir   = m_player->getLastDirection();
-    auto state = (dir == SpriteState::WalkingLeft ||
-                  dir == SpriteState::RunningLeft)
-                     ? SpriteState::SlashingLeft
-                     : SpriteState::Slashing;
-    m_player->reproducirAnimacionTemporal(state, 0.6f);
+    if(!m_player || !m_player->isOnGround()) return;
+    SpriteState st = (m_player->getLastDirection()==SpriteState::WalkingLeft ||
+                      m_player->getLastDirection()==SpriteState::RunningLeft)
+                         ? SpriteState::SlashingLeft
+                         : SpriteState::Slashing;
+    m_player->reproducirAnimacionTemporal(st,0.6f);
 }
 
+/* =========================================================
+ *  Loop principal
+ * ========================================================= */
 void niveltorredelamarca::onFrame()
 {
     if (!m_player) return;
 
-    // --- PREPARAR SPRITE PARA DIBUJAR ---
-    QSize sz = m_player->sprite().getSize();
-    QPixmap frame = m_player->sprite()
-                        .currentFrame()
-                        .scaled(sz,
-                                Qt::KeepAspectRatio,
-                                Qt::SmoothTransformation);
-    QPixmap spritePix = trimBottom(frame);
+    QPointF footPos1 = m_player->transform().getPosition();
+    float x = footPos1.x();
+    float y = footPos1.y();
 
-    // --- POSICIÓN DE LOS PIES ACTUAL ---
-    QPointF footPos = m_player->transform().getPosition();
-
-    // --- ZONA LETAL: SOLO SI NO HEMOS PROGRAMADO LA MUERTE ---
-    if (!m_deathScheduled) {
-        if (auto* jug = dynamic_cast<Jugador*>(m_player)) {
-            float x = footPos.x();
-            float y = footPos.y();
-            constexpr float epsY = 1.0f;
-            bool atY = (y >= 651.0f - epsY && y <= 651.0f + epsY);
-            bool inFirst  = (x >=  304.33f && x <=  30967.33f);
-            bool inSecond = (x >= 3371.0f  && x <=  3605.67f);
-
-            if (atY && (inFirst || inSecond) && jug->currentHP() > 0) {
-                // 1) Anulamos velocidad y aseguramos onGround
-                m_player->fisica().setVelocity(0, 0);
-                jug->setOnGround(true);
-
-                // 2) Matamos al jugador: vida a 0 + animación
-                jug->aplicarDano(jug->currentHP());
-                jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
-                m_deathScheduled = true;
-
-                // 3) Tras 1.5s, ocultamos el sprite
-                QTimer::singleShot(1000, this, [this]() {
-                    m_playerItem->setVisible(false);
-                });
-
-                // 4) Tras 2s, respawneamos y limpiamos flags de movimiento
-                QTimer::singleShot(2000, this, [this, jug]() {
-                    // Reposicionamos al spawn original
-                    m_player->transform().setPosition(35,0);
-                    // Frenamos cualquier velocidad
-                    m_player->fisica().setVelocity(0, 0);
-                    // Marcamos en suelo
-                    jug->setOnGround(true);
-                    // Restablecemos animación y vida
-                    jug->sprite().setState(SpriteState::Idle);
-                    jug->setHP(jug->maxHP());
-                    // Limpiamos los flags de input para evitar impulso
-                    m_moveLeft  = false;
-                    m_moveRight = false;
-                    m_run       = false;
-                    m_jumpRequested = false;
-                    // Volvemos a mostrar el sprite
-                    m_playerItem->setVisible(true);
-                    // Permitimos muertes futuras
-                    m_deathScheduled = false;
-                });
-            }
-        }
+    // 1) Si se sale por la izquierda, volvemos al tutorial
+    if (x < 0.0f) {
+        m_timer->stop();
+        m_mainWindow->cargarNivel("RaicesOlvidadas");
+        return;
     }
 
-    // --- ENTRADA: solo si NO estamos en muerte programada ---
-    float vx = 0;
+
+    if (x >= 6245.67f) {
+        m_timer->stop();
+        m_mainWindow->cargarNivel("MenteVacia");
+        return;
+    }
+
+
+
+    // ——— ZONA LETAL Y SECUENCIA DE MUERTE ———
+    if (!m_deathScheduled && m_player->currentHP() <= 0) {
+        auto* jug = dynamic_cast<Jugador*>(m_player);
+        // 1.1) Detener movimiento y asegurar en suelo
+        m_player->fisica().setVelocity(0, 0);
+        jug->setOnGround(true);
+        // 1.2) Lanzar animación de muerte
+        jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
+        m_deathScheduled = true;
+        // 1.3) Ocultar sprite y respawn con temporizadores
+        QTimer::singleShot(1000, this, [this]() { m_playerItem->setVisible(false); });
+        QTimer::singleShot(2000, this, [this, jug]() {
+            // reposición idéntica a tu código de respawn…
+            m_player->transform().setPosition(35,0);
+            m_player->fisica().setVelocity(0,0);
+            jug->setOnGround(true);
+            jug->sprite().setState(SpriteState::Idle);
+            jug->setHP(jug->maxHP());
+            m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
+            m_playerItem->setVisible(true);
+            m_deathScheduled = false;
+        });
+        return;  // salimos, no procesamos nada más hasta el respawn
+    }
+
+    // ——— Entrada salto + movimiento horiz ———
+    if (m_jumpRequested && m_player->isOnGround()) {
+        constexpr float JUMP_VY = -500.0f;
+        auto v = m_player->fisica().velocity();
+        m_player->fisica().setVelocity(v.x(), JUMP_VY);
+        m_player->setOnGround(false);
+        m_jumpRequested = false;
+    }
+    float vx = 0.0f;
     if (!m_deathScheduled) {
-        // salto
-        if (m_jumpRequested && m_player->isOnGround()) {
-            constexpr float JUMP_SPEED = 500.0f;
-            float vx0 = m_player->fisica().velocity().x();
-            m_player->fisica().setVelocity(vx0, -JUMP_SPEED);
-            m_player->setOnGround(false);
-        }
-        // movimiento horizontal
         if (m_moveLeft)  vx = -160.0f;
         if (m_moveRight) vx =  160.0f;
-        if (m_run && vx != 0) vx *= 2;
+        if (m_run && vx != 0.0f) vx *= 2.0f;
     }
-    // aplicamos siempre la componente horizontal
     m_player->fisica().setVelocity(
         vx,
         m_player->fisica().velocity().y()
         );
-    m_jumpRequested = false;
 
-    // --- FÍSICA y COLISIONES: SIEMPRE ---
+    // ——— Actualizar jugador + colisiones ———
     m_player->actualizar(m_dt);
-    m_colManager->resolveCollisions(
-        m_player,
-        spritePix.size(),
-        m_dt
-        );
+    QSize sprSz = m_player->sprite().getSize();
+    m_colManager->resolveCollisions(m_player, sprSz, m_dt);
 
-    // --- DIBUJO del sprite ---
-    m_playerItem->setPixmap(spritePix);
-    m_playerItem->setOffset(
-        -spritePix.width() * 0.5f,
-        -spritePix.height()
-        );
-    m_playerItem->setPos(footPos);
-
-    // --- CÁMARA ---
-    m_view->centerOn(footPos);
-
-    // --- SEGUNDO FONDO si corresponde ---
+    // ——— Mostrar segundo fondo si tocsa ———
     if (!m_secondBgShown &&
-        footPos.x() >= m_bgWidth - WINDOW_W / 2.0f)
+        m_player->transform().getPosition().x() >= (m_bgWidth - WINDOW_W/2.0f))
     {
         m_bg2Item->setVisible(true);
         m_secondBgShown = true;
     }
 
-    // --- ACTUALIZAR HUD ---
-    QPointF topLeft = m_view->mapToScene(0, 0);
-    float fracVida = float(m_player->currentHP()) /
-                     float(m_player->maxHP());
+    // ——— Actualizar enemigos ———
+    for (Enemigo* e : std::as_const(m_enemigos)) {
+        e->update(m_dt);
+        QSize eSz = e->pixmap().size();
+        m_colManager->resolveCollisions(e, eSz, m_dt);
+    }
 
-    m_hudBorder->setPos(
-        topLeft.x() + HUD_MARGIN,
-        topLeft.y() + HUD_MARGIN
+    // ——— Debug hitbox y barra de vida del boss ———
+    if (!m_enemigos.isEmpty()) {
+        Enemigo* boss = m_enemigos.first();
+        QRectF sb = boss->sceneBoundingRect();
+        // hitbox
+        m_debugBossHitbox->setRect(0, 0, sb.width(), sb.height());
+        m_debugBossHitbox->setPos(sb.topLeft());
+        // barra
+        float frac = float(boss->currentHP()) / boss->maxHP();
+        float bw = m_bossHpBorder->rect().width();
+        float bh = m_bossHpBorder->rect().height();
+        float x0 = sb.left() + (sb.width() - bw)/2.0f;
+        float y0 = sb.top()  - bh - 4.0f;
+        m_bossHpBorder->setRect(0,0,bw,bh);
+        m_bossHpBorder->setPos(x0,y0);
+        m_bossHpBar->setRect(1,1,(bw-2)*frac, bh-2);
+        m_bossHpBar->setPos(x0,y0);
+    }
+
+    // ——— Combate ———
+    if (m_combate) m_combate->update(m_dt);
+
+    // ——— Render jugador + cámara ———
+    QPixmap pix = trimBottom(
+        m_player->sprite().currentFrame()
+            .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
         );
+    QPointF footPos = m_player->transform().getPosition();
+    m_playerItem->setPixmap(pix);
+    m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
+    m_playerItem->setPos(footPos);
+    m_view->centerOn(footPos);
+
+    // ——— HUD ———
+    QPointF tl = m_view->mapToScene(0,0);
+    float hpFrac = float(m_player->currentHP()) / m_player->maxHP();
+    m_hudBorder->setPos(tl.x()+HUD_MARGIN, tl.y()+HUD_MARGIN);
     m_hudBar->setRect(
-        topLeft.x() + HUD_MARGIN + 1,
-        topLeft.y() + HUD_MARGIN + 1,
-        (HUD_W - 2) * fracVida,
-        HUD_H - 2
+        tl.x()+HUD_MARGIN+1, tl.y()+HUD_MARGIN+1,
+        (HUD_W-2)*hpFrac, HUD_H-2
         );
-    int pct = qRound(fracVida * 100.0f);
+    int pct = int(hpFrac*100.0f + 0.5f);
     m_hudText->setPlainText(QString::number(pct) + "%");
-    QRectF txtRect = m_hudText->boundingRect();
+    QRectF rt = m_hudText->boundingRect();
     m_hudText->setPos(
-        topLeft.x() + HUD_MARGIN + (HUD_W - txtRect.width()) / 2.0f,
-        topLeft.y() + HUD_MARGIN + (HUD_H - txtRect.height()) / 2.0f
+        tl.x()+HUD_MARGIN + (HUD_W-rt.width())/2.0f,
+        tl.y()+HUD_MARGIN + (HUD_H-rt.height())/2.0f
         );
 }
 

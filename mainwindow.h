@@ -24,6 +24,7 @@ public:
     ~MainWindow();
     void mostrarPantalla(QWidget *pantalla);
      void mostrarNivelConIntro(const QString &rutaVideo, QWidget *nivel);
+    void cargarNivel(const QString &nombre);
 private:
     Ui::MainWindow *ui;
 
