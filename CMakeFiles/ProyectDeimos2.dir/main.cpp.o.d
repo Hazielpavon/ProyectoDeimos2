@@ -1017,9 +1017,9 @@ CMakeFiles/ProyectDeimos2.dir/main.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/QString \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSize \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
   /opt/homebrew/include/QtGui/qtextoption.h \
-  /opt/homebrew/include/QtGui/qpen.h
+  /opt/homebrew/include/QtGui/qpen.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h

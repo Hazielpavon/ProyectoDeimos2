@@ -3,6 +3,9 @@
 #include <QPainter>
 #include <QString>
 #include <QSet>
+#include <QDebug>
+#include <QGraphicsPixmapItem>  // QGraphicsPixmapItem, sceneBoundingRect()
+#include <QRectF>                // QRectF
 
 class Jugador : public entidad
 {
@@ -17,9 +20,15 @@ public:
     // Override aplicación de daño para disparar animación de muerte
     void aplicarDano(int dmg);
 
+    void setGraphicsItem(QGraphicsPixmapItem* it) { m_graphicsItem = it; }
+    // Lo usamos luego en CombateManager:
+    QGraphicsPixmapItem* graphicsItem() const { return m_graphicsItem; }
+
+
     // Dibuja la HUD (barra de vida) en la esquina superior izquierda
     void drawHUD(QPainter &painter, const QRect &viewportRect) const;
 
 private:
+    QGraphicsPixmapItem* m_graphicsItem = nullptr;
     QSet<QString>  m_keys;
 };

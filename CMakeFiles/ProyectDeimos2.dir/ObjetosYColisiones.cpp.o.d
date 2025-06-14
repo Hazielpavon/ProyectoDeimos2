@@ -912,8 +912,8 @@ CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/file_clock.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsScene \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
   /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h \
   /opt/homebrew/include/QtGui/qtguiglobal.h \
   /opt/homebrew/include/QtGui/qtgui-config.h \
@@ -921,39 +921,12 @@ CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o: \
   /opt/homebrew/include/QtWidgets/qtwidgets-config.h \
   /opt/homebrew/include/QtWidgets/qtwidgetsexports.h \
   /opt/homebrew/include/QtCore/qobject.h \
-  /opt/homebrew/include/QtCore/qpoint.h \
-  /opt/homebrew/include/QtCore/q23utility.h \
-  /opt/homebrew/include/QtCore/q20utility.h \
-  /opt/homebrew/include/QtCore/qrect.h \
-  /opt/homebrew/include/QtCore/qmargins.h \
-  /opt/homebrew/include/QtCore/qsize.h \
-  /opt/homebrew/include/QtGui/qbrush.h \
-  /opt/homebrew/include/QtGui/qcolor.h \
-  /opt/homebrew/include/QtGui/qrgb.h \
-  /opt/homebrew/include/QtGui/qrgba64.h \
-  /opt/homebrew/include/QtGui/qimage.h \
-  /opt/homebrew/include/QtGui/qpaintdevice.h \
-  /opt/homebrew/include/QtGui/qwindowdefs.h \
-  /opt/homebrew/include/QtGui/qpixelformat.h \
-  /opt/homebrew/include/QtGui/qtransform.h \
-  /opt/homebrew/include/QtGui/qpolygon.h \
-  /opt/homebrew/include/QtGui/qregion.h \
-  /opt/homebrew/include/QtCore/qspan.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
-  /opt/homebrew/include/QtCore/q20iterator.h \
-  /opt/homebrew/include/QtCore/qline.h \
-  /opt/homebrew/include/QtGui/qpixmap.h \
-  /opt/homebrew/include/QtCore/qshareddata.h \
-  /opt/homebrew/include/QtGui/qfont.h \
-  /opt/homebrew/include/QtCore/qendian.h \
-  /opt/homebrew/include/QtGui/qpen.h \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
-  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
   /opt/homebrew/include/QtCore/qvariant.h \
   /opt/homebrew/include/QtCore/qdebug.h \
   /opt/homebrew/include/QtCore/qtextstream.h \
   /opt/homebrew/include/QtCore/qcontiguouscache.h \
   /opt/homebrew/include/QtCore/qsharedpointer.h \
+  /opt/homebrew/include/QtCore/qshareddata.h \
   /opt/homebrew/include/QtCore/qsharedpointer_impl.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_set \
@@ -962,11 +935,32 @@ CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o: \
   /opt/homebrew/include/QtCore/qset.h \
   /opt/homebrew/include/QtCore/qhash.h \
   /opt/homebrew/include/QtCore/qvarlengtharray.h \
+  /opt/homebrew/include/QtCore/q23utility.h \
+  /opt/homebrew/include/QtCore/q20utility.h \
+  /opt/homebrew/include/QtCore/qrect.h \
+  /opt/homebrew/include/QtCore/qmargins.h \
+  /opt/homebrew/include/QtCore/qsize.h \
+  /opt/homebrew/include/QtCore/qpoint.h \
   /opt/homebrew/include/QtGui/qpainterpath.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QColor \
-  /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
-  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
+  /opt/homebrew/include/QtGui/qtransform.h \
+  /opt/homebrew/include/QtGui/qpolygon.h \
+  /opt/homebrew/include/QtGui/qregion.h \
+  /opt/homebrew/include/QtGui/qwindowdefs.h \
+  /opt/homebrew/include/QtCore/qspan.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
+  /opt/homebrew/include/QtCore/q20iterator.h \
+  /opt/homebrew/include/QtCore/qline.h \
+  /opt/homebrew/include/QtGui/qpixmap.h \
+  /opt/homebrew/include/QtGui/qpaintdevice.h \
+  /opt/homebrew/include/QtGui/qcolor.h \
+  /opt/homebrew/include/QtGui/qrgb.h \
+  /opt/homebrew/include/QtGui/qrgba64.h \
+  /opt/homebrew/include/QtGui/qimage.h \
+  /opt/homebrew/include/QtGui/qpixelformat.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QVector \
+  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QSize \
+  /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
   /Users/anavalle/Documents/ProyectoDeimos2/entidad.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPointF \
   /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h \
@@ -974,22 +968,28 @@ CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/sprite.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPixmap \
   /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QVector \
-  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QMap \
   /opt/homebrew/lib/QtCore.framework/Headers/qmap.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPoint \
   /opt/homebrew/lib/QtCore.framework/Headers/QString \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QSize \
-  /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
   /opt/homebrew/include/QtGui/qtextoption.h \
+  /opt/homebrew/include/QtGui/qpen.h \
+  /opt/homebrew/include/QtGui/qbrush.h \
   /opt/homebrew/include/QtGui/qfontinfo.h \
+  /opt/homebrew/include/QtGui/qfont.h \
+  /opt/homebrew/include/QtCore/qendian.h \
   /opt/homebrew/include/QtGui/qfontvariableaxis.h \
   /opt/homebrew/include/QtGui/qfontmetrics.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/Enemigo.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+  /opt/homebrew/lib/QtCore.framework/Headers/QHash \
+  /opt/homebrew/lib/QtCore.framework/Headers/qhash.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h
+  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsScene \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsscene.h

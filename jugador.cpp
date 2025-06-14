@@ -1,4 +1,5 @@
 #include "jugador.h"
+#include <QDebug>
 
 static constexpr int BAR_WIDTH  = 100;
 static constexpr int BAR_HEIGHT = 12;

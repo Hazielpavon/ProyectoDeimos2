@@ -935,8 +935,6 @@ CMakeFiles/ProyectDeimos2.dir/entidad.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSize \
   /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
   /opt/homebrew/include/QtGui/qpixmap.h \
@@ -958,6 +956,8 @@ CMakeFiles/ProyectDeimos2.dir/entidad.cpp.o: \
   /opt/homebrew/include/QtCore/qendian.h \
   /opt/homebrew/include/QtGui/qfontvariableaxis.h \
   /opt/homebrew/include/QtGui/qfontmetrics.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
   /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
   /opt/homebrew/include/QtCore/qtextstream.h \

@@ -990,33 +990,38 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
   /opt/homebrew/include/QtGui/qpainterpath.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
+  /opt/homebrew/lib/QtCore.framework/Headers/QVector \
+  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QObject \
   /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QColor \
-  /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
-  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QSize \
+  /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/Enemigo.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QHash \
+  /opt/homebrew/lib/QtCore.framework/Headers/qhash.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QPixmap \
+  /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
   /Users/anavalle/Documents/ProyectoDeimos2/entidad.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPointF \
   /opt/homebrew/lib/QtCore.framework/Headers/qpoint.h \
   /Users/anavalle/Documents/ProyectoDeimos2/tranformacion.h \
   /Users/anavalle/Documents/ProyectoDeimos2/sprite.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QPixmap \
-  /opt/homebrew/lib/QtGui.framework/Headers/qpixmap.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QVector \
-  /opt/homebrew/lib/QtCore.framework/Headers/qvector.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QMap \
   /opt/homebrew/lib/QtCore.framework/Headers/qmap.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPoint \
   /opt/homebrew/lib/QtCore.framework/Headers/QString \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QSize \
-  /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/CombateManager.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
+  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
   /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QList \
   /opt/homebrew/lib/QtCore.framework/Headers/qlist.h \
@@ -1032,12 +1037,49 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QPair \
   /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QPen \
-  /opt/homebrew/lib/QtGui.framework/Headers/qpen.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QFont \
-  /opt/homebrew/lib/QtGui.framework/Headers/qfont.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/jugador.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QSet \
+  /opt/homebrew/lib/QtCore.framework/Headers/qset.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QRandomGenerator \
+  /opt/homebrew/lib/QtCore.framework/Headers/qrandom.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/random \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/generate_canonical.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/binomial_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/cauchy_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/chi_squared_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/gamma_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/exponential_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/default_random_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/linear_congruential_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/is_seed_sequence.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/discard_block_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/discrete_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/extreme_value_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/fisher_f_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/geometric_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/negative_binomial_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/poisson_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/clamp_to_integral.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/normal_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/independent_bits_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/knuth_b.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/shuffle_order_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/lognormal_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/mersenne_twister_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/piecewise_constant_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/piecewise_linear_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/random_device.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/ranlux.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/subtract_with_carry_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/seed_seq.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/student_t_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_random_bit_generator.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/weibull_distribution.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QFrame \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qframe.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent \
   /opt/homebrew/lib/QtGui.framework/Headers/qevent.h \
   /opt/homebrew/include/QtCore/qcoreevent.h \
@@ -1063,6 +1105,22 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: \
   /opt/homebrew/lib/QtGui.framework/Headers/QMouseEvent \
   /opt/homebrew/lib/QtGui.framework/Headers/QImage \
   /opt/homebrew/lib/QtGui.framework/Headers/qimage.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/jugador.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QSet \
-  /opt/homebrew/lib/QtCore.framework/Headers/qset.h
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/bitset \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_char_like_type.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/format \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/queue \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/deque.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/queue.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stack \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/mainwindow.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QMainWindow \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qmainwindow.h \
+  /opt/homebrew/include/QtWidgets/qtabwidget.h

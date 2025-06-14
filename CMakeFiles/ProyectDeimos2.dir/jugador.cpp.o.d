@@ -936,8 +936,6 @@ CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSize \
   /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
   /opt/homebrew/include/QtGui/qpixmap.h \
@@ -959,6 +957,35 @@ CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o: \
   /opt/homebrew/include/QtCore/qendian.h \
   /opt/homebrew/include/QtGui/qfontvariableaxis.h \
   /opt/homebrew/include/QtGui/qfontmetrics.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSet \
   /opt/homebrew/lib/QtCore.framework/Headers/qset.h \
-  /opt/homebrew/include/QtCore/qhash.h
+  /opt/homebrew/include/QtCore/qhash.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+  /opt/homebrew/include/QtCore/qtextstream.h \
+  /opt/homebrew/include/QtCore/qcontiguouscache.h \
+  /opt/homebrew/include/QtCore/qsharedpointer.h \
+  /opt/homebrew/include/QtCore/qsharedpointer_impl.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/file_clock.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/unordered_set \
+  /opt/homebrew/include/QtCore/qmap.h \
+  /opt/homebrew/include/QtCore/qset.h \
+  /opt/homebrew/include/QtCore/qvarlengtharray.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+  /opt/homebrew/include/QtWidgets/qtwidgetsglobal.h \
+  /opt/homebrew/include/QtWidgets/qtwidgets-config.h \
+  /opt/homebrew/include/QtWidgets/qtwidgetsexports.h \
+  /opt/homebrew/include/QtCore/qobject.h \
+  /opt/homebrew/include/QtCore/qobject_impl.h \
+  /opt/homebrew/include/QtCore/qbindingstorage.h \
+  /opt/homebrew/include/QtCore/qvariant.h \
+  /opt/homebrew/include/QtCore/qdebug.h \
+  /opt/homebrew/include/QtGui/qpainterpath.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
+  /opt/homebrew/lib/QtCore.framework/Headers/qrect.h

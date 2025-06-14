@@ -1015,12 +1015,12 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/QString \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSize \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
   /opt/homebrew/include/QtGui/qtextoption.h \
   /opt/homebrew/include/QtGui/qpen.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/include/ui_mainwindow.h \
   /opt/homebrew/include/QtCore/QVariant \
   /opt/homebrew/include/QtWidgets/QApplication \
@@ -1068,10 +1068,13 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
   /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
   /Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h \
+  /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsTextItem \
   /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QObject \
-  /opt/homebrew/lib/QtGui.framework/Headers/QColor \
-  /opt/homebrew/lib/QtGui.framework/Headers/qcolor.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/enemigo.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QHash \
+  /opt/homebrew/lib/QtCore.framework/Headers/qhash.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/combateManager.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QRectF \
   /opt/homebrew/lib/QtCore.framework/Headers/qrect.h \
   /Users/anavalle/Documents/ProyectoDeimos2/videointro.h \
@@ -1091,4 +1094,7 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/jugador.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSet \
   /opt/homebrew/lib/QtCore.framework/Headers/qset.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.h
+  /Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/Enemigo.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/CombateManager.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.h

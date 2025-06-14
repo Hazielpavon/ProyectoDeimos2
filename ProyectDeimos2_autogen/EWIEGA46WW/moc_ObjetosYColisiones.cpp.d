@@ -728,7 +728,8 @@
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QObject \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QRectF \
+  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QSize \
+  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QVector \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/q17memory.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/q20iterator.h \
@@ -764,7 +765,6 @@
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qdarwinhelpers.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qdatastream.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qdebug.h \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qendian.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qflags.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qfloat16.h \
@@ -851,17 +851,14 @@
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qutf8stringview.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qvariant.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h \
+  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qvector.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qcolor.h \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qfont.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qimage.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qpainterpath.h \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qpen.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qpolygon.h \
@@ -874,9 +871,7 @@
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsRectItem \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsScene \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsitem.h \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsscene.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsglobal.h

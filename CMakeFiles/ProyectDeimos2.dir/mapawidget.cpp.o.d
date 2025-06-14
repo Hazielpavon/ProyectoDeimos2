@@ -1000,13 +1000,13 @@ CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSize \
   /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QPair \
-  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
   /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
   /opt/homebrew/include/QtGui/qtextoption.h \
   /opt/homebrew/include/QtGui/qpen.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QPair \
+  /opt/homebrew/lib/QtCore.framework/Headers/qpair.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QKeyEvent \
   /opt/homebrew/lib/QtGui.framework/Headers/qevent.h \
   /opt/homebrew/include/QtCore/qcoreevent.h \

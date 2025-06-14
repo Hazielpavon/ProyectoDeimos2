@@ -80,10 +80,12 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources.qrc
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: CMakeFiles/ProyectDeimos2_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_011.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Walk_7.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_006.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_014.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_012.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_016.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_010.png
@@ -93,15 +95,20 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idl
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_013.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_009.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_002.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_6.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_011.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_014.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_7.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Idle_4.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_012.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/informacion.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_017.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_3.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/correr.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_7.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_017.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sliding_005.png
@@ -109,11 +116,17 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dyi
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_016.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_018.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_006.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_5.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_013.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_1.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sliding_000.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Walk_3.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_6.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_020.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_4.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Ciudad_Inversa2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/saltar.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_010.png
@@ -126,9 +139,13 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idl
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_023.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_1.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Walk_4.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_008.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_000.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_3.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_020.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Idle_1.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_008.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_017.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_004.png
@@ -139,9 +156,11 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/mapa.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_008.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_005.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_9.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/intro_raices.mp4
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_001.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/templo_silencio2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_006.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_001.png
@@ -149,9 +168,12 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Wal
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_009.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Torre_De_La_Marca2.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Ciudad_Inversa.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_012.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_4.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Hurt_2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_008.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_014.png
@@ -164,32 +186,43 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Run
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_013.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Regiones.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_010.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Walk_2.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Idle_7.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Idle_3.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/templo_olvido.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_021.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_015.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_015.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/raices_olvidadas2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_015.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Idle_5.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_002.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Idle_2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_006.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_016.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Hurt_1.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_009.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sliding_004.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Walk_5.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_003.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Idle_8.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Walk_6.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_013.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sliding_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_016.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/dash.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_9.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_011.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Sliding_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_011.png
@@ -201,15 +234,19 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Wal
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_019.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_014.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_019.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_006.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Idle_6.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/caminar.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Walk_1.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/historia.mp4
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/intro_silencion.mp4
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/tutorial.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_8.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_JumpStart_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_009.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_017.png
@@ -218,27 +255,32 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Wal
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_009.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_008.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/golpear.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_10.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_001.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/raices_olvidadas.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_004.png
-ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/templo_silencio.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_000.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_013.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/mapaa.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_006.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Death_5.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_012.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_022.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_014.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/inicio.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_10.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/mapa_centrado.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_001.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Walk_8.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jump\ Loop_005.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_015.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_023.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Torre_De_La_Marca.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Attack_8.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Bringer-of-Death_Hurt_3.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_012.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: /opt/homebrew/share/qt/libexec/rcc
@@ -347,10 +389,38 @@ CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.cpp -o CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.s
 
+CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
+CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o: BringerOfDeath.cpp
+CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.cpp
+
+CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.cpp > CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.i
+
+CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.cpp -o CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.s
+
+CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
+CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o: CombateManager.cpp
+CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/CombateManager.cpp
+
+CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/anavalle/Documents/ProyectoDeimos2/CombateManager.cpp > CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.i
+
+CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anavalle/Documents/ProyectoDeimos2/CombateManager.cpp -o CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.s
+
 CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o: tranformacion.cpp
 CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/tranformacion.cpp
 
 CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.i: cmake_force
@@ -361,10 +431,24 @@ CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anavalle/Documents/ProyectoDeimos2/tranformacion.cpp -o CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.s
 
+CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
+CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o: ciudadinversa.cpp
+CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.cpp
+
+CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.cpp > CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.i
+
+CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.cpp -o CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.s
+
 CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o: sprite.cpp
 CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/sprite.cpp
 
 CMakeFiles/ProyectDeimos2.dir/sprite.cpp.i: cmake_force
@@ -378,7 +462,7 @@ CMakeFiles/ProyectDeimos2.dir/sprite.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o: enemigo.cpp
 CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/enemigo.cpp
 
 CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.i: cmake_force
@@ -392,7 +476,7 @@ CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o: jugador.cpp
 CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/jugador.cpp
 
 CMakeFiles/ProyectDeimos2.dir/jugador.cpp.i: cmake_force
@@ -406,7 +490,7 @@ CMakeFiles/ProyectDeimos2.dir/jugador.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.o: componentefisico.cpp
 CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.cpp
 
 CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.i: cmake_force
@@ -420,7 +504,7 @@ CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.o: componentesalud.cpp
 CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.cpp
 
 CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.i: cmake_force
@@ -434,7 +518,7 @@ CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o: clickablelabel.cpp
 CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.cpp
 
 CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.i: cmake_force
@@ -448,7 +532,7 @@ CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o: pantallacarga.cpp
 CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/pantallacarga.cpp
 
 CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.i: cmake_force
@@ -462,7 +546,7 @@ CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o: videointro.cpp
 CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/videointro.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/videointro.cpp
 
 CMakeFiles/ProyectDeimos2.dir/videointro.cpp.i: cmake_force
@@ -476,7 +560,7 @@ CMakeFiles/ProyectDeimos2.dir/videointro.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o: tutorialscene.cpp
 CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/tutorialscene.cpp
 
 CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.i: cmake_force
@@ -490,7 +574,7 @@ CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: nivelraicesolvidadas.cpp
 CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.cpp
 
 CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.i: cmake_force
@@ -504,7 +588,7 @@ CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o: mapawidget.cpp
 CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/mapawidget.cpp
 
 CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.i: cmake_force
@@ -518,7 +602,7 @@ CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o: grafomapa.cpp
 CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.cpp
 
 CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.i: cmake_force
@@ -532,7 +616,7 @@ CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o: niveltorredelamarca.cpp
 CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.cpp
 
 CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.i: cmake_force
@@ -546,7 +630,7 @@ CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.s: cmake_force
 CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o: ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp
 CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp
 
 CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.i: cmake_force
@@ -566,7 +650,10 @@ ProyectDeimos2_OBJECTS = \
 "CMakeFiles/ProyectDeimos2.dir/menuopciones.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/entidad.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o" \
+"CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o" \
+"CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o" \
+"CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o" \
@@ -592,7 +679,10 @@ ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/menuopciones.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/entidad.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.o
+ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o
+ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.o
+ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/jugador.cpp.o
@@ -615,7 +705,7 @@ ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: /opt/homebrew/lib/QtNetwork.fr
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProyectDeimos2.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -E copy_directory /Users/anavalle/Documents/ProyectoDeimos2/Sprites /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2.app/Contents/MacOS/Sprites
 

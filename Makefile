@@ -200,6 +200,54 @@ ProyectDeimos2_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2_autogen.dir/build.make CMakeFiles/ProyectDeimos2_autogen.dir/build
 .PHONY : ProyectDeimos2_autogen/fast
 
+BringerOfDeath.o: BringerOfDeath.cpp.o
+.PHONY : BringerOfDeath.o
+
+# target to build an object file
+BringerOfDeath.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o
+.PHONY : BringerOfDeath.cpp.o
+
+BringerOfDeath.i: BringerOfDeath.cpp.i
+.PHONY : BringerOfDeath.i
+
+# target to preprocess a source file
+BringerOfDeath.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.i
+.PHONY : BringerOfDeath.cpp.i
+
+BringerOfDeath.s: BringerOfDeath.cpp.s
+.PHONY : BringerOfDeath.s
+
+# target to generate assembly for a file
+BringerOfDeath.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.s
+.PHONY : BringerOfDeath.cpp.s
+
+CombateManager.o: CombateManager.cpp.o
+.PHONY : CombateManager.o
+
+# target to build an object file
+CombateManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o
+.PHONY : CombateManager.cpp.o
+
+CombateManager.i: CombateManager.cpp.i
+.PHONY : CombateManager.i
+
+# target to preprocess a source file
+CombateManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.i
+.PHONY : CombateManager.cpp.i
+
+CombateManager.s: CombateManager.cpp.s
+.PHONY : CombateManager.s
+
+# target to generate assembly for a file
+CombateManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.s
+.PHONY : CombateManager.cpp.s
+
 ObjetosYColisiones.o: ObjetosYColisiones.cpp.o
 .PHONY : ObjetosYColisiones.o
 
@@ -271,6 +319,30 @@ ProyectDeimos2_autogen/mocs_compilation.s: ProyectDeimos2_autogen/mocs_compilati
 ProyectDeimos2_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.s
 .PHONY : ProyectDeimos2_autogen/mocs_compilation.cpp.s
+
+ciudadinversa.o: ciudadinversa.cpp.o
+.PHONY : ciudadinversa.o
+
+# target to build an object file
+ciudadinversa.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o
+.PHONY : ciudadinversa.cpp.o
+
+ciudadinversa.i: ciudadinversa.cpp.i
+.PHONY : ciudadinversa.i
+
+# target to preprocess a source file
+ciudadinversa.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.i
+.PHONY : ciudadinversa.cpp.i
+
+ciudadinversa.s: ciudadinversa.cpp.s
+.PHONY : ciudadinversa.s
+
+# target to generate assembly for a file
+ciudadinversa.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.s
+.PHONY : ciudadinversa.cpp.s
 
 clickablelabel.o: clickablelabel.cpp.o
 .PHONY : clickablelabel.o
@@ -743,6 +815,12 @@ help:
 	@echo "... ProyectDeimos2_autogen"
 	@echo "... ProyectDeimos2_autogen_timestamp_deps"
 	@echo "... ProyectDeimos2"
+	@echo "... BringerOfDeath.o"
+	@echo "... BringerOfDeath.i"
+	@echo "... BringerOfDeath.s"
+	@echo "... CombateManager.o"
+	@echo "... CombateManager.i"
+	@echo "... CombateManager.s"
 	@echo "... ObjetosYColisiones.o"
 	@echo "... ObjetosYColisiones.i"
 	@echo "... ObjetosYColisiones.s"
@@ -752,6 +830,9 @@ help:
 	@echo "... ProyectDeimos2_autogen/mocs_compilation.o"
 	@echo "... ProyectDeimos2_autogen/mocs_compilation.i"
 	@echo "... ProyectDeimos2_autogen/mocs_compilation.s"
+	@echo "... ciudadinversa.o"
+	@echo "... ciudadinversa.i"
+	@echo "... ciudadinversa.s"
 	@echo "... clickablelabel.o"
 	@echo "... clickablelabel.i"
 	@echo "... clickablelabel.s"

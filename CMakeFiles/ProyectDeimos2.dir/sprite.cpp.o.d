@@ -932,22 +932,33 @@ CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/qstring.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSize \
   /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
-  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
-  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+  /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
+  /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
+  /opt/homebrew/include/QtGui/qpixmap.h \
+  /opt/homebrew/include/QtGui/qtextoption.h \
+  /opt/homebrew/include/QtCore/qmetatype.h \
   /opt/homebrew/include/QtCore/qfloat16.h \
   /opt/homebrew/include/QtCore/qmath.h \
   /opt/homebrew/include/QtCore/qtformat_impl.h \
-  /opt/homebrew/include/QtCore/qtextstream.h \
-  /opt/homebrew/include/QtCore/qcontiguouscache.h \
-  /opt/homebrew/include/QtCore/qsharedpointer.h \
-  /opt/homebrew/include/QtCore/qsharedpointer_impl.h \
-  /opt/homebrew/include/QtCore/qmetatype.h \
   /opt/homebrew/include/QtCore/qiterable.h \
   /opt/homebrew/include/QtCore/qmetacontainer.h \
   /opt/homebrew/include/QtCore/qcontainerinfo.h \
   /opt/homebrew/include/QtCore/qtaggedpointer.h \
   /opt/homebrew/include/QtCore/qscopeguard.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/list \
+  /opt/homebrew/include/QtGui/qpen.h \
+  /opt/homebrew/include/QtGui/qbrush.h \
+  /opt/homebrew/include/QtGui/qfontinfo.h \
+  /opt/homebrew/include/QtGui/qfont.h \
+  /opt/homebrew/include/QtCore/qendian.h \
+  /opt/homebrew/include/QtGui/qfontvariableaxis.h \
+  /opt/homebrew/include/QtGui/qfontmetrics.h \
+  /opt/homebrew/lib/QtCore.framework/Headers/QDebug \
+  /opt/homebrew/lib/QtCore.framework/Headers/qdebug.h \
+  /opt/homebrew/include/QtCore/qtextstream.h \
+  /opt/homebrew/include/QtCore/qcontiguouscache.h \
+  /opt/homebrew/include/QtCore/qsharedpointer.h \
+  /opt/homebrew/include/QtCore/qsharedpointer_impl.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/file_clock.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/forward_list \
@@ -1016,16 +1027,5 @@ CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /opt/homebrew/include/QtCore/qfileinfo.h \
   /opt/homebrew/include/QtCore/qtimezone.h \
-  /opt/homebrew/lib/QtGui.framework/Headers/QPainter \
-  /opt/homebrew/lib/QtGui.framework/Headers/qpainter.h \
-  /opt/homebrew/include/QtGui/qpixmap.h \
-  /opt/homebrew/include/QtGui/qtextoption.h \
-  /opt/homebrew/include/QtGui/qpen.h \
-  /opt/homebrew/include/QtGui/qbrush.h \
-  /opt/homebrew/include/QtGui/qfontinfo.h \
-  /opt/homebrew/include/QtGui/qfont.h \
-  /opt/homebrew/include/QtCore/qendian.h \
-  /opt/homebrew/include/QtGui/qfontvariableaxis.h \
-  /opt/homebrew/include/QtGui/qfontmetrics.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QTransform \
   /opt/homebrew/lib/QtGui.framework/Headers/qtransform.h

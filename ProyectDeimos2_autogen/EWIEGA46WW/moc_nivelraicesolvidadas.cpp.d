@@ -728,11 +728,15 @@
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/combatemanager.h \
   /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
   /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/enemigo.h \
   /Users/anavalle/Documents/ProyectoDeimos2/entidad.h \
   /Users/anavalle/Documents/ProyectoDeimos2/sprite.h \
   /Users/anavalle/Documents/ProyectoDeimos2/tranformacion.h \
+  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QDebug \
+  /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QHash \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QMap \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QObject \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QPoint \
@@ -874,7 +878,6 @@
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
-  /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPixmap \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/qaction.h \
@@ -909,6 +912,7 @@
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsPixmapItem \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsRectItem \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsScene \
+  /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsTextItem \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsView \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QWidget \
   /opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractscrollarea.h \

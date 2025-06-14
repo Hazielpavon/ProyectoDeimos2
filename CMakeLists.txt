@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_OSX_ARCHITECTURES arm64)
 set(CMAKE_OSX_SYSROOT "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk")
+set(CMAKE_BUILD_PARALLEL_LEVEL 1)
 
 # ——————————————
 #  Encuentra Widgets y Multimedia
@@ -28,11 +29,15 @@ set(PROJECT_SOURCES
     entidad.h
     entidad.cpp
     ObjetosYColisiones.cpp
-
-
+    BringerOfDeath.cpp
+    CombateManager.cpp
+    BringerOfDeath.h
+    CombateManager.h
     ObjetosYColisiones.h
     tranformacion.h
     tranformacion.cpp
+    ciudadinversa.h
+    ciudadinversa.cpp
     sprite.h
     sprite.cpp
     enemigo.h
@@ -62,6 +67,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         grafomapa.h grafomapa.cpp
         niveltorredelamarca.h niveltorredelamarca.cpp
         resources/Torre_De_La_Marca.png resources/Torre_De_La_Marca2.png
+        ciudadinversa.h ciudadinversa.cpp
 
 
 

@@ -9,6 +9,8 @@
 #include "nivelraicesolvidadas.h"
 #include "videointro.h"
 #include "jugador.h"
+#include "niveltorredelamarca.h"
+#include "ciudadinversa.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -31,8 +33,8 @@ MainWindow::MainWindow(QWidget *parent)
     //     if (!menuOpciones) {
     //         menuOpciones = new MenuOpciones(this);
     //         connect(menuOpciones, &MenuOpciones::nuevaPartida, this, [=]() {
-                // pantallaCarga = new PantallaCarga(this);
-                // connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
+    //             pantallaCarga = new PantallaCarga(this);
+    //             connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
                     m_player = new Jugador();
                     m_player->sprite().loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",24);
                     m_player->sprite().loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",16);
@@ -55,33 +57,29 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->sprite().setState(SpriteState::Idle);
 
 
-                    // VideoIntro* primerVideo = new VideoIntro(this);
-                    // primerVideo->setVideo("qrc:/resources/historia.mp4");
+                    //  VideoIntro* primerVideo = new VideoIntro(this);
+                    //  primerVideo->setVideo("qrc:/resources/historia.mp4");
 
                     // connect(primerVideo, &VideoIntro::videoTerminado, this, [=]() {
-                    //     VideoIntro* segundoVideo = new VideoIntro(this);
+                    //      VideoIntro* segundoVideo = new VideoIntro(this);
                     //     segundoVideo->setVideo("qrc:/resources/intro_silencion.mp4");
 
-                        // connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
-                           TutorialScene *tutorial = new TutorialScene(m_player, this);
-                           mostrarPantalla(tutorial);
-                           tutorial->setFocus();
+                    //      connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
+
+                    cargarNivel("Tutorial");
 
 
-                    // NivelRaicesOlvidadas *n = new NivelRaicesOlvidadas(m_player, this);
-                    // mostrarPantalla(n);
-                    // n->setFocus();
                         // });
 
-                //         mostrarPantalla(segundoVideo);
-                //     });
+    //                      mostrarPantalla(segundoVideo);
+    //                 });
 
-                //     mostrarPantalla(primerVideo);
+    //                mostrarPantalla(primerVideo);
 
-                // });
+    //          });
 
-            //     mostrarPantalla(pantallaCarga);
-            // });
+    //             mostrarPantalla(pantallaCarga);
+    //         });
     //     }
     //     mostrarPantalla(menuOpciones);
     // });
@@ -107,4 +105,27 @@ void MainWindow::paintEvent(QPaintEvent * /*event*/)
 {
     QPainter painter(this);
     painter.fillRect(rect(), QColor(200,200,200));
+}
+
+void MainWindow::cargarNivel(const QString &nombre)
+{
+    if (nombre == "Tutorial") {
+        TutorialScene *tutorial = new TutorialScene(m_player, this);
+        mostrarPantalla(tutorial);
+        tutorial->setFocus();
+    } else if (nombre == "TorreDeLaMarca") {
+          niveltorredelamarca *n = new niveltorredelamarca(m_player, this);
+           mostrarPantalla(n);
+          n->setFocus();
+    } else if (nombre == "CiudadInversa") {
+        ciudadinversa *n = new ciudadinversa(m_player, this);
+        mostrarPantalla(n);
+        n->setFocus();
+    } else if (nombre == "RaicesOlvidadas"){
+        NivelRaicesOlvidadas *n = new NivelRaicesOlvidadas(m_player, this);
+        mostrarPantalla(n);
+        n->setFocus();
+    } else if (nombre == "MenteVacia"){
+
+    }
 }
