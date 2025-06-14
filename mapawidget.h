@@ -21,6 +21,8 @@ public:
 
     void setRegionActual(const QString &region);
     void setRutaActual(const QList<QString> &ruta);
+    void setRutaActual(const QString &destino); // ← para calcular todas las rutas posibles al destino
+
 
 signals:
     void mapaCerrado();
@@ -32,24 +34,36 @@ protected:
 
 private slots:
     void onFrame();
-    void animarRuta();  // ⚠️ Debe declararse aquí para que no dé error en el cpp
+    void animarRuta();
 
 private:
     QPixmap m_imagenMapa;
+    QPixmap m_imagenInformacion;
     Sprite *m_jugadorSprite;
     QTimer *m_timer;
+    QTimer *m_animacionTimer;
+
     QString m_regionActual;
     GrafoMapa m_grafo;
 
     QList<QString> m_rutaActual;
-    QMap<QString, QLabel*> m_clickLabels;
-    QPushButton *m_botonBorrarRuta;
+    QList<QPoint> m_puntosRuta;
+    QList<QPoint> m_puntosAnimados;
+    int m_animacionIndex = 0;
 
-    // 🔴 Variables para animación visual de la ruta
-    QTimer *m_animacionTimer;
-    int m_animacionIndex;
-    QList<QPoint> m_puntosRuta;         // Puntos de la ruta completa
-    QList<QPoint> m_puntosAnimados;     // Puntos que ya se han "dibujado"
+    QLabel *m_rutaInfoLabel = nullptr;
+    QPushButton *m_botonBorrarRuta;
+    QMap<QString, QLabel*> m_clickLabels;
+
+    QVector<QPoint> m_rutaMasCortaPuntos;
+    QVector<QVector<QPoint>> m_rutasAlternativasPuntos;
+
+    // 🔹 NUEVO PARA DIBUJAR TODAS LAS RUTAS:
+    bool mostrarTodasRutas = false;
+    QVector<QList<QString>> m_rutasParaDibujar;
+
+    void crearClickableLabel(const QString &region);
+
 };
 
 #endif // MAPAWIDGET_H

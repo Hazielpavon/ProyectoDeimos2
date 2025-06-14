@@ -32,6 +32,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ProyectDeimos2.dir/menuopciones.cpp.o.d"
   "CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o"
   "CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o.d"
+  "CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o"
+  "CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o.d"
   "CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o"
   "CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o.d"
   "CMakeFiles/ProyectDeimos2.dir/pantallainicio.cpp.o"

@@ -1071,6 +1071,8 @@ CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.o: \
   /opt/homebrew/include/QtWidgets/qabstractscrollarea.h \
   /opt/homebrew/include/QtWidgets/qgraphicsscene.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+  /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/moc_niveltorredelamarca.cpp \
+  /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/../../niveltorredelamarca.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/moc_pantallacarga.cpp \
   /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/../../pantallacarga.h \
   /opt/homebrew/lib/QtWidgets.framework/Headers/QProgressBar \

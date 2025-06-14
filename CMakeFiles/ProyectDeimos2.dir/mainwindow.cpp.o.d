@@ -1090,4 +1090,5 @@ CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.o: \
   /opt/homebrew/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
   /Users/anavalle/Documents/ProyectoDeimos2/jugador.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSet \
-  /opt/homebrew/lib/QtCore.framework/Headers/qset.h
+  /opt/homebrew/lib/QtCore.framework/Headers/qset.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.h

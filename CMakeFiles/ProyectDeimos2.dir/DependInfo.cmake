@@ -24,6 +24,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/anavalle/Documents/ProyectoDeimos2/mapawidget.cpp" "CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o.d"
   "/Users/anavalle/Documents/ProyectoDeimos2/menuopciones.cpp" "CMakeFiles/ProyectDeimos2.dir/menuopciones.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/menuopciones.cpp.o.d"
   "/Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.cpp" "CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o.d"
+  "/Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.cpp" "CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o.d"
   "/Users/anavalle/Documents/ProyectoDeimos2/pantallacarga.cpp" "CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.o.d"
   "/Users/anavalle/Documents/ProyectoDeimos2/pantallainicio.cpp" "CMakeFiles/ProyectDeimos2.dir/pantallainicio.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/pantallainicio.cpp.o.d"
   "/Users/anavalle/Documents/ProyectoDeimos2/sprite.cpp" "CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o" "gcc" "CMakeFiles/ProyectDeimos2.dir/sprite.cpp.o.d"

@@ -98,6 +98,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dyi
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_004.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_012.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Slashing_003.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/informacion.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_017.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/correr.png
@@ -147,6 +148,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idl
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_011.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Running_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_009.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Torre_De_La_Marca2.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_010.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_003.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_012.png
@@ -236,6 +238,7 @@ ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Jum
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Walking_015.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Dying_002.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_WalkingL_023.png
+ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/Torre_De_La_Marca.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_Idle_007.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: resources/0_Blood_Demon_IdleL_012.png
 ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp: /opt/homebrew/share/qt/libexec/rcc
@@ -526,10 +529,24 @@ CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anavalle/Documents/ProyectoDeimos2/grafomapa.cpp -o CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.s
 
+CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
+CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o: niveltorredelamarca.cpp
+CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.cpp
+
+CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.cpp > CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.i
+
+CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.cpp -o CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.s
+
 CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o: CMakeFiles/ProyectDeimos2.dir/flags.make
 CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o: ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp
 CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o: CMakeFiles/ProyectDeimos2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o -MF CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o.d -o CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o -c /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp
 
 CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.i: cmake_force
@@ -562,6 +579,7 @@ ProyectDeimos2_OBJECTS = \
 "CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o" \
+"CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o" \
 "CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o"
 
 # External object files for target ProyectDeimos2
@@ -587,6 +605,7 @@ ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o
+ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.o
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/build.make
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: /opt/homebrew/lib/QtMultimediaWidgets.framework/Versions/A/QtMultimediaWidgets
@@ -596,7 +615,7 @@ ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: /opt/homebrew/lib/QtNetwork.fr
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore
 ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2: CMakeFiles/ProyectDeimos2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Linking CXX executable ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ProyectDeimos2.dir/link.txt --verbose=$(VERBOSE)
 	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -E copy_directory /Users/anavalle/Documents/ProyectoDeimos2/Sprites /Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2.app/Contents/MacOS/Sprites
 

@@ -64,6 +64,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         resources/Torre_De_La_Marca.png resources/Torre_De_La_Marca2.png
 
 
+
     )
 else()
     if(ANDROID)

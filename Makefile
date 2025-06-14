@@ -560,6 +560,30 @@ nivelraicesolvidadas.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.s
 .PHONY : nivelraicesolvidadas.cpp.s
 
+niveltorredelamarca.o: niveltorredelamarca.cpp.o
+.PHONY : niveltorredelamarca.o
+
+# target to build an object file
+niveltorredelamarca.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o
+.PHONY : niveltorredelamarca.cpp.o
+
+niveltorredelamarca.i: niveltorredelamarca.cpp.i
+.PHONY : niveltorredelamarca.i
+
+# target to preprocess a source file
+niveltorredelamarca.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.i
+.PHONY : niveltorredelamarca.cpp.i
+
+niveltorredelamarca.s: niveltorredelamarca.cpp.s
+.PHONY : niveltorredelamarca.s
+
+# target to generate assembly for a file
+niveltorredelamarca.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.s
+.PHONY : niveltorredelamarca.cpp.s
+
 pantallacarga.o: pantallacarga.cpp.o
 .PHONY : pantallacarga.o
 
@@ -764,6 +788,9 @@ help:
 	@echo "... nivelraicesolvidadas.o"
 	@echo "... nivelraicesolvidadas.i"
 	@echo "... nivelraicesolvidadas.s"
+	@echo "... niveltorredelamarca.o"
+	@echo "... niveltorredelamarca.i"
+	@echo "... niveltorredelamarca.s"
 	@echo "... pantallacarga.o"
 	@echo "... pantallacarga.i"
 	@echo "... pantallacarga.s"
