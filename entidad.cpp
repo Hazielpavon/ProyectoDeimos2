@@ -8,7 +8,8 @@ entidad::entidad()
     m_componenteSalud(),
     m_onGround(false),
     m_lastDirection(SpriteState::Idle),
-    m_facingLeft(false)
+    m_facingLeft(false),
+    mana(100)
 {
     m_sprite.loadFrames(SpriteState::Walking, ":/resources/0_Blood_Demon_Walking_", 24);
     m_sprite.loadFrames(SpriteState::Idle, ":/resources/0_Blood_Demon_Idle_", 16);
@@ -24,6 +25,8 @@ entidad::entidad()
     m_sprite.generateMirroredFrames(SpriteState::Slidding,  SpriteState::SliddingLeft);
     m_sprite.loadFrames(SpriteState::dead,":/resources/0_Blood_Demon_Dying_",15);
     m_sprite.generateMirroredFrames(SpriteState::dead,  SpriteState::deadleft);
+    m_sprite.loadFrames(SpriteState::throwing,":/Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_",12);
+    m_sprite.generateMirroredFrames(SpriteState::throwing,  SpriteState::throwingLeft);
     m_sprite.setFPS(12);
     m_sprite.setSize(128, 128);
     m_sprite.setState(SpriteState::Idle);

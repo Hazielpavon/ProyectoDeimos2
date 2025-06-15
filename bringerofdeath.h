@@ -14,10 +14,9 @@ public:
     enum class Mode { None, Chase, Patrol, Attack };
     Mode      m_mode        = Mode::None;
       QTransform m_flipTransform;
-    // IA internal
     float m_patrolTime = 0.0f;
-    int   m_patrolDir  = +1;   // +1 = derecha, -1 = izquierda
-    int   m_lastDir    = +1;   // última dirección al jugador
+    int   m_patrolDir  = +1;
+    int   m_lastDir    = +1;
 private slots:
     void onDeathAnimFinished();
 

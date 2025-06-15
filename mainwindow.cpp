@@ -28,13 +28,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setFixedSize(950, 650);
     ui->setupUi(this);
-    // pantallaInicio = new PantallaInicio(this);
-    // connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado, this, [=]() {
-    //     if (!menuOpciones) {
-    //         menuOpciones = new MenuOpciones(this);
-    //         connect(menuOpciones, &MenuOpciones::nuevaPartida, this, [=]() {
-    //             pantallaCarga = new PantallaCarga(this);
-    //             connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
+    pantallaInicio = new PantallaInicio(this);
+    connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado, this, [=]() {
+        if (!menuOpciones) {
+            menuOpciones = new MenuOpciones(this);
+            connect(menuOpciones, &MenuOpciones::nuevaPartida, this, [=]() {
+                pantallaCarga = new PantallaCarga(this);
+                connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
                     m_player = new Jugador();
                     m_player->sprite().loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",24);
                     m_player->sprite().loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",16);
@@ -50,6 +50,8 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->sprite().generateMirroredFrames(SpriteState::Slidding,  SpriteState::SliddingLeft);
                     m_player->sprite().loadFrames(SpriteState::dead,":/resources/0_Blood_Demon_Dying_",15);
                     m_player->sprite().generateMirroredFrames(SpriteState::dead,  SpriteState::deadleft);
+                    m_player->sprite().loadFrames(SpriteState::throwing,":/Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_",12);
+                    m_player->sprite().generateMirroredFrames(SpriteState::throwing,  SpriteState::throwingLeft);
                     m_player->sprite().setSize(128, 128);
                     float centerX = width()  / 2.0f;
                     float centerY = height() / 2.0f;
@@ -57,34 +59,34 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->sprite().setState(SpriteState::Idle);
 
 
-                    //  VideoIntro* primerVideo = new VideoIntro(this);
-                    //  primerVideo->setVideo("qrc:/resources/historia.mp4");
+                  //   VideoIntro* primerVideo = new VideoIntro(this);
+                  //   primerVideo->setVideo("qrc:/resources/historia.mp4");
 
-                    // connect(primerVideo, &VideoIntro::videoTerminado, this, [=]() {
-                    //      VideoIntro* segundoVideo = new VideoIntro(this);
-                    //     segundoVideo->setVideo("qrc:/resources/intro_silencion.mp4");
+                   // connect(primerVideo, &VideoIntro::videoTerminado, this, [=]() {
+                    //     VideoIntro* segundoVideo = new VideoIntro(this);
+                   //     segundoVideo->setVideo("qrc:/resources/intro_silencion.mp4");
 
-                    //      connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
+                    //     connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
 
                     cargarNivel("Tutorial");
 
 
-                        // });
+                        });
 
-    //                      mostrarPantalla(segundoVideo);
-    //                 });
+                      //   mostrarPantalla(segundoVideo);
+                  //  });
 
-    //                mostrarPantalla(primerVideo);
+                 //  mostrarPantalla(primerVideo);
 
-    //          });
+            // });
 
-    //             mostrarPantalla(pantallaCarga);
-    //         });
-    //     }
-    //     mostrarPantalla(menuOpciones);
-    // });
+              // mostrarPantalla(pantallaCarga);
+            });
+        }
+        mostrarPantalla(menuOpciones);
+    });
 
-    // mostrarPantalla(pantallaInicio);
+    mostrarPantalla(pantallaInicio);
 }
 
 MainWindow::~MainWindow()

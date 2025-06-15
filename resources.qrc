@@ -200,70 +200,40 @@
         <file>resources/Bringer-of-Death_Walk_6.png</file>
         <file>resources/Bringer-of-Death_Walk_7.png</file>
         <file>resources/Bringer-of-Death_Walk_8.png</file>
+        <file>resources/templo del silencio.png</file>
         <file>resources/Ciudad_Inversa.png</file>
         <file>resources/Ciudad_Inversa2.png</file>
-        <file>resources/templo_silencio2.png</file>
-        <file>resources/informacion.png</file>
-        <file>resources/templo_olvido.png</file>
-        <file>resources/demon_cleave_1.png</file>
-        <file>resources/demon_cleave_2.png</file>
-        <file>resources/demon_cleave_3.png</file>
-        <file>resources/demon_cleave_4.png</file>
-        <file>resources/demon_cleave_5.png</file>
-        <file>resources/demon_cleave_6.png</file>
-        <file>resources/demon_cleave_7.png</file>
-        <file>resources/demon_cleave_8.png</file>
-        <file>resources/demon_cleave_9.png</file>
-        <file>resources/demon_cleave_10.png</file>
-        <file>resources/demon_cleave_11.png</file>
-        <file>resources/demon_cleave_12.png</file>
-        <file>resources/demon_cleave_13.png</file>
-        <file>resources/demon_cleave_14.png</file>
-        <file>resources/demon_cleave_15.png</file>
-        <file>resources/demon_death_1.png</file>
-        <file>resources/demon_death_2.png</file>
-        <file>resources/demon_death_3.png</file>
-        <file>resources/demon_death_4.png</file>
-        <file>resources/demon_death_5.png</file>
-        <file>resources/demon_death_6.png</file>
-        <file>resources/demon_death_7.png</file>
-        <file>resources/demon_death_8.png</file>
-        <file>resources/demon_death_9.png</file>
-        <file>resources/demon_death_10.png</file>
-        <file>resources/demon_death_11.png</file>
-        <file>resources/demon_death_12.png</file>
-        <file>resources/demon_death_13.png</file>
-        <file>resources/demon_death_14.png</file>
-        <file>resources/demon_death_15.png</file>
-        <file>resources/demon_death_16.png</file>
-        <file>resources/demon_death_17.png</file>
-        <file>resources/demon_death_18.png</file>
-        <file>resources/demon_death_19.png</file>
-        <file>resources/demon_death_20.png</file>
-        <file>resources/demon_death_21.png</file>
-        <file>resources/demon_death_22.png</file>
-        <file>resources/demon_idle_1.png</file>
-        <file>resources/demon_idle_2.png</file>
-        <file>resources/demon_idle_3.png</file>
-        <file>resources/demon_idle_4.png</file>
-        <file>resources/demon_idle_5.png</file>
-        <file>resources/demon_idle_6.png</file>
-        <file>resources/demon_take_hit_1.png</file>
-        <file>resources/demon_take_hit_2.png</file>
-        <file>resources/demon_take_hit_3.png</file>
-        <file>resources/demon_take_hit_4.png</file>
-        <file>resources/demon_take_hit_5.png</file>
-        <file>resources/demon_walk_1.png</file>
-        <file>resources/demon_walk_2.png</file>
-        <file>resources/demon_walk_3.png</file>
-        <file>resources/demon_walk_4.png</file>
-        <file>resources/demon_walk_5.png</file>
-        <file>resources/demon_walk_6.png</file>
-        <file>resources/demon_walk_7.png</file>
-        <file>resources/demon_walk_8.png</file>
-        <file>resources/demon_walk_9.png</file>
-        <file>resources/demon_walk_10.png</file>
-        <file>resources/demon_walk_11.png</file>
-        <file>resources/demon_walk_12.png</file>
+        <file>resources/Bringer-of-Death_Spell_1.png</file>
+        <file>resources/Bringer-of-Death_Spell_2.png</file>
+        <file>resources/Bringer-of-Death_Spell_3.png</file>
+        <file>resources/Bringer-of-Death_Spell_4.png</file>
+        <file>resources/Bringer-of-Death_Spell_5.png</file>
+        <file>resources/Bringer-of-Death_Spell_6.png</file>
+        <file>resources/Bringer-of-Death_Spell_7.png</file>
+        <file>resources/Bringer-of-Death_Spell_8.png</file>
+        <file>resources/Bringer-of-Death_Spell_9.png</file>
+        <file>resources/Bringer-of-Death_Spell_10.png</file>
+        <file>resources/Bringer-of-Death_Spell_11.png</file>
+        <file>resources/Bringer-of-Death_Spell_12.png</file>
+        <file>resources/Bringer-of-Death_Spell_13.png</file>
+        <file>resources/Bringer-of-Death_Spell_14.png</file>
+        <file>resources/Bringer-of-Death_Spell_15.png</file>
+        <file>resources/Bringer-of-Death_Spell_16.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_000.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_001.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_002.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_003.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_004.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_005.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_006.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_007.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_008.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_009.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_010.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_011.png</file>
+        <file>resources/plataforma_fuego.png</file>
+        <file>resources/drop_vida.png</file>
+        <file>resources/drop_llave.png</file>
+        <file>resources/drop_mana.png</file>
     </qresource>
 </RCC>

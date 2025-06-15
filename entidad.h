@@ -28,9 +28,13 @@ public:
     int currentHP() const { return m_componenteSalud.currentHP(); }
     int maxHP()     const { return m_componenteSalud.maxHP(); }
     void setHP(int hp) { m_componenteSalud.setHP(hp); }
+    int Getmana(){ return mana;}
+    void Setmana(int mana){ this->mana = mana; }
+    int maxMana() const { return 100; }
 private:
     void actualizarAnimacion(float dt);
     void actualizarSalto(float dt);
+    int mana;
     SpriteState m_animacionTemporal = SpriteState::Idle;
     float m_tiempoAnimacionTemporal = 0.0f;
     tranformacion   m_transformacion;

@@ -22,7 +22,9 @@ enum class SpriteState {
     Slidding,
     SliddingLeft,
     dead,
-    deadleft
+    deadleft,
+    throwing,
+    throwingLeft
 };
 
 class Sprite
