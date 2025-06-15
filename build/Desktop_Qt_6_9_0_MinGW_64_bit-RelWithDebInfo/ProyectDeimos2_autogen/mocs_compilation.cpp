@@ -13,5 +13,6 @@
 #include "EWIEGA46WW/moc_niveltorredelamarca.cpp"
 #include "EWIEGA46WW/moc_pantallacarga.cpp"
 #include "EWIEGA46WW/moc_pantallainicio.cpp"
+#include "EWIEGA46WW/moc_skeleton.cpp"
 #include "EWIEGA46WW/moc_tutorialscene.cpp"
 #include "EWIEGA46WW/moc_videointro.cpp"

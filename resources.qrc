@@ -263,5 +263,10 @@
         <file>resources/demon_walk_10.png</file>
         <file>resources/demon_walk_11.png</file>
         <file>resources/demon_walk_12.png</file>
+        <file>resources/skeleton_cleave.png</file>
+        <file>resources/skeleton_death.png</file>
+        <file>resources/skeleton_idle.png</file>
+        <file>resources/skeleton_take_hit.png</file>
+        <file>resources/skeleton_walk.png</file>
     </qresource>
 </RCC>

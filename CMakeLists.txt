@@ -55,6 +55,10 @@ set(PROJECT_SOURCES
     videointro.h
     videointro.cpp
     resources.qrc
+    SpriteSheetLoader.h
+    Skeleton.h
+    Skeleton.cpp
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -69,6 +73,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         resources/Torre_De_La_Marca.png resources/Torre_De_La_Marca2.png
         ciudadinversa.h ciudadinversa.cpp
         demon.h demon.cpp
+        SpriteSheetLoader.h
+        skeleton.h skeleton.cpp
 
 
     )

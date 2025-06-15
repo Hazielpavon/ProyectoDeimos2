@@ -18,6 +18,8 @@
 #include <iostream>
 #include "mainwindow.h"
 #include "Demon.h"
+#include "Skeleton.h"
+
 
 using namespace std;
 using namespace std;
@@ -163,11 +165,19 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     m_scene->addItem(boss);
     m_enemigos.append(boss);
 
+    //demon
     auto* demon = new Demon(this);
     demon->setPos(2000, 651);
     demon->setTarget(m_player);
     m_scene->addItem(demon);
     m_enemigos.append(demon);
+
+    //skeleton
+    auto* sk = new Skeleton(this);
+    sk->setPos(600, 651);        // posición deseada
+    sk->setTarget(m_player);
+    m_scene->addItem(sk);
+    m_enemigos.append(sk);
 
 
     // debug hitbox en escena

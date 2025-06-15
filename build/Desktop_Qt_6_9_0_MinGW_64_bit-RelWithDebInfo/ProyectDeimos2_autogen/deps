@@ -731,6 +731,7 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/CMakeLists.txt \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/SpriteSheetLoader.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/bringerofdeath.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/bringerofdeath.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.qtc/package-manager/auto-setup.cmake \
@@ -774,6 +775,8 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallainicio.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallainicio.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/resources.qrc \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/skeleton.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/skeleton.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/sprite.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/sprite.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/tranformacion.cpp \

@@ -423,6 +423,12 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/SpriteSheetLoader.h",
+			"MU",
+			"EWIEGA46WW/moc_SpriteSheetLoader.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/bringerofdeath.h",
 			"MU",
 			"EWIEGA46WW/moc_bringerofdeath.cpp",
@@ -528,6 +534,12 @@
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/pantallainicio.h",
 			"MU",
 			"EWIEGA46WW/moc_pantallainicio.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/skeleton.h",
+			"MU",
+			"EWIEGA46WW/moc_skeleton.cpp",
 			null
 		],
 		[
@@ -730,6 +742,11 @@
 		],
 		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/pantallainicio.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/skeleton.cpp",
 			"MU",
 			null
 		],
