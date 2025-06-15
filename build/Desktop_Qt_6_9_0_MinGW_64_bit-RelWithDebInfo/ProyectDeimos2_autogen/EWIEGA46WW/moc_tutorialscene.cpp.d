@@ -203,13 +203,16 @@ C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_M
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QLabel \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qgraphicsview.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qtwidgets-config.h \

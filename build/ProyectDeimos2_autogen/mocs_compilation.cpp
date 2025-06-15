@@ -3,12 +3,22 @@
 <<<<<<< HEAD:build/ProyectDeimos2_autogen/mocs_compilation.cpp
 =======
 #include "EWIEGA46WW/moc_bringerofdeath.cpp"
+<<<<<<< HEAD:build/ProyectDeimos2_autogen/mocs_compilation.cpp
 >>>>>>> origin/Haziel:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/mocs_compilation.cpp
+=======
+#include "EWIEGA46WW/moc_ciudadinversa.cpp"
+>>>>>>> origin/Jorge:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/mocs_compilation.cpp
 #include "EWIEGA46WW/moc_clickablelabel.cpp"
 #include "EWIEGA46WW/moc_combatemanager.cpp"
+#include "EWIEGA46WW/moc_demon.cpp"
 #include "EWIEGA46WW/moc_enemigo.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_menuopciones.cpp"
+<<<<<<< HEAD:build/ProyectDeimos2_autogen/mocs_compilation.cpp
+=======
+#include "EWIEGA46WW/moc_nivelraicesolvidadas.cpp"
+#include "EWIEGA46WW/moc_niveltorredelamarca.cpp"
+>>>>>>> origin/Jorge:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/mocs_compilation.cpp
 #include "EWIEGA46WW/moc_pantallacarga.cpp"
 #include "EWIEGA46WW/moc_pantallainicio.cpp"
 #include "EWIEGA46WW/moc_videointro.cpp"

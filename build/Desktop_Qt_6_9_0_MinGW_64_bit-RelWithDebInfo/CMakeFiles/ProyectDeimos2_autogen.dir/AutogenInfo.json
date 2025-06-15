@@ -429,6 +429,12 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/ciudadinversa.h",
+			"MU",
+			"EWIEGA46WW/moc_ciudadinversa.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/clickablelabel.h",
 			"MU",
 			"EWIEGA46WW/moc_clickablelabel.cpp",
@@ -450,6 +456,12 @@
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/componentesalud.h",
 			"MU",
 			"EWIEGA46WW/moc_componentesalud.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/demon.h",
+			"MU",
+			"EWIEGA46WW/moc_demon.cpp",
 			null
 		],
 		[
@@ -498,6 +510,12 @@
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/nivelraicesolvidadas.h",
 			"MU",
 			"EWIEGA46WW/moc_nivelraicesolvidadas.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/niveltorredelamarca.h",
+			"MU",
+			"EWIEGA46WW/moc_niveltorredelamarca.cpp",
 			null
 		],
 		[
@@ -626,6 +644,11 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/ciudadinversa.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/clickablelabel.cpp",
 			"MU",
 			null
@@ -642,6 +665,11 @@
 		],
 		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/componentesalud.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/demon.cpp",
 			"MU",
 			null
 		],
@@ -687,6 +715,11 @@
 		],
 		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/nivelraicesolvidadas.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/niveltorredelamarca.cpp",
 			"MU",
 			null
 		],
