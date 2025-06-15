@@ -202,11 +202,9 @@
         <file>resources/Bringer-of-Death_Walk_8.png</file>
         <file>resources/Ciudad_Inversa.png</file>
         <file>resources/Ciudad_Inversa2.png</file>
-<<<<<<< HEAD
         <file>resources/templo_silencio2.png</file>
         <file>resources/informacion.png</file>
         <file>resources/templo_olvido.png</file>
-=======
         <file>resources/demon_cleave_1.png</file>
         <file>resources/demon_cleave_2.png</file>
         <file>resources/demon_cleave_3.png</file>
@@ -267,6 +265,5 @@
         <file>resources/demon_walk_10.png</file>
         <file>resources/demon_walk_11.png</file>
         <file>resources/demon_walk_12.png</file>
->>>>>>> origin/Jorge
     </qresource>
 </RCC>
