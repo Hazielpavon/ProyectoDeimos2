@@ -56,7 +56,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 56,
+				"line" : 61,
 				"parent" : 0
 			},
 			{
@@ -80,19 +80,19 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 113,
+				"line" : 120,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 82,
+				"line" : 89,
 				"parent" : 0
 			},
 			{
 				"command" : 8,
 				"file" : 1,
-				"line" : 17,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
@@ -479,8 +479,8 @@
 				8,
 				10,
 				11,
-				14,
-				16,
+				12,
+				13,
 				18,
 				20,
 				22,
@@ -488,24 +488,26 @@
 				26,
 				28,
 				30,
-				33,
-				35,
-				37,
+				32,
+				34,
+				36,
 				39,
 				41,
 				43,
-				46
+				45,
+				47,
+				52
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "ProyectDeimos2_autogen::@6890427a1f51a3e7e1df"
+			"id" : "ProyectDeimos2_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "ProyectDeimos2_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "ProyectDeimos2_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "ProyectDeimos2::@6890427a1f51a3e7e1df",
@@ -642,8 +644,8 @@
 				8,
 				10,
 				11,
-				14,
-				16,
+				12,
+				13,
 				18,
 				20,
 				22,
@@ -651,13 +653,15 @@
 				26,
 				28,
 				30,
-				33,
-				35,
-				37,
+				32,
+				34,
+				36,
 				39,
 				41,
 				43,
-				46
+				45,
+				47,
+				52
 			]
 		},
 		{
@@ -668,9 +672,9 @@
 				5,
 				7,
 				9,
-				12,
-				13,
+				14,
 				15,
+				16,
 				17,
 				19,
 				21,
@@ -678,13 +682,15 @@
 				25,
 				27,
 				29,
-				32,
-				34,
-				36,
+				31,
+				33,
+				35,
 				38,
 				40,
 				42,
-				44
+				44,
+				46,
+				50
 			]
 		},
 		{
@@ -698,22 +704,24 @@
 			"name" : "Resources",
 			"sourceIndexes" : 
 			[
-				31
+				37,
+				48,
+				49
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				45
+				51
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				47,
-				48
+				53,
+				54
 			]
 		}
 	],
@@ -789,6 +797,28 @@
 		},
 		{
 			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "bringerofdeath.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "combatemanager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "bringerofdeath.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "combatemanager.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
 			"path" : "ObjetosYColisiones.h",
 			"sourceGroupIndex" : 1
 		},
@@ -801,6 +831,17 @@
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
 			"path" : "tranformacion.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "ciudadinversa.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "ciudadinversa.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -942,25 +983,24 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "bringerofdeath.h",
+			"path" : "niveltorredelamarca.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "bringerofdeath.cpp",
+			"path" : "niveltorredelamarca.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "combatemanager.h",
-			"sourceGroupIndex" : 1
+			"path" : "resources/Torre_De_La_Marca.png",
+			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "combatemanager.cpp",
-			"sourceGroupIndex" : 0
+			"path" : "resources/Torre_De_La_Marca2.png",
+			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,

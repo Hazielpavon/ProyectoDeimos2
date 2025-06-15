@@ -1,9 +1,12 @@
 C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/moc_niveltorredelamarca.cpp: C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/niveltorredelamarca.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/moc_predefs.h \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/QDebug \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/QHash \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QMap \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QPoint \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/QRectF \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QSize \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QTimer \
@@ -175,6 +178,7 @@ C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_M
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsScene \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsTextItem \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -399,6 +403,8 @@ C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_M
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/CombateManager.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/Enemigo.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentefisico.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentesalud.h \

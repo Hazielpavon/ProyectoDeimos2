@@ -17,6 +17,7 @@
 #include <QDebug>
 #include <iostream>
 #include "mainwindow.h"
+#include "Demon.h"
 
 using namespace std;
 using namespace std;
@@ -161,6 +162,13 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
+
+    auto* demon = new Demon(this);
+    demon->setPos(2000, 651);
+    demon->setTarget(m_player);
+    m_scene->addItem(demon);
+    m_enemigos.append(demon);
+
 
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
