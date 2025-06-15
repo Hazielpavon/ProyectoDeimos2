@@ -998,7 +998,7 @@ CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o: \
   /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSize \
   /opt/homebrew/lib/QtCore.framework/Headers/qsize.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/Enemigo.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/enemigo.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QHash \
   /opt/homebrew/lib/QtCore.framework/Headers/qhash.h \
   /opt/homebrew/lib/QtGui.framework/Headers/QPixmap \
@@ -1040,6 +1040,7 @@ CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/jugador.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QSet \
   /opt/homebrew/lib/QtCore.framework/Headers/qset.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/Enemigo.h \
   /Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QRandomGenerator \
   /opt/homebrew/lib/QtCore.framework/Headers/qrandom.h \

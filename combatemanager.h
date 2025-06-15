@@ -26,3 +26,4 @@ private:
     QRectF espadaRect(Jugador* j) const;
     QRectF garraRect(Enemigo*  e) const;
 };
+//a

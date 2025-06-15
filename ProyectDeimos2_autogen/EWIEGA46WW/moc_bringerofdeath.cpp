@@ -1,5 +1,12 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'BringerOfDeath.h'
+**
+** Created by: The Qt Meta Object Compiler version 69 (Qt 6.9.0)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
 
-#include "BringerOfDeath.h"
+#include "../../BringerOfDeath.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>

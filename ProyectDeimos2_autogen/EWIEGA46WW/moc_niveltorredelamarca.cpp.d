@@ -727,8 +727,8 @@
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/__stdarg_va_list.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/CombateManager.h \
   /Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/combatemanager.h \
   /Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
   /Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
   /Users/anavalle/Documents/ProyectoDeimos2/enemigo.h \

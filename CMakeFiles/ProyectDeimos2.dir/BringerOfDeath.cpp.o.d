@@ -1,7 +1,7 @@
 CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o: \
   /Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.cpp \
   /Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.h \
-  /Users/anavalle/Documents/ProyectoDeimos2/Enemigo.h \
+  /Users/anavalle/Documents/ProyectoDeimos2/enemigo.h \
   /opt/homebrew/lib/QtCore.framework/Headers/QObject \
   /opt/homebrew/lib/QtCore.framework/Headers/qobject.h \
   /opt/homebrew/include/QtCore/qobjectdefs.h \

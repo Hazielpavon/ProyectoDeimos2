@@ -70,7 +70,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ciudadinversa.h ciudadinversa.cpp
 
 
-
     )
 else()
     if(ANDROID)

@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../tutorialscene.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -31,14 +32,14 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
-struct qt_meta_tag_ZN19niveltorredelamarcaE_t {};
+struct qt_meta_tag_ZN13TutorialSceneE_t {};
 } // unnamed namespace
 
-template <> constexpr inline auto niveltorredelamarca::qt_create_metaobjectdata<qt_meta_tag_ZN19niveltorredelamarcaE_t>()
+template <> constexpr inline auto TutorialScene::qt_create_metaobjectdata<qt_meta_tag_ZN13TutorialSceneE_t>()
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "niveltorredelamarca",
+        "TutorialScene",
         "onFrame",
         ""
     };
@@ -51,22 +52,22 @@ template <> constexpr inline auto niveltorredelamarca::qt_create_metaobjectdata<
     };
     QtMocHelpers::UintData qt_enums {
     };
-    return QtMocHelpers::metaObjectData<niveltorredelamarca, qt_meta_tag_ZN19niveltorredelamarcaE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+    return QtMocHelpers::metaObjectData<TutorialScene, qt_meta_tag_ZN13TutorialSceneE_t>(QMC::MetaObjectFlag{}, qt_stringData,
             qt_methods, qt_properties, qt_enums);
 }
-Q_CONSTINIT const QMetaObject niveltorredelamarca::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject TutorialScene::staticMetaObject = { {
     QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19niveltorredelamarcaE_t>.stringdata,
-    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19niveltorredelamarcaE_t>.data,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13TutorialSceneE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13TutorialSceneE_t>.data,
     qt_static_metacall,
     nullptr,
-    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN19niveltorredelamarcaE_t>.metaTypes,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN13TutorialSceneE_t>.metaTypes,
     nullptr
 } };
 
-void niveltorredelamarca::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void TutorialScene::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    auto *_t = static_cast<niveltorredelamarca *>(_o);
+    auto *_t = static_cast<TutorialScene *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->onFrame(); break;
@@ -76,20 +77,20 @@ void niveltorredelamarca::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
     (void)_a;
 }
 
-const QMetaObject *niveltorredelamarca::metaObject() const
+const QMetaObject *TutorialScene::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *niveltorredelamarca::qt_metacast(const char *_clname)
+void *TutorialScene::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN19niveltorredelamarcaE_t>.strings))
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN13TutorialSceneE_t>.strings))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
 
-int niveltorredelamarca::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int TutorialScene::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
