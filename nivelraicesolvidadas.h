@@ -2,7 +2,7 @@
 //  NIVELRAICESOLVIDADAS.H — CABECERA COMPLETA (con CombateManager)
 // ===========================================================
 #pragma once
-
+#include "drop.h"
 #include <QWidget>
 #include <QTimer>
 #include <QGraphicsView>
@@ -11,7 +11,7 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QVector>
-
+#include "Fireball.h"
 #include "ObjetosYColisiones.h"
 #include "Enemigo.h"
 #include "entidad.h"
@@ -30,6 +30,7 @@ public:
     explicit NivelRaicesOlvidadas(entidad*   jugador,
                                   MainWindow* mainWindow,
                                   QWidget*   parent = nullptr);
+    void lanzarHechizo();
 
 protected:
     void keyPressEvent   (QKeyEvent*  event) override;
@@ -41,7 +42,11 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+    bool m_bossDropCreado = false;
+    QVector<Drop*> m_drops;
+    QGraphicsTextItem* m_manaText;
     bool bossDefeated = false;
+    QVector<Fireball*> m_fireballs;
     QGraphicsRectItem* m_debugBossHitbox = nullptr;
     entidad*             m_player          = nullptr;
     MainWindow*          m_mainWindow      = nullptr;
@@ -49,7 +54,7 @@ private:
     bool                 m_deathScheduled  = false;
     QGraphicsRectItem* m_bossHpBorder = nullptr;
     QGraphicsRectItem* m_bossHpBar    = nullptr;
-
+    QGraphicsRectItem* m_hudManaBar = nullptr;
     /* Enemigos y combate */
     QVector<Enemigo*>    m_enemigos;                // enemigos vivos
     CombateManager*      m_combate         = nullptr; // 👈 NUEVO
@@ -72,6 +77,7 @@ private:
     static constexpr int HUD_H      = 35;
     static constexpr int HUD_MARGIN = 10;
     QGraphicsRectItem*   m_hudBorder  = nullptr;
+    QGraphicsRectItem*   m_hudManaBorder = nullptr;
     QGraphicsRectItem*   m_hudBar     = nullptr;
     QGraphicsTextItem*   m_hudText    = nullptr;
 

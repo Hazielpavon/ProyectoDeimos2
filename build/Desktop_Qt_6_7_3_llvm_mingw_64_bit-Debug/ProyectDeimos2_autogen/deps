@@ -1257,10 +1257,14 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentefisico.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentesalud.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentesalud.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/drop.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/drop.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/grafomapa.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/grafomapa.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/jugador.cpp \

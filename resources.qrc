@@ -203,5 +203,37 @@
         <file>resources/templo del silencio.png</file>
         <file>resources/Ciudad_Inversa.png</file>
         <file>resources/Ciudad_Inversa2.png</file>
+        <file>resources/Bringer-of-Death_Spell_1.png</file>
+        <file>resources/Bringer-of-Death_Spell_2.png</file>
+        <file>resources/Bringer-of-Death_Spell_3.png</file>
+        <file>resources/Bringer-of-Death_Spell_4.png</file>
+        <file>resources/Bringer-of-Death_Spell_5.png</file>
+        <file>resources/Bringer-of-Death_Spell_6.png</file>
+        <file>resources/Bringer-of-Death_Spell_7.png</file>
+        <file>resources/Bringer-of-Death_Spell_8.png</file>
+        <file>resources/Bringer-of-Death_Spell_9.png</file>
+        <file>resources/Bringer-of-Death_Spell_10.png</file>
+        <file>resources/Bringer-of-Death_Spell_11.png</file>
+        <file>resources/Bringer-of-Death_Spell_12.png</file>
+        <file>resources/Bringer-of-Death_Spell_13.png</file>
+        <file>resources/Bringer-of-Death_Spell_14.png</file>
+        <file>resources/Bringer-of-Death_Spell_15.png</file>
+        <file>resources/Bringer-of-Death_Spell_16.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_000.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_001.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_002.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_003.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_004.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_005.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_006.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_007.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_008.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_009.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_010.png</file>
+        <file>Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_011.png</file>
+        <file>resources/plataforma_fuego.png</file>
+        <file>resources/drop_vida.png</file>
+        <file>resources/drop_llave.png</file>
+        <file>resources/drop_mana.png</file>
     </qresource>
 </RCC>

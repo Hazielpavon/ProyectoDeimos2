@@ -5,6 +5,7 @@
 #include "EWIEGA46WW/moc_clickablelabel.cpp"
 #include "EWIEGA46WW/moc_combatemanager.cpp"
 #include "EWIEGA46WW/moc_enemigo.cpp"
+#include "EWIEGA46WW/moc_fireball.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_mapawidget.cpp"
 #include "EWIEGA46WW/moc_menuopciones.cpp"

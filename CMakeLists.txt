@@ -68,6 +68,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         niveltorredelamarca.h niveltorredelamarca.cpp
         resources/Torre_De_La_Marca.png resources/Torre_De_La_Marca2.png
         ciudadinversa.h ciudadinversa.cpp
+        fireball.h fireball.cpp
+        drop.h drop.cpp
 
 
     )

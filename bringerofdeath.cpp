@@ -3,7 +3,6 @@
 #include <QDebug>
 #include <QString>
 #include "jugador.h"
-/* ---------- Carga de sprites (Idle/Walk/Attack/Hurt/Death) ---------- */
 namespace {
 const qreal SCALE = 1.6;
 static constexpr float ATTACK_RANGE = 40.0f;
@@ -14,7 +13,6 @@ Animacion cargar(const QString& patt, int n, bool mirror = false) {
     a.fps = 8.0f;
     QTransform flip;
     if (mirror) {
-        // escalar X por -1 para reflejar horizontalmente:
         flip.scale(-1, 1);
     }
 
@@ -22,12 +20,8 @@ Animacion cargar(const QString& patt, int n, bool mirror = false) {
         QPixmap p(patt.arg(i));
         if (p.isNull()) continue;
 
-        // 1) escalamos al tamaño deseado
-        QPixmap scaled = p.scaled(p.size() * SCALE,
-                                  Qt::KeepAspectRatio,
-                                  Qt::SmoothTransformation);
+        QPixmap scaled = p.scaled(p.size() * SCALE, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-        // 2) si mirror, aplicamos la transformación
         if (mirror) {
             scaled = scaled.transformed(flip);
         }
@@ -37,7 +31,7 @@ Animacion cargar(const QString& patt, int n, bool mirror = false) {
     return a;
 }
 }
-#include <QGraphicsScene>  // para que scene() esté completo
+#include <QGraphicsScene>
 
 void BringerOfDeath::onDeathAnimFinished()
 {
@@ -49,7 +43,6 @@ void BringerOfDeath::onDeathAnimFinished()
 
 
 QRectF BringerOfDeath::boundingRect() const {
-    // Acá devolvemos un rect centrado en (0,0) con el tamaño actual del pixmap:
     const auto& px = pixmap();
     float w = px.width();
     float h = px.height();
@@ -79,26 +72,17 @@ BringerOfDeath::BringerOfDeath(QObject* parent)
     m_flipTransform.scale(-1, 1);
 }
 
-/* ---------- IA principal ---------- */
-// BringerOfDeath.cpp (debes tener definidos ATTACK_RANGE, DETECT_RANGE, Y_TOLERANCE)
-
 void BringerOfDeath::updateAI(float dt)
 {
     if (!target()) return;
 
-    // 1) Posiciones en X/Y
     float bossX   = pos().x();
     float playerX = target()->transform().getPosition().x();
     float dx      = playerX - bossX;
 
-    // pies en Y
     float bossFootY = sceneBoundingRect().bottom();
     Jugador* pj = dynamic_cast<Jugador*>(target());
-    float playerFootY = pj && pj->graphicsItem()
-                            ? pj->graphicsItem()->sceneBoundingRect().bottom()
-                            : bossFootY;  // si no podemos, igualamos
-
-    // 2) ATAQUE si entra en rango X/Y
+    float playerFootY = pj && pj->graphicsItem() ? pj->graphicsItem()->sceneBoundingRect().bottom() : bossFootY;
     if (qAbs(dx) < ATTACK_RANGE &&
         qAbs(playerFootY - bossFootY) < Y_TOLERANCE)
     {

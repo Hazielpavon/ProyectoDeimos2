@@ -57,7 +57,7 @@ public:
     /* -------- Target (jugador) -------- */
     void     setTarget(entidad* t) { m_target = t; }
     entidad* target() const        { return m_target; }
-
+    void setHp(int hp){ m_hp = hp; }
 protected:
     /* Animaciones helper */
     void addAnim(Estado st, const Animacion& anim);

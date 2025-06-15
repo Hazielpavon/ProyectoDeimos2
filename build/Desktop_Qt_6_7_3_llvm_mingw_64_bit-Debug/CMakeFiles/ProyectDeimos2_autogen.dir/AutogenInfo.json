@@ -402,6 +402,12 @@
 			null
 		],
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/drop.h",
+			"MU",
+			"EWIEGA46WW/moc_drop.cpp",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h",
 			"MU",
 			"EWIEGA46WW/moc_enemigo.cpp",
@@ -411,6 +417,12 @@
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.h",
 			"MU",
 			"EWIEGA46WW/moc_entidad.cpp",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.h",
+			"MU",
+			"EWIEGA46WW/moc_fireball.cpp",
 			null
 		],
 		[
@@ -603,12 +615,22 @@
 			null
 		],
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/drop.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.cpp",
 			"MU",
 			null
 		],
 		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.cpp",
 			"MU",
 			null
 		],

@@ -96,13 +96,11 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     float startX = 299.0f;
     float endX   = 3592.33f;
     float minY   = 200.0f;                // altura mínima
-    float maxY   = m_bgHeight - 40.0f - 100.0f; // 100px por encima del suelo
+    float maxY   = m_bgHeight - 40.0f - 100.0f;
     int   count  = 15;
-    float minGapX = 50.0f;  // mínimo espacio horizontal entre plataformas
-    float minGapY = 40.0f;  // mínimo espacio vertical entre plataformas
+    float minGapX = 50.0f;
+    float minGapY = 40.0f;
 
-    // preparamos un vector para recordar las rects y poder comprobar distancias
-    // tras haber inicializado m_bgWidth, m_bgHeight, etc.
 
     static constexpr float PLAT_W = PLAT_WIDTH;
     static constexpr float PLAT_H = PLAT_HEIGHT;
