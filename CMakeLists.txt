@@ -75,6 +75,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         demon.h demon.cpp
         SpriteSheetLoader.h
         skeleton.h skeleton.cpp
+        minotaur.h minotaur.cpp
 
 
     )

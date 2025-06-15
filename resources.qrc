@@ -268,5 +268,49 @@
         <file>resources/skeleton_idle.png</file>
         <file>resources/skeleton_take_hit.png</file>
         <file>resources/skeleton_walk.png</file>
+        <file>resources/atk_1_1.png</file>
+        <file>resources/atk_1_2.png</file>
+        <file>resources/atk_1_3.png</file>
+        <file>resources/atk_1_4.png</file>
+        <file>resources/atk_1_5.png</file>
+        <file>resources/atk_1_6.png</file>
+        <file>resources/atk_1_7.png</file>
+        <file>resources/atk_1_8.png</file>
+        <file>resources/atk_1_9.png</file>
+        <file>resources/atk_1_10.png</file>
+        <file>resources/atk_1_11.png</file>
+        <file>resources/atk_1_12.png</file>
+        <file>resources/atk_1_13.png</file>
+        <file>resources/atk_1_14.png</file>
+        <file>resources/atk_1_15.png</file>
+        <file>resources/atk_1_16.png</file>
+        <file>resources/walk_1.png</file>
+        <file>resources/walk_2.png</file>
+        <file>resources/walk_3.png</file>
+        <file>resources/walk_4.png</file>
+        <file>resources/walk_5.png</file>
+        <file>resources/walk_6.png</file>
+        <file>resources/walk_7.png</file>
+        <file>resources/walk_8.png</file>
+        <file>resources/walk_9.png</file>
+        <file>resources/walk_10.png</file>
+        <file>resources/walk_11.png</file>
+        <file>resources/walk_12.png</file>
+        <file>resources/idle_9.png</file>
+        <file>resources/idle_10.png</file>
+        <file>resources/idle_11.png</file>
+        <file>resources/idle_12.png</file>
+        <file>resources/idle_13.png</file>
+        <file>resources/idle_14.png</file>
+        <file>resources/idle_15.png</file>
+        <file>resources/idle_16.png</file>
+        <file>resources/idle_1.png</file>
+        <file>resources/idle_2.png</file>
+        <file>resources/idle_3.png</file>
+        <file>resources/idle_4.png</file>
+        <file>resources/idle_5.png</file>
+        <file>resources/idle_6.png</file>
+        <file>resources/idle_7.png</file>
+        <file>resources/idle_8.png</file>
     </qresource>
 </RCC>

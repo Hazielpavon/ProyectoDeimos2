@@ -19,6 +19,7 @@
 #include "mainwindow.h"
 #include "Demon.h"
 #include "Skeleton.h"
+#include "Minotaur.h"
 
 
 using namespace std;
@@ -178,6 +179,13 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     sk->setTarget(m_player);
     m_scene->addItem(sk);
     m_enemigos.append(sk);
+
+    //minotaur
+    auto* mina = new Minotaur(this);
+    mina->setPos(400, 651);      // coordenadas de aparición
+    mina->setTarget(m_player);
+    m_scene->addItem(mina);
+    m_enemigos.append(mina);
 
 
     // debug hitbox en escena
