@@ -696,29 +696,45 @@ ProyectDeimos2_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/__stdarg_va_list.h \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/CMakeLists.txt \
+	/Users/anavalle/Documents/ProyectoDeimos2/CombateManager.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/CombateManager.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles/3.31.6/CMakeCXXCompiler.cmake \
 	/Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles/3.31.6/CMakeSystem.cmake \
 	/Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2_autogen/moc_predefs.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/componentefisico.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/componentesalud.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/demon.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/demon.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/enemigo.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/enemigo.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/entidad.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/entidad.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/grafomapa.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/jugador.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/jugador.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/main.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/mainwindow.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/mainwindow.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/mapawidget.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/menuopciones.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/menuopciones.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/pantallacarga.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/pantallacarga.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/pantallainicio.cpp \
@@ -728,10 +744,41 @@ ProyectDeimos2_autogen/timestamp: \
 	/Users/anavalle/Documents/ProyectoDeimos2/sprite.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/tranformacion.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/tranformacion.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/tutorialscene.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/tutorialscene.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/videointro.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/videointro.h \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeCXXInformation.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeGenericSystem.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeInitializeConfigs.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeLanguageInformation.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeParseArguments.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/AppleClang-CXX.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/Clang.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/GNU.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/GNUInstallDirs.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Linker/AppleClang-CXX.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Linker/AppleClang.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Apple-Clang.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Darwin-Initialize.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Darwin.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake \
+	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/UnixPaths.cmake \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QDebug \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QHash \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QList \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QMap \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QObject \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QPair \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QPoint \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QPointF \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QRectF \
@@ -811,7 +858,6 @@ ProyectDeimos2_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qvarlengtharray.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qvector.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qversiontagging.h \
-	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/QColor \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/QKeyEvent \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/QMouseEvent \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/QPainter \
@@ -867,21 +913,27 @@ ProyectDeimos2_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtNetwork.framework/Versions/5/Headers/qnetworkrequest.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtNetwork.framework/Versions/5/Headers/qtnetwork-config.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtNetwork.framework/Versions/5/Headers/qtnetworkglobal.h \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsPixmapItem \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsScene \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsTextItem \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsView \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QLabel \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QMainWindow \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QProgressBar \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QPushButton \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QWidget \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qabstractbutton.h \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qabstractscrollarea.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qframe.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsscene.h \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsview.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qlabel.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qmainwindow.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qprogressbar.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qpushbutton.h \
+	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qscrollarea.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qsizepolicy.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qtabwidget.h \
 	/opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qtwidgets-config.h \
@@ -935,89 +987,5 @@ ProyectDeimos2_autogen/timestamp: \
 	/opt/homebrew/opt/qt@5/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake \
 	/opt/homebrew/opt/qt@5/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake \
 	/opt/homebrew/opt/qt@5/lib/cmake/Qt5Widgets/Qt5Widgets_QMacStylePlugin.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeCXXCompiler.cmake.in \
-	/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp \
-	/opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeCompilerIdDetection.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseArguments.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeSystem.cmake.in \
-	/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeTestCompilerCommon.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/GNUInstallDirs.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/FeatureTesting.cmake \
-	/opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake \
-	/opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/UnixPaths.cmake \
 	/Users/anavalle/Documents/ProyectoDeimos2/mainwindow.ui \
-	/opt/homebrew/bin/cmake
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake

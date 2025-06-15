@@ -102,7 +102,7 @@ void MapaWidget::setRutaActual(const QList<QString> &rutaPrincipal) {
     m_rutasAlternativasPuntos.clear();
 
     QString destino = rutaPrincipal.last();
-    QVector<QList<QString>> todas = m_grafo.todasLasRutas(m_regionActual, destino);
+QList<QList<QString>> todas = m_grafo.todasLasRutas(m_regionActual, destino);
 
     QString infoTexto;
     double distanciaMasCorta = std::numeric_limits<double>::max();

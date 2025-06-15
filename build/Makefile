@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.31.6/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,37 +97,37 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/opt/homebrew/bin/cmake -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
-	/opt/homebrew/bin/cmake -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
-	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
-	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
@@ -199,6 +199,54 @@ ProyectDeimos2_autogen: cmake_check_build_system
 ProyectDeimos2_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2_autogen.dir/build.make CMakeFiles/ProyectDeimos2_autogen.dir/build
 .PHONY : ProyectDeimos2_autogen/fast
+
+BringerOfDeath.o: BringerOfDeath.cpp.o
+.PHONY : BringerOfDeath.o
+
+# target to build an object file
+BringerOfDeath.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.o
+.PHONY : BringerOfDeath.cpp.o
+
+BringerOfDeath.i: BringerOfDeath.cpp.i
+.PHONY : BringerOfDeath.i
+
+# target to preprocess a source file
+BringerOfDeath.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.i
+.PHONY : BringerOfDeath.cpp.i
+
+BringerOfDeath.s: BringerOfDeath.cpp.s
+.PHONY : BringerOfDeath.s
+
+# target to generate assembly for a file
+BringerOfDeath.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/BringerOfDeath.cpp.s
+.PHONY : BringerOfDeath.cpp.s
+
+CombateManager.o: CombateManager.cpp.o
+.PHONY : CombateManager.o
+
+# target to build an object file
+CombateManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.o
+.PHONY : CombateManager.cpp.o
+
+CombateManager.i: CombateManager.cpp.i
+.PHONY : CombateManager.i
+
+# target to preprocess a source file
+CombateManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.i
+.PHONY : CombateManager.cpp.i
+
+CombateManager.s: CombateManager.cpp.s
+.PHONY : CombateManager.s
+
+# target to generate assembly for a file
+CombateManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/CombateManager.cpp.s
+.PHONY : CombateManager.cpp.s
 
 ObjetosYColisiones.o: ObjetosYColisiones.cpp.o
 .PHONY : ObjetosYColisiones.o
@@ -272,6 +320,30 @@ ProyectDeimos2_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.s
 .PHONY : ProyectDeimos2_autogen/mocs_compilation.cpp.s
 
+ciudadinversa.o: ciudadinversa.cpp.o
+.PHONY : ciudadinversa.o
+
+# target to build an object file
+ciudadinversa.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.o
+.PHONY : ciudadinversa.cpp.o
+
+ciudadinversa.i: ciudadinversa.cpp.i
+.PHONY : ciudadinversa.i
+
+# target to preprocess a source file
+ciudadinversa.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.i
+.PHONY : ciudadinversa.cpp.i
+
+ciudadinversa.s: ciudadinversa.cpp.s
+.PHONY : ciudadinversa.s
+
+# target to generate assembly for a file
+ciudadinversa.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.s
+.PHONY : ciudadinversa.cpp.s
+
 clickablelabel.o: clickablelabel.cpp.o
 .PHONY : clickablelabel.o
 
@@ -344,6 +416,30 @@ componentesalud.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.s
 .PHONY : componentesalud.cpp.s
 
+demon.o: demon.cpp.o
+.PHONY : demon.o
+
+# target to build an object file
+demon.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/demon.cpp.o
+.PHONY : demon.cpp.o
+
+demon.i: demon.cpp.i
+.PHONY : demon.i
+
+# target to preprocess a source file
+demon.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/demon.cpp.i
+.PHONY : demon.cpp.i
+
+demon.s: demon.cpp.s
+.PHONY : demon.s
+
+# target to generate assembly for a file
+demon.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/demon.cpp.s
+.PHONY : demon.cpp.s
+
 enemigo.o: enemigo.cpp.o
 .PHONY : enemigo.o
 
@@ -391,6 +487,30 @@ entidad.s: entidad.cpp.s
 entidad.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/entidad.cpp.s
 .PHONY : entidad.cpp.s
+
+grafomapa.o: grafomapa.cpp.o
+.PHONY : grafomapa.o
+
+# target to build an object file
+grafomapa.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.o
+.PHONY : grafomapa.cpp.o
+
+grafomapa.i: grafomapa.cpp.i
+.PHONY : grafomapa.i
+
+# target to preprocess a source file
+grafomapa.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.i
+.PHONY : grafomapa.cpp.i
+
+grafomapa.s: grafomapa.cpp.s
+.PHONY : grafomapa.s
+
+# target to generate assembly for a file
+grafomapa.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.s
+.PHONY : grafomapa.cpp.s
 
 jugador.o: jugador.cpp.o
 .PHONY : jugador.o
@@ -464,6 +584,30 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
+mapawidget.o: mapawidget.cpp.o
+.PHONY : mapawidget.o
+
+# target to build an object file
+mapawidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.o
+.PHONY : mapawidget.cpp.o
+
+mapawidget.i: mapawidget.cpp.i
+.PHONY : mapawidget.i
+
+# target to preprocess a source file
+mapawidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.i
+.PHONY : mapawidget.cpp.i
+
+mapawidget.s: mapawidget.cpp.s
+.PHONY : mapawidget.s
+
+# target to generate assembly for a file
+mapawidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.s
+.PHONY : mapawidget.cpp.s
+
 menuopciones.o: menuopciones.cpp.o
 .PHONY : menuopciones.o
 
@@ -487,6 +631,54 @@ menuopciones.s: menuopciones.cpp.s
 menuopciones.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/menuopciones.cpp.s
 .PHONY : menuopciones.cpp.s
+
+nivelraicesolvidadas.o: nivelraicesolvidadas.cpp.o
+.PHONY : nivelraicesolvidadas.o
+
+# target to build an object file
+nivelraicesolvidadas.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.o
+.PHONY : nivelraicesolvidadas.cpp.o
+
+nivelraicesolvidadas.i: nivelraicesolvidadas.cpp.i
+.PHONY : nivelraicesolvidadas.i
+
+# target to preprocess a source file
+nivelraicesolvidadas.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.i
+.PHONY : nivelraicesolvidadas.cpp.i
+
+nivelraicesolvidadas.s: nivelraicesolvidadas.cpp.s
+.PHONY : nivelraicesolvidadas.s
+
+# target to generate assembly for a file
+nivelraicesolvidadas.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.s
+.PHONY : nivelraicesolvidadas.cpp.s
+
+niveltorredelamarca.o: niveltorredelamarca.cpp.o
+.PHONY : niveltorredelamarca.o
+
+# target to build an object file
+niveltorredelamarca.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.o
+.PHONY : niveltorredelamarca.cpp.o
+
+niveltorredelamarca.i: niveltorredelamarca.cpp.i
+.PHONY : niveltorredelamarca.i
+
+# target to preprocess a source file
+niveltorredelamarca.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.i
+.PHONY : niveltorredelamarca.cpp.i
+
+niveltorredelamarca.s: niveltorredelamarca.cpp.s
+.PHONY : niveltorredelamarca.s
+
+# target to generate assembly for a file
+niveltorredelamarca.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.s
+.PHONY : niveltorredelamarca.cpp.s
 
 pantallacarga.o: pantallacarga.cpp.o
 .PHONY : pantallacarga.o
@@ -584,6 +776,30 @@ tranformacion.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.s
 .PHONY : tranformacion.cpp.s
 
+tutorialscene.o: tutorialscene.cpp.o
+.PHONY : tutorialscene.o
+
+# target to build an object file
+tutorialscene.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.o
+.PHONY : tutorialscene.cpp.o
+
+tutorialscene.i: tutorialscene.cpp.i
+.PHONY : tutorialscene.i
+
+# target to preprocess a source file
+tutorialscene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.i
+.PHONY : tutorialscene.cpp.i
+
+tutorialscene.s: tutorialscene.cpp.s
+.PHONY : tutorialscene.s
+
+# target to generate assembly for a file
+tutorialscene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ProyectDeimos2.dir/build.make CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.s
+.PHONY : tutorialscene.cpp.s
+
 videointro.o: videointro.cpp.o
 .PHONY : videointro.o
 
@@ -623,6 +839,12 @@ help:
 	@echo "... ProyectDeimos2_autogen"
 	@echo "... ProyectDeimos2_autogen_timestamp_deps"
 	@echo "... ProyectDeimos2"
+	@echo "... BringerOfDeath.o"
+	@echo "... BringerOfDeath.i"
+	@echo "... BringerOfDeath.s"
+	@echo "... CombateManager.o"
+	@echo "... CombateManager.i"
+	@echo "... CombateManager.s"
 	@echo "... ObjetosYColisiones.o"
 	@echo "... ObjetosYColisiones.i"
 	@echo "... ObjetosYColisiones.s"
@@ -632,6 +854,9 @@ help:
 	@echo "... ProyectDeimos2_autogen/mocs_compilation.o"
 	@echo "... ProyectDeimos2_autogen/mocs_compilation.i"
 	@echo "... ProyectDeimos2_autogen/mocs_compilation.s"
+	@echo "... ciudadinversa.o"
+	@echo "... ciudadinversa.i"
+	@echo "... ciudadinversa.s"
 	@echo "... clickablelabel.o"
 	@echo "... clickablelabel.i"
 	@echo "... clickablelabel.s"
@@ -641,12 +866,18 @@ help:
 	@echo "... componentesalud.o"
 	@echo "... componentesalud.i"
 	@echo "... componentesalud.s"
+	@echo "... demon.o"
+	@echo "... demon.i"
+	@echo "... demon.s"
 	@echo "... enemigo.o"
 	@echo "... enemigo.i"
 	@echo "... enemigo.s"
 	@echo "... entidad.o"
 	@echo "... entidad.i"
 	@echo "... entidad.s"
+	@echo "... grafomapa.o"
+	@echo "... grafomapa.i"
+	@echo "... grafomapa.s"
 	@echo "... jugador.o"
 	@echo "... jugador.i"
 	@echo "... jugador.s"
@@ -656,9 +887,18 @@ help:
 	@echo "... mainwindow.o"
 	@echo "... mainwindow.i"
 	@echo "... mainwindow.s"
+	@echo "... mapawidget.o"
+	@echo "... mapawidget.i"
+	@echo "... mapawidget.s"
 	@echo "... menuopciones.o"
 	@echo "... menuopciones.i"
 	@echo "... menuopciones.s"
+	@echo "... nivelraicesolvidadas.o"
+	@echo "... nivelraicesolvidadas.i"
+	@echo "... nivelraicesolvidadas.s"
+	@echo "... niveltorredelamarca.o"
+	@echo "... niveltorredelamarca.i"
+	@echo "... niveltorredelamarca.s"
 	@echo "... pantallacarga.o"
 	@echo "... pantallacarga.i"
 	@echo "... pantallacarga.s"
@@ -671,6 +911,9 @@ help:
 	@echo "... tranformacion.o"
 	@echo "... tranformacion.i"
 	@echo "... tranformacion.s"
+	@echo "... tutorialscene.o"
+	@echo "... tutorialscene.i"
+	@echo "... tutorialscene.s"
 	@echo "... videointro.o"
 	@echo "... videointro.i"
 	@echo "... videointro.s"

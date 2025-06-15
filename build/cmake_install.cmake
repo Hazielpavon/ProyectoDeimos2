@@ -1,8 +1,4 @@
-<<<<<<< HEAD:build/cmake_install.cmake
 # Install script for directory: /Users/anavalle/Documents/ProyectoDeimos2
-=======
-# Install script for directory: C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2
->>>>>>> origin/Haziel:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/cmake_install.cmake
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -16,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -42,17 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-<<<<<<< HEAD:build/cmake_install.cmake
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE DIRECTORY FILES "/Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2.app" USE_SOURCE_PERMISSIONS)
-=======
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2.exe")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ProyectDeimos2.exe" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ProyectDeimos2.exe")
-    if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "C:/Qt/Tools/mingw1310_64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ProyectDeimos2.exe")
-    endif()
-  endif()
->>>>>>> origin/Haziel:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/cmake_install.cmake
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
@@ -74,12 +60,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-<<<<<<< HEAD:build/cmake_install.cmake
   file(WRITE "/Users/anavalle/Documents/ProyectoDeimos2/build/${CMAKE_INSTALL_MANIFEST}"
-=======
-  string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-       "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/${CMAKE_INSTALL_MANIFEST}"
->>>>>>> origin/Haziel:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/cmake_install.cmake
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

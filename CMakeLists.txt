@@ -7,6 +7,8 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# macOS config
 set(CMAKE_OSX_ARCHITECTURES arm64)
 set(CMAKE_OSX_SYSROOT "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk")
 set(CMAKE_BUILD_PARALLEL_LEVEL 1)
@@ -17,75 +19,53 @@ set(CMAKE_BUILD_PARALLEL_LEVEL 1)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Multimedia MultimediaWidgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Multimedia MultimediaWidgets)
 
+# ——————————————
+#  Fuentes del proyecto
+# ——————————————
 set(PROJECT_SOURCES
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-    pantallainicio.h
-    pantallainicio.cpp
-    menuopciones.h
-    menuopciones.cpp
-    entidad.h
-    entidad.cpp
-    ObjetosYColisiones.cpp
-    BringerOfDeath.cpp
-    CombateManager.cpp
-    BringerOfDeath.h
-    CombateManager.h
-    ObjetosYColisiones.h
-    tranformacion.h
-    tranformacion.cpp
-    ciudadinversa.h
-    ciudadinversa.cpp
-    sprite.h
-    sprite.cpp
-    enemigo.h
-    enemigo.cpp
-    jugador.h
-    jugador.cpp
-    componentefisico.h
-    componentefisico.cpp
-    componentesalud.h
-    componentesalud.cpp
-    clickablelabel.h
-    clickablelabel.cpp
-    pantallacarga.h
-    pantallacarga.cpp
-    videointro.h
-    videointro.cpp
+    mainwindow.cpp mainwindow.h mainwindow.ui
+    pantallainicio.cpp pantallainicio.h
+    menuopciones.cpp menuopciones.h
+    entidad.cpp entidad.h
+    ObjetosYColisiones.cpp ObjetosYColisiones.h
+    BringerOfDeath.cpp BringerOfDeath.h
+    CombateManager.cpp CombateManager.h
+    tranformacion.cpp tranformacion.h
+    ciudadinversa.cpp ciudadinversa.h
+    sprite.cpp sprite.h
+    enemigo.cpp enemigo.h
+    jugador.cpp jugador.h
+    componentefisico.cpp componentefisico.h
+    componentesalud.cpp componentesalud.h
+    clickablelabel.cpp clickablelabel.h
+    pantallacarga.cpp pantallacarga.h
+    videointro.cpp videointro.h
+    tutorialscene.cpp tutorialscene.h
+    nivelraicesolvidadas.cpp nivelraicesolvidadas.h
+    mapawidget.cpp mapawidget.h
+    grafomapa.cpp grafomapa.h
+    niveltorredelamarca.cpp niveltorredelamarca.h
+    demon.cpp demon.h
     resources.qrc
 )
 
+# ——————————————
+#  Crear ejecutable
+# ——————————————
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ProyectDeimos2
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        tutorialscene.h tutorialscene.cpp
-        nivelraicesolvidadas.h nivelraicesolvidadas.cpp
-        mapawidget.h mapawidget.cpp
-        grafomapa.h grafomapa.cpp
-        niveltorredelamarca.h niveltorredelamarca.cpp
-        resources/Torre_De_La_Marca.png resources/Torre_De_La_Marca2.png
-        ciudadinversa.h ciudadinversa.cpp
-        demon.h demon.cpp
-
-
+        resources/Torre_De_La_Marca.png
+        resources/Torre_De_La_Marca2.png
     )
 else()
-    if(ANDROID)
-        add_library(ProyectDeimos2 SHARED
-            ${PROJECT_SOURCES}
-        )
-    else()
-        add_executable(ProyectDeimos2
-            ${PROJECT_SOURCES}
-        )
-    endif()
+    add_executable(ProyectDeimos2 ${PROJECT_SOURCES})
 endif()
 
 # ——————————————
-#  Linkea Widgets y Multimedia
+#  Linkea bibliotecas Qt
 # ——————————————
 target_link_libraries(ProyectDeimos2
     PRIVATE
@@ -95,7 +75,7 @@ target_link_libraries(ProyectDeimos2
 )
 
 # ——————————————
-#  Copiar carpeta Sprites/
+#  Copiar carpeta Sprites al output
 # ——————————————
 add_custom_command(
     TARGET ProyectDeimos2 POST_BUILD
@@ -104,9 +84,11 @@ add_custom_command(
         $<TARGET_FILE_DIR:ProyectDeimos2>/Sprites
 )
 
-# Opciones para iOS/macOS
+# ——————————————
+#  Propiedades para macOS
+# ——————————————
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.ProyectDeimos2)
+    set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.ProyectDeimos2)
 endif()
 
 set_target_properties(ProyectDeimos2 PROPERTIES
@@ -117,6 +99,9 @@ set_target_properties(ProyectDeimos2 PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+# ——————————————
+#  Instalación
+# ——————————————
 include(GNUInstallDirs)
 install(TARGETS ProyectDeimos2
     BUNDLE DESTINATION .
@@ -124,6 +109,9 @@ install(TARGETS ProyectDeimos2
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
+# ——————————————
+#  Finalizar para Qt 6
+# ——————————————
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(ProyectDeimos2)
 endif()

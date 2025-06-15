@@ -1,4 +1,4 @@
-#include "Enemigo.h"
+#include "enemigo.h"
 #include "entidad.h"
 #include <QDebug>
 

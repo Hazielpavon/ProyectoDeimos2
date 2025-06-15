@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.31.6/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -72,8 +72,8 @@ ProyectDeimos2_autogen/timestamp: /opt/homebrew/opt/qt@5/bin/moc
 ProyectDeimos2_autogen/timestamp: /opt/homebrew/opt/qt@5/bin/uic
 ProyectDeimos2_autogen/timestamp: CMakeFiles/ProyectDeimos2_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target ProyectDeimos2"
-	/opt/homebrew/bin/cmake -E cmake_autogen /Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles/ProyectDeimos2_autogen.dir/AutogenInfo.json ""
-	/opt/homebrew/bin/cmake -E touch /Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2_autogen/timestamp
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -E cmake_autogen /Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles/ProyectDeimos2_autogen.dir/AutogenInfo.json Debug
+	/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake -E touch /Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2_autogen/timestamp
 
 CMakeFiles/ProyectDeimos2_autogen.dir/codegen:
 .PHONY : CMakeFiles/ProyectDeimos2_autogen.dir/codegen

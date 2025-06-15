@@ -71,7 +71,7 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
     activateWindow();                  // Hace visible y activa esta ventana
     setFocus(Qt::OtherFocusReason);   // Fuerza el foco del teclado aquí
 
-    QPixmap pixFondoOriginal(":/resources/templo del silencio.png");
+    QPixmap pixFondoOriginal(":/resources/templo_olvido.png");
     if (pixFondoOriginal.isNull()) {
         qWarning() << "[TutorialScene] Error al cargar :/resources/templo_silencio.png";
     }

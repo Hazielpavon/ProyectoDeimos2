@@ -1,4 +1,4 @@
-#include "ciudadinversa.h".h"
+#include "ciudadinversa.h"
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"

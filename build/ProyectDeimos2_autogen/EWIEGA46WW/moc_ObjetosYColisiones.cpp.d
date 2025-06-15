@@ -698,7 +698,8 @@
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QObject \
-  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QRectF \
+  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QSize \
+  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/QVector \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qalgorithms.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qarraydata.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qatomic.h \
@@ -756,15 +757,11 @@
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qvarlengtharray.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qvector.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtCore.framework/Versions/5/Headers/qversiontagging.h \
-  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/QColor \
-  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qbrush.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qcolor.h \
-  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qfont.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qimage.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qmatrix.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qpaintdevice.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qpainterpath.h \
-  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qpen.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qpixelformat.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qpixmap.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qpolygon.h \
@@ -776,8 +773,6 @@
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qtransform.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtGui.framework/Versions/5/Headers/qwindowdefs.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsRectItem \
-  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/QGraphicsScene \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsitem.h \
-  /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qgraphicsscene.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qtwidgets-config.h \
   /opt/homebrew/Cellar/qt@5/5.15.16_2/lib/QtWidgets.framework/Versions/5/Headers/qtwidgetsglobal.h
