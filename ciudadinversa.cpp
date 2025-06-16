@@ -155,6 +155,7 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
 
     if (m_inverted) {
         // techo como “suelo” cuando estamos invertidos
+         m_spawnPos = QPointF(35, 0);
         m_colManager->addRect(
             { 0.0f,  0.0f, float(m_bgWidth*2), GROUND_H },
             Qt::NoBrush, true
@@ -169,7 +170,7 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
 
     // ---- Jugador ----
     if(m_player){
-        m_spawnPos = QPointF(35, m_bgHeight);
+        m_spawnPos = QPointF(35,0);
         m_player->transform().setPosition(
             m_spawnPos.x(), m_spawnPos.y());
         m_player->setOnGround(true);
@@ -353,7 +354,7 @@ void ciudadinversa::onFrame()
         QTimer::singleShot(1000, this, [this]() { m_playerItem->setVisible(false); });
         QTimer::singleShot(2000, this, [this, jug]() {
             // reposición idéntica a tu código de respawn…
-            m_player->transform().setPosition(35, m_bgHeight);
+            m_player->transform().setPosition(35,0);
             m_player->fisica().setVelocity(0,0);
             jug->setOnGround(true);
             jug->sprite().setState(SpriteState::Idle);
