@@ -1,5 +1,5 @@
 #pragma once
-#include "Enemigo.h"
+#include "enemigo.h"
 
 class BringerOfDeath : public Enemigo {
     Q_OBJECT

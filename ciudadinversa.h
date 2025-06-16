@@ -11,7 +11,7 @@
 #include <QVector>
 
 #include "ObjetosYColisiones.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include "entidad.h"
 #include "CombateManager.h"      // 👈 gestor de combate
 
@@ -92,4 +92,7 @@ private:
     /* ─────────── UI extra ─────────── */
     MapaWidget*          m_mapaRegiones   = nullptr;
     QString              m_currentRegion;
+
+        bool m_inverted = true;
+
 };

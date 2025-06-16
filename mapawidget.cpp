@@ -1,10 +1,10 @@
-// MapaWidget.cpp (completo con animación de ruta roja)
 #include "mapawidget.h"
 #include <QPainter>
 #include <QKeyEvent>
 #include <QDebug>
 #include <QLabel>
 #include <QPushButton>
+#include <cmath>
 
 MapaWidget::MapaWidget(const QString &regionInicial, QWidget *parent)
     : QWidget(parent),
@@ -19,6 +19,8 @@ MapaWidget::MapaWidget(const QString &regionInicial, QWidget *parent)
     setAttribute(Qt::WA_TranslucentBackground);
 
     m_imagenMapa.load(":/resources/mapa_centrado.png");
+    m_imagenInformacion.load(":/resources/informacion.png");
+
     m_grafo.cargarRegiones();
     m_grafo.conectarRegiones();
 
@@ -35,41 +37,52 @@ MapaWidget::MapaWidget(const QString &regionInicial, QWidget *parent)
 
     connect(m_animacionTimer, &QTimer::timeout, this, &MapaWidget::animarRuta);
 
-    auto crearClickableLabel = [this](const QString &region, const QPoint &mapaPos) {
-        QLabel *label = new QLabel(this);
-        label->setGeometry(mapaPos.x(), mapaPos.y(), 40, 40);
-        label->setStyleSheet("background-color: transparent;");
-        label->setCursor(Qt::PointingHandCursor);
-        label->setProperty("region", region);
-        label->installEventFilter(this);
-        m_clickLabels[region] = label;
+    QStringList regiones = {
+        "Templo del Silencio", "Raices Olvidadas", "Ciudad Inversa",
+        "Torre de la Marca", "Máquina del Olvido", "Mente Vacía"
     };
+    for (const QString &region : regiones) crearClickableLabel(region);
 
-    crearClickableLabel("Templo del Silencio", QPoint(230, 300));
-    crearClickableLabel("Raices Olvidadas", QPoint(240, 445));
-    crearClickableLabel("Ciudad Inversa", QPoint(400, 300));
-    crearClickableLabel("Torre de la Marca", QPoint(480, 420));
-    crearClickableLabel("Máquina del Olvido", QPoint(625, 330));
-    crearClickableLabel("Mente Vacía", QPoint(625, 440));
-
-    // Botón borrar ruta
-    m_botonBorrarRuta = new QPushButton("Borrar Ruta", this);
-    m_botonBorrarRuta->setGeometry(620, 205, 130, 20);
-    m_botonBorrarRuta->setStyleSheet(
-        "QPushButton { background-color: rgba(140,100,20,220); color: white; font-weight: bold; border-radius: 8px; font-size: 14px; }"
-        "QPushButton:hover { background-color: rgba(180,130,30,250); }"
-        );
+    m_botonBorrarRuta = new QPushButton("", this);
+    m_botonBorrarRuta->setGeometry(830, 520, 80, 20);
+    m_botonBorrarRuta->setStyleSheet("QPushButton { background-color: transparent; border: none; }");
+    m_botonBorrarRuta->raise();
+    m_botonBorrarRuta->setEnabled(true);
     connect(m_botonBorrarRuta, &QPushButton::clicked, this, [this]() {
         m_rutaActual.clear();
+        m_puntosRuta.clear();
         m_puntosAnimados.clear();
+        m_rutaMasCortaPuntos.clear();
+        m_rutasAlternativasPuntos.clear();
         m_animacionIndex = 0;
         m_animacionTimer->stop();
+        if (m_rutaInfoLabel) m_rutaInfoLabel->clear();
         update();
     });
+
+    m_rutaInfoLabel = new QLabel(this);
+    m_rutaInfoLabel->setGeometry(770, 110, 160, 200);
+    m_rutaInfoLabel->setStyleSheet("color: white; font-size: 14px;");
+    m_rutaInfoLabel->setWordWrap(true);
 }
 
 MapaWidget::~MapaWidget() {
     delete m_jugadorSprite;
+}
+
+void MapaWidget::crearClickableLabel(const QString &region) {
+    QPoint punto = m_grafo.posicionRegion(region);
+    int desplazamientoIzquierda = 100;
+    int offsetX = (width() - m_imagenMapa.width()) / 2 - desplazamientoIzquierda;
+    int offsetY = (height() - m_imagenMapa.height()) / 2;
+
+    QLabel *label = new QLabel(this);
+    label->setGeometry(offsetX + punto.x() - 20, offsetY + punto.y() - 20, 40, 40);
+    label->setStyleSheet("background-color: transparent;");
+    label->setCursor(Qt::PointingHandCursor);
+    label->setProperty("region", region);
+    label->installEventFilter(this);
+    m_clickLabels[region] = label;
 }
 
 void MapaWidget::setRegionActual(const QString &region) {
@@ -79,29 +92,81 @@ void MapaWidget::setRegionActual(const QString &region) {
     update();
 }
 
-void MapaWidget::setRutaActual(const QList<QString> &ruta) {
-    m_rutaActual = ruta;
+void MapaWidget::setRutaActual(const QList<QString> &rutaPrincipal) {
+    m_rutaActual = rutaPrincipal;
     m_puntosAnimados.clear();
+    m_puntosRuta.clear();
     m_animacionIndex = 0;
 
-    // Preprocesar todos los puntos de la ruta
-    m_puntosRuta.clear();
-    for (int i = 0; i < ruta.size() - 1; ++i) {
-        QString origen = ruta[i];
-        QString destino = ruta[i + 1];
-        QVector<QPoint> subRuta = m_grafo.rutaManual(origen, destino);
-        if (subRuta.isEmpty()) {
-            subRuta.append(m_grafo.posicionRegion(origen));
-            subRuta.append(m_grafo.posicionRegion(destino));
+    m_rutaMasCortaPuntos.clear();
+    m_rutasAlternativasPuntos.clear();
+
+    QString destino = rutaPrincipal.last();
+QList<QList<QString>> todas = m_grafo.todasLasRutas(m_regionActual, destino);
+
+    QString infoTexto;
+    double distanciaMasCorta = std::numeric_limits<double>::max();
+    QVector<QPoint> rutaMasCortaTemp;
+
+    for (int i = 0; i < todas.size(); ++i) {
+        const QList<QString>& ruta = todas[i];
+        QVector<QPoint> puntosRuta;
+        double distanciaRuta = 0.0;
+        bool rutaValida = true;
+
+        for (int j = 0; j < ruta.size() - 1; ++j) {
+            QString origen = ruta[j];
+            QString destino = ruta[j + 1];
+
+            QVector<QPoint> subRuta = m_grafo.rutaManual(origen, destino);
+
+            // VALIDACIÓN FINAL: no deben ser menos de 2 puntos
+            if (subRuta.size() < 2) {
+                qWarning() << "❌ Subruta entre" << origen << "y" << destino << "no tiene puntos suficientes.";
+                rutaValida = false;
+                break;
+            }
+
+            for (const QPoint &p : subRuta)
+                puntosRuta.append(p);
+
+            // Medir distancia solo si la subruta es válida
+            for (int s = 0; s < subRuta.size() - 1; ++s) {
+                QPoint p1 = subRuta[s];
+                QPoint p2 = subRuta[s + 1];
+                distanciaRuta += std::hypot(p2.x() - p1.x(), p2.y() - p1.y());
+            }
         }
-        for (const QPoint &p : subRuta) {
-            m_puntosRuta.append(p);
+
+        if (!rutaValida)
+            continue;
+
+        double distanciaKm = distanciaRuta * 0.01;
+
+        // Mostrar en label
+        for (const QString &nombre : ruta)
+            infoTexto += nombre + " → ";
+        infoTexto.chop(3);
+        infoTexto += QString("\nTotal: %1 km\n\n").arg(QString::number(distanciaKm, 'f', 2));
+
+        if (distanciaKm < distanciaMasCorta) {
+            if (!rutaMasCortaTemp.isEmpty()) {
+                m_rutasAlternativasPuntos.append(rutaMasCortaTemp); // anterior pasa a alternativas
+            }
+            distanciaMasCorta = distanciaKm;
+            rutaMasCortaTemp = puntosRuta;
+        } else {
+            m_rutasAlternativasPuntos.append(puntosRuta);
         }
     }
 
-    m_animacionTimer->start(60); // cada 20ms agregar un punto
-}
+    m_rutaMasCortaPuntos = rutaMasCortaTemp;
 
+    if (m_rutaInfoLabel)
+        m_rutaInfoLabel->setText(infoTexto.trimmed());
+
+    update();
+}
 void MapaWidget::animarRuta() {
     if (m_animacionIndex < m_puntosRuta.size()) {
         m_puntosAnimados.append(m_puntosRuta[m_animacionIndex]);
@@ -120,39 +185,96 @@ void MapaWidget::onFrame() {
 void MapaWidget::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-
-    // Fondo translúcido
     painter.setBrush(QColor(0, 0, 0, 150));
     painter.setPen(Qt::NoPen);
     painter.drawRect(rect());
 
-    // Imagen centrada
-    int offsetX = (width() - m_imagenMapa.width()) / 2;
+    int desplazamientoIzquierda = 100;
+    int offsetX = (width() - m_imagenMapa.width()) / 2 - desplazamientoIzquierda;
     int offsetY = (height() - m_imagenMapa.height()) / 2;
-    if (!m_imagenMapa.isNull()) {
+
+    if (!m_imagenMapa.isNull())
         painter.drawPixmap(offsetX, offsetY, m_imagenMapa);
+
+    if (!m_imagenInformacion.isNull()) {
+        int infoX = offsetX + m_imagenMapa.width() + 20;
+        int infoY = offsetY + (m_imagenMapa.height() - m_imagenInformacion.height()) / 2;
+        painter.drawPixmap(infoX, infoY, m_imagenInformacion);
     }
 
-    // Ruta animada (color burdeos elegante)
-    if (!m_puntosAnimados.isEmpty()) {
+    // ─── RUTA MÁS CORTA ─────────────
+    if (m_rutaMasCortaPuntos.size() >= 2) {
         painter.save();
         painter.translate(offsetX, offsetY);
 
-        QColor colorBurdeos(180, 30, 40, 220);  // Rojo burdeos elegante
-        QPen penRuta(colorBurdeos, 6, Qt::SolidLine, Qt::RoundCap);
-        painter.setPen(penRuta);
+        QPen penVerde(QColor(20, 200, 120, 230), 6, Qt::SolidLine, Qt::RoundCap);
+        painter.setPen(penVerde);
+        for (int i = 0; i < m_rutaMasCortaPuntos.size() - 1; ++i)
+            painter.drawLine(m_rutaMasCortaPuntos[i], m_rutaMasCortaPuntos[i + 1]);
 
-        for (int i = 0; i < m_puntosAnimados.size() - 1; ++i) {
-            painter.drawLine(m_puntosAnimados[i], m_puntosAnimados[i + 1]);
-        }
+        // 🔴 DEBUG: puntos reales como círculos rojos
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(QColor(255, 60, 60, 220));
+        for (const QPoint &p : m_rutaMasCortaPuntos)
+            painter.drawEllipse(p, 4, 4);  // radio del punto
 
         painter.restore();
     }
 
-    // Dibujar personaje
-    if (m_jugadorSprite) {
-        m_jugadorSprite->draw(painter);
+    // ─── RUTAS ALTERNATIVAS ─────────────
+    if (!m_rutasAlternativasPuntos.isEmpty()) {
+        painter.save();
+        painter.translate(offsetX, offsetY);
+
+        QPen penRojo(QColor(220, 50, 50, 120), 4, Qt::DashLine, Qt::RoundCap);
+        painter.setPen(penRojo);
+        for (const QVector<QPoint> &ruta : m_rutasAlternativasPuntos) {
+            if (ruta.size() >= 2) {
+                for (int i = 0; i < ruta.size() - 1; ++i)
+                    painter.drawLine(ruta[i], ruta[i + 1]);
+            }
+        }
+
+        // 🔴 DEBUG: puntos de rutas alternativas
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(QColor(255, 60, 60, 220));
+        for (const QVector<QPoint> &ruta : m_rutasAlternativasPuntos)
+            for (const QPoint &p : ruta)
+                painter.drawEllipse(p, 4, 4);
+
+        painter.restore();
     }
+
+    // ─── Dibujar DISTANCIAS sobre líneas (solo ruta más corta) ───
+    painter.setFont(QFont("Arial", 10));
+    painter.setPen(QColor(255, 255, 255));
+
+    for (int i = 0; i < m_rutaActual.size() - 1; ++i) {
+        QString origen = m_rutaActual[i];
+        QString destino = m_rutaActual[i + 1];
+        auto clave = qMakePair(origen, destino);
+
+        if (!m_grafo.obtenerRutasManuales().contains(clave))
+            continue;
+
+        QVector<QPoint> ruta = m_grafo.rutaManual(origen, destino);
+        if (ruta.size() < 2)
+            continue;
+
+        // Punto medio visual (aproximado)
+        QPoint puntoInicio = ruta.first();
+        QPoint puntoFin = ruta.last();
+        QPoint centro = (puntoInicio + puntoFin) / 2;
+
+        double km = m_grafo.obtenerDistanciaVisual(origen, destino);
+        QString texto = QString("%1 km").arg(QString::number(km, 'f', 1));
+
+        painter.drawText(centro + QPoint(0, -10), texto);  // pequeño desplazamiento hacia arriba
+    }
+
+    // ─── SPRITE DEL JUGADOR ─────────────
+    if (m_jugadorSprite)
+        m_jugadorSprite->draw(painter);
 }
 
 void MapaWidget::keyPressEvent(QKeyEvent *event) {
@@ -174,3 +296,5 @@ bool MapaWidget::eventFilter(QObject *obj, QEvent *event) {
     }
     return QWidget::eventFilter(obj, event);
 }
+
+

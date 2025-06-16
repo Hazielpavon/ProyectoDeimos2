@@ -1,9 +1,0 @@
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/ProyectDeimos2.dir
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/edit_cache.dir
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/rebuild_cache.dir
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/list_install_components.dir
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/install.dir
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/install/local.dir
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/install/strip.dir
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/ProyectDeimos2_autogen_timestamp_deps.dir
-/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/ProyectDeimos2_autogen.dir

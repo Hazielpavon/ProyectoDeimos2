@@ -1,6 +1,6 @@
 #include "ObjetosYColisiones.h"
 #include "entidad.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include <QPointF>
 #include <QGraphicsScene>
 ObjetosYColisiones::ObjetosYColisiones(QGraphicsScene* scene, QObject* parent)

@@ -24,6 +24,7 @@ struct Animacion
         if (acum >= T) { acum -= T; idx = (idx + 1) % frames.size(); return true; }
         return false;
     }
+
     const QPixmap& actual() const { return frames[idx]; }
 };
 
@@ -32,40 +33,43 @@ class Enemigo : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    enum class Estado { Idle, Walk, Attack, Hurt, Death,IdleLeft, WalkLeft, AttackLeft, HurtLeft};
+    enum class Estado {
+        Idle, Walk, Attack, Hurt, Death,
+        IdleLeft, WalkLeft, AttackLeft, HurtLeft
+    };
 
     explicit Enemigo(QObject* parent = nullptr);
 
-    /* IA + animación + física (cada enemigo implementa) */
+    // IA + animación + física (cada enemigo implementa)
     virtual void update(float dt) = 0;
 
-    /* -------- Salud -------- */
+    // Salud
     virtual void takeDamage(int dmg);
     bool isDead()    const { return m_estado == Estado::Death; }
     int  currentHP() const { return m_hp; }
     int  maxHP()     const { return m_maxHP; }
 
-    /* -------- Estado / frame -------- */
+    // Estado / frame
     Estado estado() const { return m_estado; }
-    int    frameIndex() const { return animActual().idx; }   // 👈 NUEVO
+    int    frameIndex() const { return animActual().idx; }
 
-    /* -------- Velocidades -------- */
+    // Velocidades
     float velX() const { return m_velX; }
     float velY() const { return m_velY; }
     void  setVelY(float v) { m_velY = v; }
 
-    /* -------- Target (jugador) -------- */
+    // Target (jugador)
     void     setTarget(entidad* t) { m_target = t; }
     entidad* target() const        { return m_target; }
     void setHp(int hp){ m_hp = hp; }
 protected:
-    /* Animaciones helper */
+    // Animaciones helper
     void addAnim(Estado st, const Animacion& anim);
     Animacion&       animActual();
     const Animacion& animActual() const;
     void setEstado(Estado st);
 
-    /* ---- Datos internos ---- */
+    // Datos internos
     Estado                   m_estado = Estado::Idle;
     QHash<Estado, Animacion> m_anims;
 
@@ -77,3 +81,8 @@ protected:
 
     entidad* m_target = nullptr;
 };
+
+// 👇 Hash para Enemigo::Estado (clave en QHash)
+inline uint qHash(const Enemigo::Estado &key, uint seed = 0) {
+    return ::qHash(static_cast<int>(key), seed);
+}

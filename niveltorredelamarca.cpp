@@ -1,8 +1,8 @@
-#include "niveltorredelamarca.h".h"
+#include "niveltorredelamarca.h"
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include "BringerOfDeath.h"
 #include "CombateManager.h"
 #include <QRandomGenerator>

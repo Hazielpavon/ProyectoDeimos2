@@ -26,13 +26,29 @@ public:
     QList<QString> vecinosDe(const QString &region) const;
     QVector<QString> conexionesDesde(const QString &region) const;
 
-    void agregarRutaManual(const QString &origen, const QString &destino, const QVector<QPoint> &puntos);
-    QVector<QPoint> rutaManual(const QString &origen, const QString &destino) const;
+    QMap<QPair<QString, QString>, QVector<QPoint>> obtenerRutasManuales() const;
+    void agregarRutaManual(const QString &origen,
+                           const QString &destino,
+                           const QVector<QPoint> &puntos);
+    QVector<QPoint> rutaManual(const QString &origen,
+                               const QString &destino) const;
+
+    // ─────────────────────────────────────────────────────────
+    //  Getter de solo lectura para TODA la lista de adyacencia
+    //  (clave = región, valor = lista <vecino,peso>)
+    // ─────────────────────────────────────────────────────────
+    const QMap<QString, QVector<QPair<QString,int>>>& grafo() const
+    {
+        return m_grafo;
+    }
+    QList<QList<QString>> todasLasRutas(const QString &origen, const QString &destino) const;
+    double obtenerDistanciaVisual(const QString &origen, const QString &destino) const;
+    QMap<QPair<QString, QString>, double> m_distanciasVisibles;
+
 
 private:
-    QMap<QString, QVector<QPair<QString, int>>> m_grafo;
-    QMap<QString, QPoint> m_posiciones;
-
+    QMap<QString, QVector<QPair<QString, int>>> m_grafo;   // región → vecinos
+    QMap<QString, QPoint>                       m_posiciones;
     QMap<QPair<QString, QString>, QVector<QPoint>> m_rutasManuales;
 };
 

@@ -28,13 +28,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setFixedSize(950, 650);
     ui->setupUi(this);
-    pantallaInicio = new PantallaInicio(this);
-    connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado, this, [=]() {
-        if (!menuOpciones) {
-            menuOpciones = new MenuOpciones(this);
-            connect(menuOpciones, &MenuOpciones::nuevaPartida, this, [=]() {
-                pantallaCarga = new PantallaCarga(this);
-                connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
+    // pantallaInicio = new PantallaInicio(this);
+    // connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado, this, [=]() {
+    //     if (!menuOpciones) {
+    //         menuOpciones = new MenuOpciones(this);
+    //         connect(menuOpciones, &MenuOpciones::nuevaPartida, this, [=]() {
+    //             pantallaCarga = new PantallaCarga(this);
+    //             connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
                     m_player = new Jugador();
                     m_player->sprite().loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",24);
                     m_player->sprite().loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",16);
@@ -68,25 +68,25 @@ MainWindow::MainWindow(QWidget *parent)
 
                     //     connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
 
-                    cargarNivel("Tutorial");
+                    cargarNivel("CiudadInversa");
 
 
-                        });
+    //                     });
 
-                      //   mostrarPantalla(segundoVideo);
-                  //  });
+    //                   //   mostrarPantalla(segundoVideo);
+    //               //  });
 
-                 //  mostrarPantalla(primerVideo);
+    //              //  mostrarPantalla(primerVideo);
 
-            // });
+    //         // });
 
-              // mostrarPantalla(pantallaCarga);
-            });
-        }
-        mostrarPantalla(menuOpciones);
-    });
+    //           // mostrarPantalla(pantallaCarga);
+    //         });
+    //     }
+    //     mostrarPantalla(menuOpciones);
+    // });
 
-    mostrarPantalla(pantallaInicio);
+    // mostrarPantalla(pantallaInicio);
 }
 
 MainWindow::~MainWindow()

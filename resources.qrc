@@ -200,7 +200,6 @@
         <file>resources/Bringer-of-Death_Walk_6.png</file>
         <file>resources/Bringer-of-Death_Walk_7.png</file>
         <file>resources/Bringer-of-Death_Walk_8.png</file>
-        <file>resources/templo del silencio.png</file>
         <file>resources/Ciudad_Inversa.png</file>
         <file>resources/Ciudad_Inversa2.png</file>
         <file>resources/Bringer-of-Death_Spell_1.png</file>
@@ -235,5 +234,6 @@
         <file>resources/drop_vida.png</file>
         <file>resources/drop_llave.png</file>
         <file>resources/drop_mana.png</file>
+        <file>resources/templo_silencio2.png</file>
     </qresource>
 </RCC>

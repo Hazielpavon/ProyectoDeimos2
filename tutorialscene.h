@@ -18,7 +18,7 @@ class TutorialScene : public QWidget {
     Q_OBJECT
 
 public:
-   explicit TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, QWidget *parent = nullptr);
+    explicit TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, QWidget *parent = nullptr);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

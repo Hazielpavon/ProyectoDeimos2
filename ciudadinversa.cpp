@@ -1,8 +1,8 @@
-#include "ciudadinversa.h".h"
+#include "ciudadinversa.h"
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include "BringerOfDeath.h"
 #include "CombateManager.h"
 #include <QRandomGenerator>
@@ -26,6 +26,7 @@ static constexpr float WINDOW_H    = 650.0f;
 static constexpr float FPS         = 60.0f;
 static constexpr float PLAT_WIDTH  = 200.0f;
 static constexpr float PLAT_HEIGHT = 20.0f;
+static constexpr float GROUND_H    = 40.0f;
 
 // HUD
 static constexpr float HUD_W = 350.0f;
@@ -109,7 +110,19 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
 
 
     // Suelo (collisionOnly = true)
-    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
+    if (m_inverted) {
+        // techo como “suelo” cuando estamos invertidos
+        m_colManager->addRect(
+            { 0.0f,  0.0f, float(m_bgWidth*2), GROUND_H },
+            Qt::NoBrush, true
+            );
+    } else {
+        // suelo normal abajo
+        m_colManager->addRect(
+            { 0.0f,  m_bgHeight - GROUND_H, float(m_bgWidth*2), GROUND_H },
+            Qt::NoBrush, true
+            );
+    }
 
 
 
@@ -133,11 +146,19 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
 
 
 
-
-
-
-
-    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
+    if (m_inverted) {
+        // techo como “suelo” cuando estamos invertidos
+        m_colManager->addRect(
+            { 0.0f,  0.0f, float(m_bgWidth*2), GROUND_H },
+            Qt::NoBrush, true
+            );
+    } else {
+        // suelo normal abajo
+        m_colManager->addRect(
+            { 0.0f,  m_bgHeight - GROUND_H, float(m_bgWidth*2), GROUND_H },
+            Qt::NoBrush, true
+            );
+    }
 
     // ---- Jugador ----
     if(m_player){
@@ -145,6 +166,13 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
         m_player->transform().setPosition(
             m_spawnPos.x(), m_spawnPos.y());
         m_player->setOnGround(true);
+
+        // En el constructor de ciudadinversa:
+        float g = 980.0f;
+        if (m_inverted)
+            m_player->fisica().setGravity(+g);  // gravedad hacia arriba
+        else
+            m_player->fisica().setGravity(-g);  // gravedad hacia abajo
 
         m_playerItem = new QGraphicsPixmapItem;
         m_playerItem->setZValue(3);
@@ -331,24 +359,30 @@ void ciudadinversa::onFrame()
     }
 
     // ——— Entrada salto + movimiento horiz ———
-    if (m_jumpRequested && m_player->isOnGround()) {
-        constexpr float JUMP_VY = -500.0f;
+    // 1) Grounded en suelo o en techo invertido
+    bool grounded = m_inverted
+                        ? (m_player->transform().getPosition().y() <= GROUND_H + 1.0f)
+                        : m_player->isOnGround();
+
+    // 2) Si solicitaron salto y estamos grounded
+    if (m_jumpRequested && grounded) {
         auto v = m_player->fisica().velocity();
+        float JUMP_VY = -500.0f;          // **SIEMPRE** negativo
         m_player->fisica().setVelocity(v.x(), JUMP_VY);
         m_player->setOnGround(false);
         m_jumpRequested = false;
     }
+
+    // 3) Movimiento horizontal
     float vx = 0.0f;
     if (!m_deathScheduled) {
         if (m_moveLeft)  vx = -160.0f;
         if (m_moveRight) vx =  160.0f;
         if (m_run && vx != 0.0f) vx *= 2.0f;
     }
-    m_player->fisica().setVelocity(
-        vx,
-        m_player->fisica().velocity().y()
-        );
-
+    m_player->fisica().setVelocity(vx,
+                                   m_player->fisica().velocity().y()
+                                   );
     // ——— Actualizar jugador + colisiones ———
     m_player->actualizar(m_dt);
     QSize sprSz = m_player->sprite().getSize();
@@ -397,8 +431,18 @@ void ciudadinversa::onFrame()
             .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
         );
     QPointF footPos = m_player->transform().getPosition();
+
+    // --- flip vertical si estamos invertidos ---
+    if (m_inverted) {
+        pix = pix.transformed(QTransform().scale(1, -1));
+        // anclar por la parte superior del sprite
+        m_playerItem->setOffset(-pix.width()/2.0, 0);
+    } else {
+        // anclar por la parte inferior en modo normal
+        m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
+    }
+
     m_playerItem->setPixmap(pix);
-    m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
     m_playerItem->setPos(footPos);
     m_view->centerOn(footPos);
 

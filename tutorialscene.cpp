@@ -71,7 +71,7 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
     activateWindow();                  // Hace visible y activa esta ventana
     setFocus(Qt::OtherFocusReason);   // Fuerza el foco del teclado aquí
 
-    QPixmap pixFondoOriginal(":/resources/templo del silencio.png");
+    QPixmap pixFondoOriginal(":/resources/templo_silencio2.png");
     if (pixFondoOriginal.isNull()) {
         qWarning() << "[TutorialScene] Error al cargar :/resources/templo_silencio.png";
     }
@@ -172,7 +172,7 @@ TutorialScene::TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, 
         m_scene->addItem(m_instruccionCaminarItem);
     }
 
-m_mapaRegiones = new MapaWidget("Templo del Silencio", this);  // ✅ Orden correcto
+    m_mapaRegiones = new MapaWidget("Templo del Silencio", this);  // ✅ Orden correcto
     m_mapaRegiones->setWindowModality(Qt::NonModal);  // ← para que no bloquee
     m_mapaRegiones->setFocusPolicy(Qt::NoFocus);      // ← que no robe el foco
     m_mapaRegiones->setAttribute(Qt::WA_ShowWithoutActivating);
@@ -239,7 +239,7 @@ void TutorialScene::mousePressEvent(QMouseEvent *event)
             }
         }
 
-}
+    }
 
 }
 
@@ -548,19 +548,19 @@ void TutorialScene::onFrame()
         m_tiempoParaMostrarMapa = 2.0f;
     }
 
-if (m_mostrarMapaPendiente) {
-    m_tiempoParaMostrarMapa -= m_dt;
-    if (m_tiempoParaMostrarMapa <= 0.0f) {
-        QPixmap pixMapa(":/resources/mapa.png");
-        if (!pixMapa.isNull()) {
-            m_instruccionMapaItem = new QGraphicsPixmapItem(pixMapa);
-            m_instruccionMapaItem->setZValue(5);
-            m_scene->addItem(m_instruccionMapaItem);
+    if (m_mostrarMapaPendiente) {
+        m_tiempoParaMostrarMapa -= m_dt;
+        if (m_tiempoParaMostrarMapa <= 0.0f) {
+            QPixmap pixMapa(":/resources/mapa.png");
+            if (!pixMapa.isNull()) {
+                m_instruccionMapaItem = new QGraphicsPixmapItem(pixMapa);
+                m_instruccionMapaItem->setZValue(5);
+                m_scene->addItem(m_instruccionMapaItem);
+            }
+            m_mapaYaMostrado = true;
+            m_mostrarMapaPendiente = false;
         }
-        m_mapaYaMostrado = true;
-        m_mostrarMapaPendiente = false;
     }
-}
 
 
 }

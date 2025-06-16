@@ -13,7 +13,7 @@
 #include <QVector>
 
 #include "ObjetosYColisiones.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include "entidad.h"
 #include "CombateManager.h"      // 👈 gestor de combate
 
