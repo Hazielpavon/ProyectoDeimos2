@@ -37,8 +37,7 @@ Drop::~Drop() {
 bool Drop::checkCollision(entidad* player) {
     if (!m_sprite || !player) return false;
     QRectF dropRect = m_sprite->sceneBoundingRect();
-    QRectF playerRect(player->transform().getPosition().x() - 20,
-                      player->transform().getPosition().y() - 50,
+    QRectF playerRect(player->transform().getPosition().x() - 20, player->transform().getPosition().y() - 50,
                       40, 50);
     return dropRect.intersects(playerRect);
 }
