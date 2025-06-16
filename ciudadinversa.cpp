@@ -58,6 +58,7 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
     , m_scene(new QGraphicsScene(this))
     , m_colManager(new ObjetosYColisiones(m_scene, this))
     , m_dt(1.0f/FPS)
+    , m_inverted(true)
 {
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
     setFocusPolicy(Qt::StrongFocus);
@@ -92,6 +93,11 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
     m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setAttribute(Qt::WA_TransparentForMouseEvents);
+    QTransform t;
+    t.translate(0, WINDOW_H);
+    t.scale(1, -1);
+    m_view->setTransform(t);
+
 
     // ---- Plataformas / suelo ----
     float startX = 299.0f;
@@ -109,7 +115,6 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
     static constexpr float PLAT_H = PLAT_HEIGHT;
 
 
-    // Suelo (collisionOnly = true)
     if (m_inverted) {
         // techo como “suelo” cuando estamos invertidos
         m_colManager->addRect(
@@ -121,8 +126,10 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
         m_colManager->addRect(
             { 0.0f,  m_bgHeight - GROUND_H, float(m_bgWidth*2), GROUND_H },
             Qt::NoBrush, true
-            );
-    }
+            );
+    }
+
+
 
 
 
@@ -162,7 +169,7 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
 
     // ---- Jugador ----
     if(m_player){
-        m_spawnPos = QPointF(35,0);
+        m_spawnPos = QPointF(35, m_bgHeight);
         m_player->transform().setPosition(
             m_spawnPos.x(), m_spawnPos.y());
         m_player->setOnGround(true);
@@ -346,7 +353,7 @@ void ciudadinversa::onFrame()
         QTimer::singleShot(1000, this, [this]() { m_playerItem->setVisible(false); });
         QTimer::singleShot(2000, this, [this, jug]() {
             // reposición idéntica a tu código de respawn…
-            m_player->transform().setPosition(35,0);
+            m_player->transform().setPosition(35, m_bgHeight);
             m_player->fisica().setVelocity(0,0);
             jug->setOnGround(true);
             jug->sprite().setState(SpriteState::Idle);
@@ -434,13 +441,12 @@ void ciudadinversa::onFrame()
 
     // --- flip vertical si estamos invertidos ---
     if (m_inverted) {
-        pix = pix.transformed(QTransform().scale(1, -1));
-        // anclar por la parte superior del sprite
+        // Asegúrate de usar este anclaje:
         m_playerItem->setOffset(-pix.width()/2.0, 0);
     } else {
-        // anclar por la parte inferior en modo normal
         m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
     }
+
 
     m_playerItem->setPixmap(pix);
     m_playerItem->setPos(footPos);
