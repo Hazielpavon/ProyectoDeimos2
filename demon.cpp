@@ -1,4 +1,4 @@
-#include "Demon.h"
+#include "demon.h"
 #include "entidad.h"
 #include "jugador.h"
 #include <QTransform>

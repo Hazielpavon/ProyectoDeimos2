@@ -47,6 +47,8 @@ set(PROJECT_SOURCES
     grafomapa.cpp grafomapa.h
     niveltorredelamarca.cpp niveltorredelamarca.h
     demon.cpp demon.h
+    fireball.cpp fireball.h
+    drop.cpp drop.h
     resources.qrc
 )
 
@@ -59,6 +61,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         resources/Torre_De_La_Marca.png
         resources/Torre_De_La_Marca2.png
+        maquinadelolvido.h maquinadelolvido.cpp
+        mentevacia.h mentevacia.cpp
     )
 else()
     add_executable(ProyectDeimos2 ${PROJECT_SOURCES})

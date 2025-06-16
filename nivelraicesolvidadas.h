@@ -11,7 +11,7 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QVector>
-#include "Fireball.h"
+#include "fireball.h"
 #include "ObjetosYColisiones.h"
 #include "enemigo.h"
 #include "entidad.h"

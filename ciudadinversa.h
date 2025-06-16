@@ -92,4 +92,7 @@ private:
     /* ─────────── UI extra ─────────── */
     MapaWidget*          m_mapaRegiones   = nullptr;
     QString              m_currentRegion;
+
+        bool m_inverted = true;
+
 };

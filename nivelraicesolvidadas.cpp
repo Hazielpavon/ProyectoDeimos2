@@ -15,7 +15,7 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
-#include "Demon.h"
+#include "demon.h"
 
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;

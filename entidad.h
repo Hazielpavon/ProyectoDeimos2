@@ -45,7 +45,7 @@ private:
     bool   m_isJumping;
     float  m_verticalVelocity;
     float  m_groundY;
-    static constexpr float GRAVITY = 800.0f;
+    static constexpr float GRAVITY = -800.0f;
     static constexpr float JUMP_VELOCITY = 450.0f;
     bool   m_facingLeft;
 
