@@ -15,7 +15,6 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
-#include "demon.h"
 
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
@@ -158,13 +157,6 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
-
-    auto* demon = new Demon(this);
-    demon->setPos(2000, 651);
-    demon->setTarget(m_player);
-    m_scene->addItem(demon);
-    m_enemigos.append(demon);
-
 
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
@@ -577,5 +569,3 @@ void NivelRaicesOlvidadas::onFrame()
         }
     }
 }
-
-

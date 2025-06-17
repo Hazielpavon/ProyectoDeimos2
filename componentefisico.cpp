@@ -44,14 +44,9 @@ void componentefisico::setDirection(int dir)
 
 void componentefisico::actualizar(float dt)
 {
-    // 1) Aplica la aceleración de la gravedad sobre la velocidad vertical
-    m_velocity.setY(m_velocity.y() + m_gravity * dt);
-
-    // 2) Integra la posición normalmente
     if (m_transform) {
         QPointF pos = m_transform->getPosition();
         pos += m_velocity * dt;
         m_transform->setPosition(pos.x(), pos.y());
     }
 }
-

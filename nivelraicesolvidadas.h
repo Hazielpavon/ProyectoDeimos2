@@ -11,12 +11,11 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QVector>
-#include "fireball.h"
+#include "Fireball.h"
 #include "ObjetosYColisiones.h"
-#include "enemigo.h"
+#include "Enemigo.h"
 #include "entidad.h"
 #include "CombateManager.h"      // 👈 gestor de combate
-#include <QLabel>  //inventario temporal
 
 class MainWindow;
 class MapaWidget;
@@ -102,7 +101,4 @@ private:
     /* ─────────── UI extra ─────────── */
     MapaWidget*          m_mapaRegiones   = nullptr;
     QString              m_currentRegion;
-
-    QLabel* m_inventario = nullptr; //inventario temporal
-    bool    m_invVisible = false; //inventario temporal
 };

@@ -2,7 +2,7 @@
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
-#include "enemigo.h"
+#include "Enemigo.h"
 #include "BringerOfDeath.h"
 #include "CombateManager.h"
 #include <QRandomGenerator>
@@ -26,7 +26,6 @@ static constexpr float WINDOW_H    = 650.0f;
 static constexpr float FPS         = 60.0f;
 static constexpr float PLAT_WIDTH  = 200.0f;
 static constexpr float PLAT_HEIGHT = 20.0f;
-static constexpr float GROUND_H    = 40.0f;
 
 // HUD
 static constexpr float HUD_W = 350.0f;
@@ -49,8 +48,8 @@ static QPixmap trimBottom(const QPixmap& pix)
 
 // =========================================================
 ciudadinversa::ciudadinversa(entidad*   jugador,
-                                         MainWindow* mainWindow,
-                                         QWidget*   parent)
+                             MainWindow* mainWindow,
+                             QWidget*   parent)
     : QWidget(parent)
     , m_player(jugador)
     , m_mainWindow(mainWindow)
@@ -58,7 +57,6 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
     , m_scene(new QGraphicsScene(this))
     , m_colManager(new ObjetosYColisiones(m_scene, this))
     , m_dt(1.0f/FPS)
-    , m_inverted(true)
 {
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
     setFocusPolicy(Qt::StrongFocus);
@@ -93,11 +91,6 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
     m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setAttribute(Qt::WA_TransparentForMouseEvents);
-    QTransform t;
-    t.translate(0, WINDOW_H);
-    t.scale(1, -1);
-    m_view->setTransform(t);
-
 
     // ---- Plataformas / suelo ----
     float startX = 299.0f;
@@ -115,85 +108,43 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
     static constexpr float PLAT_H = PLAT_HEIGHT;
 
 
-    // ---- Plataformas / suelo ----
-    // 1) Suelo o techo (según m_inverted)
-    if (m_inverted) {
-        // Coloca el “suelo” en el techo, de y=0 a y=GROUND_H
-        m_colManager->addRect(
-            { 0.0f,               // x
-                0.0f,               // y = parte superior de la escena
-                float(m_bgWidth*2), // ancho (doble fondo)
-                GROUND_H            // alto del rect
-            },
-            Qt::NoBrush,
-            true  // solo colisión
-            );
-    } else {
-        // Coloca el suelo real en la base de la imagen
-        m_colManager->addRect(
-            { 0.0f,
-                m_bgHeight - GROUND_H,
-                float(m_bgWidth*2),
-                GROUND_H
-            },
-            Qt::NoBrush,
-            true
-            );
-    }
+    // Suelo (collisionOnly = true)
+    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
 
-    // *** ESTE BLOQUE DUPLICADO ***
+
     // Plataformas manuales, bien distribuidas entre x=[299,3592] y y=[150,450]
     const QVector<QRectF> plataformas = {
-        {  600.0f, 550.0f, PLAT_W, PLAT_H },
-        { 1000.0f, 500.0f, PLAT_W, PLAT_H },
-        { 1400.0f, 450.0f, PLAT_W, PLAT_H },
-        { 1800.0f, 520.0f, PLAT_W, PLAT_H },
-        { 2200.0f, 430.0f, PLAT_W, PLAT_H },
-        { 2600.0f, 530.0f, PLAT_W, PLAT_H },
-        { 3000.0f, 480.0f, PLAT_W, PLAT_H }
+        // Δx ≈ 400, Δy ≤ 100
+        {  600.0f, 550.0f, PLAT_W, PLAT_H },  // Desde suelo
+        { 1000.0f, 500.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
+        { 1400.0f, 450.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
+        { 1800.0f, 520.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 70
+        { 2200.0f, 430.0f, PLAT_W, PLAT_H },  // Δx=400, bajada de 90
+        { 2600.0f, 530.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 100
+        { 3000.0f, 480.0f, PLAT_W, PLAT_H }   // Δx=400, bajada de 50
     };
+
     for (const QRectF &r : plataformas) {
-        m_colManager->addRect(r, QColor(80,80,80), false);
+        m_colManager->addRect(r,
+                              QColor(80,80,80),
+                              false);
     }
-    // *** FIN DEL BLOQUE ***
 
 
 
-    if (m_inverted) {
-        // techo como “suelo” cuando estamos invertidos
-         m_spawnPos = QPointF(35, 0);
-        m_colManager->addRect(
-            { 0.0f,  0.0f, float(m_bgWidth*2), GROUND_H },
-            Qt::NoBrush, true
-            );
-    } else {
-        // suelo normal abajo
-        m_colManager->addRect(
-            { 0.0f,  m_bgHeight - GROUND_H, float(m_bgWidth*2), GROUND_H },
-            Qt::NoBrush, true
-            );
-    }
+
+
+
+
+    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
     // ---- Jugador ----
     if(m_player){
-        // 1) Calcula el y de spawn según modo invertido o normal:
-        float spawnY = m_inverted
-                           ? /* mundo invertido: pie tocando el “techo” */
-                           GROUND_H
-                           : /* modo normal: pie tocando el suelo verdadero */
-                                 m_bgHeight - GROUND_H;
-
-        m_spawnPos = QPointF(35, spawnY);
-       m_player->transform().setPosition(m_spawnPos.x(), m_spawnPos.y());
+        m_spawnPos = QPointF(35,0);
+        m_player->transform().setPosition(
+            m_spawnPos.x(), m_spawnPos.y());
         m_player->setOnGround(true);
-
-        // En el constructor de ciudadinversa:
-        float g = 980.0f;
-        if (m_inverted)
-            m_player->fisica().setGravity(+g);  // gravedad hacia arriba
-        else
-            m_player->fisica().setGravity(-g);  // gravedad hacia abajo
 
         m_playerItem = new QGraphicsPixmapItem;
         m_playerItem->setZValue(3);
@@ -380,30 +331,24 @@ void ciudadinversa::onFrame()
     }
 
     // ——— Entrada salto + movimiento horiz ———
-    // 1) Grounded en suelo o en techo invertido
-    bool grounded = m_inverted
-                        ? (m_player->transform().getPosition().y() <= GROUND_H + 1.0f)
-                        : m_player->isOnGround();
-
-    // 2) Si solicitaron salto y estamos grounded
-    if (m_jumpRequested && grounded) {
+    if (m_jumpRequested && m_player->isOnGround()) {
+        constexpr float JUMP_VY = -500.0f;
         auto v = m_player->fisica().velocity();
-        float JUMP_VY = -500.0f;          // **SIEMPRE** negativo
         m_player->fisica().setVelocity(v.x(), JUMP_VY);
         m_player->setOnGround(false);
         m_jumpRequested = false;
     }
-
-    // 3) Movimiento horizontal
     float vx = 0.0f;
     if (!m_deathScheduled) {
         if (m_moveLeft)  vx = -160.0f;
         if (m_moveRight) vx =  160.0f;
         if (m_run && vx != 0.0f) vx *= 2.0f;
     }
-    m_player->fisica().setVelocity(vx,
-                                   m_player->fisica().velocity().y()
-                                   );
+    m_player->fisica().setVelocity(
+        vx,
+        m_player->fisica().velocity().y()
+        );
+
     // ——— Actualizar jugador + colisiones ———
     m_player->actualizar(m_dt);
     QSize sprSz = m_player->sprite().getSize();
@@ -452,17 +397,8 @@ void ciudadinversa::onFrame()
             .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
         );
     QPointF footPos = m_player->transform().getPosition();
-
-    // --- flip vertical si estamos invertidos ---
-    if (m_inverted) {
-        // Asegúrate de usar este anclaje:
-        m_playerItem->setOffset(-pix.width()/2.0, 0);
-    } else {
-        m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
-    }
-
-
     m_playerItem->setPixmap(pix);
+    m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
     m_playerItem->setPos(footPos);
     m_view->centerOn(footPos);
 
@@ -482,5 +418,3 @@ void ciudadinversa::onFrame()
         tl.y()+HUD_MARGIN + (HUD_H-rt.height())/2.0f
         );
 }
-
-
