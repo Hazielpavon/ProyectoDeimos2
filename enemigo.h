@@ -1,79 +1,120 @@
+// ===========================================================
+//  Enemigo.h – cabecera unificada y retro-compatible
+// ===========================================================
 #pragma once
+
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QVector>
-#include <QHash>
+#include <QMap>
 #include <QPixmap>
-#include <QDebug>
 
-class entidad;   // jugador u otra entidad
-
-/* ---------- Motor de animaciones ---------- */
+/* -----------------------------------------------------------
+ *  Animación sencilla
+ * ----------------------------------------------------------- */
 struct Animacion
 {
     QVector<QPixmap> frames;
-    float fps  = 8.0f;
-    float acum = 0.0f;
-    int   idx  = 0;
+    qreal fps  = 8.0;   // fotogramas/seg
+    int   idx  = 0;     // índice frame actual
+    qreal acum = 0.0;   // acumulador de tiempo
 
-    bool avanzar(float dt)
+    bool avanzar(qreal dt)               // true si cambió frame
     {
         if (frames.isEmpty()) return false;
+        bool changed = false;
+        const qreal dur = 1.0 / fps;
         acum += dt;
-        const float T = 1.0f / fps;
-        if (acum >= T) { acum -= T; idx = (idx + 1) % frames.size(); return true; }
-        return false;
+        while (acum >= dur) {
+            acum -= dur;
+            idx  = (idx + 1) % frames.size();
+            changed = true;
+        }
+        return changed;
     }
-    const QPixmap& actual() const { return frames[idx]; }
+    const QPixmap& actual() const
+    {
+        static QPixmap dummy;
+        return frames.isEmpty() ? dummy : frames[idx];
+    }
 };
 
-/* ---------- Clase base Enemigo ------------------------- */
-class Enemigo : public QObject, public QGraphicsPixmapItem
+/* -----------------------------------------------------------
+ *  Adelanto
+ * ----------------------------------------------------------- */
+class entidad;
+
+/* -----------------------------------------------------------
+ *  Clase base para todos los enemigos
+ * ----------------------------------------------------------- */
+class Enemigo : public QObject,
+                public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    enum class Estado { Idle, Walk, Attack, Hurt, Death,IdleLeft, WalkLeft, AttackLeft, HurtLeft};
+    /* ---------- Estados ---------- */
+    enum class Estado {
+        Idle,
+        Walk,
+        Attack,
+        Hurt,
+        Death,
+        Jump          // ← NUEVO
+    };
 
     explicit Enemigo(QObject* parent = nullptr);
 
-    /* IA + animación + física (cada enemigo implementa) */
-    virtual void update(float dt) = 0;
+    /* ---------- Animación ---------- */
+    void          addAnim(Estado st, const Animacion& a);
+    void          setEstado(Estado st);
+    Estado        estado() const { return m_estado; }
 
-    /* -------- Salud -------- */
-    virtual void takeDamage(int dmg);
-    bool isDead()    const { return m_estado == Estado::Death; }
+    Animacion&          animActual();             // mutable
+    const Animacion&    animActual() const;       // const overload
+
+    /* ---------- Lógica de vida ---------- */
+    virtual void update(float dt) = 0;            // ≈ tick 60 FPS
+    virtual void takeDamage(int dmg);             // resta vida
+
+    bool isDead()    const { return m_hp <= 0; }
     int  currentHP() const { return m_hp; }
     int  maxHP()     const { return m_maxHP; }
 
-    /* -------- Estado / frame -------- */
-    Estado estado() const { return m_estado; }
-    int    frameIndex() const { return animActual().idx; }   // 👈 NUEVO
+    /* ---------- Física ---------- */
+    qreal velX() const { return m_velX; }
+    qreal velY() const { return m_velY; }
 
-    /* -------- Velocidades -------- */
-    float velX() const { return m_velX; }
-    float velY() const { return m_velY; }
-    void  setVelY(float v) { m_velY = v; }
+    void  setVel(qreal vx, qreal vy) { m_velX=vx; m_velY=vy; }
+    /* WRAPPERS retro-compatibles */
+    void  setVelX(qreal vx) { m_velX = vx; }
+    void  setVelY(qreal vy) { m_velY = vy; }
 
-    /* -------- Target (jugador) -------- */
+    /* ---------- Suelo ---------- */
+    void  setOnGround(bool v) { m_onGround = v; }
+    bool  isOnGround()  const { return m_onGround; }
+
+    /* ---------- Objetivo (jugador) ---------- */
     void     setTarget(entidad* t) { m_target = t; }
     entidad* target() const        { return m_target; }
 
+    /* ---------- Compatibilidad antigua ---------- */
+    int  frameIndex() const { return animActual().idx; }   // usado por CombateManager
+
 protected:
-    /* Animaciones helper */
-    void addAnim(Estado st, const Animacion& anim);
-    Animacion&       animActual();
-    const Animacion& animActual() const;
-    void setEstado(Estado st);
+    /* Velocidad para subclases */
+    qreal m_velX = 0.0;
+    qreal m_velY = 0.0;
 
-    /* ---- Datos internos ---- */
-    Estado                   m_estado = Estado::Idle;
-    QHash<Estado, Animacion> m_anims;
+private:
+    /* Animaciones */
+    QMap<Estado, Animacion> m_anims;
+    Estado  m_estado = Estado::Idle;
 
-    float  m_velX = 0.0f;
-    float  m_velY = 0.0f;
+    /* Vida */
+    int     m_maxHP  = 5;
+    int     m_hp     = 5;
 
-    int    m_maxHP = 100;
-    int    m_hp    = 100;
-
-    entidad* m_target = nullptr;
+    /* Lógica general */
+    entidad* m_target    = nullptr;
+    bool     m_onGround  = false;
 };

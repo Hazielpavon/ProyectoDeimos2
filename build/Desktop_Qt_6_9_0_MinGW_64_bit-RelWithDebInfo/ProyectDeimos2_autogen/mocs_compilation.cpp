@@ -10,6 +10,8 @@
 #include "EWIEGA46WW/moc_mapawidget.cpp"
 #include "EWIEGA46WW/moc_menuopciones.cpp"
 #include "EWIEGA46WW/moc_minotaur.cpp"
+#include "EWIEGA46WW/moc_monsterfly.cpp"
+#include "EWIEGA46WW/moc_mutantworm.cpp"
 #include "EWIEGA46WW/moc_nivelraicesolvidadas.cpp"
 #include "EWIEGA46WW/moc_niveltorredelamarca.cpp"
 #include "EWIEGA46WW/moc_pantallacarga.cpp"

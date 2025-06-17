@@ -76,6 +76,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         SpriteSheetLoader.h
         skeleton.h skeleton.cpp
         minotaur.h minotaur.cpp
+        monsterfly.h monsterfly.cpp
+        mutantworm.h mutantworm.cpp
 
 
     )

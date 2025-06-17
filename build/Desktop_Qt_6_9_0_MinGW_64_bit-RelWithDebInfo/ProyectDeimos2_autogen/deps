@@ -1,6 +1,4 @@
 ProyectDeimos2_autogen/timestamp: \
-	C:/Qt/6.9.0/mingw_64/include/QtCore/QDebug \
-	C:/Qt/6.9.0/mingw_64/include/QtCore/QHash \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QList \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QMap \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
@@ -768,6 +766,10 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/menuopciones.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/minotaur.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/minotaur.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/monsterfly.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/monsterfly.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/mutantworm.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/mutantworm.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/nivelraicesolvidadas.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/nivelraicesolvidadas.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/niveltorredelamarca.cpp \

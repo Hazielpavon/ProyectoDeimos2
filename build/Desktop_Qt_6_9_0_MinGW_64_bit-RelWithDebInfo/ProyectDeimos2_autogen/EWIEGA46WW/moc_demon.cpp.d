@@ -1,7 +1,6 @@
 C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/moc_demon.cpp: C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/demon.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/moc_predefs.h \
-  C:/Qt/6.9.0/mingw_64/include/QtCore/QDebug \
-  C:/Qt/6.9.0/mingw_64/include/QtCore/QHash \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/QMap \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QVector \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \

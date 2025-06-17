@@ -20,6 +20,8 @@
 #include "Demon.h"
 #include "Skeleton.h"
 #include "Minotaur.h"
+#include "monsterfly.h"
+#include "MutantWorm.h"
 
 
 using namespace std;
@@ -187,7 +189,19 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     m_scene->addItem(mina);
     m_enemigos.append(mina);
 
+    //fly enemy
+    auto* fly = new MonsterFly(this);
+    fly->setPos(300, 450);        // un poco por encima del suelo
+    fly->setTarget(m_player);
+    m_scene->addItem(fly);
+    m_enemigos.append(fly);
 
+    //mutant worm
+    auto* worm = new MutantWorm(this);
+    worm->setPos(5200, 651);     // coordenadas iniciales
+    worm->setTarget(m_player);
+    m_scene->addItem(worm);
+    m_enemigos.append(worm);
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
