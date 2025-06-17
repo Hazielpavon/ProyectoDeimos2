@@ -115,41 +115,48 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
     static constexpr float PLAT_H = PLAT_HEIGHT;
 
 
+    // ---- Plataformas / suelo ----
+    // 1) Suelo o techo (según m_inverted)
     if (m_inverted) {
-        // techo como “suelo” cuando estamos invertidos
+        // Coloca el “suelo” en el techo, de y=0 a y=GROUND_H
         m_colManager->addRect(
-            { 0.0f,  0.0f, float(m_bgWidth*2), GROUND_H },
-            Qt::NoBrush, true
+            { 0.0f,               // x
+                0.0f,               // y = parte superior de la escena
+                float(m_bgWidth*2), // ancho (doble fondo)
+                GROUND_H            // alto del rect
+            },
+            Qt::NoBrush,
+            true  // solo colisión
             );
     } else {
-        // suelo normal abajo
+        // Coloca el suelo real en la base de la imagen
         m_colManager->addRect(
-            { 0.0f,  m_bgHeight - GROUND_H, float(m_bgWidth*2), GROUND_H },
-            Qt::NoBrush, true
-            );
-    }
+            { 0.0f,
+                m_bgHeight - GROUND_H,
+                float(m_bgWidth*2),
+                GROUND_H
+            },
+            Qt::NoBrush,
+            true
+            );
+    }
 
 
-
-
-
+    // *** ESTE BLOQUE DUPLICADO ***
     // Plataformas manuales, bien distribuidas entre x=[299,3592] y y=[150,450]
     const QVector<QRectF> plataformas = {
-        // Δx ≈ 400, Δy ≤ 100
-        {  600.0f, 550.0f, PLAT_W, PLAT_H },  // Desde suelo
-        { 1000.0f, 500.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
-        { 1400.0f, 450.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
-        { 1800.0f, 520.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 70
-        { 2200.0f, 430.0f, PLAT_W, PLAT_H },  // Δx=400, bajada de 90
-        { 2600.0f, 530.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 100
-        { 3000.0f, 480.0f, PLAT_W, PLAT_H }   // Δx=400, bajada de 50
+        {  600.0f, 550.0f, PLAT_W, PLAT_H },
+        { 1000.0f, 500.0f, PLAT_W, PLAT_H },
+        { 1400.0f, 450.0f, PLAT_W, PLAT_H },
+        { 1800.0f, 520.0f, PLAT_W, PLAT_H },
+        { 2200.0f, 430.0f, PLAT_W, PLAT_H },
+        { 2600.0f, 530.0f, PLAT_W, PLAT_H },
+        { 3000.0f, 480.0f, PLAT_W, PLAT_H }
     };
-
     for (const QRectF &r : plataformas) {
-        m_colManager->addRect(r,
-                              QColor(80,80,80),
-                              false);
+        m_colManager->addRect(r, QColor(80,80,80), false);
     }
+    // *** FIN DEL BLOQUE ***
 
 
 
@@ -170,9 +177,15 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
 
     // ---- Jugador ----
     if(m_player){
-        m_spawnPos = QPointF(35,0);
-        m_player->transform().setPosition(
-            m_spawnPos.x(), m_spawnPos.y());
+        // 1) Calcula el y de spawn según modo invertido o normal:
+        float spawnY = m_inverted
+                           ? /* mundo invertido: pie tocando el “techo” */
+                           GROUND_H
+                           : /* modo normal: pie tocando el suelo verdadero */
+                                 m_bgHeight - GROUND_H;
+
+        m_spawnPos = QPointF(35, spawnY);
+       m_player->transform().setPosition(m_spawnPos.x(), m_spawnPos.y());
         m_player->setOnGround(true);
 
         // En el constructor de ciudadinversa:
