@@ -420,42 +420,6 @@
         <file>resources/1_Monster_Dying_002.png</file>
         <file>resources/1_Monster_Dying_001.png</file>
         <file>resources/1_Monster_Dying_000.png</file>
-        <file>resources/1_Monster_Jump_017.png</file>
-        <file>resources/1_Monster_Jump_016.png</file>
-        <file>resources/1_Monster_Jump_015.png</file>
-        <file>resources/1_Monster_Jump_014.png</file>
-        <file>resources/1_Monster_Jump_013.png</file>
-        <file>resources/1_Monster_Jump_012.png</file>
-        <file>resources/1_Monster_Jump_011.png</file>
-        <file>resources/1_Monster_Jump_010.png</file>
-        <file>resources/1_Monster_Jump_009.png</file>
-        <file>resources/1_Monster_Jump_008.png</file>
-        <file>resources/1_Monster_Jump_007.png</file>
-        <file>resources/1_Monster_Jump_006.png</file>
-        <file>resources/1_Monster_Jump_005.png</file>
-        <file>resources/1_Monster_Jump_004.png</file>
-        <file>resources/1_Monster_Jump_003.png</file>
-        <file>resources/1_Monster_Jump_002.png</file>
-        <file>resources/1_Monster_Jump_001.png</file>
-        <file>resources/1_Monster_Jump_000.png</file>
-        <file>resources/1_Monster_Walking_017.png</file>
-        <file>resources/1_Monster_Walking_016.png</file>
-        <file>resources/1_Monster_Walking_015.png</file>
-        <file>resources/1_Monster_Walking_014.png</file>
-        <file>resources/1_Monster_Walking_013.png</file>
-        <file>resources/1_Monster_Walking_012.png</file>
-        <file>resources/1_Monster_Walking_011.png</file>
-        <file>resources/1_Monster_Walking_010.png</file>
-        <file>resources/1_Monster_Walking_009.png</file>
-        <file>resources/1_Monster_Walking_008.png</file>
-        <file>resources/1_Monster_Walking_007.png</file>
-        <file>resources/1_Monster_Walking_006.png</file>
-        <file>resources/1_Monster_Walking_005.png</file>
-        <file>resources/1_Monster_Walking_004.png</file>
-        <file>resources/1_Monster_Walking_003.png</file>
-        <file>resources/1_Monster_Walking_002.png</file>
-        <file>resources/1_Monster_Walking_001.png</file>
-        <file>resources/1_Monster_Walking_000.png</file>
         <file>resources/1_Monster_Attack_017.png</file>
         <file>resources/1_Monster_Attack_016.png</file>
         <file>resources/1_Monster_Attack_015.png</file>
@@ -492,5 +456,41 @@
         <file>resources/1_Monster_Idle_002.png</file>
         <file>resources/1_Monster_Idle_001.png</file>
         <file>resources/1_Monster_Idle_000.png</file>
+        <file>resources/1_Monster_Walking_017.png</file>
+        <file>resources/1_Monster_Walking_016.png</file>
+        <file>resources/1_Monster_Walking_015.png</file>
+        <file>resources/1_Monster_Walking_014.png</file>
+        <file>resources/1_Monster_Walking_013.png</file>
+        <file>resources/1_Monster_Walking_012.png</file>
+        <file>resources/1_Monster_Walking_011.png</file>
+        <file>resources/1_Monster_Walking_010.png</file>
+        <file>resources/1_Monster_Walking_009.png</file>
+        <file>resources/1_Monster_Walking_008.png</file>
+        <file>resources/1_Monster_Walking_007.png</file>
+        <file>resources/1_Monster_Walking_006.png</file>
+        <file>resources/1_Monster_Walking_005.png</file>
+        <file>resources/1_Monster_Walking_004.png</file>
+        <file>resources/1_Monster_Walking_003.png</file>
+        <file>resources/1_Monster_Walking_002.png</file>
+        <file>resources/1_Monster_Walking_001.png</file>
+        <file>resources/1_Monster_Walking_000.png</file>
+        <file>resources/1_Monster_Jump_017.png</file>
+        <file>resources/1_Monster_Jump_016.png</file>
+        <file>resources/1_Monster_Jump_015.png</file>
+        <file>resources/1_Monster_Jump_014.png</file>
+        <file>resources/1_Monster_Jump_013.png</file>
+        <file>resources/1_Monster_Jump_012.png</file>
+        <file>resources/1_Monster_Jump_011.png</file>
+        <file>resources/1_Monster_Jump_010.png</file>
+        <file>resources/1_Monster_Jump_009.png</file>
+        <file>resources/1_Monster_Jump_008.png</file>
+        <file>resources/1_Monster_Jump_007.png</file>
+        <file>resources/1_Monster_Jump_006.png</file>
+        <file>resources/1_Monster_Jump_005.png</file>
+        <file>resources/1_Monster_Jump_004.png</file>
+        <file>resources/1_Monster_Jump_003.png</file>
+        <file>resources/1_Monster_Jump_002.png</file>
+        <file>resources/1_Monster_Jump_001.png</file>
+        <file>resources/1_Monster_Jump_000.png</file>
     </qresource>
 </RCC>

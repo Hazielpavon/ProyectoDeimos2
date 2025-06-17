@@ -435,6 +435,12 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/carnivore.h",
+			"MU",
+			"EWIEGA46WW/moc_carnivore.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/ciudadinversa.h",
 			"MU",
 			"EWIEGA46WW/moc_ciudadinversa.cpp",
@@ -670,6 +676,11 @@
 		],
 		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/bringerofdeath.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/carnivore.cpp",
 			"MU",
 			null
 		],

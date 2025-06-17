@@ -22,6 +22,7 @@
 #include "Minotaur.h"
 #include "monsterfly.h"
 #include "MutantWorm.h"
+#include "Carnivore.h"
 
 
 using namespace std;
@@ -202,6 +203,15 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     worm->setTarget(m_player);
     m_scene->addItem(worm);
     m_enemigos.append(worm);
+
+    //carnivore
+    auto* carn = new Carnivore(this);
+    carn->setPos(800, 651);   // posición inicial
+    carn->setTarget(m_player);
+    m_scene->addItem(carn);
+    m_enemigos.append(carn);
+
+
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));

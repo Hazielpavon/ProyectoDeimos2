@@ -78,6 +78,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         minotaur.h minotaur.cpp
         monsterfly.h monsterfly.cpp
         mutantworm.h mutantworm.cpp
+        carnivore.h carnivore.cpp
 
 
     )

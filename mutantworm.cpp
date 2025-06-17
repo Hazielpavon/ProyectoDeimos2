@@ -8,7 +8,7 @@
 
 /* --------------- constantes --------------- */
 namespace {
-const qreal  SCALE          = 1.4;
+const qreal  SCALE          = 0.5;
 const float  GRAVITY        = 600.f;
 
 const float  ATK_RANGE      = 55.f;
