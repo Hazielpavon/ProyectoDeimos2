@@ -15,6 +15,13 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
+#include "Demon.h"
+#include "Skeleton.h"
+#include "Minotaur.h"
+#include "monsterfly.h"
+#include "MutantWorm.h"
+#include "Carnivore.h"
+
 
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
@@ -157,6 +164,49 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
+
+    //demon
+    auto* demon = new Demon(this);
+    demon->setPos(2000, 651);
+    demon->setTarget(m_player);
+    m_scene->addItem(demon);
+    m_enemigos.append(demon);
+
+    //skeleton
+    auto* sk = new Skeleton(this);
+    sk->setPos(600, 651);        // posición deseada
+    sk->setTarget(m_player);
+    m_scene->addItem(sk);
+    m_enemigos.append(sk);
+
+    //minotaur
+    auto* mina = new Minotaur(this);
+    mina->setPos(400, 651);      // coordenadas de aparición
+    mina->setTarget(m_player);
+    m_scene->addItem(mina);
+    m_enemigos.append(mina);
+
+    //fly enemy
+    auto* fly = new MonsterFly(this);
+    fly->setPos(300, 450);        // un poco por encima del suelo
+    fly->setTarget(m_player);
+    m_scene->addItem(fly);
+    m_enemigos.append(fly);
+
+    //mutant worm
+    auto* worm = new MutantWorm(this);
+    worm->setPos(5200, 651);     // coordenadas iniciales
+    worm->setTarget(m_player);
+    m_scene->addItem(worm);
+    m_enemigos.append(worm);
+
+    //carnivore
+    auto* carn = new Carnivore(this);
+    carn->setPos(800, 651);   // posición inicial
+    carn->setTarget(m_player);
+    m_scene->addItem(carn);
+    m_enemigos.append(carn);
+
 
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;

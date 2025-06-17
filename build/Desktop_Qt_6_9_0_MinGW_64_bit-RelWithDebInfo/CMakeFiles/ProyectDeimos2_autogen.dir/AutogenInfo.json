@@ -423,9 +423,27 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/SpriteSheetLoader.h",
+			"MU",
+			"EWIEGA46WW/moc_SpriteSheetLoader.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/bringerofdeath.h",
 			"MU",
 			"EWIEGA46WW/moc_bringerofdeath.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/carnivore.h",
+			"MU",
+			"EWIEGA46WW/moc_carnivore.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/ciudadinversa.h",
+			"MU",
+			"EWIEGA46WW/moc_ciudadinversa.cpp",
 			null
 		],
 		[
@@ -450,6 +468,12 @@
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/componentesalud.h",
 			"MU",
 			"EWIEGA46WW/moc_componentesalud.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/demon.h",
+			"MU",
+			"EWIEGA46WW/moc_demon.cpp",
 			null
 		],
 		[
@@ -495,9 +519,33 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/minotaur.h",
+			"MU",
+			"EWIEGA46WW/moc_minotaur.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/monsterfly.h",
+			"MU",
+			"EWIEGA46WW/moc_monsterfly.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/mutantworm.h",
+			"MU",
+			"EWIEGA46WW/moc_mutantworm.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/nivelraicesolvidadas.h",
 			"MU",
 			"EWIEGA46WW/moc_nivelraicesolvidadas.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/niveltorredelamarca.h",
+			"MU",
+			"EWIEGA46WW/moc_niveltorredelamarca.cpp",
 			null
 		],
 		[
@@ -510,6 +558,12 @@
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/pantallainicio.h",
 			"MU",
 			"EWIEGA46WW/moc_pantallainicio.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/skeleton.h",
+			"MU",
+			"EWIEGA46WW/moc_skeleton.cpp",
 			null
 		],
 		[
@@ -626,6 +680,16 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/carnivore.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/ciudadinversa.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/clickablelabel.cpp",
 			"MU",
 			null
@@ -642,6 +706,11 @@
 		],
 		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/componentesalud.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/demon.cpp",
 			"MU",
 			null
 		],
@@ -686,7 +755,27 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/minotaur.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/monsterfly.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/mutantworm.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/nivelraicesolvidadas.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/niveltorredelamarca.cpp",
 			"MU",
 			null
 		],
@@ -697,6 +786,11 @@
 		],
 		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/pantallainicio.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/skeleton.cpp",
 			"MU",
 			null
 		],

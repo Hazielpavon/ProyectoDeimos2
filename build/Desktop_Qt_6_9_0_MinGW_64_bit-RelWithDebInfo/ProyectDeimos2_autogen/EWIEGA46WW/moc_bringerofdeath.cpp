@@ -38,10 +38,14 @@ template <> constexpr inline auto BringerOfDeath::qt_create_metaobjectdata<qt_me
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "BringerOfDeath"
+        "BringerOfDeath",
+        "onDeathAnimFinished",
+        ""
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Slot 'onDeathAnimFinished'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -63,9 +67,12 @@ Q_CONSTINIT const QMetaObject BringerOfDeath::staticMetaObject = { {
 void BringerOfDeath::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     auto *_t = static_cast<BringerOfDeath *>(_o);
-    (void)_t;
-    (void)_c;
-    (void)_id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->onDeathAnimFinished(); break;
+        default: ;
+        }
+    }
     (void)_a;
 }
 
@@ -85,6 +92,18 @@ void *BringerOfDeath::qt_metacast(const char *_clname)
 int BringerOfDeath::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = Enemigo::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 1;
+    }
     return _id;
 }
 QT_WARNING_POP

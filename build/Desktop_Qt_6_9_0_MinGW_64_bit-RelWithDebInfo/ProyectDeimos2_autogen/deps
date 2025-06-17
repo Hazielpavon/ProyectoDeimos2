@@ -1,6 +1,4 @@
 ProyectDeimos2_autogen/timestamp: \
-	C:/Qt/6.9.0/mingw_64/include/QtCore/QDebug \
-	C:/Qt/6.9.0/mingw_64/include/QtCore/QHash \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QList \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QMap \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
@@ -153,7 +151,6 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qversiontagging.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qxptype_traits.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/qyieldcpu.h \
-	C:/Qt/6.9.0/mingw_64/include/QtGui/QColor \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QKeyEvent \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QMouseEvent \
 	C:/Qt/6.9.0/mingw_64/include/QtGui/QPainter \
@@ -732,6 +729,7 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/CMakeLists.txt \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/SpriteSheetLoader.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/bringerofdeath.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/bringerofdeath.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.qtc/package-manager/auto-setup.cmake \
@@ -739,6 +737,10 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/moc_predefs.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/carnivore.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/carnivore.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ciudadinversa.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ciudadinversa.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/clickablelabel.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/clickablelabel.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/combatemanager.cpp \
@@ -747,6 +749,8 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentefisico.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentesalud.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentesalud.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/demon.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/demon.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/enemigo.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/enemigo.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/entidad.cpp \
@@ -762,13 +766,23 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/mapawidget.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/menuopciones.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/menuopciones.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/minotaur.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/minotaur.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/monsterfly.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/monsterfly.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/mutantworm.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/mutantworm.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/nivelraicesolvidadas.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/nivelraicesolvidadas.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/niveltorredelamarca.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/niveltorredelamarca.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallacarga.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallacarga.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallainicio.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallainicio.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/resources.qrc \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/skeleton.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/skeleton.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/sprite.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/sprite.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/tranformacion.cpp \
