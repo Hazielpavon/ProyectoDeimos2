@@ -18,6 +18,7 @@
 #include "EWIEGA46WW/moc_monsterfly.cpp"
 #include "EWIEGA46WW/moc_nivelraicesolvidadas.cpp"
 #include "EWIEGA46WW/moc_niveltorredelamarca.cpp"
+#include "EWIEGA46WW/moc_npc.cpp"
 #include "EWIEGA46WW/moc_pantallacarga.cpp"
 #include "EWIEGA46WW/moc_pantallainicio.cpp"
 #include "EWIEGA46WW/moc_skeleton.cpp"

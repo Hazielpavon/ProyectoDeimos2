@@ -527,5 +527,13 @@
         <file>resources/Bullet_Cannon.png</file>
         <file>resources/Cannon.png</file>
         <file>resources/plataforma.png</file>
+        <file>resources/Npc1Speaking1.png</file>
+        <file>resources/Npc1Speaking2.png</file>
+        <file>resources/Npc1Speaking3.png</file>
+        <file>resources/Npc1Speaking4.png</file>
+        <file>resources/Npc1Idle1.png</file>
+        <file>resources/Npc1Idle2.png</file>
+        <file>resources/Npc1Idle3.png</file>
+        <file>resources/Npc1Idle4.png</file>
     </qresource>
 </RCC>

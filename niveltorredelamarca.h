@@ -19,7 +19,7 @@
 #include "cannon.h"
 #include "combatemanager.h"      // 👈 gestor de combate
 #include <QLabel>  //inventario temporal
-
+#include "npc.h"
 class MainWindow;
 class MapaWidget;
 struct MovingPlatform {
@@ -42,7 +42,14 @@ public:
                                   MainWindow* mainWindow,
                                   QWidget*   parent = nullptr);
     void lanzarHechizo();
+    void penalizarCañones();
 
+    /// Comprueba si el boss ya ha sido derrotado.
+    bool isBossDefeated() const { return bossDefeated; }
+
+    /// Recompensa al jugador por matar al boss:
+    /// aumenta +5% el multiplicador de daño.
+    void rewardPlayerExtraDamage();
 protected:
     void keyPressEvent   (QKeyEvent*  event) override;
     void keyReleaseEvent (QKeyEvent*  event) override;
@@ -53,6 +60,7 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+    NPC *m_npc = nullptr;
     QVector<MovingPlatform> m_movingPlatforms;
     QVector<Cannon*> m_cannons;
     bool m_bossDropCreado = false;

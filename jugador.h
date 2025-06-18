@@ -27,8 +27,13 @@ public:
 
     // Dibuja la HUD (barra de vida) en la esquina superior izquierda
     void drawHUD(QPainter &painter, const QRect &viewportRect) const;
-
+    void   setDamageMultiplier(float m) { m_damageMul = m; }
+    float  damageMultiplier() const     { return m_damageMul; }
+    int    computeDamage(int base) const {
+        return int(std::round(base * m_damageMul));
+    }
 private:
     QGraphicsPixmapItem* m_graphicsItem = nullptr;
     QSet<QString>  m_keys;
+    float  m_damageMul = 1.0f;
 };

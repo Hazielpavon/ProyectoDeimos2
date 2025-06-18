@@ -48,7 +48,18 @@ static QPixmap trimBottom(const QPixmap& pix)
                ? pix.copy(0,0,pix.width(),maxY+1)
                : pix;
 }
+void niveltorredelamarca::penalizarCañones() {
+    for (Cannon* c : m_cannons) {
+        // divide por 2 el intervalo de disparo
+        c->setFireRate( c->fireRate() * 0.5f );
+    }
+}
 
+void niveltorredelamarca::rewardPlayerExtraDamage() {
+    auto* jug = dynamic_cast<Jugador*>(m_player);
+    if (!jug) return;
+    jug->setDamageMultiplier( jug->damageMultiplier() * 1.05f );
+}
 // =========================================================
 niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
                                            MainWindow* mainWindow,
@@ -144,8 +155,6 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
         m_movingPlatforms.append(mp);
     }
 
-
-
     float startX = 299.0f;
     float endX   = 3592.33f;
     float minY   = 200.0f;
@@ -190,7 +199,6 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
         W * 0.80f
     };
     m_cannons.append(new Cannon(dynamic_cast<Jugador*>(m_player), m_scene, W*0.25f, Cannon::Top));
-    m_cannons.append(new Cannon(dynamic_cast<Jugador*>(m_player), m_scene, W*0.75f, Cannon::Bottom));
     // Crea los 8 cañones siempre “Top”
     for (qreal x : xs) {
         m_cannons.append(
@@ -294,6 +302,9 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_manaText->setZValue(102);
     m_manaText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_manaText);
+
+    float npcX = 200.0f;
+    m_npc = new NPC(this,dynamic_cast<Jugador*>(m_player), m_scene,  QPointF(npcX, m_bgHeight - 40.0f), this);
 
     // ---- Gestor de Combate ----
     Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
@@ -504,6 +515,8 @@ void niveltorredelamarca::onFrame()
         cannon->update(m_dt);
      m_scene->advance();
 
+     if (m_npc) m_npc->update(m_dt);
+
     // 1) actualizar todas las plataformas móviles
      for (auto &mp : m_movingPlatforms) {
          float x = mp.sprite->x() + mp.speed * m_dt * mp.dir;
@@ -534,6 +547,8 @@ void niveltorredelamarca::onFrame()
                 m_drops.append(new Drop(Drop::Tipo::Mana, posDrop + QPointF(10, 0), m_scene));
                 m_drops.append(new Drop(Drop::Tipo::Llave, posDrop + QPointF(0, -20), m_scene, "Torre De La Marca"));
             }
+            if (m_npc)
+                m_npc->onBossDefeated();
 
         }
     }

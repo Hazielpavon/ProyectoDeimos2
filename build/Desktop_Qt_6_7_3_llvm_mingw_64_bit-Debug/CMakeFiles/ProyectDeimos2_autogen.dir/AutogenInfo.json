@@ -516,6 +516,12 @@
 			null
 		],
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/npc.h",
+			"MU",
+			"EWIEGA46WW/moc_npc.cpp",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/pantallacarga.h",
 			"MU",
 			"EWIEGA46WW/moc_pantallacarga.cpp",
@@ -760,6 +766,11 @@
 		],
 		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/niveltorredelamarca.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/npc.cpp",
 			"MU",
 			null
 		],
