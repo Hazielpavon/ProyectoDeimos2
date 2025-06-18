@@ -235,5 +235,8 @@
         <file>resources/drop_llave.png</file>
         <file>resources/drop_mana.png</file>
         <file>resources/templo_silencio2.png</file>
+        <file>resources/templo.png</file>
+        <file>resources/templo2.png</file>
+        <file>resources/plataforma_normal.png</file>
     </qresource>
 </RCC>
