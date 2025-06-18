@@ -431,15 +431,51 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h",
+			"MU",
+			"EWIEGA46WW/moc_Minotaur.cpp",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/MutantWorm.h",
+			"MU",
+			"EWIEGA46WW/moc_MutantWorm.cpp",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h",
 			"MU",
 			"EWIEGA46WW/moc_ObjetosYColisiones.cpp",
 			null
 		],
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/SpriteSheetLoader.h",
+			"MU",
+			"EWIEGA46WW/moc_SpriteSheetLoader.cpp",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bringerofdeath.h",
 			"MU",
 			"EWIEGA46WW/moc_bringerofdeath.cpp",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bullet.h",
+			"MU",
+			"EWIEGA46WW/moc_bullet.cpp",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/cannon.h",
+			"MU",
+			"EWIEGA46WW/moc_cannon.cpp",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/carnivore.h",
+			"MU",
+			"EWIEGA46WW/moc_carnivore.cpp",
 			null
 		],
 		[
@@ -545,6 +581,12 @@
 			null
 		],
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/monsterfly.h",
+			"MU",
+			"EWIEGA46WW/moc_monsterfly.cpp",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/nivelraicesolvidadas.h",
 			"MU",
 			"EWIEGA46WW/moc_nivelraicesolvidadas.cpp",
@@ -566,6 +608,12 @@
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/pantallainicio.h",
 			"MU",
 			"EWIEGA46WW/moc_pantallainicio.cpp",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/skeleton.h",
+			"MU",
+			"EWIEGA46WW/moc_skeleton.cpp",
 			null
 		],
 		[
@@ -679,6 +727,21 @@
 			null
 		],
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bullet.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/cannon.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/carnivore.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ciudadinversa.cpp",
 			"MU",
 			null
@@ -769,6 +832,21 @@
 			null
 		],
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/monsterfly.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/mutantworm.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/nivelraicesolvidadas.cpp",
 			"MU",
 			null
@@ -785,6 +863,11 @@
 		],
 		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/pantallainicio.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/skeleton.cpp",
 			"MU",
 			null
 		],

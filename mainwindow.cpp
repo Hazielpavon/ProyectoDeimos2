@@ -50,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
                     m_player->sprite().generateMirroredFrames(SpriteState::Slidding,  SpriteState::SliddingLeft);
                     m_player->sprite().loadFrames(SpriteState::dead,":/resources/0_Blood_Demon_Dying_",15);
                     m_player->sprite().generateMirroredFrames(SpriteState::dead,  SpriteState::deadleft);
-                    m_player->sprite().loadFrames(SpriteState::throwing,":/Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_",12);
+                    m_player->sprite().loadFrames(SpriteState::throwing,":/resources/0_Blood_Demon_Throwing_",12);
                     m_player->sprite().generateMirroredFrames(SpriteState::throwing,  SpriteState::throwingLeft);
                     m_player->sprite().setSize(128, 128);
                     float centerX = width()  / 2.0f;
@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
 
                     //     connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
 
-                    cargarNivel("Tutorial");
+                    cargarNivel("TorreDeLaMarca");
 
 
     //                     });

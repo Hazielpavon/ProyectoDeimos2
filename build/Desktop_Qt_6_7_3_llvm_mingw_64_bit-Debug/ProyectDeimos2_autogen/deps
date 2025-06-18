@@ -150,6 +150,7 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QPainter \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QPixmap \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QTransform \
+	C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QVector2D \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qaction.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qbitmap.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qbrush.h \
@@ -1302,8 +1303,11 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
 	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/CMakeLists.txt \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/MutantWorm.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/SpriteSheetLoader.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bringerofdeath.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bringerofdeath.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
@@ -1311,6 +1315,12 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bullet.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bullet.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/cannon.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/cannon.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/carnivore.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/carnivore.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ciudadinversa.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ciudadinversa.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/clickablelabel.cpp \
@@ -1346,6 +1356,10 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/mentevacia.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/menuopciones.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/menuopciones.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/monsterfly.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/monsterfly.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/mutantworm.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/nivelraicesolvidadas.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/nivelraicesolvidadas.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/niveltorredelamarca.cpp \
@@ -1355,6 +1369,8 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/pantallainicio.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/pantallainicio.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/resources.qrc \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/skeleton.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/skeleton.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/sprite.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/sprite.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/tranformacion.cpp \
