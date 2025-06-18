@@ -24,7 +24,6 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Multimedia Multim
 # ——————————————
 set(PROJECT_SOURCES
     main.cpp
-<<<<<<< HEAD
     mainwindow.cpp mainwindow.h mainwindow.ui
     pantallainicio.cpp pantallainicio.h
     menuopciones.cpp menuopciones.h
@@ -50,7 +49,6 @@ set(PROJECT_SOURCES
     demon.cpp demon.h
     fireball.cpp fireball.h
     drop.cpp drop.h
-=======
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
@@ -90,7 +88,6 @@ set(PROJECT_SOURCES
     pantallacarga.cpp
     videointro.h
     videointro.cpp
->>>>>>> origin/Haziel
     resources.qrc
     SpriteSheetLoader.h
     Skeleton.h
@@ -105,12 +102,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ProyectDeimos2
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-<<<<<<< HEAD
         resources/Torre_De_La_Marca.png
         resources/Torre_De_La_Marca2.png
         maquinadelolvido.h maquinadelolvido.cpp
         mentevacia.h mentevacia.cpp
-=======
         tutorialscene.h tutorialscene.cpp
         nivelraicesolvidadas.h nivelraicesolvidadas.cpp
         mapawidget.h mapawidget.cpp
@@ -128,8 +123,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         cannon.h cannon.cpp
         bullet.h bullet.cpp
 
-
->>>>>>> origin/Haziel
     )
 else()
     add_executable(ProyectDeimos2 ${PROJECT_SOURCES})

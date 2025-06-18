@@ -164,4 +164,5 @@ void Demon::update(float dt)
             setVisible(false);  // scene puede borrarlo después
         }
     }
+
 }

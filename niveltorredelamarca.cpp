@@ -2,10 +2,7 @@
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
-<<<<<<< HEAD
 #include "enemigo.h"
-=======
->>>>>>> origin/Haziel
 #include "BringerOfDeath.h"
 #include "CombateManager.h"
 #include <QRandomGenerator>

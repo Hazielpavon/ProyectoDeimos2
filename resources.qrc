@@ -202,8 +202,6 @@
         <file>resources/Bringer-of-Death_Walk_8.png</file>
         <file>resources/Ciudad_Inversa.png</file>
         <file>resources/Ciudad_Inversa2.png</file>
-<<<<<<< HEAD
-=======
         <file>resources/demon_cleave_1.png</file>
         <file>resources/demon_cleave_2.png</file>
         <file>resources/demon_cleave_3.png</file>
@@ -505,7 +503,6 @@
         <file>resources/0_Blood_Demon_Throwing_009.png</file>
         <file>resources/0_Blood_Demon_Throwing_010.png</file>
         <file>resources/0_Blood_Demon_Throwing_011.png</file>
->>>>>>> origin/Haziel
         <file>resources/Bringer-of-Death_Spell_1.png</file>
         <file>resources/Bringer-of-Death_Spell_2.png</file>
         <file>resources/Bringer-of-Death_Spell_3.png</file>
@@ -525,16 +522,13 @@
         <file>resources/plataforma_fuego.png</file>
         <file>resources/drop_vida.png</file>
         <file>resources/drop_mana.png</file>
-<<<<<<< HEAD
         <file>resources/templo_silencio2.png</file>
         <file>resources/templo.png</file>
         <file>resources/templo2.png</file>
         <file>resources/plataforma_normal.png</file>
-=======
         <file>resources/drop_llave.png</file>
         <file>resources/Bullet_Cannon.png</file>
         <file>resources/Cannon.png</file>
         <file>resources/plataforma.png</file>
->>>>>>> origin/Haziel
     </qresource>
 </RCC>

@@ -15,8 +15,6 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
-<<<<<<< HEAD
-=======
 #include "Demon.h"
 #include "Skeleton.h"
 #include "Minotaur.h"
@@ -24,7 +22,6 @@
 #include "MutantWorm.h"
 #include "Carnivore.h"
 
->>>>>>> origin/Haziel
 
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
@@ -208,8 +205,6 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     m_scene->addItem(boss);
     m_enemigos.append(boss);
 
-<<<<<<< HEAD
-=======
     //skeleton
     auto* sk = new Skeleton(this);
     sk->setPos(600, 651);        // posición deseada
@@ -245,8 +240,6 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     m_scene->addItem(carn);
     m_enemigos.append(carn);
 
-
->>>>>>> origin/Haziel
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));

@@ -37,11 +37,6 @@ struct Animacion
         static QPixmap dummy;
         return frames.isEmpty() ? dummy : frames[idx];
     }
-<<<<<<< HEAD
-
-    const QPixmap& actual() const { return frames[idx]; }
-=======
->>>>>>> origin/Haziel
 };
 
 /* -----------------------------------------------------------
@@ -57,11 +52,6 @@ class Enemigo : public QObject,
 {
     Q_OBJECT
 public:
-<<<<<<< HEAD
-    enum class Estado {
-        Idle, Walk, Attack, Hurt, Death,
-        IdleLeft, WalkLeft, AttackLeft, HurtLeft
-=======
     /* ---------- Estados ---------- */
     enum class Estado {
         Idle,
@@ -70,32 +60,10 @@ public:
         Hurt,
         Death,
         Jump          // ← NUEVO
->>>>>>> origin/Haziel
     };
 
     explicit Enemigo(QObject* parent = nullptr);
 
-<<<<<<< HEAD
-    // IA + animación + física (cada enemigo implementa)
-    virtual void update(float dt) = 0;
-
-    // Salud
-    virtual void takeDamage(int dmg);
-    bool isDead()    const { return m_estado == Estado::Death; }
-    int  currentHP() const { return m_hp; }
-    int  maxHP()     const { return m_maxHP; }
-
-    // Estado / frame
-    Estado estado() const { return m_estado; }
-    int    frameIndex() const { return animActual().idx; }
-
-    // Velocidades
-    float velX() const { return m_velX; }
-    float velY() const { return m_velY; }
-    void  setVelY(float v) { m_velY = v; }
-
-    // Target (jugador)
-=======
     /* ---------- Animación ---------- */
     void          addAnim(Estado st, const Animacion& a);
     void          setEstado(Estado st);
@@ -126,7 +94,6 @@ public:
     bool  isOnGround()  const { return m_onGround; }
 
     /* ---------- Objetivo (jugador) ---------- */
->>>>>>> origin/Haziel
     void     setTarget(entidad* t) { m_target = t; }
     entidad* target() const        { return m_target; }
 
@@ -134,17 +101,6 @@ public:
     int  frameIndex() const { return animActual().idx; }   // usado por CombateManager
     void setHP(int hp){ this-> m_hp = hp;}
 protected:
-<<<<<<< HEAD
-    // Animaciones helper
-    void addAnim(Estado st, const Animacion& anim);
-    Animacion&       animActual();
-    const Animacion& animActual() const;
-    void setEstado(Estado st);
-
-    // Datos internos
-    Estado                   m_estado = Estado::Idle;
-    QHash<Estado, Animacion> m_anims;
-=======
     /* Velocidad para subclases */
     qreal m_velX = 0.0;
     qreal m_velY = 0.0;
@@ -153,7 +109,6 @@ private:
     /* Animaciones */
     QMap<Estado, Animacion> m_anims;
     Estado  m_estado = Estado::Idle;
->>>>>>> origin/Haziel
 
     /* Vida */
     int     m_maxHP  = 5;
@@ -163,8 +118,3 @@ private:
     entidad* m_target    = nullptr;
     bool     m_onGround  = false;
 };
-
-// 👇 Hash para Enemigo::Estado (clave en QHash)
-inline uint qHash(const Enemigo::Estado &key, uint seed = 0) {
-    return ::qHash(static_cast<int>(key), seed);
-}

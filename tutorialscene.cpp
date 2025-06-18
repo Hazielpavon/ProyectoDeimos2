@@ -366,7 +366,7 @@ void TutorialScene::onFrame()
         m_deathScheduled = true;
         if (!bossDefeated && !m_enemigos.isEmpty()) {
             Enemigo* boss = m_enemigos.first();
-            boss->setHp(boss->maxHP());
+            boss->setHP(boss->maxHP());
         }
         // 1.3) Ocultar sprite y respawn con temporizadores
         QTimer::singleShot(1000, this, [this]() { m_playerItem->setVisible(false); });
