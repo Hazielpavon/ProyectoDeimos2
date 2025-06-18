@@ -11,11 +11,16 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QVector>
-#include "Fireball.h"
+#include "fireball.h"
 #include "ObjetosYColisiones.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include "entidad.h"
+<<<<<<< HEAD
 #include "CombateManager.h"      // 👈 gestor de combate
+=======
+#include "combatemanager.h"      // 👈 gestor de combate
+#include <QLabel>  //inventario temporal
+>>>>>>> origin/Haziel
 
 class MainWindow;
 class MapaWidget;

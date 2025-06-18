@@ -15,6 +15,16 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
+<<<<<<< HEAD
+=======
+#include "Demon.h"
+#include "Skeleton.h"
+#include "Minotaur.h"
+#include "monsterfly.h"
+#include "MutantWorm.h"
+#include "Carnivore.h"
+
+>>>>>>> origin/Haziel
 
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
@@ -104,14 +114,45 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
 
 
     const QVector<QRectF> plataformas = {
-        // Δx ≈ 400, Δy ≤ 100
-        {  600.0f, 550.0f, PLAT_W, PLAT_H },  // Desde suelo
-        { 1000.0f, 500.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
-        { 1400.0f, 450.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
-        { 1800.0f, 520.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 70
-        { 2200.0f, 430.0f, PLAT_W, PLAT_H },  // Δx=400, bajada de 90
-        { 2600.0f, 530.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 100
-        { 3000.0f, 480.0f, PLAT_W, PLAT_H }   // Δx=400, bajada de 50
+        // — Grupo 1 (grosor ×3) — startX = 3300
+        { 3300.0f, 520.0f, PLAT_W, PLAT_H * 3 },
+        { 4000.0f, 460.0f, PLAT_W, PLAT_H * 3 },
+        { 4700.0f, 530.0f, PLAT_W, PLAT_H * 3 },
+        { 5400.0f, 480.0f, PLAT_W, PLAT_H * 3 },
+        { 6100.0f, 550.0f, PLAT_W, PLAT_H * 3 },
+        { 6800.0f, 440.0f, PLAT_W, PLAT_H * 3 },
+        { 7500.0f, 500.0f, PLAT_W, PLAT_H * 3 },
+        { 8200.0f, 470.0f, PLAT_W, PLAT_H * 3 },
+
+        // — Grupo 2 (grosor ×4) — startX = 8900
+        { 8900.0f, 520.0f, PLAT_W, PLAT_H * 4 },
+        { 9600.0f, 460.0f, PLAT_W, PLAT_H * 4 },
+        {10300.0f, 530.0f, PLAT_W, PLAT_H * 4 },
+        {11000.0f, 480.0f, PLAT_W, PLAT_H * 4 },
+        {11700.0f, 550.0f, PLAT_W, PLAT_H * 4 },
+        {12400.0f, 440.0f, PLAT_W, PLAT_H * 4 },
+        {13100.0f, 500.0f, PLAT_W, PLAT_H * 4 },
+        {13800.0f, 470.0f, PLAT_W, PLAT_H * 4 },
+
+        // — Grupo 3 (grosor ×5) — startX = 14500
+        {14500.0f, 520.0f, PLAT_W, PLAT_H * 5 },
+        {15200.0f, 460.0f, PLAT_W, PLAT_H * 5 },
+        {15900.0f, 530.0f, PLAT_W, PLAT_H * 5 },
+        {16600.0f, 480.0f, PLAT_W, PLAT_H * 5 },
+        {17300.0f, 550.0f, PLAT_W, PLAT_H * 5 },
+        {18000.0f, 440.0f, PLAT_W, PLAT_H * 5 },
+        {18700.0f, 500.0f, PLAT_W, PLAT_H * 5 },
+        {19400.0f, 470.0f, PLAT_W, PLAT_H * 5 },
+
+        // — Grupo 4 (grosor ×6) — startX = 20100
+        {20100.0f, 520.0f, PLAT_W, PLAT_H * 6 },
+        {20800.0f, 460.0f, PLAT_W, PLAT_H * 6 },
+        {21500.0f, 530.0f, PLAT_W, PLAT_H * 6 },
+        {22200.0f, 480.0f, PLAT_W, PLAT_H * 6 },
+        {22900.0f, 550.0f, PLAT_W, PLAT_H * 6 },
+        {23600.0f, 440.0f, PLAT_W, PLAT_H * 6 },
+        {24300.0f, 500.0f, PLAT_W, PLAT_H * 6 },
+        {25000.0f, 470.0f, PLAT_W, PLAT_H * 6 }
     };
 
     QPixmap lavaBrick(":/resources/plataforma_fuego.png");
@@ -120,19 +161,21 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     }
 
     for (const QRectF &r : plataformas) {
-        // textura visual
-        if (!lavaBrick.isNull()) {
-            QGraphicsPixmapItem* visual = new QGraphicsPixmapItem(
-                lavaBrick.scaled(int(r.width()), int(r.height()), Qt::IgnoreAspectRatio, Qt::SmoothTransformation)
-                );
-            visual->setPos(r.topLeft());
-            visual->setZValue(1);  // Debajo del jugador
-            m_scene->addItem(visual);
-        }
+        // 1) tu sprite
+        auto* visual = new QGraphicsPixmapItem(
+            lavaBrick.scaled(int(r.width()), int(r.height()),
+                             Qt::KeepAspectRatioByExpanding,
+                             Qt::SmoothTransformation)
+            );
+        visual->setPos(r.topLeft());
+        visual->setZValue(1);
+        m_scene->addItem(visual);
 
-        // hitbox
-        m_colManager->addRect(r, Qt::NoBrush, true);  // Solo colisión
+        // 2) hitbox _y_ visible (solo hitbox) para depurar si quieres:
+        m_colManager->addRect(r, Qt::NoBrush, /*collisionOnly=*/ false);
+        // pasa `false` para que addRect cree también el QGraphicsRectItem visible
     }
+
 
 
     // ---- Jugador ----
@@ -149,15 +192,61 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
         auto jug = dynamic_cast<Jugador*>(m_player);
         if (jug) jug->setGraphicsItem(m_playerItem);
     }
-
+// Este ahora es miniboss
     // ---- Enemigo (Bringer-of-Death) ----
-    auto* boss = new BringerOfDeath(this);
-    QSize bSz = boss->pixmap().size();
-    boss->setPos(4072.33,651 );
+   // auto* boss = new BringerOfDeath(this);
+    //QSize bSz = boss->pixmap().size();
+   // boss->setPos(4072.33,651 );
+   // boss->setTarget(m_player);
+   // m_scene->addItem(boss);
+   // m_enemigos.append(boss);
+
+    //demon
+    auto* boss = new Demon(this);
+    boss->setPos(2000, 651);
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
 
+<<<<<<< HEAD
+=======
+    //skeleton
+    auto* sk = new Skeleton(this);
+    sk->setPos(600, 651);        // posición deseada
+    sk->setTarget(m_player);
+    m_scene->addItem(sk);
+    m_enemigos.append(sk);
+
+    //minotaur
+    auto* mina = new Minotaur(this);
+    mina->setPos(400, 651);      // coordenadas de aparición
+    mina->setTarget(m_player);
+    m_scene->addItem(mina);
+    m_enemigos.append(mina);
+
+    //fly enemy
+    auto* fly = new MonsterFly(this);
+    fly->setPos(300, 450);        // un poco por encima del suelo
+    fly->setTarget(m_player);
+    m_scene->addItem(fly);
+    m_enemigos.append(fly);
+
+    //mutant worm
+    auto* worm = new MutantWorm(this);
+    worm->setPos(5200, 651);     // coordenadas iniciales
+    worm->setTarget(m_player);
+    m_scene->addItem(worm);
+    m_enemigos.append(worm);
+
+    //carnivore
+    auto* carn = new Carnivore(this);
+    carn->setPos(800, 651);   // posición inicial
+    carn->setTarget(m_player);
+    m_scene->addItem(carn);
+    m_enemigos.append(carn);
+
+
+>>>>>>> origin/Haziel
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
@@ -359,7 +448,7 @@ void NivelRaicesOlvidadas::onFrame()
         m_deathScheduled = true;
         if (!bossDefeated && !m_enemigos.isEmpty()) {
             Enemigo* boss = m_enemigos.first();
-            boss->setHp(boss->maxHP());
+            boss->setHP(boss->maxHP());
         }
         // 1.3) Ocultar sprite y respawn con temporizadores
         QTimer::singleShot(1000, this, [this]() { m_playerItem->setVisible(false); });

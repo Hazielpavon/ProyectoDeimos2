@@ -24,6 +24,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Multimedia Multim
 # ——————————————
 set(PROJECT_SOURCES
     main.cpp
+<<<<<<< HEAD
     mainwindow.cpp mainwindow.h mainwindow.ui
     pantallainicio.cpp pantallainicio.h
     menuopciones.cpp menuopciones.h
@@ -49,7 +50,52 @@ set(PROJECT_SOURCES
     demon.cpp demon.h
     fireball.cpp fireball.h
     drop.cpp drop.h
+=======
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    pantallainicio.h
+    drop.h
+    drop.cpp
+    Fireball.cpp
+    Fireball.h
+    pantallainicio.cpp
+    menuopciones.h
+    menuopciones.cpp
+    entidad.h
+    entidad.cpp
+    ObjetosYColisiones.cpp
+    BringerOfDeath.cpp
+    CombateManager.cpp
+    BringerOfDeath.h
+    CombateManager.h
+    ObjetosYColisiones.h
+    tranformacion.h
+    tranformacion.cpp
+    ciudadinversa.h
+    ciudadinversa.cpp
+    sprite.h
+    sprite.cpp
+    enemigo.h
+    enemigo.cpp
+    jugador.h
+    jugador.cpp
+    componentefisico.h
+    componentefisico.cpp
+    componentesalud.h
+    componentesalud.cpp
+    clickablelabel.h
+    clickablelabel.cpp
+    pantallacarga.h
+    pantallacarga.cpp
+    videointro.h
+    videointro.cpp
+>>>>>>> origin/Haziel
     resources.qrc
+    SpriteSheetLoader.h
+    Skeleton.h
+    Skeleton.cpp
+
 )
 
 # ——————————————
@@ -59,10 +105,31 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ProyectDeimos2
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+<<<<<<< HEAD
         resources/Torre_De_La_Marca.png
         resources/Torre_De_La_Marca2.png
         maquinadelolvido.h maquinadelolvido.cpp
         mentevacia.h mentevacia.cpp
+=======
+        tutorialscene.h tutorialscene.cpp
+        nivelraicesolvidadas.h nivelraicesolvidadas.cpp
+        mapawidget.h mapawidget.cpp
+        grafomapa.h grafomapa.cpp
+        niveltorredelamarca.h niveltorredelamarca.cpp
+        resources/Torre_De_La_Marca.png resources/Torre_De_La_Marca2.png
+        ciudadinversa.h ciudadinversa.cpp
+        demon.h demon.cpp
+        SpriteSheetLoader.h
+        skeleton.h skeleton.cpp
+        minotaur.h minotaur.cpp
+        monsterfly.h monsterfly.cpp
+        mutantworm.h mutantworm.cpp
+        carnivore.h carnivore.cpp
+        cannon.h cannon.cpp
+        bullet.h bullet.cpp
+
+
+>>>>>>> origin/Haziel
     )
 else()
     add_executable(ProyectDeimos2 ${PROJECT_SOURCES})
