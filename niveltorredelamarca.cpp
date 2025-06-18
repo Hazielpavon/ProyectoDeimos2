@@ -96,6 +96,56 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setAttribute(Qt::WA_TransparentForMouseEvents);
 
+    static constexpr float PLAT_W = 200.0f;
+    static constexpr float PLAT_H = 400.0f;
+
+    const QVector<QRectF> plataformas = {
+        // — Bloque 1 —
+        {  600.0f, 550.0f, PLAT_W, PLAT_H },
+        { 1000.0f, 500.0f, PLAT_W, PLAT_H },
+        { 1400.0f, 450.0f, PLAT_W, PLAT_H },
+        { 1800.0f, 520.0f, PLAT_W, PLAT_H },
+        { 2200.0f, 430.0f, PLAT_W, PLAT_H },
+        { 2600.0f, 530.0f, PLAT_W, PLAT_H },
+        { 3000.0f, 480.0f, PLAT_W, PLAT_H },
+
+        // — Bloque 2 —
+        { 3400.0f, 550.0f, PLAT_W, PLAT_H },
+        { 3800.0f, 500.0f, PLAT_W, PLAT_H },
+        { 4200.0f, 450.0f, PLAT_W, PLAT_H },
+        { 4600.0f, 520.0f, PLAT_W, PLAT_H }
+    };
+
+
+    QPixmap lavaBrick(":/resources/plataforma.png");
+    // en el constructor o init:
+    for (const QRectF& r : plataformas) {
+        // 1) sprite
+        QPixmap px = lavaBrick.scaled(
+            int(r.width()), int(r.height()),
+            Qt::IgnoreAspectRatio, Qt::SmoothTransformation
+            );
+        auto* vis = new QGraphicsPixmapItem(px);
+        vis->setPos(r.topLeft());
+        vis->setZValue(1);
+        m_scene->addItem(vis);
+
+        // 2) hitbox+registro
+        auto* hit = m_colManager->addRect(r, Qt::NoBrush, /*collisionOnly=*/true);
+
+        // 3) guardar en tu vector
+        MovingPlatform mp;
+        mp.sprite = vis;
+        mp.hitbox = hit;
+        mp.minX   = r.x() - 100;
+        mp.maxX   = r.x() + 100;
+        mp.speed  = 80.0f;
+        mp.dir    = +1;
+        m_movingPlatforms.append(mp);
+    }
+
+
+
     float startX = 299.0f;
     float endX   = 3592.33f;
     float minY   = 200.0f;
@@ -104,8 +154,6 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     float minGapX = 50.0f;
     float minGapY = 40.0f;
 
-    static constexpr float PLAT_W = PLAT_WIDTH;
-    static constexpr float PLAT_H = PLAT_HEIGHT;
 
     m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
@@ -126,10 +174,34 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
 
 
     // en niveltorredelamarca.cpp, constructor:
+
     float W = m_scene->sceneRect().width();
+    Jugador* jug         = dynamic_cast<Jugador*>(m_player);
+
+    // Define 8 posiciones X equiespaciadas entre el 10% y el 90% de W
+    QVector<qreal> xs = {
+        W * 0.10f,
+        W * 0.20f,
+        W * 0.30f,
+        W * 0.40f,
+        W * 0.50f,
+        W * 0.60f,
+        W * 0.70f,
+        W * 0.80f
+    };
     m_cannons.append(new Cannon(dynamic_cast<Jugador*>(m_player), m_scene, W*0.25f, Cannon::Top));
     m_cannons.append(new Cannon(dynamic_cast<Jugador*>(m_player), m_scene, W*0.75f, Cannon::Bottom));
-
+    // Crea los 8 cañones siempre “Top”
+    for (qreal x : xs) {
+        m_cannons.append(
+            new Cannon(
+                jug,
+                m_scene,
+                x,
+                Cannon::Top
+                )
+            );
+    }
 
     // ---- Enemigo (Bringer-of-Death) ----
     //auto* boss = new BringerOfDeath(this);
@@ -344,7 +416,7 @@ void niveltorredelamarca::mousePressEvent(QMouseEvent*)
 void niveltorredelamarca::onFrame()
 {
     if (!m_player) return;
-
+    float dt = m_dt;
     QPointF footPos1 = m_player->transform().getPosition();
     float x = footPos1.x();
     float y = footPos1.y();
@@ -432,6 +504,17 @@ void niveltorredelamarca::onFrame()
         cannon->update(m_dt);
      m_scene->advance();
 
+    // 1) actualizar todas las plataformas móviles
+     for (auto &mp : m_movingPlatforms) {
+         float x = mp.sprite->x() + mp.speed * m_dt * mp.dir;
+         if (x < mp.minX) { x = mp.minX; mp.dir = +1; }
+         if (x > mp.maxX) { x = mp.maxX; mp.dir = -1; }
+         mp.sprite->setX(x);
+
+         // actualiza la hitbox que ya está en m_colManager
+         QRectF hb = mp.hitbox->rect();
+         mp.hitbox->setRect(x, hb.y(), hb.width(), hb.height());
+     }
 
     // ——— Actualizar enemigos ———
     for (Enemigo* e : std::as_const(m_enemigos)) {

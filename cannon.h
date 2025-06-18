@@ -25,6 +25,6 @@ private:
     QGraphicsPixmapItem* m_sprite;
     float               m_cooldown    = 0.0f;
     const float         m_fireRate    = 2.0f;
-    const float         m_range       = 400.0f;
+    const float         m_range       = 600.0f;
     const float         m_bulletSpeed = 600.0f;
 };

@@ -15,17 +15,29 @@ Cannon::Cannon(Jugador*        player,
     , m_player(player)
     , m_scene(scene)
 {
+    // —— cannon.cpp —— (constructor)
+    // …
     QPixmap tex(":/resources/Cannon.png");
     tex = tex.scaled(tex.width()/2, tex.height()/2,
-                     Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    m_sprite = m_scene->addPixmap(tex);
-    m_sprite->setTransformOriginPoint(tex.width()/2, tex.height()/2);
+                     Qt::KeepAspectRatio,
+                     Qt::SmoothTransformation);
 
-    // X = spawnX, Y arriba o justo encima del suelo
-    qreal y = (pos==Top)
+    m_sprite = m_scene->addPixmap(tex);
+
+    // EN VEZ DE (ancla en el centro):
+    //    m_sprite->setTransformOriginPoint(tex.width()/2, tex.height()/2);
+
+    // ANCLA en el punto de bisagra:
+    qreal pivotX = tex.width() * 0.5f;    // centro horizontal
+    qreal pivotY = tex.height() * 0.75f;   // prueba valores entre 0.5–0.8 hasta ajustar
+    m_sprite->setTransformOriginPoint(pivotX, pivotY);
+
+    // resto idéntico…
+    qreal y = (pos == Top)
                   ? 0.0
                   : scene->sceneRect().height() - tex.height();
     m_sprite->setPos(spawnX - tex.width()/2, y);
+
 }
 
 void Cannon::update(float dt)
@@ -41,7 +53,7 @@ void Cannon::update(float dt)
 
     // gira el cañón para que apunte al jugador
     float ang = qRadiansToDegrees(std::atan2(d.y(), d.x()));
-    m_sprite->setRotation(ang);
+    m_sprite->setRotation( ang + 90.0f );
 
     // dispara
     if (m_cooldown <= 0.0f) {

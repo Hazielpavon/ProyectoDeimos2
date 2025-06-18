@@ -22,6 +22,14 @@
 
 class MainWindow;
 class MapaWidget;
+struct MovingPlatform {
+    QGraphicsPixmapItem* sprite;
+    QGraphicsRectItem*   hitbox;
+    float                 minX, maxX;
+    float                 speed;
+    int                   dir;      // +1 = derecha, -1 = izquierda
+};
+
 
 /* ===========================================================
  *  Clase del nivel “Raíces Olvidadas”
@@ -45,8 +53,8 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+    QVector<MovingPlatform> m_movingPlatforms;
     QVector<Cannon*> m_cannons;
-     QVector<Bullet*>    m_bullets;
     bool m_bossDropCreado = false;
     QVector<Drop*> m_drops;
     QGraphicsTextItem* m_manaText;

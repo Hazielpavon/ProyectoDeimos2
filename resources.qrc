@@ -526,5 +526,6 @@
         <file>resources/drop_llave.png</file>
         <file>resources/Bullet_Cannon.png</file>
         <file>resources/Cannon.png</file>
+        <file>resources/plataforma.png</file>
     </qresource>
 </RCC>

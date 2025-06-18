@@ -56,6 +56,29 @@ void ObjetosYColisiones::resolveCollisions(entidad* player,
         QRectF rObj = obj.hitbox->sceneBoundingRect();
         if (!rectJ.intersects(rObj)) continue;
 
+        // ——— 1) Colisión horizontal ———
+        if (vx > 0) { // moviéndose a la derecha
+            float right = footPos.x() + halfW;
+            // si la parte derecha del jugador sobrepasa la izquierda del bloque...
+            if ( right > rObj.left() && (footPos.x() - halfW) < rObj.left() ) {
+                // lo colocamos justo a la izquierda
+                footPos.setX( rObj.left() - halfW );
+                player->fisica().setVelocity(0, vy);
+                vx = 0;
+                rectJ.moveLeft(footPos.x() - halfW);
+            }
+        }
+        else if (vx < 0) { // moviéndose a la izquierda
+            float left = footPos.x() - halfW;
+            if ( left < rObj.right() && (footPos.x() + halfW) > rObj.right() ) {
+                footPos.setX( rObj.right() + halfW );
+                player->fisica().setVelocity(0, vy);
+                vx = 0;
+                rectJ.moveLeft(footPos.x() - halfW);
+            }
+        }
+
+        // ——— 2) Colisión vertical ———
         float pieY    = footPos.y();
         float cabezaY = pieY - hitH;
 
@@ -64,14 +87,14 @@ void ObjetosYColisiones::resolveCollisions(entidad* player,
             footPos.setY(rObj.top());
             player->fisica().setVelocity(vx, 0);
             player->setOnGround(true);
+            rectJ.moveTop( footPos.y() - hitH );
         }
         // choque de cabeza
         else if (vy < 0 && cabezaY <= rObj.bottom() && pieY > rObj.bottom()) {
             footPos.setY(rObj.bottom() + hitH);
             player->fisica().setVelocity(vx, 0);
+            rectJ.moveTop( footPos.y() - hitH );
         }
-
-        rectJ.moveTopLeft({footPos.x() - halfW, footPos.y() - hitH});
     }
 
     player->transform().setPosition(footPos.x(), footPos.y());
@@ -82,7 +105,6 @@ void ObjetosYColisiones::resolveCollisions(Enemigo* e,
                                            float /*dt*/)
 {
     if (!e) return;
-
     // calculamos pies en escena
     QPointF center = e->pos();
     float halfH = pixSize.height() * 0.5f;
@@ -123,3 +145,4 @@ void ObjetosYColisiones::resolveCollisions(Enemigo* e,
     // reubicamos al centro
     e->setPos(footPos.x(), footPos.y() - halfH);
 }
+

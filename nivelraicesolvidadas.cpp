@@ -111,14 +111,45 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
 
 
     const QVector<QRectF> plataformas = {
-        // Δx ≈ 400, Δy ≤ 100
-        {  600.0f, 550.0f, PLAT_W, PLAT_H },  // Desde suelo
-        { 1000.0f, 500.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
-        { 1400.0f, 450.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
-        { 1800.0f, 520.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 70
-        { 2200.0f, 430.0f, PLAT_W, PLAT_H },  // Δx=400, bajada de 90
-        { 2600.0f, 530.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 100
-        { 3000.0f, 480.0f, PLAT_W, PLAT_H }   // Δx=400, bajada de 50
+        // — Grupo 1 (grosor ×3) — startX = 3300
+        { 3300.0f, 520.0f, PLAT_W, PLAT_H * 3 },
+        { 4000.0f, 460.0f, PLAT_W, PLAT_H * 3 },
+        { 4700.0f, 530.0f, PLAT_W, PLAT_H * 3 },
+        { 5400.0f, 480.0f, PLAT_W, PLAT_H * 3 },
+        { 6100.0f, 550.0f, PLAT_W, PLAT_H * 3 },
+        { 6800.0f, 440.0f, PLAT_W, PLAT_H * 3 },
+        { 7500.0f, 500.0f, PLAT_W, PLAT_H * 3 },
+        { 8200.0f, 470.0f, PLAT_W, PLAT_H * 3 },
+
+        // — Grupo 2 (grosor ×4) — startX = 8900
+        { 8900.0f, 520.0f, PLAT_W, PLAT_H * 4 },
+        { 9600.0f, 460.0f, PLAT_W, PLAT_H * 4 },
+        {10300.0f, 530.0f, PLAT_W, PLAT_H * 4 },
+        {11000.0f, 480.0f, PLAT_W, PLAT_H * 4 },
+        {11700.0f, 550.0f, PLAT_W, PLAT_H * 4 },
+        {12400.0f, 440.0f, PLAT_W, PLAT_H * 4 },
+        {13100.0f, 500.0f, PLAT_W, PLAT_H * 4 },
+        {13800.0f, 470.0f, PLAT_W, PLAT_H * 4 },
+
+        // — Grupo 3 (grosor ×5) — startX = 14500
+        {14500.0f, 520.0f, PLAT_W, PLAT_H * 5 },
+        {15200.0f, 460.0f, PLAT_W, PLAT_H * 5 },
+        {15900.0f, 530.0f, PLAT_W, PLAT_H * 5 },
+        {16600.0f, 480.0f, PLAT_W, PLAT_H * 5 },
+        {17300.0f, 550.0f, PLAT_W, PLAT_H * 5 },
+        {18000.0f, 440.0f, PLAT_W, PLAT_H * 5 },
+        {18700.0f, 500.0f, PLAT_W, PLAT_H * 5 },
+        {19400.0f, 470.0f, PLAT_W, PLAT_H * 5 },
+
+        // — Grupo 4 (grosor ×6) — startX = 20100
+        {20100.0f, 520.0f, PLAT_W, PLAT_H * 6 },
+        {20800.0f, 460.0f, PLAT_W, PLAT_H * 6 },
+        {21500.0f, 530.0f, PLAT_W, PLAT_H * 6 },
+        {22200.0f, 480.0f, PLAT_W, PLAT_H * 6 },
+        {22900.0f, 550.0f, PLAT_W, PLAT_H * 6 },
+        {23600.0f, 440.0f, PLAT_W, PLAT_H * 6 },
+        {24300.0f, 500.0f, PLAT_W, PLAT_H * 6 },
+        {25000.0f, 470.0f, PLAT_W, PLAT_H * 6 }
     };
 
     QPixmap lavaBrick(":/resources/plataforma_fuego.png");

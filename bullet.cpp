@@ -12,7 +12,7 @@ Bullet::Bullet(const QPointF&   start,
     : QObject(parent)
     , QGraphicsPixmapItem(
           QPixmap(":/resources/Bullet_Cannon.png")
-              .scaled(16,16, Qt::KeepAspectRatio, Qt::SmoothTransformation))
+              .scaled(32,32, Qt::KeepAspectRatio, Qt::SmoothTransformation))
     , m_velocity(velocity)
     , m_target(target)
 {
