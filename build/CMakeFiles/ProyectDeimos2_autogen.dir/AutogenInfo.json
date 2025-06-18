@@ -1,0 +1,400 @@
+{
+	"BUILD_DIR" : "/Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2_autogen",
+	"CMAKE_BINARY_DIR" : "/Users/anavalle/Documents/ProyectoDeimos2/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/Users/anavalle/Documents/ProyectoDeimos2/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/anavalle/Documents/ProyectoDeimos2",
+	"CMAKE_EXECUTABLE" : "/opt/homebrew/Cellar/cmake/3.31.6/bin/cmake",
+	"CMAKE_LIST_FILES" : 
+	[
+		"/Users/anavalle/Documents/ProyectoDeimos2/CMakeLists.txt",
+		"/Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles/3.31.6/CMakeSystem.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Darwin-Initialize.cmake",
+		"/Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles/3.31.6/CMakeCXXCompiler.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeSystemSpecificInformation.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeGenericSystem.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeInitializeConfigs.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Darwin.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/UnixPaths.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeCXXInformation.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeLanguageInformation.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/AppleClang-CXX.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/Clang.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/GNU.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Apple-Clang.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeCommonLanguageInclude.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Linker/AppleClang-CXX.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Linker/AppleClang.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5/Qt5Config.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5/Qt5Config.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeParseArguments.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QCocoaIntegrationPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QMacHeifPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QMacJp2Plugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QPdfPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QWebGLIntegrationPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Widgets/Qt5Widgets_QMacStylePlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeParseArguments.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Multimedia/Qt5MultimediaConfigVersion.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Multimedia/Qt5MultimediaConfig.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Multimedia/Qt5Multimedia_AVFMediaPlayerServicePlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Multimedia/Qt5Multimedia_AVFServicePlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Multimedia/Qt5Multimedia_AudioCaptureServicePlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Multimedia/Qt5Multimedia_CoreAudioPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5Multimedia/Qt5Multimedia_QM3uPlaylistPlugin.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5MultimediaWidgets/Qt5MultimediaWidgetsConfigVersion.cmake",
+		"/opt/homebrew/opt/qt@5/lib/cmake/Qt5MultimediaWidgets/Qt5MultimediaWidgetsConfig.cmake",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/GNUInstallDirs.cmake",
+		"/Users/anavalle/Documents/ProyectoDeimos2/resources.qrc"
+	],
+	"CMAKE_SOURCE_DIR" : "/Users/anavalle/Documents/ProyectoDeimos2",
+	"CROSS_CONFIG" : false,
+	"DEP_FILE" : "/Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "ProyectDeimos2_autogen/timestamp",
+	"HEADERS" : 
+	[
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.h",
+			"MU",
+			"EWIEGA46WW/moc_BringerOfDeath.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/CombateManager.h",
+			"MU",
+			"EWIEGA46WW/moc_CombateManager.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h",
+			"MU",
+			"EWIEGA46WW/moc_ObjetosYColisiones.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.h",
+			"MU",
+			"EWIEGA46WW/moc_ciudadinversa.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.h",
+			"MU",
+			"EWIEGA46WW/moc_clickablelabel.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/componentefisico.h",
+			"MU",
+			"EWIEGA46WW/moc_componentefisico.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/componentesalud.h",
+			"MU",
+			"EWIEGA46WW/moc_componentesalud.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/demon.h",
+			"MU",
+			"EWIEGA46WW/moc_demon.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/enemigo.h",
+			"MU",
+			"EWIEGA46WW/moc_enemigo.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/entidad.h",
+			"MU",
+			"EWIEGA46WW/moc_entidad.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/grafomapa.h",
+			"MU",
+			"EWIEGA46WW/moc_grafomapa.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/jugador.h",
+			"MU",
+			"EWIEGA46WW/moc_jugador.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/mainwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/mapawidget.h",
+			"MU",
+			"EWIEGA46WW/moc_mapawidget.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/menuopciones.h",
+			"MU",
+			"EWIEGA46WW/moc_menuopciones.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h",
+			"MU",
+			"EWIEGA46WW/moc_nivelraicesolvidadas.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.h",
+			"MU",
+			"EWIEGA46WW/moc_niveltorredelamarca.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/pantallacarga.h",
+			"MU",
+			"EWIEGA46WW/moc_pantallacarga.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/pantallainicio.h",
+			"MU",
+			"EWIEGA46WW/moc_pantallainicio.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/sprite.h",
+			"MU",
+			"EWIEGA46WW/moc_sprite.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/tranformacion.h",
+			"MU",
+			"EWIEGA46WW/moc_tranformacion.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/tutorialscene.h",
+			"MU",
+			"EWIEGA46WW/moc_tutorialscene.cpp",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/videointro.h",
+			"MU",
+			"EWIEGA46WW/moc_videointro.cpp",
+			null
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2_autogen/include",
+	"MOC_COMPILATION_FILE" : "/Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_MULTIMEDIAWIDGETS_LIB",
+		"QT_MULTIMEDIA_LIB",
+		"QT_NETWORK_LIB",
+		"QT_WIDGETS_LIB"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/opt/homebrew/opt/qt@5/lib/QtWidgets.framework",
+		"/opt/homebrew/opt/qt@5/lib/QtWidgets.framework/Headers",
+		"/opt/homebrew/opt/qt@5/lib/QtGui.framework",
+		"/opt/homebrew/opt/qt@5/lib/QtGui.framework/Headers",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
+		"/opt/homebrew/opt/qt@5/lib/QtCore.framework",
+		"/opt/homebrew/opt/qt@5/lib/QtCore.framework/Headers",
+		"/opt/homebrew/opt/qt@5/mkspecs/macx-clang",
+		"/opt/homebrew/opt/qt@5/lib/QtMultimedia.framework",
+		"/opt/homebrew/opt/qt@5/lib/QtMultimedia.framework/Headers",
+		"/opt/homebrew/opt/qt@5/lib/QtNetwork.framework",
+		"/opt/homebrew/opt/qt@5/lib/QtNetwork.framework/Headers",
+		"/opt/homebrew/opt/qt@5/lib/QtMultimediaWidgets.framework",
+		"/opt/homebrew/opt/qt@5/lib/QtMultimediaWidgets.framework/Headers",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include/c++/v1",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk/usr/include",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++",
+		"-std=gnu++17",
+		"-dM",
+		"-E",
+		"-c",
+		"/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/Users/anavalle/Documents/ProyectoDeimos2/build/ProyectDeimos2_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 8,
+	"PARSE_CACHE_FILE" : "/Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles/ProyectDeimos2_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/opt/homebrew/opt/qt@5/bin/moc",
+	"QT_UIC_EXECUTABLE" : "/opt/homebrew/opt/qt@5/bin/uic",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 15,
+	"SETTINGS_FILE" : "/Users/anavalle/Documents/ProyectoDeimos2/build/CMakeFiles/ProyectDeimos2_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/CombateManager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/componentefisico.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/componentesalud.cpp",
+			"MU",
+			null
+		],
+		[ "/Users/anavalle/Documents/ProyectoDeimos2/demon.cpp", "MU", null ],
+		[ "/Users/anavalle/Documents/ProyectoDeimos2/enemigo.cpp", "MU", null ],
+		[ "/Users/anavalle/Documents/ProyectoDeimos2/entidad.cpp", "MU", null ],
+		[ "/Users/anavalle/Documents/ProyectoDeimos2/grafomapa.cpp", "MU", null ],
+		[ "/Users/anavalle/Documents/ProyectoDeimos2/jugador.cpp", "MU", null ],
+		[ "/Users/anavalle/Documents/ProyectoDeimos2/main.cpp", "MU", null ],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/mapawidget.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/menuopciones.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/pantallacarga.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/pantallainicio.cpp",
+			"MU",
+			null
+		],
+		[ "/Users/anavalle/Documents/ProyectoDeimos2/sprite.cpp", "MU", null ],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/tranformacion.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/tutorialscene.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/anavalle/Documents/ProyectoDeimos2/videointro.cpp",
+			"MU",
+			null
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

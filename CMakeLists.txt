@@ -85,6 +85,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         carnivore.h carnivore.cpp
         cannon.h cannon.cpp
         bullet.h bullet.cpp
+        inventorywidget.h inventorywidget.cpp
 
 
     )

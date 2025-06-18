@@ -435,6 +435,18 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/bullet.h",
+			"MU",
+			"EWIEGA46WW/moc_bullet.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/cannon.h",
+			"MU",
+			"EWIEGA46WW/moc_cannon.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/carnivore.h",
 			"MU",
 			"EWIEGA46WW/moc_carnivore.cpp",
@@ -477,6 +489,12 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/drop.h",
+			"MU",
+			"EWIEGA46WW/moc_drop.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/enemigo.h",
 			"MU",
 			"EWIEGA46WW/moc_enemigo.cpp",
@@ -489,9 +507,21 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/fireball.h",
+			"MU",
+			"EWIEGA46WW/moc_fireball.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/grafomapa.h",
 			"MU",
 			"EWIEGA46WW/moc_grafomapa.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/inventorywidget.h",
+			"MU",
+			"EWIEGA46WW/moc_inventorywidget.cpp",
 			null
 		],
 		[
@@ -680,6 +710,16 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/bullet.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/cannon.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/carnivore.cpp",
 			"MU",
 			null
@@ -715,6 +755,11 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/drop.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/enemigo.cpp",
 			"MU",
 			null
@@ -725,7 +770,17 @@
 			null
 		],
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/fireball.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/grafomapa.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/inventorywidget.cpp",
 			"MU",
 			null
 		],

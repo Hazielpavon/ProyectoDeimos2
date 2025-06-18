@@ -32,8 +32,7 @@ void Enemigo::setEstado(Estado st)
     m_estado = st;
     auto& a = m_anims[m_estado];
     a.idx  = 0;
-    a.acum = 0.0f;
-    if (!a.frames.isEmpty())
+    a.acum = 0.0f;    if (!a.frames.isEmpty())
         setPixmap(a.frames.first());
 }
 
