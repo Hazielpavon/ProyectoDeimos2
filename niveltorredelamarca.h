@@ -2,6 +2,7 @@
 //  NIVELRAICESOLVIDADAS.H — CABECERA COMPLETA (con CombateManager)
 // ===========================================================
 #pragma once
+#include "Minotaur.h"
 #include "drop.h"
 #include <QWidget>
 #include <QTimer>
@@ -60,6 +61,7 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+    Minotaur*       m_boss = nullptr;
     NPC *m_npc = nullptr;
     QVector<MovingPlatform> m_movingPlatforms;
     QVector<Cannon*> m_cannons;
@@ -84,7 +86,7 @@ private:
     QTimer*              m_timer           = nullptr;
     QGraphicsView*       m_view            = nullptr;
     QGraphicsScene*      m_scene           = nullptr;
-
+    QSet<Enemigo*>  m_deadDrops;
     /* ─────────── Elementos gráficos ───────── */
     QGraphicsPixmapItem* m_bg2Item         = nullptr;
     QGraphicsPixmapItem* m_fondoItem       = nullptr;
