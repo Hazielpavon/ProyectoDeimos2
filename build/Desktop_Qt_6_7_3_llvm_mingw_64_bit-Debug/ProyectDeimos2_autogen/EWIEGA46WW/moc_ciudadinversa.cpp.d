@@ -1,7 +1,5 @@
 C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/EWIEGA46WW/moc_ciudadinversa.cpp: C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ciudadinversa.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h \
-  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QDebug \
-  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QHash \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QMap \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QObject \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QPoint \

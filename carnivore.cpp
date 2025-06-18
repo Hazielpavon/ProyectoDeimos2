@@ -65,8 +65,14 @@ Carnivore::Carnivore(QObject* parent) : Enemigo(parent)
 QRectF Carnivore::boundingRect() const
 {
     const auto& p = pixmap();
-    return { -p.width() / 2, -p.height() / 2, p.width(), p.height() };
+    return QRectF(
+        -p.width()  / 2.0,  // ahora en qreal
+        -p.height() / 2.0,
+        p.width(),
+        p.height()
+        );
 }
+
 QPainterPath Carnivore::shape() const
 {
     QPainterPath s;  s.addRect(boundingRect());  return s;

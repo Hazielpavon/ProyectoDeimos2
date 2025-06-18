@@ -1,7 +1,5 @@
 C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/EWIEGA46WW/moc_niveltorredelamarca.cpp: C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/niveltorredelamarca.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h \
-  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QDebug \
-  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QHash \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QMap \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QObject \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QPoint \
@@ -56,6 +54,7 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qglobalstatic.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qhash.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qhashfunctions.h \
+  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qiodevice.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qiodevicebase.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qiterable.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qiterator.h \
@@ -124,6 +123,7 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qvarlengtharray.h \
@@ -133,6 +133,7 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qyieldcpu.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QPainter \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QPixmap \
+  C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QVector2D \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qbrush.h \
@@ -149,17 +150,20 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qpen.h \
+  C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qpicture.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qpolygon.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qtextdocument.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qtguiglobal.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qtransform.h \
+  C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QGraphicsPixmapItem \
@@ -167,12 +171,14 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QGraphicsTextItem \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QGraphicsView \
+  C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qgraphicsview.h \
+  C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qtwidgets-config.h \
@@ -932,11 +938,15 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/CombateManager.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Enemigo.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bullet.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/cannon.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/combatemanager.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentefisico.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentesalud.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/drop.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/sprite.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/tranformacion.h

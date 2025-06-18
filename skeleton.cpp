@@ -5,7 +5,7 @@
 //    offset-y = −frameHeight + DY_FIX
 // ===========================================================
 
-#include "Skeleton.h"
+#include "skeleton.h"
 #include "SpriteSheetLoader.h"
 #include "jugador.h"
 
@@ -51,10 +51,14 @@ Skeleton::Skeleton(QObject* parent)
 QRectF Skeleton::boundingRect() const
 {
     const QPixmap& p = pixmap();
-    return { -p.width() / 2.0,          // izquierda
-            -p.height() + DY_FIX,      // top  (pies = 0)
-            p.width(), p.height() };  // ancho / alto
+    return QRectF(
+        -p.width()  / 2.0,          // divide en double
+        -p.height() + DY_FIX,       // int → qreal se convierte aquí sin problema
+        p.width(),
+        p.height()
+        );
 }
+
 
 QPainterPath Skeleton::shape() const
 {

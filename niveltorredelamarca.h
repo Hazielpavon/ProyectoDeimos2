@@ -2,7 +2,7 @@
 //  NIVELRAICESOLVIDADAS.H — CABECERA COMPLETA (con CombateManager)
 // ===========================================================
 #pragma once
-
+#include "drop.h"
 #include <QWidget>
 #include <QTimer>
 #include <QGraphicsView>
@@ -11,11 +11,14 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QVector>
-
+#include "fireball.h"
 #include "ObjetosYColisiones.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include "entidad.h"
-#include "CombateManager.h"      // 👈 gestor de combate
+#include "bullet.h"
+#include "cannon.h"
+#include "combatemanager.h"      // 👈 gestor de combate
+#include <QLabel>  //inventario temporal
 
 class MainWindow;
 class MapaWidget;
@@ -30,6 +33,8 @@ public:
     explicit niveltorredelamarca(entidad*   jugador,
                                   MainWindow* mainWindow,
                                   QWidget*   parent = nullptr);
+    void lanzarHechizo();
+
 protected:
     void keyPressEvent   (QKeyEvent*  event) override;
     void keyReleaseEvent (QKeyEvent*  event) override;
@@ -40,7 +45,13 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
-
+    QVector<Cannon*> m_cannons;
+     QVector<Bullet*>    m_bullets;
+    bool m_bossDropCreado = false;
+    QVector<Drop*> m_drops;
+    QGraphicsTextItem* m_manaText;
+    bool bossDefeated = false;
+    QVector<Fireball*> m_fireballs;
     QGraphicsRectItem* m_debugBossHitbox = nullptr;
     entidad*             m_player          = nullptr;
     MainWindow*          m_mainWindow      = nullptr;
@@ -48,7 +59,7 @@ private:
     bool                 m_deathScheduled  = false;
     QGraphicsRectItem* m_bossHpBorder = nullptr;
     QGraphicsRectItem* m_bossHpBar    = nullptr;
-
+    QGraphicsRectItem* m_hudManaBar = nullptr;
     /* Enemigos y combate */
     QVector<Enemigo*>    m_enemigos;                // enemigos vivos
     CombateManager*      m_combate         = nullptr; // 👈 NUEVO
@@ -71,6 +82,7 @@ private:
     static constexpr int HUD_H      = 35;
     static constexpr int HUD_MARGIN = 10;
     QGraphicsRectItem*   m_hudBorder  = nullptr;
+    QGraphicsRectItem*   m_hudManaBorder = nullptr;
     QGraphicsRectItem*   m_hudBar     = nullptr;
     QGraphicsTextItem*   m_hudText    = nullptr;
 
@@ -94,4 +106,7 @@ private:
     /* ─────────── UI extra ─────────── */
     MapaWidget*          m_mapaRegiones   = nullptr;
     QString              m_currentRegion;
+
+    QLabel* m_inventario = nullptr; //inventario temporal
+    bool    m_invVisible = false; //inventario temporal
 };

@@ -25,7 +25,7 @@ entidad::entidad()
     m_sprite.generateMirroredFrames(SpriteState::Slidding,  SpriteState::SliddingLeft);
     m_sprite.loadFrames(SpriteState::dead,":/resources/0_Blood_Demon_Dying_",15);
     m_sprite.generateMirroredFrames(SpriteState::dead,  SpriteState::deadleft);
-    m_sprite.loadFrames(SpriteState::throwing,":/Sprites/PersonajePrincipal/PNG Sequences/Throwing/0_Blood_Demon_Throwing_",12);
+    m_sprite.loadFrames(SpriteState::throwing,":/resources/0_Blood_Demon_Throwing_",12);
     m_sprite.generateMirroredFrames(SpriteState::throwing,  SpriteState::throwingLeft);
     m_sprite.setFPS(12);
     m_sprite.setSize(128, 128);

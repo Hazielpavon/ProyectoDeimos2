@@ -127,19 +127,21 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
     }
 
     for (const QRectF &r : plataformas) {
-        // textura visual
-        if (!lavaBrick.isNull()) {
-            QGraphicsPixmapItem* visual = new QGraphicsPixmapItem(
-                lavaBrick.scaled(int(r.width()), int(r.height()), Qt::IgnoreAspectRatio, Qt::SmoothTransformation)
-                );
-            visual->setPos(r.topLeft());
-            visual->setZValue(1);  // Debajo del jugador
-            m_scene->addItem(visual);
-        }
+        // 1) tu sprite
+        auto* visual = new QGraphicsPixmapItem(
+            lavaBrick.scaled(int(r.width()), int(r.height()),
+                             Qt::KeepAspectRatioByExpanding,
+                             Qt::SmoothTransformation)
+            );
+        visual->setPos(r.topLeft());
+        visual->setZValue(1);
+        m_scene->addItem(visual);
 
-        // hitbox
-        m_colManager->addRect(r, Qt::NoBrush, true);  // Solo colisión
+        // 2) hitbox _y_ visible (solo hitbox) para depurar si quieres:
+        m_colManager->addRect(r, Qt::NoBrush, /*collisionOnly=*/ false);
+        // pasa `false` para que addRect cree también el QGraphicsRectItem visible
     }
+
 
 
     // ---- Jugador ----
@@ -156,21 +158,21 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
         auto jug = dynamic_cast<Jugador*>(m_player);
         if (jug) jug->setGraphicsItem(m_playerItem);
     }
-
+// Este ahora es miniboss
     // ---- Enemigo (Bringer-of-Death) ----
-    auto* boss = new BringerOfDeath(this);
-    QSize bSz = boss->pixmap().size();
-    boss->setPos(4072.33,651 );
+   // auto* boss = new BringerOfDeath(this);
+    //QSize bSz = boss->pixmap().size();
+   // boss->setPos(4072.33,651 );
+   // boss->setTarget(m_player);
+   // m_scene->addItem(boss);
+   // m_enemigos.append(boss);
+
+    //demon
+    auto* boss = new Demon(this);
+    boss->setPos(2000, 651);
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
-
-    //demon
-    auto* demon = new Demon(this);
-    demon->setPos(2000, 651);
-    demon->setTarget(m_player);
-    m_scene->addItem(demon);
-    m_enemigos.append(demon);
 
     //skeleton
     auto* sk = new Skeleton(this);
@@ -409,7 +411,7 @@ void NivelRaicesOlvidadas::onFrame()
         m_deathScheduled = true;
         if (!bossDefeated && !m_enemigos.isEmpty()) {
             Enemigo* boss = m_enemigos.first();
-            boss->setHp(boss->maxHP());
+            boss->setHP(boss->maxHP());
         }
         // 1.3) Ocultar sprite y respawn con temporizadores
         QTimer::singleShot(1000, this, [this]() { m_playerItem->setVisible(false); });

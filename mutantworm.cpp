@@ -1,4 +1,4 @@
-#include "MutantWorm.h"
+#include "mutantWorm.h"
 #include "jugador.h"
 
 #include <QTransform>
@@ -57,8 +57,14 @@ MutantWorm::MutantWorm(QObject* parent):Enemigo(parent)
 QRectF MutantWorm::boundingRect() const
 {
     const auto& p = pixmap();
-    return {-p.width()/2, -p.height()/2, p.width(), p.height()};
+    return QRectF(
+        -p.width()  / 2.0,  // qreal
+        -p.height() / 2.0,  // qreal
+        p.width(),
+        p.height()
+        );
 }
+
 QPainterPath MutantWorm::shape() const
 {
     QPainterPath s;  s.addRect(boundingRect());  return s;

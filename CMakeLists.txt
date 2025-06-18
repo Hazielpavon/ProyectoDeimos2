@@ -23,6 +23,10 @@ set(PROJECT_SOURCES
     mainwindow.h
     mainwindow.ui
     pantallainicio.h
+    drop.h
+    drop.cpp
+    Fireball.cpp
+    Fireball.h
     pantallainicio.cpp
     menuopciones.h
     menuopciones.cpp
@@ -79,6 +83,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         monsterfly.h monsterfly.cpp
         mutantworm.h mutantworm.cpp
         carnivore.h carnivore.cpp
+        cannon.h cannon.cpp
+        bullet.h bullet.cpp
 
 
     )

@@ -99,7 +99,7 @@ public:
 
     /* ---------- Compatibilidad antigua ---------- */
     int  frameIndex() const { return animActual().idx; }   // usado por CombateManager
-
+    void setHP(int hp){ this-> m_hp = hp;}
 protected:
     /* Velocidad para subclases */
     qreal m_velX = 0.0;

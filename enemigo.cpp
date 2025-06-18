@@ -1,5 +1,4 @@
 #include "Enemigo.h"
-#include "entidad.h"
 #include <QDebug>
 
 /* ---------- Constructor ---------- */

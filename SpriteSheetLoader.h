@@ -1,5 +1,5 @@
 #pragma once
-#include "Enemigo.h"
+#include "enemigo.h"
 #include <QPixmap>
 #include <QVector>
 #include <QDebug>

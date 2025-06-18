@@ -53,10 +53,16 @@ MonsterFly::MonsterFly(QObject* parent):Enemigo(parent)
 }
 
 /* ---------- colisiones ---------- */
-QRectF MonsterFly::boundingRect()const{
+QRectF MonsterFly::boundingRect() const {
     const QPixmap& p = pixmap();
-    return {-p.width()/2, -p.height()/2, p.width(), p.height()};
+    return QRectF(
+        -p.width()  / 2.0,
+        -p.height() / 2.0,
+        p.width(),
+        p.height()
+        );
 }
+
 QPainterPath MonsterFly::shape()const{
     QPainterPath s; s.addRect(boundingRect()); return s;
 }
