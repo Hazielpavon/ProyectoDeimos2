@@ -48,7 +48,11 @@ static QPixmap trimBottom(const QPixmap& pix)
 /* ──────────────────────  ctor  ────────────────────── */
 ciudadinversa::ciudadinversa(entidad*   jugador,
                              MainWindow* mainWindow,
+<<<<<<< HEAD
                              QWidget*    parent)
+=======
+                             QWidget*   parent)
+>>>>>>> ana
     : QWidget(parent)
     , m_player(jugador)
     , m_mainWindow(mainWindow)
@@ -476,5 +480,3 @@ void ciudadinversa::onFrame()
         tl.y()+HUD_MARGIN + (HUD_H-rt.height())/2.0f
         );
 }
-
-

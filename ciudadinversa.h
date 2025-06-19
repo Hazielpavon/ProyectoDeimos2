@@ -9,8 +9,14 @@
 #include <QVector>
 
 #include "ObjetosYColisiones.h"
+<<<<<<< HEAD
 #include "Enemigo.h"
 #include "CombateManager.h"
+=======
+#include "enemigo.h"
+#include "entidad.h"
+#include "CombateManager.h"      // 👈 gestor de combate
+>>>>>>> ana
 
 class MainWindow;
 class MapaWidget;
@@ -86,7 +92,24 @@ private:
     bool m_moveLeft = false, m_moveRight = false;
     bool m_run      = false, m_jumpRequested = false;
 
+<<<<<<< HEAD
     /* UI extra */
     MapaWidget*      m_mapaRegiones = nullptr;
     QString          m_currentRegion;
+=======
+    /* ─────────── Lógica general ───── */
+    float m_dt              = 0.0f;
+    int   m_repeatCount     = 1;
+    int   m_bgWidth         = 0;
+    int   m_bgHeight        = 0;
+    bool  m_secondBgShown   = false;
+    float m_limiteSueloCentroY = 0.0f;
+
+    /* ─────────── UI extra ─────────── */
+    MapaWidget*          m_mapaRegiones   = nullptr;
+    QString              m_currentRegion;
+
+        bool m_inverted = true;
+
+>>>>>>> ana
 };

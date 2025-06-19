@@ -1,98 +1,128 @@
-#ifndef TUTORIALSCENE_H
-#define TUTORIALSCENE_H
-#include <QLabel>
+// ===========================================================
+//  NIVELRAICESOLVIDADAS.H — CABECERA COMPLETA (con CombateManager)
+// ===========================================================
+#pragma once
+#include "drop.h"
 #include <QWidget>
 #include <QTimer>
-#include <QKeyEvent>
 #include <QGraphicsView>
+#include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
-#include <QGraphicsScene>
+#include <QGraphicsTextItem>
+#include <QVector>
+#include "Fireball.h"
+#include "ObjetosYColisiones.h"
+#include "Enemigo.h"
 #include "entidad.h"
-#include "mapawidget.h"
-class MainWindow; // Forward declaration
+#include "CombateManager.h"      // 👈 gestor de combate
+#include "npc_tutorial.h"
 
-// En la clase:
+class MainWindow;
+class MapaWidget;
 
-class TutorialScene : public QWidget {
+/* ===========================================================
+ *  Clase del nivel “Raíces Olvidadas”
+ * =========================================================== */
+class TutorialScene : public QWidget
+{
     Q_OBJECT
-
 public:
-   explicit TutorialScene(entidad *jugadorPrincipal, MainWindow *mainWindow, QWidget *parent = nullptr);
+    explicit TutorialScene(entidad*   jugador,
+                                  MainWindow* mainWindow,
+                                  QWidget*   parent = nullptr);
+    void lanzarHechizo();
 
 protected:
-    void keyPressEvent(QKeyEvent *event) override;
-    void keyReleaseEvent(QKeyEvent *event) override;
-    void mousePressEvent(QMouseEvent *event)override;
-    bool event(QEvent *event) override;
+    void keyPressEvent   (QKeyEvent*  event) override;
+    void keyReleaseEvent (QKeyEvent*  event) override;
+    void mousePressEvent (QMouseEvent* event) override;
+
 private slots:
-    void onFrame();
+    void onFrame();                                 // bucle 60 FPS
+
 private:
-    MainWindow* m_mainWindow;
-    MapaWidget* m_mapaRegiones;
-    QString m_regionActual;
-    MapaWidget *m_minimapa;
-    entidad   *m_player;
-    QTimer    *m_timer;
-    bool       m_moverIzq;
-    bool       m_moverDer;
-    bool       m_shiftPresionado;
-    bool       m_saltoSolicitado;
-    bool       m_yaCaminó;
-    bool       m_yaSaltó;
-    QGraphicsView   *m_view;
-    QGraphicsScene  *m_scene;
-    QGraphicsPixmapItem *m_fondoItem;
-    QGraphicsPixmapItem *m_cartelItem;
-    QGraphicsPixmapItem *m_jugadorItem;
-    QGraphicsRectItem  *m_plataformaItem;
-    QGraphicsRectItem  *m_sueloItem;
-    MapaWidget *m_mapaWidget = nullptr;
+    /* ─────────── Gameplay ─────────── */
+    npc_tutorial *m_npc = nullptr;
+    bool m_bossDropCreado = false;
+    QVector<Drop*> m_drops;
+    QGraphicsTextItem* m_manaText;
+    bool bossDefeated = false;
+    QVector<Fireball*> m_fireballs;
+    QGraphicsRectItem* m_debugBossHitbox = nullptr;
+    entidad*             m_player          = nullptr;
+    MainWindow*          m_mainWindow      = nullptr;
+    QPointF              m_spawnPos;
+    bool                 m_deathScheduled  = false;
+    QGraphicsRectItem* m_bossHpBorder = nullptr;
+    QGraphicsRectItem* m_bossHpBar    = nullptr;
+    QGraphicsRectItem* m_hudManaBar = nullptr;
+    /* Enemigos y combate */
+    QVector<Enemigo*>    m_enemigos;                // enemigos vivos
+    CombateManager*      m_combate         = nullptr; // 👈 NUEVO
 
-    static constexpr int WINDOW_WIDTH  = 950;
-    static constexpr int WINDOW_HEIGHT = 650;
+    /* ─────────── Qt helpers ───────── */
+    QTimer*              m_timer           = nullptr;
+    QGraphicsView*       m_view            = nullptr;
+    QGraphicsScene*      m_scene           = nullptr;
 
-    static constexpr int PLAT_WIDTH  = 120;
-    static constexpr int PLAT_HEIGHT = 20;
+    /* ─────────── Elementos gráficos ───────── */
+    QGraphicsPixmapItem* m_bg2Item         = nullptr;
+    QGraphicsPixmapItem* m_fondoItem       = nullptr;
+    QGraphicsPixmapItem* m_cartelItem      = nullptr;
+    QGraphicsPixmapItem* m_playerItem      = nullptr;
+    QGraphicsRectItem*   m_plataformaItem  = nullptr;
+    QGraphicsRectItem*   m_sueloItem       = nullptr;
 
+    /* HUD */
+    static constexpr int HUD_W      = 350;
+    static constexpr int HUD_H      = 35;
+    static constexpr int HUD_MARGIN = 10;
+    QGraphicsRectItem*   m_hudBorder  = nullptr;
+    QGraphicsRectItem*   m_hudManaBorder = nullptr;
+    QGraphicsRectItem*   m_hudBar     = nullptr;
+    QGraphicsTextItem*   m_hudText    = nullptr;
 
-    static constexpr int SUELO_GRAFICO_ALTURA = 40;
+    /* ─────────── Colisiones ───────── */
+    ObjetosYColisiones*  m_colManager      = nullptr;
 
-    // Delta‐time fijo
-    const float m_dt = 0.016f;
+    /* ─────────── Flags de input ───── */
+    bool  m_moveLeft        = false;
+    bool  m_moveRight       = false;
+    bool  m_run             = false;
+    bool  m_jumpRequested   = false;
 
-    int m_limiteSueloCentroY;
+    /* ─────────── Lógica general ───── */
+    float m_dt              = 0.0f;
+    int   m_repeatCount     = 1;
+    int   m_bgWidth         = 0;
+    int   m_bgHeight        = 0;
+    bool  m_secondBgShown   = false;
+    float m_limiteSueloCentroY = 0.0f;
 
-    QGraphicsPixmapItem *m_instruccionCaminarItem;
+    /* ─────────── UI extra ─────────── */
+    MapaWidget*          m_mapaRegiones   = nullptr;
+    QString              m_currentRegion;
 
-    QGraphicsPixmapItem *m_instruccionSaltarItem;
-    bool m_mostrarSaltarPendiente;
-    float m_tiempoParaMostrarSaltar;
-    bool m_saltoYaMostrado;
+    enum class FaseTutorial { Caminar, Saltar, Correr,  Dash, Golpear, Fireball,  Mapa,  Terminado };
+    FaseTutorial m_faseTutorial = FaseTutorial::Caminar;
 
-    QGraphicsPixmapItem* m_instruccionCorrerItem;
-    bool m_mostrarCorrerPendiente;
-    float m_tiempoParaMostrarCorrer;
-    bool m_correrYaMostrado;
-    bool m_yaCorrió;
+    QGraphicsPixmapItem* m_tutorialItem = nullptr;
+    bool m_yaCamino = false;
+    bool m_yaSalto = false;
+    bool m_yaCorrio = false;
+    bool m_yaDash = false;
+    bool m_yaGolpeo  = false;
+    bool m_yaFireball = false;
 
-    QGraphicsPixmapItem *m_instruccionDashItem;
-    bool m_mostrarDashPendiente;
-    float m_tiempoParaMostrarDash;
-    bool m_dashYaMostrado;
-    bool m_yaHizoDash;
+    struct MovingPlatform {
+        QGraphicsPixmapItem* sprite;
+        QGraphicsRectItem* hitbox;
+        float minY, maxY;
+        float speed;
+        int dir;
+    };
 
-    QGraphicsPixmapItem* m_instruccionGolpearItem;
-    bool m_mostrarGolpearPendiente;
-    float m_tiempoParaMostrarGolpear;
-    bool m_golpearYaMostrado;
-    bool m_yaGolpeó;
-
-    QGraphicsPixmapItem* m_instruccionMapaItem;
-    bool m_mostrarMapaPendiente;
-    float m_tiempoParaMostrarMapa;
-    bool m_mapaYaMostrado;
-    bool m_yaAbrioMapa;
+    QVector<MovingPlatform> m_movingPlatforms;
+    void actualizarPlataformasMoviles();  // ← Agrega esta línea
 };
-
-#endif

@@ -27,10 +27,13 @@
 		{
 			"backtrace" : 1,
 			"component" : "Unspecified",
-			"destination" : "bin",
+			"destination" : ".",
 			"paths" : 
 			[
-				"ProyectDeimos2.exe"
+				{
+					"from" : "ProyectDeimos2.app",
+					"to" : "ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2"
+				}
 			],
 			"targetId" : "ProyectDeimos2::@6890427a1f51a3e7e1df",
 			"targetIndex" : 0,

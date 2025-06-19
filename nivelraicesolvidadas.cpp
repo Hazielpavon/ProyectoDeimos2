@@ -201,7 +201,6 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
 
 
 
-
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
@@ -654,5 +653,3 @@ void NivelRaicesOlvidadas::onFrame()
         }
     }
 }
-
-

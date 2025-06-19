@@ -16,6 +16,7 @@
 #include "ObjetosYColisiones.h"
 #include "enemigo.h"
 #include "entidad.h"
+#include "CombateManager.h"      // 👈 gestor de combate
 #include "combatemanager.h"      // 👈 gestor de combate
 #include <QLabel>  //inventario temporal
 
@@ -106,7 +107,4 @@ private:
     /* ─────────── UI extra ─────────── */
     MapaWidget*          m_mapaRegiones   = nullptr;
     QString              m_currentRegion;
-
-    QLabel* m_inventario = nullptr; //inventario temporal
-    bool    m_invVisible = false; //inventario temporal
 };

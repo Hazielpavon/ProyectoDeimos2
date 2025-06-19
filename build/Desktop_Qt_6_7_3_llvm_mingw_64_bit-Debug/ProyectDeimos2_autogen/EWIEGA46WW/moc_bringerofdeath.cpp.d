@@ -895,4 +895,4 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Enemigo.h
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h

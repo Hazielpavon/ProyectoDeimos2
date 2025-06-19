@@ -1,0 +1,10 @@
+#ifndef PLATAFORMA_MOVIL_H_H
+#define PLATAFORMA_MOVIL_H_H
+
+class PLATAFORMA_MOVIL_H
+{
+public:
+    PLATAFORMA_MOVIL_H();
+};
+
+#endif // PLATAFORMA_MOVIL_H_H

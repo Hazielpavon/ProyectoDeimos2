@@ -727,12 +727,18 @@ ProyectDeimos2_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/.qtc/package-manager/auto-setup.cmake \
+	/Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/BringerOfDeath.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/3.31.6/CMakeCXXCompiler.cmake \
 	/Users/anavalle/Documents/ProyectoDeimos2/CMakeFiles/3.31.6/CMakeSystem.cmake \
 	/Users/anavalle/Documents/ProyectoDeimos2/CMakeLists.txt \
+	/Users/anavalle/Documents/ProyectoDeimos2/CombateManager.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/CombateManager.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/ObjetosYColisiones.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/ProyectDeimos2_autogen/moc_predefs.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/ciudadinversa.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/clickablelabel.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/componentefisico.cpp \
@@ -756,6 +762,8 @@ ProyectDeimos2_autogen/timestamp: \
 	/Users/anavalle/Documents/ProyectoDeimos2/menuopciones.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/nivelraicesolvidadas.h \
+	/Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.cpp \
+	/Users/anavalle/Documents/ProyectoDeimos2/niveltorredelamarca.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/pantallacarga.cpp \
 	/Users/anavalle/Documents/ProyectoDeimos2/pantallacarga.h \
 	/Users/anavalle/Documents/ProyectoDeimos2/pantallainicio.cpp \
@@ -808,6 +816,8 @@ ProyectDeimos2_autogen/timestamp: \
 	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake \
 	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/Linker/Apple-AppleClang.cmake \
 	/opt/homebrew/Cellar/cmake/3.31.6/share/cmake/Modules/Platform/UnixPaths.cmake \
+	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QDebug \
+	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QHash \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QList \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QMap \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/QObject \
@@ -960,7 +970,6 @@ ProyectDeimos2_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
-	/opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QColor \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QKeyEvent \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QMouseEvent \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtGui.framework/Versions/A/Headers/QPainter \
@@ -1024,6 +1033,7 @@ ProyectDeimos2_autogen/timestamp: \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsPixmapItem \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsRectItem \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsScene \
+	/opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsTextItem \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsView \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
 	/opt/homebrew/Cellar/qt/6.9.0/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \

@@ -1,6 +1,6 @@
 #include "CombateManager.h"
 #include "jugador.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include <QGraphicsPixmapItem>
 #include <QtMath>
 #include <QDebug>

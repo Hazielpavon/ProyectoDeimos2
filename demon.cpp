@@ -1,4 +1,4 @@
-#include "Demon.h"
+#include "demon.h"
 #include "entidad.h"
 #include "jugador.h"
 #include <QTransform>
@@ -169,4 +169,5 @@ void Demon::update(float dt)
             setVisible(false);  // scene puede borrarlo después
         }
     }
+
 }
