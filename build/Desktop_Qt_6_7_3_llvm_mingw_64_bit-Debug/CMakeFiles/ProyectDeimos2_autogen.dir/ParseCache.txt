@@ -5482,8 +5482,7 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/niveltorredela
 C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/pantallainicio.cpp
 C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.h
  mmc:Q_OBJECT
- mdp:C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QDebug
- mdp:C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QHash
+ mdp:C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QMap
  mdp:C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QObject
  mdp:C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QPointF
  mdp:C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QString
@@ -11986,7 +11985,8 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/niveltorredela
  mdp:C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h
  mdp:C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h
  mdp:C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h
- mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h
+ mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h
+ mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.h
  mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h
  mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h
  mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bullet.h
@@ -15659,9 +15659,9 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/MutantWorm.h
  mdp:C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h
  mdp:C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h
  mdp:C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h
+ mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/MutantWorm.h
  mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h
  mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h
- mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/MutantWorm.h
 C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/main.cpp
 C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/mutantworm.h
  mmc:Q_OBJECT
@@ -20219,9 +20219,9 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.h
  mdp:C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h
  mdp:C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h
  mdp:C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h
- mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h
  mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h
- mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h
+ mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h
+ mdp:C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.h
 C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/monsterfly.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QMap

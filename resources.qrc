@@ -535,5 +535,7 @@
         <file>resources/Npc1Idle2.png</file>
         <file>resources/Npc1Idle3.png</file>
         <file>resources/Npc1Idle4.png</file>
+        <file>resources/drop_mejorasMana.png</file>
+        <file>resources/drop_mejorasArmas.png</file>
     </qresource>
 </RCC>

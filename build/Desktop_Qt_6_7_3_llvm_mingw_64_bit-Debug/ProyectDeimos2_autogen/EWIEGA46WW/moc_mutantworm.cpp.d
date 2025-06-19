@@ -1,4 +1,4 @@
-C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/EWIEGA46WW/moc_mutantworm.cpp: C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/mutantworm.h \
+C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/EWIEGA46WW/moc_MutantWorm.cpp: C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/MutantWorm.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QMap \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QObject \

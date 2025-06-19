@@ -360,12 +360,6 @@
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h",
-			"MU",
-			"EWIEGA46WW/moc_Minotaur.cpp",
-			null
-		],
-		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/MutantWorm.h",
 			"MU",
 			"EWIEGA46WW/moc_MutantWorm.cpp",
@@ -495,6 +489,12 @@
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/menuopciones.h",
 			"MU",
 			"EWIEGA46WW/moc_menuopciones.cpp",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.h",
+			"MU",
+			"EWIEGA46WW/moc_minotaur.cpp",
 			null
 		],
 		[

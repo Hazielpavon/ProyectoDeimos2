@@ -39,6 +39,7 @@ class niveltorredelamarca : public QWidget
 {
     Q_OBJECT
 public:
+
     explicit niveltorredelamarca(entidad*   jugador,
                                   MainWindow* mainWindow,
                                   QWidget*   parent = nullptr);
@@ -61,6 +62,7 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+    QVector<QPointF> m_enemySpawnPos;
     Minotaur*       m_boss = nullptr;
     NPC *m_npc = nullptr;
     QVector<MovingPlatform> m_movingPlatforms;
