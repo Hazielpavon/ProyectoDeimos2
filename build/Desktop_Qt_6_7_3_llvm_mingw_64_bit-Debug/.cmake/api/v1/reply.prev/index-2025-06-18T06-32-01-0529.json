@@ -1,0 +1,113 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Ninja"
+		},
+		"paths" : 
+		{
+			"cmake" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
+			"cpack" : "C:/Qt/Tools/CMake_64/bin/cpack.exe",
+			"ctest" : "C:/Qt/Tools/CMake_64/bin/ctest.exe",
+			"root" : "C:/Qt/Tools/CMake_64/share/cmake-3.30"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 3,
+			"minor" : 30,
+			"patch" : 5,
+			"string" : "3.30.5",
+			"suffix" : ""
+		}
+	},
+	"objects" : 
+	[
+		{
+<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-18T04-53-01-0065.json
+<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-16T16-38-59-0599.json
+<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-16T16-38-59-0599.json
+			"jsonFile" : "codemodel-v2-293958284712258f550d.json",
+========
+			"jsonFile" : "codemodel-v2-08850cb9102aca656f39.json",
+>>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-17T06-39-37-0726.json
+========
+			"jsonFile" : "codemodel-v2-c0d1b032001bcaf7fb18.json",
+>>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-18T04-53-01-0065.json
+=======
+			"jsonFile" : "codemodel-v2-4c82941ff38b533540e2.json",
+>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/index-2025-06-18T06-32-01-0529.json
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 7
+			}
+		},
+		{
+			"jsonFile" : "cache-v2-b57d571bbfc2681c4818.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		{
+			"jsonFile" : "cmakeFiles-v1-67aa2729f3e8ade6a922.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 1
+			}
+		}
+	],
+	"reply" : 
+	{
+		"cache-v2" : 
+		{
+			"jsonFile" : "cache-v2-b57d571bbfc2681c4818.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		"cmakeFiles-v1" : 
+		{
+			"jsonFile" : "cmakeFiles-v1-67aa2729f3e8ade6a922.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 1
+			}
+		},
+		"codemodel-v2" : 
+		{
+<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-18T04-53-01-0065.json
+<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-16T16-38-59-0599.json
+<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-16T16-38-59-0599.json
+			"jsonFile" : "codemodel-v2-293958284712258f550d.json",
+========
+			"jsonFile" : "codemodel-v2-08850cb9102aca656f39.json",
+>>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-17T06-39-37-0726.json
+========
+			"jsonFile" : "codemodel-v2-c0d1b032001bcaf7fb18.json",
+>>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/index-2025-06-18T04-53-01-0065.json
+=======
+			"jsonFile" : "codemodel-v2-4c82941ff38b533540e2.json",
+>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/index-2025-06-18T06-32-01-0529.json
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 7
+			}
+		}
+	}
+}
