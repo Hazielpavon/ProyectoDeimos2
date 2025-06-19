@@ -23,6 +23,7 @@
 #include "Carnivore.h"
 
 
+
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
 static constexpr float WINDOW_H    = 650.0f;
@@ -34,6 +35,7 @@ static constexpr float PLAT_HEIGHT = 20.0f;
 static constexpr float HUD_W = 350.0f;
 static constexpr float HUD_H = 35.0f;
 static constexpr float HUD_MARGIN = 10.0f;
+
 
 /* Auxiliar: recorta líneas transparentes inferiores */
 static QPixmap trimBottom(const QPixmap& pix)
@@ -344,59 +346,79 @@ void niveltorredelamarca::mousePressEvent(QMouseEvent*)
 void niveltorredelamarca::onFrame()
 {
     if (!m_player) return;
+<<<<<<< Updated upstream
 
     QPointF footPos1 = m_player->transform().getPosition();
     float x = footPos1.x();
     float y = footPos1.y();
+=======
+    float dt = m_dt;
+    QPointF footPos = m_player->transform().getPosition();
+    float x = footPos.x();
+>>>>>>> Stashed changes
 
-    // 1) Si se sale por la izquierda, volvemos al tutorial
+    // 1) Salir por la izquierda → tutorial
     if (x < 0.0f) {
         m_timer->stop();
         m_mainWindow->cargarNivel("RaicesOlvidadas");
         return;
     }
 
-    // 3) Si avanza más allá de la Ciudad Inversa
-    if (x >= 6245.67f && bossDefeated ) {
+    // 2) Avanzar a la Ciudad Vacia si el boss ya fue derrotado
+    if (x >= 6245.67f && bossDefeated) {
         m_timer->stop();
         m_mainWindow->cargarNivel("MenteVacia");
         return;
     }
 
-
-
-    // ——— ZONA LETAL Y SECUENCIA DE MUERTE ———
+    // 3) Muerte del jugador → animación + respawn completo
     if (!m_deathScheduled && m_player->currentHP() <= 0) {
         auto* jug = dynamic_cast<Jugador*>(m_player);
-        // 1.1) Detener movimiento y asegurar en suelo
-        m_player->fisica().setVelocity(0, 0);
+        // Detener física, animar muerte
+        m_player->fisica().setVelocity(0,0);
         jug->setOnGround(true);
-        // 1.2) Lanzar animación de muerte
         jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
         m_deathScheduled = true;
-        if (!bossDefeated && !m_enemigos.isEmpty()) {
-            Enemigo* boss = m_enemigos.first();
-            boss->setHP(boss->maxHP());
-        }
-        // 1.3) Ocultar sprite y respawn con temporizadores
-        QTimer::singleShot(1000, this, [this]() { m_playerItem->setVisible(false); });
+
+        // Después de 1s, ocultar al jugador
+        QTimer::singleShot(1000, this, [this]() {
+            m_playerItem->setVisible(false);
+        });
+        // Después de 2s, respawnear jugador + enemigos
         QTimer::singleShot(2000, this, [this, jug]() {
-            // reposición idéntica a tu código de respawn…
-            m_player->transform().setPosition(35,0);
+            // — Respawn jugador —
+            m_player->transform().setPosition(m_spawnPos.x(),m_spawnPos.y() );
             m_player->fisica().setVelocity(0,0);
             jug->setOnGround(true);
             jug->sprite().setState(SpriteState::Idle);
             jug->setHP(jug->maxHP());
             jug->Setmana(jug->maxMana());
-
-            m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
             m_playerItem->setVisible(true);
+
+            // — Respawn enemigos —
+            /*
+            for (int i = 0; i < m_enemigos.size(); ++i) {
+                Enemigo* e = m_enemigos[i];
+                e->setPos(m_enemySpawnPos[i]);
+                e->revive(e->maxHP());         // reset HP, estado y animación
+                e->setVisible(true);
+            }
+            */
+
+            // — Limpiar drops y flags de boss —
+            m_drops.clear();
+            m_deadDrops.clear();
+            bossDefeated     = false;
+            m_bossDropCreado = false;
+
+            // — Reset controles y bandera —
+            m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
             m_deathScheduled = false;
         });
         return;
     }
 
-    // ——— Entrada salto + movimiento horiz ———
+    // 4) Salto y movimiento horizontal
     if (m_jumpRequested && m_player->isOnGround()) {
         constexpr float JUMP_VY = -500.0f;
         auto v = m_player->fisica().velocity();
@@ -404,55 +426,87 @@ void niveltorredelamarca::onFrame()
         m_player->setOnGround(false);
         m_jumpRequested = false;
     }
-    float vx = 0.0f;
+    float vx = 0;
     if (!m_deathScheduled) {
         if (m_moveLeft)  vx = -160.0f;
         if (m_moveRight) vx =  160.0f;
-        if (m_run && vx != 0.0f) vx *= 2.0f;
+        if (m_run && vx) vx *= 2.0f;
     }
-    m_player->fisica().setVelocity(
-        vx,
-        m_player->fisica().velocity().y()
-        );
+    m_player->fisica().setVelocity(vx, m_player->fisica().velocity().y());
 
-    // ——— Actualizar jugador + colisiones ———
-    m_player->actualizar(m_dt);
+    // 5) Actualizar jugador y colisiones
+    m_player->actualizar(dt);
     QSize sprSz = m_player->sprite().getSize();
-    m_colManager->resolveCollisions(m_player, sprSz, m_dt);
+    m_colManager->resolveCollisions(m_player, sprSz, dt);
 
-    // ——— Mostrar segundo fondo si tocsa ———
+    // 6) Mostrar segundo fondo (paralaje)
     if (!m_secondBgShown &&
         m_player->transform().getPosition().x() >= (m_bgWidth - WINDOW_W/2.0f))
     {
         m_bg2Item->setVisible(true);
         m_secondBgShown = true;
     }
+<<<<<<< Updated upstream
     // 1) Actualizar cañones
     for (Cannon* cannon : m_cannons)
         cannon->update(m_dt);
      m_scene->advance();
 
+=======
 
-    // ——— Actualizar enemigos ———
-    for (Enemigo* e : std::as_const(m_enemigos)) {
-        e->update(m_dt);
-        QSize eSz = e->pixmap().size();
-        m_colManager->resolveCollisions(e, eSz, m_dt);
+    // 7) Actualizar cañones y avanzar escena
+    for (auto* c : m_cannons) c->update(dt);
+    m_scene->advance();
+
+    // 8) NPC
+    if (m_npc) m_npc->update(dt);
+
+    // 9) Plataformas móviles
+    for (auto &mp : m_movingPlatforms) {
+        float nx = mp.sprite->x() + mp.speed*dt*mp.dir;
+        if (nx < mp.minX) { nx = mp.minX; mp.dir = +1; }
+        if (nx > mp.maxX) { nx = mp.maxX; mp.dir = -1; }
+        mp.sprite->setX(nx);
+        auto hb = mp.hitbox->rect();
+        mp.hitbox->setRect(nx, hb.y(), hb.width(), hb.height());
     }
+>>>>>>> Stashed changes
+
+    // 10) Enemigos: update + colisiones
+    for (auto* e : m_enemigos) {
+        e->update(dt);
+        QSize eSz = e->pixmap().size();
+        m_colManager->resolveCollisions(e, eSz, dt);
+    }
+
+    // 11) Drops al morir (boss + minibosses)
     if (!m_enemigos.isEmpty()) {
+<<<<<<< Updated upstream
         Enemigo* boss = m_enemigos.first();
         if (!bossDefeated && boss->isDead()) {
+=======
+        // Boss
+        if (!bossDefeated && m_boss->isDead()) {
+>>>>>>> Stashed changes
             bossDefeated = true;
 
             if (!m_bossDropCreado) {
                 m_bossDropCreado = true;
+<<<<<<< Updated upstream
                 QPointF posDrop = boss->pos();  // <- ahora usamos la posición exacta del boss
                 m_drops.append(new Drop(Drop::Tipo::Vida, posDrop + QPointF(-10, 0), m_scene));
                 m_drops.append(new Drop(Drop::Tipo::Mana, posDrop + QPointF(10, 0), m_scene));
                 m_drops.append(new Drop(Drop::Tipo::Llave, posDrop + QPointF(0, -20), m_scene, "Torre De La Marca"));
+=======
+                QPointF p = m_boss->pos();
+                m_drops.append(new Drop(Drop::Tipo::Vida,  p+QPointF(-10,0), m_scene));
+                m_drops.append(new Drop(Drop::Tipo::Mana,  p+QPointF( 10,0), m_scene));
+                m_drops.append(new Drop(Drop::Tipo::Llave, p+QPointF(  0,-20), m_scene, "Torre De La Marca"));
+>>>>>>> Stashed changes
             }
 
         }
+<<<<<<< Updated upstream
     }
 
 
@@ -538,7 +592,92 @@ void niveltorredelamarca::onFrame()
         Drop* drop = m_drops[i];
         if (!drop->isCollected() && drop->checkCollision(m_player)) {
             drop->aplicarEfecto(dynamic_cast<Jugador*>(m_player));
+=======
+        // Minibosses
+        for (auto* e : m_enemigos) {
+            if (e != m_boss && e->isDead() && !m_deadDrops.contains(e)) {
+                m_deadDrops.insert(e);
+                QRectF sb = e->sceneBoundingRect();
+                m_drops.append(new Drop(Drop::Tipo::Vida,
+                                        QPointF(sb.left(), sb.bottom()),
+                                        m_scene));
+            }
+>>>>>>> Stashed changes
         }
+    }
+
+    // 12) Barra de vida del boss
+    if (bossDefeated) {
+        m_bossHpBorder  ->setVisible(false);
+        m_bossHpBar     ->setVisible(false);
+        m_debugBossHitbox->setVisible(false);
+    } else {
+        QRectF sb = m_boss->sceneBoundingRect();
+        m_debugBossHitbox->setRect(0,0,sb.width(),sb.height());
+        m_debugBossHitbox->setPos(sb.topLeft());
+        float frac = float(m_boss->currentHP())/m_boss->maxHP();
+        float bw = m_bossHpBorder->rect().width(),
+            bh = m_bossHpBorder->rect().height();
+        float x0 = sb.left() + (sb.width()-bw)/2.0f,
+            y0 = sb.top()  - bh - 4.0f;
+        m_bossHpBorder->setRect(0,0,bw,bh);
+        m_bossHpBorder->setPos(x0,y0);
+        m_bossHpBar->setRect(1,1,(bw-2)*frac,bh-2);
+        m_bossHpBar->setPos(x0,y0);
+    }
+
+    // 13) Combate
+    if (m_combate) m_combate->update(dt);
+
+    // 14) Render jugador + cámara
+    QPixmap pix = trimBottom(
+        m_player->sprite().currentFrame()
+            .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
+        );
+    m_playerItem->setPixmap(pix);
+    m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
+    m_playerItem->setPos(footPos);
+    m_view->centerOn(footPos);
+
+    // 15) HUD vida & mana
+    QPointF tl = m_view->mapToScene(0,0);
+    float hpFrac = float(m_player->currentHP())/m_player->maxHP();
+    m_hudBorder->setPos(tl.x()+HUD_MARGIN, tl.y()+HUD_MARGIN);
+    m_hudBar->setRect(tl.x()+HUD_MARGIN+1, tl.y()+HUD_MARGIN+1,
+                      (HUD_W-2)*hpFrac, HUD_H-2);
+    int hpPct = int(hpFrac*100 + .5f);
+    m_hudText->setPlainText(QString::number(hpPct) + "%");
+    m_hudText->setPos(
+        tl.x()+HUD_MARGIN + (HUD_W-m_hudText->boundingRect().width())/2,
+        tl.y()+HUD_MARGIN + (HUD_H-m_hudText->boundingRect().height())/2
+        );
+
+    float manaFrac = float(m_player->Getmana())/m_player->maxMana();
+    int manaPct = qMin(100, int(manaFrac*100 + .5f));
+    m_hudManaBorder->setPos(tl.x()+HUD_MARGIN, tl.y()+HUD_MARGIN+HUD_H+4);
+    m_hudManaBar->setRect(tl.x()+HUD_MARGIN+1, tl.y()+HUD_MARGIN+HUD_H+5,
+                          (HUD_W-2)*manaFrac, HUD_H-2);
+    m_manaText->setPlainText(QString::number(manaPct) + "%");
+    m_manaText->setPos(
+        tl.x()+HUD_MARGIN + (HUD_W-m_manaText->boundingRect().width())/2,
+        tl.y()+HUD_MARGIN+HUD_H+5 + (HUD_H-m_manaText->boundingRect().height())/2
+        );
+
+    // 16) Fireballs
+    for (int i = m_fireballs.size()-1; i >= 0; --i) {
+        Fireball* f = m_fireballs[i];
+        if (!f || !f->isAlive()) {
+            m_fireballs.remove(i);
+        } else {
+            f->avanzar(dt);
+        }
+    }
+
+    // 17) Recolectar drops
+    for (int i = m_drops.size()-1; i >= 0; --i) {
+        Drop* d = m_drops[i];
+        if (!d->isCollected() && d->checkCollision(m_player))
+            d->aplicarEfecto(dynamic_cast<Jugador*>(m_player));
     }
 }
 

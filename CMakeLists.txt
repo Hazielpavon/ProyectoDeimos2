@@ -88,6 +88,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         inventorywidget.h inventorywidget.cpp
 
 
+
     )
 else()
     if(ANDROID)

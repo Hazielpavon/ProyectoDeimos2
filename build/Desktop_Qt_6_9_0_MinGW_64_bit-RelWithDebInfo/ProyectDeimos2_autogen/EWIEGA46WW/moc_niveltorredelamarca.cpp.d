@@ -409,6 +409,11 @@ C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_M
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+<<<<<<< Updated upstream
+=======
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/Enemigo.h \
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/Minotaur.h \
+>>>>>>> Stashed changes
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/bullet.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/cannon.h \
@@ -419,5 +424,9 @@ C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_M
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/enemigo.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/entidad.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/fireball.h \
+<<<<<<< Updated upstream
+=======
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/npc.h \
+>>>>>>> Stashed changes
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/sprite.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/tranformacion.h

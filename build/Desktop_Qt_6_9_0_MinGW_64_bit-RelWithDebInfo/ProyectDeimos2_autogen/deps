@@ -733,6 +733,7 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/CMakeLists.txt \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/MutantWorm.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/SpriteSheetLoader.h \
@@ -787,11 +788,12 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/monsterfly.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/monsterfly.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/mutantworm.cpp \
-	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/mutantworm.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/nivelraicesolvidadas.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/nivelraicesolvidadas.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/niveltorredelamarca.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/niveltorredelamarca.h \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/npc.cpp \
+	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/npc.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallacarga.cpp \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallacarga.h \
 	C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/pantallainicio.cpp \

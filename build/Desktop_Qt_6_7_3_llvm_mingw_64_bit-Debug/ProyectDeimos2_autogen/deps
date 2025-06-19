@@ -1,6 +1,4 @@
 ProyectDeimos2_autogen/timestamp: \
-	C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QDebug \
-	C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QHash \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QList \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QMap \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QObject \
@@ -1239,7 +1237,6 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
 	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/CMakeLists.txt \
-	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/MutantWorm.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h \
@@ -1289,6 +1286,7 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/menuopciones.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/menuopciones.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/monsterfly.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/monsterfly.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/mutantworm.cpp \

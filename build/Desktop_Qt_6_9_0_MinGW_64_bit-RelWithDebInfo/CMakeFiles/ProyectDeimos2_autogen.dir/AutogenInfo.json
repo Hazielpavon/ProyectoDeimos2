@@ -417,6 +417,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/MutantWorm.h",
+			"MU",
+			"EWIEGA46WW/moc_MutantWorm.cpp",
+			null
+		],
+		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/ObjetosYColisiones.h",
 			"MU",
 			"EWIEGA46WW/moc_ObjetosYColisiones.cpp",
@@ -561,12 +567,6 @@
 			null
 		],
 		[
-			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/mutantworm.h",
-			"MU",
-			"EWIEGA46WW/moc_mutantworm.cpp",
-			null
-		],
-		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/nivelraicesolvidadas.h",
 			"MU",
 			"EWIEGA46WW/moc_nivelraicesolvidadas.cpp",
@@ -576,6 +576,12 @@
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/niveltorredelamarca.h",
 			"MU",
 			"EWIEGA46WW/moc_niveltorredelamarca.cpp",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/npc.h",
+			"MU",
+			"EWIEGA46WW/moc_npc.cpp",
 			null
 		],
 		[
@@ -831,6 +837,11 @@
 		],
 		[
 			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/niveltorredelamarca.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/npc.cpp",
 			"MU",
 			null
 		],

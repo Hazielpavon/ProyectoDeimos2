@@ -1,4 +1,5 @@
 # ninja log v6
+<<<<<<< Updated upstream
 18560	43311	7719274907073007	CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.obj	ac7adda99a09b014
 84	8818	7719274807808829	ProyectDeimos2_autogen/timestamp	141ad5c09e770a77
 84	8818	7719274807808829	C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/timestamp	141ad5c09e770a77
@@ -104,3 +105,56 @@
 1827	11373	7719903856528126	CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.obj	4a84c8da3063df8a
 1810	11931	7719903856368188	CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.obj	b1805b4953de4cef
 11931	16604	7719903957586922	ProyectDeimos2.exe	2d67da8fcc970bbb
+=======
+57171	72413	7720103535626449	CMakeFiles/ProyectDeimos2.dir/demon.cpp.obj	ff9878ed6604260a
+8624	26618	7720103228308583	ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp	5cefaeb409cdd4f9
+32	749	7720274603437770	C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/timestamp	141ad5c09e770a77
+1145	4987	7720239412519710	CMakeFiles/ProyectDeimos2.dir/npc.cpp.obj	44d63e10e625f094
+751	8296	7720274610657973	CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.obj	ac7adda99a09b014
+32	749	7720274603437770	ProyectDeimos2_autogen/timestamp	141ad5c09e770a77
+32	749	7720274603437770	ProyectDeimos2_autogen/mocs_compilation.cpp	141ad5c09e770a77
+26872	34395	7720103232645165	CMakeFiles/ProyectDeimos2.dir/tranformacion.cpp.obj	dcd718b1e9caf830
+32	749	7720274603437770	C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/mocs_compilation.cpp	141ad5c09e770a77
+26826	49620	7720103232157432	CMakeFiles/ProyectDeimos2.dir/menuopciones.cpp.obj	23becbbfcdc3df01
+34396	56744	7720103307892313	CMakeFiles/ProyectDeimos2.dir/enemigo.cpp.obj	6797914640ad7a04
+26832	48024	7720103232237432	CMakeFiles/ProyectDeimos2.dir/entidad.cpp.obj	a79c46137db1fab1
+8624	26618	7720103228308583	C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp	5cefaeb409cdd4f9
+48025	57535	7720103444151968	CMakeFiles/ProyectDeimos2.dir/componentesalud.cpp.obj	c57750224675c576
+48001	52144	7720103443944696	CMakeFiles/ProyectDeimos2.dir/componentefisico.cpp.obj	ff1d6a5dfb42fa0c
+9091	16840	7720274694012574	ProyectDeimos2.exe	e06717c7f222443
+58	189250	7720133176784217	CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.obj	3dd67377a8ac5b14
+48247	58583	7720103446370296	CMakeFiles/ProyectDeimos2.dir/pantallacarga.cpp.obj	e24b1302ae3f538b
+57314	71671	7720103537063178	CMakeFiles/ProyectDeimos2.dir/minotaur.cpp.obj	915ec0a9394b694c
+26839	48000	7720103232317406	CMakeFiles/ProyectDeimos2.dir/ObjetosYColisiones.cpp.obj	9d80912554cd0df
+52144	74331	7720103485347197	CMakeFiles/ProyectDeimos2.dir/grafomapa.cpp.obj	8bc073835891df9c
+47829	60940	7720103442233298	CMakeFiles/ProyectDeimos2.dir/jugador.cpp.obj	9a5212f17f106efc
+48108	59499	7720103445010251	CMakeFiles/ProyectDeimos2.dir/clickablelabel.cpp.obj	e24311b4a5fe5591
+58584	73693	7720103549762581	CMakeFiles/ProyectDeimos2.dir/mutantworm.cpp.obj	13a97076389560bb
+26790	49769	7720103231837425	CMakeFiles/ProyectDeimos2.dir/main.cpp.obj	537a2f721f0347f8
+26819	48716	7720103232077372	CMakeFiles/ProyectDeimos2.dir/pantallainicio.cpp.obj	11403689d773bf13
+26845	47826	7720103232363170	CMakeFiles/ProyectDeimos2.dir/bringerofdeath.cpp.obj	ee776ccc883e2566
+48717	59508	7720103451093221	CMakeFiles/ProyectDeimos2.dir/videointro.cpp.obj	705b2ebe861396f9
+59086	73351	7720103554769553	CMakeFiles/ProyectDeimos2.dir/carnivore.cpp.obj	962ee49a2eb4c2d4
+1141	6279	7720239412479688	CMakeFiles/ProyectDeimos2.dir/niveltorredelamarca.cpp.obj	4a84c8da3063df8a
+26884	57314	7720103232732322	CMakeFiles/ProyectDeimos2.dir/sprite.cpp.obj	e8ccee3d137d5a23
+59499	73198	7720103558887374	CMakeFiles/ProyectDeimos2.dir/cannon.cpp.obj	4585074e73712f63
+26813	48246	7720103231997416	CMakeFiles/ProyectDeimos2.dir/fireball.cpp.obj	beda25915cb61efc
+1898	11333	7720263715723334	CMakeFiles/ProyectDeimos2.dir/ProyectDeimos2_autogen/mocs_compilation.cpp.obj	b1805b4953de4cef
+757	9091	7720274610703951	CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.obj	fc1f61b6a67935b4
+49620	71132	7720103460127504	CMakeFiles/ProyectDeimos2.dir/tutorialscene.cpp.obj	a796995592c917d5
+17	1653	7720239062715433	build.ninja	5f5b88b398630333
+49770	71942	7720103461577558	CMakeFiles/ProyectDeimos2.dir/nivelraicesolvidadas.cpp.obj	63ee2575ce24369a
+51882	72021	7720103482723914	CMakeFiles/ProyectDeimos2.dir/mapawidget.cpp.obj	7927be720e305f42
+26851	48107	7720103232408344	CMakeFiles/ProyectDeimos2.dir/combatemanager.cpp.obj	eb6cf550ed21f605
+57535	71742	7720103539291652	CMakeFiles/ProyectDeimos2.dir/monsterfly.cpp.obj	19e2e929df647f5f
+49425	62096	7720103458193147	CMakeFiles/ProyectDeimos2.dir/skeleton.cpp.obj	91592c3485734384
+26801	49425	7720103231917443	CMakeFiles/ProyectDeimos2.dir/drop.cpp.obj	20ab7f77e766c492
+59508	72657	7720103558991240	CMakeFiles/ProyectDeimos2.dir/bullet.cpp.obj	733994118b933ad4
+52	795	7720276695732685	ProyectDeimos2_autogen/timestamp	141ad5c09e770a77
+52	795	7720276695732685	ProyectDeimos2_autogen/mocs_compilation.cpp	141ad5c09e770a77
+52	795	7720276695732685	C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/timestamp	141ad5c09e770a77
+52	795	7720276695732685	C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/mocs_compilation.cpp	141ad5c09e770a77
+797	8146	7720276703169843	CMakeFiles/ProyectDeimos2.dir/mainwindow.cpp.obj	ac7adda99a09b014
+802	8985	7720276703225763	CMakeFiles/ProyectDeimos2.dir/ciudadinversa.cpp.obj	fc1f61b6a67935b4
+8985	16740	7720276785060479	ProyectDeimos2.exe	e06717c7f222443
+>>>>>>> Stashed changes

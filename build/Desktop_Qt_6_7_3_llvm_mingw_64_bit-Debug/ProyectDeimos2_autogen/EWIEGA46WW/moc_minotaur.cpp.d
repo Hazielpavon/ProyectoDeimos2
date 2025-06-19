@@ -1,4 +1,4 @@
-C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/EWIEGA46WW/moc_Minotaur.cpp: C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h \
+C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/EWIEGA46WW/moc_minotaur.cpp: C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/minotaur.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QMap \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QObject \
@@ -895,4 +895,4 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Enemigo.h

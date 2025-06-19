@@ -1,12 +1,12 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'mutantworm.h'
+** Meta object code from reading C++ file 'MutantWorm.h'
 **
 ** Created by: The Qt Meta Object Compiler version 69 (Qt 6.9.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../mutantworm.h"
+#include "../../../../MutantWorm.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -16,7 +16,7 @@
 
 #include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'mutantworm.h' doesn't include <QObject>."
+#error "The header file 'MutantWorm.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 69
 #error "This file was generated using the moc from 6.9.0. It"
 #error "cannot be used with the include files from this version of Qt."

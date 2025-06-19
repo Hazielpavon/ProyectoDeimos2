@@ -71,9 +71,13 @@ MainWindow::MainWindow(QWidget *parent)
                                             spr.setState(SpriteState::Idle);
                                             m_player->transform().setPosition(width()/2.0, height()/2.0);
 
+<<<<<<< Updated upstream
                                             /* -> primer nivel */
                                             cargarNivel("TorreDeLaMarca");
                                         });
+=======
+                    cargarNivel("CiudadInversa");
+>>>>>>> Stashed changes
 
                                 mostrarPantalla(pantallaCarga);
                             });

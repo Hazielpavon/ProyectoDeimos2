@@ -1,3 +1,5 @@
+//minotaur.cpp
+
 #include "minotaur.h"
 #include "jugador.h"
 
@@ -53,7 +55,11 @@ Minotaur::Minotaur(QObject* parent) : Enemigo(parent)
 QRectF Minotaur::boundingRect() const
 {
     const auto& p = pixmap();
+<<<<<<< Updated upstream
     return { -p.width()/2.0, -p.height()/2.0, p.width(), p.height() };
+=======
+    return { -p.width()/2.0, -p.height()/2.0, static_cast<qreal>(p.width()), static_cast<qreal>(p.height()) };
+>>>>>>> Stashed changes
 }
 QPainterPath Minotaur::shape() const
 {
