@@ -23,34 +23,30 @@
 			"include",
 			"find_package",
 			"find_dependency",
-			"_qt_internal_find_qt_dependencies",
-			"set_property",
-			"_qt_internal_find_third_party_dependencies"
+			"_qt_internal_find_qt_dependencies"
 		],
 		"files" : 
 		[
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
 			"CMakeLists.txt",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessTargets.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaTargets.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfig.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
 			"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaDependencies.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfig.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake",
-			"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
-			"C:/Qt/6.7.3/llvm-mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake"
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaDependencies.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
+			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake"
 		],
 		"nodes" : 
 		[
@@ -60,73 +56,45 @@
 			{
 				"command" : 3,
 				"file" : 1,
-<<<<<<< HEAD
-				"line" : 65,
-=======
 				"line" : 69,
->>>>>>> ana
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 875,
+				"line" : 938,
 				"parent" : 1
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 575,
+				"line" : 639,
 				"parent" : 2
 			},
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 634,
+				"line" : 688,
 				"parent" : 3
 			},
 			{
 				"command" : 4,
 				"file" : 1,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				"line" : 130,
-========
-				"line" : 122,
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-				"line" : 137,
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
+				"line" : 138,
 ========
 				"line" : 139,
->>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
-========
-				"line" : 137,
->>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				"line" : 99,
-========
-				"line" : 91,
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-				"line" : 106,
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
+				"line" : 107,
 ========
 				"line" : 108,
->>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
-========
-				"line" : 106,
->>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 				"parent" : 0
 			},
 			{
@@ -136,87 +104,87 @@
 				"parent" : 0
 			},
 			{
-				"file" : 8,
+				"file" : 4,
 				"parent" : 7
 			},
 			{
 				"command" : 8,
-				"file" : 8,
-				"line" : 169,
+				"file" : 4,
+				"line" : 212,
 				"parent" : 8
 			},
 			{
-				"file" : 7,
+				"file" : 3,
 				"parent" : 9
-			},
-			{
-				"command" : 7,
-				"file" : 7,
-				"line" : 43,
-				"parent" : 10
-			},
-			{
-				"file" : 6,
-				"parent" : 11
-			},
-			{
-				"command" : 10,
-				"file" : 6,
-				"line" : 42,
-				"parent" : 12
-			},
-			{
-				"command" : 9,
-				"file" : 5,
-				"line" : 111,
-				"parent" : 13
-			},
-			{
-				"command" : 8,
-				"file" : 4,
-				"line" : 76,
-				"parent" : 14
-			},
-			{
-				"file" : 3,
-				"parent" : 15
-			},
-			{
-				"command" : 7,
-				"file" : 3,
-				"line" : 60,
-				"parent" : 16
-			},
-			{
-				"file" : 2,
-				"parent" : 17
-			},
-			{
-				"command" : 6,
-				"file" : 2,
-				"line" : 61,
-				"parent" : 18
 			},
 			{
 				"command" : 7,
 				"file" : 3,
 				"line" : 55,
-				"parent" : 16
+				"parent" : 10
+			},
+			{
+				"file" : 2,
+				"parent" : 11
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 61,
+				"parent" : 12
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 43,
+				"parent" : 10
 			},
 			{
 				"file" : 9,
+				"parent" : 14
+			},
+			{
+				"command" : 10,
+				"file" : 9,
+				"line" : 45,
+				"parent" : 15
+			},
+			{
+				"command" : 9,
+				"file" : 8,
+				"line" : 137,
+				"parent" : 16
+			},
+			{
+				"command" : 8,
+				"file" : 7,
+				"line" : 76,
+				"parent" : 17
+			},
+			{
+				"file" : 6,
+				"parent" : 18
+			},
+			{
+				"command" : 7,
+				"file" : 6,
+				"line" : 55,
+				"parent" : 19
+			},
+			{
+				"file" : 5,
 				"parent" : 20
 			},
 			{
 				"command" : 6,
-				"file" : 9,
+				"file" : 5,
 				"line" : 61,
 				"parent" : 21
 			},
 			{
 				"command" : 8,
-				"file" : 8,
-				"line" : 169,
+				"file" : 4,
+				"line" : 212,
 				"parent" : 8
 			},
 			{
@@ -242,7 +210,7 @@
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 576,
+				"line" : 640,
 				"parent" : 2
 			},
 			{
@@ -258,18 +226,18 @@
 			{
 				"command" : 10,
 				"file" : 14,
-				"line" : 42,
+				"line" : 45,
 				"parent" : 30
 			},
 			{
 				"command" : 9,
-				"file" : 5,
-				"line" : 111,
+				"file" : 8,
+				"line" : 137,
 				"parent" : 31
 			},
 			{
 				"command" : 8,
-				"file" : 4,
+				"file" : 7,
 				"line" : 76,
 				"parent" : 32
 			},
@@ -306,18 +274,18 @@
 			{
 				"command" : 10,
 				"file" : 17,
-				"line" : 42,
+				"line" : 46,
 				"parent" : 39
 			},
 			{
 				"command" : 9,
-				"file" : 5,
-				"line" : 111,
+				"file" : 8,
+				"line" : 137,
 				"parent" : 40
 			},
 			{
 				"command" : 8,
-				"file" : 4,
+				"file" : 7,
 				"line" : 76,
 				"parent" : 41
 			},
@@ -342,19 +310,21 @@
 				"parent" : 45
 			},
 			{
+				"command" : 6,
+				"file" : 15,
+				"line" : 83,
+				"parent" : 45
+			},
+			{
+				"command" : 9,
+				"file" : 8,
+				"line" : 137,
+				"parent" : 31
+			},
+			{
 				"command" : 8,
-				"file" : 1,
-				"line" : 17,
-				"parent" : 0
-			},
-			{
-				"file" : 8,
-				"parent" : 47
-			},
-			{
-				"command" : 7,
-				"file" : 8,
-				"line" : 124,
+				"file" : 7,
+				"line" : 76,
 				"parent" : 48
 			},
 			{
@@ -362,70 +332,20 @@
 				"parent" : 49
 			},
 			{
-				"command" : 12,
+				"command" : 7,
 				"file" : 19,
-				"line" : 27,
+				"line" : 55,
 				"parent" : 50
 			},
 			{
-				"command" : 9,
-				"file" : 5,
-				"line" : 36,
+				"file" : 18,
 				"parent" : 51
 			},
 			{
-				"command" : 8,
-				"file" : 4,
-				"line" : 76,
-				"parent" : 52
-			},
-			{
-				"file" : 18,
-				"parent" : 53
-			},
-			{
-				"command" : 11,
-				"file" : 18,
-				"line" : 238,
-				"parent" : 54
-			},
-			{
 				"command" : 6,
-				"file" : 15,
-				"line" : 76,
-				"parent" : 45
-			},
-			{
-				"command" : 9,
-				"file" : 5,
-				"line" : 111,
-				"parent" : 31
-			},
-			{
-				"command" : 8,
-				"file" : 4,
-				"line" : 76,
-				"parent" : 57
-			},
-			{
-				"file" : 21,
-				"parent" : 58
-			},
-			{
-				"command" : 7,
-				"file" : 21,
-				"line" : 55,
-				"parent" : 59
-			},
-			{
-				"file" : 20,
-				"parent" : 60
-			},
-			{
-				"command" : 6,
-				"file" : 20,
+				"file" : 18,
 				"line" : 61,
-				"parent" : 61
+				"parent" : 52
 			}
 		]
 	},
@@ -435,15 +355,15 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-DQT_QML_DEBUG -g -std=gnu++17 -fansi-escape-codes -fcolor-diagnostics"
-				},
-				{
-					"backtrace" : 28,
-					"fragment" : "-pthread"
+					"fragment" : "-O2 -g -DNDEBUG -std=gnu++17 -fdiagnostics-color=always"
 				}
 			],
 			"defines" : 
 			[
+				{
+					"backtrace" : 28,
+					"define" : "MINGW_HAS_SECURE_API=1"
+				},
 				{
 					"backtrace" : 28,
 					"define" : "QT_CORE_LIB"
@@ -469,6 +389,10 @@
 					"define" : "QT_NETWORK_LIB"
 				},
 				{
+					"backtrace" : 28,
+					"define" : "QT_NO_DEBUG"
+				},
+				{
 					"backtrace" : 6,
 					"define" : "QT_WIDGETS_LIB"
 				},
@@ -486,19 +410,11 @@
 				},
 				{
 					"backtrace" : 28,
-					"define" : "WINVER=0x0A00"
-				},
-				{
-					"backtrace" : 28,
 					"define" : "_ENABLE_EXTENDED_ALIGNED_STORAGE"
 				},
 				{
 					"backtrace" : 28,
 					"define" : "_UNICODE"
-				},
-				{
-					"backtrace" : 28,
-					"define" : "_WIN32_WINNT=0x0A00"
 				},
 				{
 					"backtrace" : 28,
@@ -509,47 +425,47 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/include"
+					"path" : "C:/Users/Jorge Aguirre/Desktop/test 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/include"
 				},
 				{
 					"backtrace" : 28,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.7.3/llvm-mingw_64/include/QtCore"
+					"path" : "C:/Qt/6.9.0/mingw_64/include/QtCore"
 				},
 				{
 					"backtrace" : 28,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.7.3/llvm-mingw_64/include"
+					"path" : "C:/Qt/6.9.0/mingw_64/include"
 				},
 				{
 					"backtrace" : 28,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.7.3/llvm-mingw_64/mkspecs/win32-clang-g++"
+					"path" : "C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets"
+					"path" : "C:/Qt/6.9.0/mingw_64/include/QtWidgets"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.7.3/llvm-mingw_64/include/QtGui"
+					"path" : "C:/Qt/6.9.0/mingw_64/include/QtGui"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.7.3/llvm-mingw_64/include/QtMultimedia"
+					"path" : "C:/Qt/6.9.0/mingw_64/include/QtMultimedia"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.7.3/llvm-mingw_64/include/QtNetwork"
+					"path" : "C:/Qt/6.9.0/mingw_64/include/QtNetwork"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.7.3/llvm-mingw_64/include/QtMultimediaWidgets"
+					"path" : "C:/Qt/6.9.0/mingw_64/include/QtMultimediaWidgets"
 				}
 			],
 			"language" : "CXX",
@@ -567,16 +483,6 @@
 				0,
 				1,
 				2,
-<<<<<<< HEAD
-				6,
-				8,
-				10,
-				11,
-				12,
-				13,
-				18,
-				20,
-=======
 				7,
 				8,
 				10,
@@ -585,7 +491,6 @@
 				15,
 				16,
 				17,
->>>>>>> ana
 				22,
 				24,
 				26,
@@ -594,35 +499,12 @@
 				32,
 				34,
 				36,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				40,
-				42,
-=======
 				38,
 				40,
->>>>>>> ana
 				44,
 				46,
 				48,
 				50,
-<<<<<<< HEAD
-				54,
-				56,
-				58,
-				60,
-				63
-========
-				39,
-				41,
-				43,
-				45,
-				47,
-				51,
-				53,
-				56
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 				52,
 				54,
 				58,
@@ -632,36 +514,23 @@
 				66,
 				68,
 				70,
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-				73
-========
 				72,
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
 				75
->>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
 ========
-				73
->>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
+				76
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-<<<<<<< HEAD
 			"id" : "ProyectDeimos2_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 0,
 			"id" : "ProyectDeimos2_autogen::@6890427a1f51a3e7e1df"
-=======
-			"backtrace" : 0,
-			"id" : "ProyectDeimos2_autogen::@6890427a1f51a3e7e1df"
-		},
-		{
-			"id" : "ProyectDeimos2_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
->>>>>>> ana
 		}
 	],
 	"id" : "ProyectDeimos2::@6890427a1f51a3e7e1df",
@@ -684,7 +553,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-DQT_QML_DEBUG -g",
+				"fragment" : "-O2 -g -DNDEBUG",
 				"role" : "flags"
 			},
 			{
@@ -693,17 +562,22 @@
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "C:\\Qt\\6.7.3\\llvm-mingw_64\\lib\\libQt6MultimediaWidgets.a",
+				"fragment" : "C:\\Qt\\6.9.0\\mingw_64\\lib\\libQt6MultimediaWidgets.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "C:\\Qt\\6.7.3\\llvm-mingw_64\\lib\\libQt6Multimedia.a",
+				"fragment" : "C:\\Qt\\6.9.0\\mingw_64\\lib\\libQt6Widgets.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 19,
-				"fragment" : "C:\\Qt\\6.7.3\\llvm-mingw_64\\lib\\libQt6Network.a",
+				"backtrace" : 6,
+				"fragment" : "C:\\Qt\\6.9.0\\mingw_64\\lib\\libQt6Multimedia.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "C:\\Qt\\6.9.0\\mingw_64\\lib\\libQt6Network.a",
 				"role" : "libraries"
 			},
 			{
@@ -712,18 +586,13 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 6,
-				"fragment" : "C:\\Qt\\6.7.3\\llvm-mingw_64\\lib\\libQt6Widgets.a",
-				"role" : "libraries"
-			},
-			{
 				"backtrace" : 27,
-				"fragment" : "C:\\Qt\\6.7.3\\llvm-mingw_64\\lib\\libQt6Gui.a",
+				"fragment" : "C:\\Qt\\6.9.0\\mingw_64\\lib\\libQt6Gui.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 28,
-				"fragment" : "C:\\Qt\\6.7.3\\llvm-mingw_64\\lib\\libQt6Core.a",
+				"fragment" : "C:\\Qt\\6.9.0\\mingw_64\\lib\\libQt6Core.a",
 				"role" : "libraries"
 			},
 			{
@@ -743,36 +612,31 @@
 			},
 			{
 				"backtrace" : 46,
-				"fragment" : "C:\\Qt\\6.7.3\\llvm-mingw_64\\lib\\libQt6EntryPoint.a",
+				"fragment" : "C:\\Qt\\6.9.0\\mingw_64\\lib\\libQt6EntryPoint.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 55,
-				"fragment" : "-pthread",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 56,
+				"backtrace" : 47,
 				"fragment" : "-lshell32",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 62,
+				"backtrace" : 53,
 				"fragment" : "-ld3d11",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 62,
+				"backtrace" : 53,
 				"fragment" : "-ldxgi",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 62,
+				"backtrace" : 53,
 				"fragment" : "-ldxguid",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 62,
+				"backtrace" : 53,
 				"fragment" : "-ld3d12",
 				"role" : "libraries"
 			},
@@ -799,16 +663,6 @@
 				0,
 				1,
 				2,
-<<<<<<< HEAD
-				6,
-				8,
-				10,
-				11,
-				12,
-				13,
-				18,
-				20,
-=======
 				7,
 				8,
 				10,
@@ -817,7 +671,6 @@
 				15,
 				16,
 				17,
->>>>>>> ana
 				22,
 				24,
 				26,
@@ -826,35 +679,12 @@
 				32,
 				34,
 				36,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				40,
-				42,
-=======
 				38,
 				40,
->>>>>>> ana
 				44,
 				46,
 				48,
 				50,
-<<<<<<< HEAD
-				54,
-				56,
-				58,
-				60,
-				63
-========
-				39,
-				41,
-				43,
-				45,
-				47,
-				51,
-				53,
-				56
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 				52,
 				54,
 				58,
@@ -864,17 +694,12 @@
 				66,
 				68,
 				70,
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-				73
-========
 				72,
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
 				75
->>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
 ========
-				73
->>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
+				76
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 			]
 		},
 		{
@@ -883,15 +708,6 @@
 			[
 				3,
 				5,
-<<<<<<< HEAD
-				7,
-				9,
-				14,
-				15,
-				16,
-				17,
-				19,
-=======
 				6,
 				9,
 				11,
@@ -899,7 +715,6 @@
 				18,
 				19,
 				20,
->>>>>>> ana
 				21,
 				23,
 				25,
@@ -908,36 +723,13 @@
 				31,
 				33,
 				35,
-<<<<<<< HEAD
-				38,
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				39,
-				41,
-=======
 				37,
 				39,
 				42,
->>>>>>> ana
 				43,
 				45,
 				47,
 				49,
-<<<<<<< HEAD
-				53,
-				55,
-				57,
-				59,
-				61
-========
-				40,
-				42,
-				44,
-				46,
-				50,
-				52,
-				54
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 				51,
 				53,
 				57,
@@ -947,17 +739,13 @@
 				65,
 				67,
 				69,
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-				71
-========
 				71,
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
 				73
->>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
 ========
-				71
->>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
+				73,
+				74
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 			]
 		},
 		{
@@ -971,66 +759,33 @@
 			"name" : "Resources",
 			"sourceIndexes" : 
 			[
-<<<<<<< HEAD
-				37,
-				51,
-				52
-=======
 				41,
 				55,
 				56
->>>>>>> ana
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				62
-========
-				55
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-				72
-========
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
 				74
->>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
 ========
-				72
->>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
+				75
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				64,
-				65
-========
-				57,
-				58
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-				74,
-				75
-========
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
 				76,
 				77
->>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
 ========
-				74,
-				75
->>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
+				77,
+				78
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 			]
 		}
 	],
@@ -1040,7 +795,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/mocs_compilation.cpp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -1072,8 +827,6 @@
 		},
 		{
 			"backtrace" : 4,
-<<<<<<< HEAD
-=======
 			"path" : "drop.h",
 			"sourceGroupIndex" : 1
 		},
@@ -1096,7 +849,6 @@
 		},
 		{
 			"backtrace" : 4,
->>>>>>> ana
 			"compileGroupIndex" : 0,
 			"path" : "pantallainicio.cpp",
 			"sourceGroupIndex" : 0
@@ -1354,41 +1106,18 @@
 		},
 		{
 			"backtrace" : 4,
-<<<<<<< HEAD
-			"path" : "fireball.h",
-=======
 			"path" : "demon.h",
->>>>>>> ana
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-<<<<<<< HEAD
-			"path" : "fireball.cpp",
-=======
 			"path" : "demon.cpp",
->>>>>>> ana
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-<<<<<<< HEAD
-			"path" : "drop.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "drop.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
 			"path" : "minotaur.h",
-=======
-			"path" : "Minotaur.h",
->>>>>>> ana
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -1410,11 +1139,7 @@
 		},
 		{
 			"backtrace" : 4,
-<<<<<<< HEAD
-			"path" : "mutantworm.h",
-=======
 			"path" : "MutantWorm.h",
->>>>>>> ana
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -1424,8 +1149,6 @@
 			"sourceGroupIndex" : 0
 		},
 		{
-<<<<<<< HEAD
-=======
 			"backtrace" : 4,
 			"path" : "carnivore.h",
 			"sourceGroupIndex" : 1
@@ -1459,52 +1182,61 @@
 			"sourceGroupIndex" : 0
 		},
 		{
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
-========
 			"backtrace" : 4,
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
+			"path" : "inventorywidget.h",
+========
 			"path" : "npc.h",
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-9e7d5338782abbaaf98c.json
+			"path" : "inventorywidget.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+========
 			"path" : "npc.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
->>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
-========
->>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
+			"backtrace" : 4,
+			"path" : "movingplatform.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-9dd356ca5c9ba8f6631c.json
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/include/ui_mainwindow.h",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/include/ui_mainwindow.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/timestamp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/timestamp",
 			"sourceGroupIndex" : 4
 		},
 		{
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/timestamp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/timestamp.rule",
 			"sourceGroupIndex" : 5
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/EWIEGA46WW/qrc_resources.cpp.rule",
 			"sourceGroupIndex" : 5
 		}
 	],

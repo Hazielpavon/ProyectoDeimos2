@@ -2,6 +2,8 @@
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
+#include "enemigo.h"
+#include "BringerOfDeath.h"
 #include "CombateManager.h"
 #include <QRandomGenerator>
 #include <QGraphicsPixmapItem>
@@ -226,16 +228,34 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     sk->setTarget(m_player);
     m_scene->addItem(sk);
     m_enemigos.append(sk);
+    m_enemySpawnPos.append(sk->pos());
 
+<<<<<<< HEAD
     // **Añade también su spawnPos**:
     m_enemySpawnPos.append(skPos);
     // Fly
+=======
+    //minotaur
+    auto* boss = new Minotaur(this);
+    boss->setPos(4500, 520);      // coordenadas de aparición
+    boss->setTarget(m_player);
+    m_scene->addItem(boss);
+    m_enemigos.append(boss);
+    m_boss = boss;
+     m_enemySpawnPos.append(boss->pos());
+
+>>>>>>> ana
 
     QPointF flyPos{1800.0f, 520.0f};
     auto* fly = new MonsterFly(this);
     fly->setPos(flyPos);
     fly->setTarget(m_player);
     m_scene->addItem(fly);
+<<<<<<< HEAD
+=======
+    m_enemigos.append(fly);
+    m_enemySpawnPos.append(fly->pos());
+>>>>>>> ana
 
     m_enemigos.append(fly);
     m_enemySpawnPos.append(flyPos);
@@ -248,12 +268,24 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     worm->setPos(wormPos);
     worm->setTarget(m_player);
     m_scene->addItem(worm);
+<<<<<<< HEAD
 
     m_enemigos.append(worm);
     m_enemySpawnPos.append(wormPos);
 
 
 
+=======
+    m_enemigos.append(worm);
+    m_enemySpawnPos.append(worm->pos());
+
+    auto* carn = new Carnivore(this);
+    carn->setPos(4200, 450);   // posición inicial
+    carn->setTarget(m_player);
+    m_scene->addItem(carn);
+    m_enemigos.append(carn);
+    m_enemySpawnPos.append(carn->pos());
+>>>>>>> ana
 
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
@@ -480,6 +512,25 @@ void niveltorredelamarca::onFrame()
 
             // — Reset controles y bandera —
             m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
+            m_deathScheduled = false;
+            for (int i = 0; i < m_enemigos.size(); ++i) {
+                Enemigo* e = m_enemigos[i];
+                e->setPos( m_enemySpawnPos[i] );
+                e->setHP( e->maxHP() );
+                e->setEstado(Enemigo::Estado::Idle);
+                e->setVisible(true);           // ← asegúrate que vuelvan a verse
+                // si tienes método para “alive”:
+                // e->setAlive(true);
+            }
+            // limpia y reinicia flags…
+            m_drops.clear();
+            m_deadDrops.clear();
+            bossDefeated     = false;
+            m_bossDropCreado = false;
+
+            // ——— restablece input del jugador ———
+            m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
+            m_playerItem->setVisible(true);
             m_deathScheduled = false;
         });
     }

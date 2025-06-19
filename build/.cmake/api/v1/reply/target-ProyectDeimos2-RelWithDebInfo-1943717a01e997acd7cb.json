@@ -60,11 +60,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-<<<<<<< HEAD
-				"line" : 65,
-=======
 				"line" : 69,
->>>>>>> ana
 				"parent" : 0
 			},
 			{
@@ -88,13 +84,6 @@
 			{
 				"command" : 4,
 				"file" : 1,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				"line" : 130,
-========
-				"line" : 122,
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 <<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
 <<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
 				"line" : 137,
@@ -104,19 +93,11 @@
 ========
 				"line" : 137,
 >>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				"line" : 99,
-========
-				"line" : 91,
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 <<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
 <<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
 				"line" : 106,
@@ -126,7 +107,6 @@
 ========
 				"line" : 106,
 >>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
 				"parent" : 0
 			},
 			{
@@ -567,16 +547,6 @@
 				0,
 				1,
 				2,
-<<<<<<< HEAD
-				6,
-				8,
-				10,
-				11,
-				12,
-				13,
-				18,
-				20,
-=======
 				7,
 				8,
 				10,
@@ -585,7 +555,6 @@
 				15,
 				16,
 				17,
->>>>>>> ana
 				22,
 				24,
 				26,
@@ -594,35 +563,12 @@
 				32,
 				34,
 				36,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				40,
-				42,
-=======
 				38,
 				40,
->>>>>>> ana
 				44,
 				46,
 				48,
 				50,
-<<<<<<< HEAD
-				54,
-				56,
-				58,
-				60,
-				63
-========
-				39,
-				41,
-				43,
-				45,
-				47,
-				51,
-				53,
-				56
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 				52,
 				54,
 				58,
@@ -642,26 +588,17 @@
 ========
 				73
 >>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-<<<<<<< HEAD
-			"id" : "ProyectDeimos2_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 0,
-			"id" : "ProyectDeimos2_autogen::@6890427a1f51a3e7e1df"
-=======
 			"backtrace" : 0,
 			"id" : "ProyectDeimos2_autogen::@6890427a1f51a3e7e1df"
 		},
 		{
 			"id" : "ProyectDeimos2_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
->>>>>>> ana
 		}
 	],
 	"id" : "ProyectDeimos2::@6890427a1f51a3e7e1df",
@@ -799,16 +736,6 @@
 				0,
 				1,
 				2,
-<<<<<<< HEAD
-				6,
-				8,
-				10,
-				11,
-				12,
-				13,
-				18,
-				20,
-=======
 				7,
 				8,
 				10,
@@ -817,7 +744,6 @@
 				15,
 				16,
 				17,
->>>>>>> ana
 				22,
 				24,
 				26,
@@ -826,35 +752,12 @@
 				32,
 				34,
 				36,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				40,
-				42,
-=======
 				38,
 				40,
->>>>>>> ana
 				44,
 				46,
 				48,
 				50,
-<<<<<<< HEAD
-				54,
-				56,
-				58,
-				60,
-				63
-========
-				39,
-				41,
-				43,
-				45,
-				47,
-				51,
-				53,
-				56
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 				52,
 				54,
 				58,
@@ -874,7 +777,6 @@
 ========
 				73
 >>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
 			]
 		},
 		{
@@ -883,15 +785,6 @@
 			[
 				3,
 				5,
-<<<<<<< HEAD
-				7,
-				9,
-				14,
-				15,
-				16,
-				17,
-				19,
-=======
 				6,
 				9,
 				11,
@@ -899,7 +792,6 @@
 				18,
 				19,
 				20,
->>>>>>> ana
 				21,
 				23,
 				25,
@@ -908,36 +800,13 @@
 				31,
 				33,
 				35,
-<<<<<<< HEAD
-				38,
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				39,
-				41,
-=======
 				37,
 				39,
 				42,
->>>>>>> ana
 				43,
 				45,
 				47,
 				49,
-<<<<<<< HEAD
-				53,
-				55,
-				57,
-				59,
-				61
-========
-				40,
-				42,
-				44,
-				46,
-				50,
-				52,
-				54
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 				51,
 				53,
 				57,
@@ -957,7 +826,6 @@
 ========
 				71
 >>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
 			]
 		},
 		{
@@ -971,28 +839,15 @@
 			"name" : "Resources",
 			"sourceIndexes" : 
 			[
-<<<<<<< HEAD
-				37,
-				51,
-				52
-=======
 				41,
 				55,
 				56
->>>>>>> ana
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				62
-========
-				55
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 <<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
 <<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
 				72
@@ -1002,22 +857,12 @@
 ========
 				72
 >>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-16080b1cb7db95e32088.json
-				64,
-				65
-========
-				57,
-				58
->>>>>>>> Haziel:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
-=======
 <<<<<<<< HEAD:build/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
 <<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/target-ProyectDeimos2-RelWithDebInfo-1943717a01e997acd7cb.json
 				74,
@@ -1030,7 +875,6 @@
 				74,
 				75
 >>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
 			]
 		}
 	],
@@ -1072,8 +916,6 @@
 		},
 		{
 			"backtrace" : 4,
-<<<<<<< HEAD
-=======
 			"path" : "drop.h",
 			"sourceGroupIndex" : 1
 		},
@@ -1096,7 +938,6 @@
 		},
 		{
 			"backtrace" : 4,
->>>>>>> ana
 			"compileGroupIndex" : 0,
 			"path" : "pantallainicio.cpp",
 			"sourceGroupIndex" : 0
@@ -1354,41 +1195,18 @@
 		},
 		{
 			"backtrace" : 4,
-<<<<<<< HEAD
-			"path" : "fireball.h",
-=======
 			"path" : "demon.h",
->>>>>>> ana
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-<<<<<<< HEAD
-			"path" : "fireball.cpp",
-=======
 			"path" : "demon.cpp",
->>>>>>> ana
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-<<<<<<< HEAD
-			"path" : "drop.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "drop.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 4,
-			"path" : "minotaur.h",
-=======
 			"path" : "Minotaur.h",
->>>>>>> ana
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -1410,11 +1228,7 @@
 		},
 		{
 			"backtrace" : 4,
-<<<<<<< HEAD
-			"path" : "mutantworm.h",
-=======
 			"path" : "MutantWorm.h",
->>>>>>> ana
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -1424,8 +1238,6 @@
 			"sourceGroupIndex" : 0
 		},
 		{
-<<<<<<< HEAD
-=======
 			"backtrace" : 4,
 			"path" : "carnivore.h",
 			"sourceGroupIndex" : 1
@@ -1476,7 +1288,6 @@
 >>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/target-ProyectDeimos2-RelWithDebInfo-43186b78120ffee68e7b.json
 ========
 >>>>>>>> ana:build/.cmake/api/v1/reply/target-ProyectDeimos2-Debug-b772ca753b8f204d669b.json
->>>>>>> ana
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/include/ui_mainwindow.h",

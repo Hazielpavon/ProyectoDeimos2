@@ -200,7 +200,6 @@
         <file>resources/Bringer-of-Death_Walk_6.png</file>
         <file>resources/Bringer-of-Death_Walk_7.png</file>
         <file>resources/Bringer-of-Death_Walk_8.png</file>
-        <file>resources/templo del silencio.png</file>
         <file>resources/Ciudad_Inversa.png</file>
         <file>resources/Ciudad_Inversa2.png</file>
         <file>resources/demon_cleave_1.png</file>
@@ -523,6 +522,10 @@
         <file>resources/plataforma_fuego.png</file>
         <file>resources/drop_vida.png</file>
         <file>resources/drop_mana.png</file>
+        <file>resources/templo_silencio2.png</file>
+        <file>resources/templo.png</file>
+        <file>resources/templo2.png</file>
+        <file>resources/plataforma_normal.png</file>
         <file>resources/drop_llave.png</file>
         <file>resources/Bullet_Cannon.png</file>
         <file>resources/Cannon.png</file>
@@ -535,6 +538,7 @@
         <file>resources/Npc1Idle2.png</file>
         <file>resources/Npc1Idle3.png</file>
         <file>resources/Npc1Idle4.png</file>
+<<<<<<< HEAD
         <file>resources/drop_mejorasMana.png</file>
         <file>resources/drop_mejorasArmas.png</file>
         <file>resources/idle_B1.png</file>
@@ -583,5 +587,12 @@
         <file>resources/1_atk_12.png</file>
         <file>resources/1_atk_13.png</file>
         <file>resources/1_atk_14.png</file>
+=======
+        <file>resources/fireball.png</file>
+        <file>resources/inventariot.png</file>
+        <file>resources/mapat.png</file>
+        <file>resources/informacion.png</file>
+        <file>resources/ruta_inf.PNG</file>
+>>>>>>> ana
     </qresource>
 </RCC>

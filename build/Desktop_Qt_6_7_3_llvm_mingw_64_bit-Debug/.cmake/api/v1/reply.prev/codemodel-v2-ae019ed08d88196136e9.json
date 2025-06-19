@@ -7,7 +7,19 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
+<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-ae019ed08d88196136e9.json
 					"jsonFile" : "directory-.-Debug-7ee09680254ae6c5d493.json",
+=======
+<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-c0d1b032001bcaf7fb18.json
+<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-293958284712258f550d.json
+					"jsonFile" : "directory-.-Debug-45a6f33ca5c1587b0609.json",
+========
+					"jsonFile" : "directory-.-Debug-08dfee4f0ca09f71feea.json",
+>>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-c0d1b032001bcaf7fb18.json
+=======
+					"jsonFile" : "directory-.-Debug-4efef1e31aedde7ff888.json",
+>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-4c82941ff38b533540e2.json
+>>>>>>> ana:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-4c82941ff38b533540e2.json
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +56,23 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ProyectDeimos2::@6890427a1f51a3e7e1df",
+<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-ae019ed08d88196136e9.json
 					"jsonFile" : "target-ProyectDeimos2-Debug-901c3266cf760da8154d.json",
+=======
+<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-c0d1b032001bcaf7fb18.json
+<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-293958284712258f550d.json
+<<<<<<<< HEAD:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-293958284712258f550d.json
+					"jsonFile" : "target-ProyectDeimos2-Debug-946259fdc8b7a8681ce7.json",
+========
+					"jsonFile" : "target-ProyectDeimos2-Debug-30fe8fe3249b29269676.json",
+>>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-08850cb9102aca656f39.json
+========
+					"jsonFile" : "target-ProyectDeimos2-Debug-fc8334b6228c34792cd5.json",
+>>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-c0d1b032001bcaf7fb18.json
+=======
+					"jsonFile" : "target-ProyectDeimos2-Debug-1e726f6f4c920536f4ba.json",
+>>>>>>> origin/Haziel:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-4c82941ff38b533540e2.json
+>>>>>>> ana:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-4c82941ff38b533540e2.json
 					"name" : "ProyectDeimos2",
 					"projectIndex" : 0
 				},

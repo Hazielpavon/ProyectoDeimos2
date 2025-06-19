@@ -927,5 +927,15 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/CombateManager.h \
+<<<<<<< HEAD
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Enemigo.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h
+=======
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentefisico.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentesalud.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/sprite.h \
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/tranformacion.h
+>>>>>>> ana

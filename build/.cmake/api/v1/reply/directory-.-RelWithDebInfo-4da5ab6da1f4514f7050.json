@@ -17,15 +17,11 @@
 			{
 				"command" : 0,
 				"file" : 0,
-<<<<<<< HEAD
-<<<<<<<< HEAD:build/.cmake/api/v1/reply/directory-.-RelWithDebInfo-44a1f773eafb085f12b8.json
-				"line" : 131,
-========
-				"line" : 122,
->>>>>>>> Haziel:build/.cmake/api/v1/reply/directory-.-Debug-16a7b7ce056627b2d8ff.json
-=======
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/directory-.-Debug-08dfee4f0ca09f71feea.json
 				"line" : 137,
->>>>>>> ana
+========
+				"line" : 139,
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/directory-.-RelWithDebInfo-4da5ab6da1f4514f7050.json
 				"parent" : 0
 			}
 		]
@@ -35,13 +31,10 @@
 		{
 			"backtrace" : 1,
 			"component" : "Unspecified",
-			"destination" : ".",
+			"destination" : "bin",
 			"paths" : 
 			[
-				{
-					"from" : "ProyectDeimos2.app",
-					"to" : "ProyectDeimos2.app/Contents/MacOS/ProyectDeimos2"
-				}
+				"ProyectDeimos2.exe"
 			],
 			"targetId" : "ProyectDeimos2::@6890427a1f51a3e7e1df",
 			"targetIndex" : 0,

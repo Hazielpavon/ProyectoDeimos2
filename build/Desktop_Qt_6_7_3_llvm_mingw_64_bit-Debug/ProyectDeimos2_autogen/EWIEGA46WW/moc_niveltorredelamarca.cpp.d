@@ -938,15 +938,28 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
+<<<<<<< HEAD
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Enemigo.h \
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/CombateManager.h \
+=======
+>>>>>>> origin/Haziel
+=======
+>>>>>>> ana
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h \
+>>>>>>> origin/Haziel
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bullet.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/cannon.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/combatemanager.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentefisico.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentesalud.h \
+<<<<<<< HEAD
+=======
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/drop.h \
+>>>>>>> origin/Haziel
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.h \
