@@ -75,7 +75,9 @@ void CombateManager::update(float dt)
                 if (!e || e->isDead()) continue;
                 QRectF rectE = e->sceneBoundingRect();
                 if (hit.intersects(rectE) && m_bossCd <= 0.0f) {
-                    e->takeDamage(DMG_P2E);
+                    int dañoReal = m_player->computeDamage(DMG_P2E);
+                    e->takeDamage(dañoReal);
+
                     m_playerCd = COOLDOWN;
                     m_bossCd   = COOLDOWN;
                     break;
