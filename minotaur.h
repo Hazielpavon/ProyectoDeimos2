@@ -1,8 +1,14 @@
+<<<<<<< Updated upstream
+#pragma once
+#include "Enemigo.h"
+
+=======
 //minotaur.h
 
 #pragma once
 #include "Enemigo.h"
 
+>>>>>>> Stashed changes
 /* ════════════════════════════════════════════════════════ *
  *  Minotauro — jefe sin animación de muerte                *
  *  (al morir simplemente desaparece)                       *
@@ -18,8 +24,12 @@ public:
     void takeDamage(int dmg) override;
 
     /* QGraphicsItem overrides (hitbox rectangular) */
+<<<<<<< Updated upstream
+    QRectF       boundingRect() const override;
+=======
     QRectF extracted(const QPixmap &p) const;
     QRectF boundingRect() const override;
+>>>>>>> Stashed changes
     QPainterPath shape()        const override;
 
 private:

@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-4efef1e31aedde7ff888.json",
+					"jsonFile" : "directory-.-Debug-08dfee4f0ca09f71feea.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,11 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ProyectDeimos2::@6890427a1f51a3e7e1df",
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply.prev/codemodel-v2-a6cca7a23c2755f6bafe.json
+					"jsonFile" : "target-ProyectDeimos2-Debug-9e28df33e2c78215a047.json",
+========
 					"jsonFile" : "target-ProyectDeimos2-Debug-be1cf12052c4fe8e5fd4.json",
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-09b9262b5910f873d184.json
 					"name" : "ProyectDeimos2",
 					"projectIndex" : 0
 				},

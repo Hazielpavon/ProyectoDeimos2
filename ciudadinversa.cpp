@@ -1,8 +1,7 @@
-#include "ciudadinversa.h".h"
+#include "ciudadinversa.h"
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
-#include "Enemigo.h"
 #include "BringerOfDeath.h"
 #include "CombateManager.h"
 #include <QRandomGenerator>
@@ -15,196 +14,248 @@
 #include <QImage>
 #include <algorithm>
 #include <QDebug>
-#include <iostream>
 #include "mainwindow.h"
+#include "MutantWorm.h"   // 🐛 gusano mutante
+#include "Minotaur.h"     // 🦬 minotauro
 
-using namespace std;
-using namespace std;
-// ---- Constantes generales --------------------------------
+
+/* ─────────────────────────────  Constantes  ───────────────────────────── */
 static constexpr float WINDOW_W    = 950.0f;
 static constexpr float WINDOW_H    = 650.0f;
 static constexpr float FPS         = 60.0f;
 static constexpr float PLAT_WIDTH  = 200.0f;
 static constexpr float PLAT_HEIGHT = 20.0f;
 
-// HUD
+/* HUD */
 static constexpr float HUD_W = 350.0f;
 static constexpr float HUD_H = 35.0f;
 static constexpr float HUD_MARGIN = 10.0f;
 
-/* Auxiliar: recorta líneas transparentes inferiores */
+/* ───────── util: recorta líneas alfa vacías de la parte baja ─────────── */
 static QPixmap trimBottom(const QPixmap& pix)
 {
-    QImage img = pix.toImage()
-    .convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    QImage img = pix.toImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
     int maxY = -1;
-    for (int y=0; y<img.height(); ++y)
-        for (int x=0; x<img.width(); ++x)
-            if (qAlpha(img.pixel(x,y))>0) maxY = std::max(maxY,y);
-    return (maxY>=0 && maxY<img.height()-1)
-               ? pix.copy(0,0,pix.width(),maxY+1)
+    for (int y = 0; y < img.height(); ++y)
+        for (int x = 0; x < img.width(); ++x)
+            if (qAlpha(img.pixel(x, y)) > 0) maxY = std::max(maxY, y);
+
+    return (maxY >= 0 && maxY < img.height()-1)
+               ? pix.copy(0, 0, pix.width(), maxY+1)
                : pix;
 }
 
-// =========================================================
+/* ──────────────────────  ctor  ────────────────────── */
 ciudadinversa::ciudadinversa(entidad*   jugador,
-                                         MainWindow* mainWindow,
-                                         QWidget*   parent)
+                             MainWindow* mainWindow,
+                             QWidget*    parent)
     : QWidget(parent)
     , m_player(jugador)
     , m_mainWindow(mainWindow)
     , m_timer(new QTimer(this))
     , m_scene(new QGraphicsScene(this))
     , m_colManager(new ObjetosYColisiones(m_scene, this))
-    , m_dt(1.0f/FPS)
+    , m_dt(1.0f / FPS)
 {
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
-    // ---- Fondo ----
+
+    /* ------------------------  Fondo  ------------------------ */
     QPixmap bgOrig(":/resources/Ciudad_Inversa.png");
     QPixmap bg = bgOrig.scaled(bgOrig.size()*0.9,
                                Qt::KeepAspectRatioByExpanding,
                                Qt::SmoothTransformation);
     m_bgWidth  = bg.width();
     m_bgHeight = bg.height();
-    m_scene->setSceneRect(0,0,m_bgWidth*2, m_bgHeight);
-    for (int i=0;i<2;++i){
+    m_scene->setSceneRect(0, 0, m_bgWidth*2, m_bgHeight);
+
+    for (int i = 0; i < 2; ++i) {
         auto* item = m_scene->addPixmap(bg);
-        item->setZValue(0);  item->setPos(i*m_bgWidth,0);
+        item->setZValue(0);
+        item->setPos(i * m_bgWidth, 0);
     }
-    QPixmap bg2Orig(":/resources/Ciudad_Inversa2.png");
-    if(!bg2Orig.isNull()){
+
+    if (QPixmap bg2(":/resources/Ciudad_Inversa2.png"); !bg2.isNull()) {
         m_bg2Item = m_scene->addPixmap(
-            bg2Orig.scaled(m_bgWidth, m_bgHeight,
-                           Qt::KeepAspectRatioByExpanding,
-                           Qt::SmoothTransformation));
-        m_bg2Item->setPos(m_bgWidth,0);
+            bg2.scaled(m_bgWidth, m_bgHeight,
+                       Qt::KeepAspectRatioByExpanding,
+                       Qt::SmoothTransformation));
+        m_bg2Item->setPos(m_bgWidth, 0);
         m_bg2Item->setZValue(0);
         m_bg2Item->setVisible(false);
     }
 
-    // ---- Vista ----
+    /* ------------------------  Vista  ------------------------ */
     m_view = new QGraphicsView(m_scene, this);
     m_view->setFixedSize(int(WINDOW_W), int(WINDOW_H));
     m_view->setFrameShape(QFrame::NoFrame);
     m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setAttribute(Qt::WA_TransparentForMouseEvents);
+    m_view->scale(1.0, -1.0);                     // ← ciudad “invertida”
+    m_view->translate(0, -m_bgHeight);
 
-    // ---- Plataformas / suelo ----
-    float startX = 299.0f;
-    float endX   = 3592.33f;
-    float minY   = 200.0f;                // altura mínima
-    float maxY   = m_bgHeight - 40.0f - 100.0f; // 100px por encima del suelo
-    int   count  = 15;
-    float minGapX = 50.0f;  // mínimo espacio horizontal entre plataformas
-    float minGapY = 40.0f;  // mínimo espacio vertical entre plataformas
+    /* ----------------  Suelo y muros  ---------------- */
+    constexpr float WALL = 40.f;
+    m_colManager->addRect({0, 0,               m_bgWidth*2, WALL}, Qt::NoBrush, true);          // techo
+    m_colManager->addRect({0, m_bgHeight-WALL, m_bgWidth*2, WALL}, Qt::NoBrush, true);          // suelo
+    m_colManager->addRect({0, 0,               WALL,       m_bgHeight}, Qt::NoBrush, true);     // pared izq
+    m_colManager->addRect({m_bgWidth*2-WALL, 0, WALL,      m_bgHeight}, Qt::NoBrush, true);     // pared der
 
-    // preparamos un vector para recordar las rects y poder comprobar distancias
-    // tras haber inicializado m_bgWidth, m_bgHeight, etc.
-
+    /* ----------------  Plataformas fijas  ---------------- */
     static constexpr float PLAT_W = PLAT_WIDTH;
     static constexpr float PLAT_H = PLAT_HEIGHT;
+    const float STEP = PLAT_W * .60f, GAP = 80.f;
 
-
-    // Suelo (collisionOnly = true)
-    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
-
-
-
-    // Plataformas manuales, bien distribuidas entre x=[299,3592] y y=[150,450]
-    const QVector<QRectF> plataformas = {
-        // Δx ≈ 400, Δy ≤ 100
-        {  600.0f, 550.0f, PLAT_W, PLAT_H },  // Desde suelo
-        { 1000.0f, 500.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
-        { 1400.0f, 450.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
-        { 1800.0f, 520.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 70
-        { 2200.0f, 430.0f, PLAT_W, PLAT_H },  // Δx=400, bajada de 90
-        { 2600.0f, 530.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 100
-        { 3000.0f, 480.0f, PLAT_W, PLAT_H }   // Δx=400, bajada de 50
+    const QVector<QRectF> plataformasFijas = {
+        { WALL+GAP,             120,  m_bgWidth*2 - 2*(WALL+GAP), PLAT_H },
+        { m_bgWidth-STEP,       520,  STEP*2,                     PLAT_H },
+        { m_bgWidth/2-STEP,     450,  STEP*2,                     PLAT_H },
+        { m_bgWidth-STEP/2,     240,  STEP,                       PLAT_H },
+        { m_bgWidth/2-STEP/2,   170,  STEP,                       PLAT_H }
     };
 
-    for (const QRectF &r : plataformas) {
-        m_colManager->addRect(r,
-                              QColor(80,80,80),
-                              false);
+    for (const QRectF& r : plataformasFijas)
+        m_colManager->addRect(r, QColor(80, 80, 80), false);
+
+    /* ----------------  Plataformas móviles (2)  ---------------- */
+    {
+        const float MOV_W = 220.f;
+        const float MOV_H =  32.f;
+
+        const QVector<QRectF> movRects = {
+            {  m_bgWidth * 0.20f,  m_bgHeight * 0.45f,  MOV_W, MOV_H },
+            {  m_bgWidth * 0.65f,  m_bgHeight * 0.35f,  MOV_W, MOV_H },
+            {  m_bgWidth * 0.10f,  m_bgHeight * 0.25f,  MOV_W, MOV_H },
+            {  m_bgWidth * 0.45f,  m_bgHeight * 0.60f,  MOV_W, MOV_H },
+            {  m_bgWidth * 1.10f,  m_bgHeight * 0.50f,  MOV_W, MOV_H },
+            {  m_bgWidth * 1.50f,  m_bgHeight * 0.40f,  MOV_W, MOV_H }
+        };
+        /*  ─── Sprites para las plataformas móviles ───  */
+        QPixmap tex(":/resources/plataforma.png");
+
+        for (const QRectF& r : movRects)         // ←  usar movRects
+        {
+            // 1) sprite visible
+            QPixmap px = tex.scaled(int(r.width()), int(r.height()),
+                                    Qt::IgnoreAspectRatio,
+                                    Qt::SmoothTransformation);
+            auto* sprite = m_scene->addPixmap(px);
+            sprite->setZValue(1);
+            sprite->setPos(r.topLeft());
+
+            // 2) hit-box que viajará con el sprite
+            auto* hit = m_colManager->addRect(r, Qt::NoBrush, /*collisionOnly=*/true);
+
+            // 3) registrar plataforma móvil
+            InvMovingPlatform mp;
+            mp.sprite = sprite;
+            mp.hitbox = hit;
+            mp.minX   = r.x() - 100.f;
+            mp.maxX   = r.x() + 100.f;
+            mp.speed  = 80.f;
+            mp.dir    = +1;
+            m_movingPlatforms.append(mp);
+        }
+    }
+
+    /* ----------------  Enemigos extra  ---------------- */
+
+    // ── Dos gusanos mutantes (zonas media e intermedia‐derecha) ──
+    {
+        const QVector<QPointF> wormSpawns = {
+            /*     X                         Y      */
+            {  m_bgWidth * 0.25f,        180.f },   // 1 — zona izquierda alta
+            {  m_bgWidth * 0.45f,        230.f },   // 2 — pasarela intermedia
+            {  m_bgWidth * 0.70f,        150.f },   // 3 — hueco central
+            {  m_bgWidth * 0.95f,        210.f },   // 4 — antes del mid-boss
+            {  m_bgWidth * 1.20f,        180.f },   // 5 — mitad del segundo fondo
+            {  m_bgWidth * 1.50f,        220.f }    // 6 — cerca del minotauro
+        };
+
+        for (const QPointF& p : wormSpawns)
+        {
+            auto* w = new MutantWorm(this);
+            w->setPos(p);           // coloca al gusano
+            w->setTarget(m_player); // persigue jugador
+            m_scene->addItem(w);
+            m_enemigos.append(w);
+        }
+    }
+
+    // ── Minotauro al final del mapa (jefe) ──
+    {
+        auto* mino = new Minotaur(this);
+        /* ligeramente antes del borde derecho para que quepa */
+        mino->setPos(m_bgWidth*2 - 250.f, 150.f);
+        mino->setTarget(m_player);
+        m_scene->addItem(mino);
+        m_enemigos.append(mino);
+
+        /* si quieres que este sea “el” boss del nivel, haz: */
+        // m_boss = mino;            // (añade m_boss en tu .h si lo necesitas)
     }
 
 
 
+    /* ----------------  Spawn del jugador  ---------------- */
+    constexpr float TOP_PLATFORM_Y = 250.f;
+    const float spawnX = WALL + GAP + STEP;
+    const float spawnY = TOP_PLATFORM_Y - PLAT_H/2;
 
-
-
-
-    m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
-
-    // ---- Jugador ----
-    if(m_player){
-        m_spawnPos = QPointF(35,0);
-        m_player->transform().setPosition(
-            m_spawnPos.x(), m_spawnPos.y());
+    if (m_player) {
+        m_spawnPos = {spawnX, spawnY};
+        m_player->transform().setPosition(spawnX, spawnY);
         m_player->setOnGround(true);
 
         m_playerItem = new QGraphicsPixmapItem;
         m_playerItem->setZValue(3);
         m_scene->addItem(m_playerItem);
         m_playerItem->setPos(m_spawnPos);
-        auto jug = dynamic_cast<Jugador*>(m_player);
-        if (jug) jug->setGraphicsItem(m_playerItem);
+
+        if (auto* jug = dynamic_cast<Jugador*>(m_player))
+            jug->setGraphicsItem(m_playerItem);
     }
 
-    // ---- Enemigo (Bringer-of-Death) ----
+    /* ----------------  Boss BringerOfDeath (igual que antes)  -------- */
     auto* boss = new BringerOfDeath(this);
-    QSize bSz = boss->pixmap().size();
-    boss->setPos(4072.33,651 );
+    boss->setPos(4072.33, 651);
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
 
-    // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
-    m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
+    m_debugBossHitbox->setPen(QPen(Qt::red, 2, Qt::DashLine));
     m_debugBossHitbox->setBrush(Qt::NoBrush);
     m_debugBossHitbox->setZValue(10);
 
-
     float barW = 100, barH = 8;
-    m_bossHpBorder = new QGraphicsRectItem(0,0, barW, barH);
+    m_bossHpBorder = new QGraphicsRectItem(0, 0, barW, barH);
     m_bossHpBorder->setPen(QPen(Qt::black));
     m_bossHpBorder->setBrush(Qt::NoBrush);
     m_bossHpBorder->setZValue(11);
-    m_bossHpBar = new QGraphicsRectItem(1,1, barW-2, barH-2);
+    m_bossHpBar = new QGraphicsRectItem(1, 1, barW-2, barH-2);
     m_bossHpBar->setPen(Qt::NoPen);
-    m_bossHpBar->setBrush(QColor(200,0,0));
+    m_bossHpBar->setBrush(QColor(200, 0, 0));
     m_bossHpBar->setZValue(12);
     m_scene->addItem(m_bossHpBorder);
     m_scene->addItem(m_bossHpBar);
 
+    /* ----------------  Combate + HUD (sin cambios)  ---------------- */
+    if (auto* jug = dynamic_cast<Jugador*>(m_player))
+        m_combate = new CombateManager(jug, m_enemigos, this);
 
-    // ---- Gestor de Combate ----
-    Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
-    if (!jugadorPtr) {
-        qCritical() << "[NivelRaicesOlvidadas] m_player no es Jugador!";
-    } else {
-        m_combate = new CombateManager(jugadorPtr, m_enemigos, this);
-    }
-
-    // ---- Mapa + HUD (igual que antes) ----
-    m_mapaRegiones = new MapaWidget("Raices Olvidadas", this);
-    connect(m_mapaRegiones,&MapaWidget::mapaCerrado,
-            this,[this](){ activateWindow(); setFocus(); });
-
-    m_hudBorder = new QGraphicsRectItem(0,0,HUD_W,HUD_H);
+    m_hudBorder = new QGraphicsRectItem(0, 0, HUD_W, HUD_H);
     m_hudBorder->setPen(QPen(Qt::black));
     m_hudBorder->setBrush(Qt::NoBrush);
     m_hudBorder->setZValue(100);
     m_hudBorder->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudBorder);
 
-    m_hudBar = new QGraphicsRectItem(1,1,HUD_W-2,HUD_H-2);
+    m_hudBar = new QGraphicsRectItem(1, 1, HUD_W-2, HUD_H-2);
     m_hudBar->setPen(Qt::NoPen);
-    m_hudBar->setBrush(QColor(50,205,50));
+    m_hudBar->setBrush(QColor(50, 205, 50));
     m_hudBar->setZValue(101);
     m_hudBar->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudBar);
@@ -217,9 +268,16 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
     m_hudText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudText);
 
-    connect(m_timer,&QTimer::timeout,this,&ciudadinversa::onFrame);
-    m_timer->start(int(m_dt*1000));
+    /* ----------------  Timer  ---------------- */
+    connect(m_timer, &QTimer::timeout, this, &ciudadinversa::onFrame);
+    m_timer->start(int(m_dt * 1000));
 }
+
+/*  ──────────────────────
+    El resto del archivo
+    (keyPressEvent, keyReleaseEvent, onFrame, …)
+    permanece SIN CAMBIOS.
+   ────────────────────── */
 
 /* =========================================================//---------------------------------------------------------------------------------------
  *  Entrada (no cambia)

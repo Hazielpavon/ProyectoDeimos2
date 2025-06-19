@@ -2,6 +2,7 @@
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
+#include "BringerOfDeath.h"
 #include "CombateManager.h"
 #include <QRandomGenerator>
 #include <QGraphicsPixmapItem>
@@ -14,11 +15,13 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
+#include "Demon.h"
 #include "Skeleton.h"
 #include "Minotaur.h"
 #include "monsterfly.h"
 #include "MutantWorm.h"
 #include "Carnivore.h"
+
 
 
 // ---- Constantes generales --------------------------------
@@ -33,6 +36,7 @@ static constexpr float HUD_W = 350.0f;
 static constexpr float HUD_H = 35.0f;
 static constexpr float HUD_MARGIN = 10.0f;
 
+
 /* Auxiliar: recorta líneas transparentes inferiores */
 static QPixmap trimBottom(const QPixmap& pix)
 {
@@ -46,22 +50,11 @@ static QPixmap trimBottom(const QPixmap& pix)
                ? pix.copy(0,0,pix.width(),maxY+1)
                : pix;
 }
-void niveltorredelamarca::penalizarCañones() {
-    for (Cannon* c : m_cannons) {
-        // divide por 2 el intervalo de disparo
-        c->setFireRate( c->fireRate() * 0.5f );
-    }
-}
 
-void niveltorredelamarca::rewardPlayerExtraDamage() {
-    auto* jug = dynamic_cast<Jugador*>(m_player);
-    if (!jug) return;
-    jug->setDamageMultiplier( jug->damageMultiplier() * 1.05f );
-}
 // =========================================================
 niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
-                                         MainWindow* mainWindow,
-                                         QWidget*   parent)
+                                           MainWindow* mainWindow,
+                                           QWidget*   parent)
     : QWidget(parent)
     , m_player(jugador)
     , m_mainWindow(mainWindow)
@@ -105,54 +98,6 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setAttribute(Qt::WA_TransparentForMouseEvents);
 
-    static constexpr float PLAT_W = 200.0f;
-    static constexpr float PLAT_H = 400.0f;
-
-    const QVector<QRectF> plataformas = {
-        // — Bloque 1 —
-        {  600.0f, 550.0f, PLAT_W, PLAT_H },
-        { 1000.0f, 500.0f, PLAT_W, PLAT_H },
-        { 1400.0f, 450.0f, PLAT_W, PLAT_H },
-        { 1800.0f, 520.0f, PLAT_W, PLAT_H },
-        { 2200.0f, 430.0f, PLAT_W, PLAT_H },
-        { 2600.0f, 530.0f, PLAT_W, PLAT_H },
-        { 3000.0f, 480.0f, PLAT_W, PLAT_H },
-
-        // — Bloque 2 —
-        { 3400.0f, 550.0f, PLAT_W, PLAT_H },
-        { 3800.0f, 500.0f, PLAT_W, PLAT_H },
-        { 4200.0f, 450.0f, PLAT_W, PLAT_H },
-        { 4600.0f, 520.0f, PLAT_W, PLAT_H }
-    };
-
-
-    QPixmap lavaBrick(":/resources/plataforma.png");
-    // en el constructor o init:
-    for (const QRectF& r : plataformas) {
-        // 1) sprite
-        QPixmap px = lavaBrick.scaled(
-            int(r.width()), int(r.height()),
-            Qt::IgnoreAspectRatio, Qt::SmoothTransformation
-            );
-        auto* vis = new QGraphicsPixmapItem(px);
-        vis->setPos(r.topLeft());
-        vis->setZValue(1);
-        m_scene->addItem(vis);
-
-        // 2) hitbox+registro
-        auto* hit = m_colManager->addRect(r, Qt::NoBrush, /*collisionOnly=*/true);
-
-        // 3) guardar en tu vector
-        MovingPlatform mp;
-        mp.sprite = vis;
-        mp.hitbox = hit;
-        mp.minX   = r.x() - 100;
-        mp.maxX   = r.x() + 100;
-        mp.speed  = 80.0f;
-        mp.dir    = +1;
-        m_movingPlatforms.append(mp);
-    }
-
     float startX = 299.0f;
     float endX   = 3592.33f;
     float minY   = 200.0f;
@@ -161,6 +106,8 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     float minGapX = 50.0f;
     float minGapY = 40.0f;
 
+    static constexpr float PLAT_W = PLAT_WIDTH;
+    static constexpr float PLAT_H = PLAT_HEIGHT;
 
     m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
@@ -181,58 +128,61 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
 
 
     // en niveltorredelamarca.cpp, constructor:
-
     float W = m_scene->sceneRect().width();
-    Jugador* jug         = dynamic_cast<Jugador*>(m_player);
-
-    // Define 8 posiciones X equiespaciadas entre el 10% y el 90% de W
-    QVector<qreal> xs = {
-        W * 0.10f,
-        W * 0.20f,
-        W * 0.30f,
-        W * 0.40f,
-        W * 0.50f,
-        W * 0.60f,
-        W * 0.70f,
-        W * 0.80f
-    };
     m_cannons.append(new Cannon(dynamic_cast<Jugador*>(m_player), m_scene, W*0.25f, Cannon::Top));
-    // Crea los 8 cañones siempre “Top”
-    for (qreal x : xs) {
-        m_cannons.append(
-            new Cannon(
-                jug,
-                m_scene,
-                x,
-                Cannon::Top
-                )
-            );
-    }
+    m_cannons.append(new Cannon(dynamic_cast<Jugador*>(m_player), m_scene, W*0.75f, Cannon::Bottom));
+
+
+    // ---- Enemigo (Bringer-of-Death) ----
+    //auto* boss = new BringerOfDeath(this);
+   // QSize bSz = boss->pixmap().size();
+   // boss->setPos(4072.33,651 );
+    //boss->setTarget(m_player);
+    //m_scene->addItem(boss);
+   // m_enemigos.append(boss);
+
+    //demon
+   // auto* demon = new Demon(this);
+   // demon->setPos(2000, 651);
+   // demon->setTarget(m_player);
+   // m_scene->addItem(demon);
+   // m_enemigos.append(demon);
+
+    //skeleton
+   // auto* sk = new Skeleton(this);
+   // sk->setPos(600, 651);        // posición deseada
+   // sk->setTarget(m_player);
+   // m_scene->addItem(sk);
+   // m_enemigos.append(sk);
+
     //minotaur
     auto* boss = new Minotaur(this);
-    boss->setPos(4500, 520);      // coordenadas de aparición
+    boss->setPos(400, 651);      // coordenadas de aparición
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
-    m_boss = boss;
 
-    auto* fly = new MonsterFly(this);
-    fly->setPos(1800, 520);        // un poco por encima del suelo
-    fly->setTarget(m_player);
-    m_scene->addItem(fly);
-    m_enemigos.append(fly);
+    //fly enemy
+  //  auto* fly = new MonsterFly(this);
+   // fly->setPos(300, 450);        // un poco por encima del suelo
+   // fly->setTarget(m_player);
+  //  m_scene->addItem(fly);
+  //  m_enemigos.append(fly);
 
-    auto* worm = new MutantWorm(this);
-    worm->setPos(3000, 480);     // coordenadas iniciales
-    worm->setTarget(m_player);
-    m_scene->addItem(worm);
-    m_enemigos.append(worm);
+    //mutant worm
+  //  auto* worm = new MutantWorm(this);
+  //  worm->setPos(5200, 651);     // coordenadas iniciales
+  //  worm->setTarget(m_player);
+   // m_scene->addItem(worm);
+   // m_enemigos.append(worm);
 
-    auto* carn = new Carnivore(this);
-    carn->setPos(4200, 450);   // posición inicial
-    carn->setTarget(m_player);
-    m_scene->addItem(carn);
-    m_enemigos.append(carn);
+    //carnivore
+ //   auto* carn = new Carnivore(this);
+   // carn->setPos(800, 651);   // posición inicial
+ //   carn->setTarget(m_player);
+  //  m_scene->addItem(carn);
+   // m_enemigos.append(carn);
+
 
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
@@ -274,9 +224,6 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_manaText->setZValue(102);
     m_manaText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_manaText);
-
-    float npcX = 200.0f;
-    m_npc = new NPC(this,dynamic_cast<Jugador*>(m_player), m_scene,  QPointF(npcX, m_bgHeight - 40.0f), this);
 
     // ---- Gestor de Combate ----
     Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
@@ -385,7 +332,7 @@ void niveltorredelamarca::keyReleaseEvent(QKeyEvent* e)
 }
 void niveltorredelamarca::mousePressEvent(QMouseEvent*)
 {
-    if(!m_player) return;
+    if(!m_player || !m_player->isOnGround()) return;
     SpriteState st = (m_player->getLastDirection()==SpriteState::WalkingLeft ||
                       m_player->getLastDirection()==SpriteState::RunningLeft)
                          ? SpriteState::SlashingLeft
@@ -399,9 +346,16 @@ void niveltorredelamarca::mousePressEvent(QMouseEvent*)
 void niveltorredelamarca::onFrame()
 {
     if (!m_player) return;
+<<<<<<< Updated upstream
+
+    QPointF footPos1 = m_player->transform().getPosition();
+    float x = footPos1.x();
+    float y = footPos1.y();
+=======
     float dt = m_dt;
     QPointF footPos = m_player->transform().getPosition();
     float x = footPos.x();
+>>>>>>> Stashed changes
 
     // 1) Salir por la izquierda → tutorial
     if (x < 0.0f) {
@@ -433,7 +387,7 @@ void niveltorredelamarca::onFrame()
         // Después de 2s, respawnear jugador + enemigos
         QTimer::singleShot(2000, this, [this, jug]() {
             // — Respawn jugador —
-            m_player->transform().setPosition(m_spawnPos.x(),m_spawnPos.y());
+            m_player->transform().setPosition(m_spawnPos.x(),m_spawnPos.y() );
             m_player->fisica().setVelocity(0,0);
             jug->setOnGround(true);
             jug->sprite().setState(SpriteState::Idle);
@@ -442,14 +396,14 @@ void niveltorredelamarca::onFrame()
             m_playerItem->setVisible(true);
 
             // — Respawn enemigos —
+            /*
             for (int i = 0; i < m_enemigos.size(); ++i) {
                 Enemigo* e = m_enemigos[i];
                 e->setPos(m_enemySpawnPos[i]);
-                // en lugar de revive():
-                e->takeDamage(-e->currentHP());         // deja HP = maxHP si currentHP es 0
-                e->setEstado(Enemigo::Estado::Idle);             // vuelve a la animación inicial
+                e->revive(e->maxHP());         // reset HP, estado y animación
                 e->setVisible(true);
             }
+            */
 
             // — Limpiar drops y flags de boss —
             m_drops.clear();
@@ -492,6 +446,13 @@ void niveltorredelamarca::onFrame()
         m_bg2Item->setVisible(true);
         m_secondBgShown = true;
     }
+<<<<<<< Updated upstream
+    // 1) Actualizar cañones
+    for (Cannon* cannon : m_cannons)
+        cannon->update(m_dt);
+     m_scene->advance();
+
+=======
 
     // 7) Actualizar cañones y avanzar escena
     for (auto* c : m_cannons) c->update(dt);
@@ -509,6 +470,7 @@ void niveltorredelamarca::onFrame()
         auto hb = mp.hitbox->rect();
         mp.hitbox->setRect(nx, hb.y(), hb.width(), hb.height());
     }
+>>>>>>> Stashed changes
 
     // 10) Enemigos: update + colisiones
     for (auto* e : m_enemigos) {
@@ -519,18 +481,118 @@ void niveltorredelamarca::onFrame()
 
     // 11) Drops al morir (boss + minibosses)
     if (!m_enemigos.isEmpty()) {
+<<<<<<< Updated upstream
+        Enemigo* boss = m_enemigos.first();
+        if (!bossDefeated && boss->isDead()) {
+=======
         // Boss
         if (!bossDefeated && m_boss->isDead()) {
+>>>>>>> Stashed changes
             bossDefeated = true;
+
             if (!m_bossDropCreado) {
                 m_bossDropCreado = true;
+<<<<<<< Updated upstream
+                QPointF posDrop = boss->pos();  // <- ahora usamos la posición exacta del boss
+                m_drops.append(new Drop(Drop::Tipo::Vida, posDrop + QPointF(-10, 0), m_scene));
+                m_drops.append(new Drop(Drop::Tipo::Mana, posDrop + QPointF(10, 0), m_scene));
+                m_drops.append(new Drop(Drop::Tipo::Llave, posDrop + QPointF(0, -20), m_scene, "Torre De La Marca"));
+=======
                 QPointF p = m_boss->pos();
                 m_drops.append(new Drop(Drop::Tipo::Vida,  p+QPointF(-10,0), m_scene));
                 m_drops.append(new Drop(Drop::Tipo::Mana,  p+QPointF( 10,0), m_scene));
                 m_drops.append(new Drop(Drop::Tipo::Llave, p+QPointF(  0,-20), m_scene, "Torre De La Marca"));
+>>>>>>> Stashed changes
             }
-            if (m_npc) m_npc->onBossDefeated();
+
         }
+<<<<<<< Updated upstream
+    }
+
+
+    if (bossDefeated) {
+        m_bossHpBorder->setVisible(false);
+        m_bossHpBar->setVisible(false);
+        m_debugBossHitbox->setVisible(false);
+    }
+    // ——— Debug hitbox y barra de vida del boss ———
+    if (!m_enemigos.isEmpty()) {
+        Enemigo* boss = m_enemigos.first();
+        QRectF sb = boss->sceneBoundingRect();
+        // hitbox
+        m_debugBossHitbox->setRect(0, 0, sb.width(), sb.height());
+        m_debugBossHitbox->setPos(sb.topLeft());
+        // barra
+        float frac = float(boss->currentHP()) / boss->maxHP();
+        float bw = m_bossHpBorder->rect().width();
+        float bh = m_bossHpBorder->rect().height();
+        float x0 = sb.left() + (sb.width() - bw)/2.0f;
+        float y0 = sb.top()  - bh - 4.0f;
+        m_bossHpBorder->setRect(0,0,bw,bh);
+        m_bossHpBorder->setPos(x0,y0);
+        m_bossHpBar->setRect(1,1,(bw-2)*frac, bh-2);
+        m_bossHpBar->setPos(x0,y0);
+    }
+
+    // ——— Combate ———
+    if (m_combate) m_combate->update(m_dt);
+
+    // ——— Render jugador + cámara ———
+    QPixmap pix = trimBottom(
+        m_player->sprite().currentFrame()
+            .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
+        );
+    QPointF footPos = m_player->transform().getPosition();
+    m_playerItem->setPixmap(pix);
+    m_playerItem->setOffset(-pix.width()/2.0, -pix.height());
+    m_playerItem->setPos(footPos);
+    m_view->centerOn(footPos);
+
+    // ——— HUD ———
+    QPointF tl = m_view->mapToScene(0,0);
+    float hpFrac = float(m_player->currentHP()) / m_player->maxHP();
+    m_hudBorder->setPos(tl.x()+HUD_MARGIN, tl.y()+HUD_MARGIN);
+    m_hudBar->setRect(
+        tl.x()+HUD_MARGIN+1, tl.y()+HUD_MARGIN+1,
+        (HUD_W-2)*hpFrac, HUD_H-2
+        );
+    int pct = int(hpFrac*100.0f + 0.5f);
+    m_hudText->setPlainText(QString::number(pct) + "%");
+    QRectF rt = m_hudText->boundingRect();
+    m_hudText->setPos(
+        tl.x()+HUD_MARGIN + (HUD_W-rt.width())/2.0f,
+        tl.y()+HUD_MARGIN + (HUD_H-rt.height())/2.0f
+        );
+    float manaFrac = float(m_player->Getmana()) / m_player->maxMana();
+    int manaPct = int(manaFrac * 100.0f + 0.5f);
+    if (manaPct > 100) manaPct = 100;
+    m_hudManaBorder->setPos(tl.x() + HUD_MARGIN, tl.y() + HUD_MARGIN + HUD_H + 4);
+    m_hudManaBar->setRect(
+        tl.x() + HUD_MARGIN + 1,
+        tl.y() + HUD_MARGIN + HUD_H + 5,
+        (HUD_W - 2) * manaFrac,
+        HUD_H - 2
+        );
+    m_manaText->setPlainText(QString::number(manaPct) + "%");
+    QRectF rt2 = m_manaText->boundingRect();
+    m_manaText->setPos(
+        tl.x() + HUD_MARGIN + (HUD_W - rt2.width()) / 2.0f,
+        tl.y() + HUD_MARGIN + HUD_H + 5 + (HUD_H - rt2.height()) / 2.0f
+        );
+    for (int i = m_fireballs.size() - 1; i >= 0; --i) {
+        Fireball* f = m_fireballs[i];
+        if (!f || !f->isAlive()) {
+            m_fireballs.remove(i);
+        } else {
+            f->avanzar(m_dt);
+        }
+    }
+
+    for (int i = m_drops.size() - 1; i >= 0; --i) {
+        Drop* drop = m_drops[i];
+        if (!drop->isCollected() && drop->checkCollision(m_player)) {
+            drop->aplicarEfecto(dynamic_cast<Jugador*>(m_player));
+=======
         // Minibosses
         for (auto* e : m_enemigos) {
             if (e != m_boss && e->isDead() && !m_deadDrops.contains(e)) {
@@ -540,6 +602,7 @@ void niveltorredelamarca::onFrame()
                                         QPointF(sb.left(), sb.bottom()),
                                         m_scene));
             }
+>>>>>>> Stashed changes
         }
     }
 

@@ -2,11 +2,8 @@ C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_M
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/ProyectDeimos2_autogen/moc_predefs.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QMap \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
-  C:/Qt/6.9.0/mingw_64/include/QtCore/QPoint \
-  C:/Qt/6.9.0/mingw_64/include/QtCore/QPointF \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QRectF \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QSize \
-  C:/Qt/6.9.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QVector \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
@@ -141,7 +138,6 @@ C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_M
   C:/Qt/6.9.0/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qyieldcpu.h \
-  C:/Qt/6.9.0/mingw_64/include/QtGui/QPainter \
   C:/Qt/6.9.0/mingw_64/include/QtGui/QPixmap \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qbitmap.h \
@@ -403,9 +399,4 @@ C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/build/Desktop_Qt_6_9_0_M
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/CombateManager.h \
   C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/Enemigo.h \
-  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.h \
-  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentefisico.h \
-  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/componentesalud.h \
-  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/entidad.h \
-  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/sprite.h \
-  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/tranformacion.h
+  C:/Users/Jorge\ Aguirre/Desktop/test\ 6/ProyectoDeimos2/ObjetosYColisiones.h

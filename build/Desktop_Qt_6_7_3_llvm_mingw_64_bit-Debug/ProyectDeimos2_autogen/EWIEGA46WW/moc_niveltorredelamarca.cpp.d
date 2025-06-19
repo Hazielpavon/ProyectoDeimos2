@@ -938,8 +938,11 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
+<<<<<<< Updated upstream
+=======
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Enemigo.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Minotaur.h \
+>>>>>>> Stashed changes
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/bullet.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/cannon.h \
@@ -950,6 +953,5 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/enemigo.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/npc.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/sprite.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/tranformacion.h

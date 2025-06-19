@@ -1,0 +1,97 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Ninja"
+		},
+		"paths" : 
+		{
+			"cmake" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
+			"cpack" : "C:/Qt/Tools/CMake_64/bin/cpack.exe",
+			"ctest" : "C:/Qt/Tools/CMake_64/bin/ctest.exe",
+			"root" : "C:/Qt/Tools/CMake_64/share/cmake-3.30"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 3,
+			"minor" : 30,
+			"patch" : 5,
+			"string" : "3.30.5",
+			"suffix" : ""
+		}
+	},
+	"objects" : 
+	[
+		{
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/index-2025-06-18T05-24-30-0922.json
+			"jsonFile" : "codemodel-v2-c45372239908217dd040.json",
+========
+			"jsonFile" : "codemodel-v2-4cf33534092e4b630004.json",
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/index-2025-06-19T08-11-46-0409.json
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 7
+			}
+		},
+		{
+			"jsonFile" : "cache-v2-be14721b419bd36e53d8.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		{
+			"jsonFile" : "cmakeFiles-v1-45534febeb638360b699.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 1
+			}
+		}
+	],
+	"reply" : 
+	{
+		"cache-v2" : 
+		{
+			"jsonFile" : "cache-v2-be14721b419bd36e53d8.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		"cmakeFiles-v1" : 
+		{
+			"jsonFile" : "cmakeFiles-v1-45534febeb638360b699.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 1
+			}
+		},
+		"codemodel-v2" : 
+		{
+<<<<<<<< Updated upstream:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply.prev/index-2025-06-18T05-24-30-0922.json
+			"jsonFile" : "codemodel-v2-c45372239908217dd040.json",
+========
+			"jsonFile" : "codemodel-v2-4cf33534092e4b630004.json",
+>>>>>>>> Stashed changes:build/Desktop_Qt_6_9_0_MinGW_64_bit-RelWithDebInfo/.cmake/api/v1/reply/index-2025-06-19T08-11-46-0409.json
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 7
+			}
+		}
+	}
+}
