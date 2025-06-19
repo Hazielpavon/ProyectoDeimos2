@@ -123,6 +123,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         cannon.h cannon.cpp
         bullet.h bullet.cpp
 
+
+
     )
 else()
     add_executable(ProyectDeimos2 ${PROJECT_SOURCES})

@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
+#include "plataforma_movil.h"
 
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
@@ -27,8 +28,10 @@ static constexpr float PLAT_HEIGHT = 20.0f;
 static constexpr float HUD_W = 350.0f;
 static constexpr float HUD_H = 35.0f;
 static constexpr float HUD_MARGIN = 10.0f;
-static constexpr float MINI_PLAT_WIDTH  = 80.0f;
+static constexpr float MINI_PLAT_WIDTH  = 110.0f;
 static constexpr float MINI_PLAT_HEIGHT = 20.0f;
+static constexpr float Mid_PLAT_WIDTH  = 300.0f;
+static constexpr float Mid_PLAT_HEIGHT = 20.0f;
 
 /* Auxiliar: recorta líneas transparentes inferiores */
 static QPixmap trimBottom(const QPixmap& pix)
@@ -107,20 +110,30 @@ TutorialScene::TutorialScene(entidad*   jugador,
 
     const QVector<QRectF> plataformas = {
                                          // Plataformas grandes existentes
-                                         {  500.0f, 600.0f, PLAT_W, PLAT_H },
-                                         { 1000.0f, 500.0f, PLAT_W, PLAT_H },
-                                         { 1400.0f, 450.0f, PLAT_W, PLAT_H },
-                                         { 1800.0f, 520.0f, PLAT_W, PLAT_H },
+                                         // {  500.0f, 600.0f, PLAT_W, PLAT_H },
+                                         // { 1011.0f, 250.0f, PLAT_W, PLAT_H },
+                                         // { 1015.0f, 250.0f, PLAT_W, PLAT_H },
+                                         // { 1020.0f, 250.0f, PLAT_W, PLAT_H },
+                                         // { 1080.0f, 250.0f, PLAT_W, PLAT_H },
+                                         // { 1120.0f, 250.0f, PLAT_W, PLAT_H },
                                          { 2200.0f, 430.0f, PLAT_W, PLAT_H },
                                          { 2600.0f, 530.0f, PLAT_W, PLAT_H },
                                          { 3000.0f, 480.0f, PLAT_W, PLAT_H },
 
                                          // Plataformas pequeñas nuevas
-                                         { 25.0f, 250.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
-                                         { 50.0f, 380.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
-                                         { 3300.0f, 390.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
-                                         { 3400.0f, 360.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
-                                         };
+                                         { 10.0f, 250.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
+                                         { 140.0f, 310.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
+                                         { 290.0f, 210.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
+                                         { 420.0f, 310.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
+                                         { 580.0f, 370.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
+                                         { 740.0f, 250.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
+                                         { 870.0f, 310.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
+                                         { 1010.0f, 250.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
+
+
+                                         // { 1011.0f, 250.0f, Mid_PLAT_WIDTH, Mid_PLAT_HEIGHT },
+                           { 1200.0f, 250.0f, Mid_PLAT_WIDTH, Mid_PLAT_HEIGHT },
+                           };
 
     QPixmap lavaBrick(":/resources/plataforma_normal.png");
     if (lavaBrick.isNull()) {
@@ -141,6 +154,17 @@ TutorialScene::TutorialScene(entidad*   jugador,
         // hitbox
         m_colManager->addRect(r, Qt::NoBrush, true);  // Solo colisión
     }
+    auto* plataformaMovil = new PlataformaMovil(
+        1600.0f, 300.0f,         // posición inicial
+        PLAT_WIDTH, PLAT_HEIGHT, // tamaño
+        250.0f, 400.0f,          // minY, maxY
+        5.0f                    // Aumentá la velocidad aquí
+        );
+
+    m_scene->addItem(plataformaMovil);
+
+    // // Hitbox fija (opcional: si querés que no tenga colisión, quitá esta línea)
+    // m_colManager->addRect({1600.0f, 300.0f, PLAT_W, PLAT_H}, Qt::NoBrush, true);
 
 
     // ---- Jugador ----
