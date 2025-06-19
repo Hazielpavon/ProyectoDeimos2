@@ -2,11 +2,8 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_Qt_6_7_3_llvm_mingw_64_bit-Debug/ProyectDeimos2_autogen/moc_predefs.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QMap \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QObject \
-  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QPoint \
-  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QPointF \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QRectF \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QSize \
-  C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QString \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QTimer \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/QVector \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/q20functional.h \
@@ -129,7 +126,6 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtCore/qyieldcpu.h \
-  C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QPainter \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/QPixmap \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.7.3/llvm-mingw_64/include/QtGui/qbitmap.h \
@@ -932,9 +928,4 @@ C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/build/Desktop_
   C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/CombateManager.h \
   C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/Enemigo.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentefisico.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/componentesalud.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/entidad.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/sprite.h \
-  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/tranformacion.h
+  C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/ObjetosYColisiones.h

@@ -62,6 +62,7 @@ public:
         Jump          // ← NUEVO
     };
 
+    virtual void revive(int hp);
     explicit Enemigo(QObject* parent = nullptr);
 
     /* ---------- Animación ---------- */
@@ -100,10 +101,12 @@ public:
     /* ---------- Compatibilidad antigua ---------- */
     int  frameIndex() const { return animActual().idx; }   // usado por CombateManager
     void setHP(int hp){ this-> m_hp = hp;}
+    virtual void onRevive() {}
 protected:
     /* Velocidad para subclases */
     qreal m_velX = 0.0;
     qreal m_velY = 0.0;
+
 
 private:
     /* Animaciones */
@@ -113,7 +116,7 @@ private:
     /* Vida */
     int     m_maxHP  = 5;
     int     m_hp     = 5;
-
+    bool   m_isDead = false;
     /* Lógica general */
     entidad* m_target    = nullptr;
     bool     m_onGround  = false;

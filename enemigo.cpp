@@ -1,6 +1,5 @@
 #include "Enemigo.h"
 #include <QDebug>
-
 /* ---------- Constructor ---------- */
 Enemigo::Enemigo(QObject* parent)
     : QObject(parent), QGraphicsPixmapItem()
@@ -15,6 +14,15 @@ void Enemigo::addAnim(Estado st, const Animacion& a)
     m_anims.insert(st, a);
     if (st == m_estado && !a.frames.isEmpty())
         setPixmap(a.frames.first());
+}
+void Enemigo::revive(int hp) {
+    m_maxHP = m_hp = hp;
+    m_velX = m_velY = 0;
+    m_estado = Estado::Idle;
+    setPixmap(animActual().frames.first());
+    setVisible(true);
+    m_onGround = false;
+    onRevive();   // <–– Llamamos al hook
 }
 
 Animacion& Enemigo::animActual()

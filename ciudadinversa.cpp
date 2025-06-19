@@ -98,10 +98,10 @@ ciudadinversa::ciudadinversa(entidad*   jugador,
 
     /* ----------------  Suelo y muros  ---------------- */
     constexpr float WALL = 40.f;
-    m_colManager->addRect({0, 0,               m_bgWidth*2, WALL}, Qt::NoBrush, true);          // techo
-    m_colManager->addRect({0, m_bgHeight-WALL, m_bgWidth*2, WALL}, Qt::NoBrush, true);          // suelo
-    m_colManager->addRect({0, 0,               WALL,       m_bgHeight}, Qt::NoBrush, true);     // pared izq
-    m_colManager->addRect({m_bgWidth*2-WALL, 0, WALL,      m_bgHeight}, Qt::NoBrush, true);     // pared der
+    m_colManager->addRect({0, 0,static_cast<qreal>(m_bgWidth*2), WALL}, Qt::NoBrush, true);          // techo
+    m_colManager->addRect({0, m_bgHeight-WALL, static_cast<qreal>(m_bgWidth*2), WALL}, Qt::NoBrush, true);          // suelo
+    m_colManager->addRect({0, 0,               WALL,       static_cast<qreal>(m_bgHeight)}, Qt::NoBrush, true);     // pared izq
+    m_colManager->addRect({m_bgWidth*2-WALL, 0, WALL,      static_cast<qreal>(m_bgHeight)}, Qt::NoBrush, true);     // pared der
 
     /* ----------------  Plataformas fijas  ---------------- */
     static constexpr float PLAT_W = PLAT_WIDTH;

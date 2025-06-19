@@ -80,7 +80,7 @@ void NPC::talk()
         m_hasQuest  = true;
         m_accepted  = (r == QMessageBox::Yes);
         if (!m_accepted)
-            m_level->penalizarCañones();
+            m_level->penalizarCanones();
     }
     else if (m_hasQuest && !m_accepted) {
         // quien dijo NO

@@ -37,7 +37,11 @@ static Animacion loadSet(const QString& pat,int n,bool mirror=false)
 } // anon
 
 /* ----------------  ctor  ---------------- */
-Minotaur::Minotaur(QObject* parent) : Enemigo(parent)
+Minotaur::Minotaur(QObject* parent) : Enemigo(parent), m_dead(false)
+    , m_mode(Mode::Patrol)
+    , m_patrolDir(+1)
+    , m_patrolTime(0.0f)
+    , m_facingRight(true)
 {
     addAnim(Estado::Idle  , loadSet(":/resources/idle_%1.png" ,16));
     addAnim(Estado::Walk  , loadSet(":/resources/walk_%1.png" ,12));
@@ -55,11 +59,8 @@ Minotaur::Minotaur(QObject* parent) : Enemigo(parent)
 QRectF Minotaur::boundingRect() const
 {
     const auto& p = pixmap();
-<<<<<<< Updated upstream
-    return { -p.width()/2.0, -p.height()/2.0, p.width(), p.height() };
-=======
     return { -p.width()/2.0, -p.height()/2.0, static_cast<qreal>(p.width()), static_cast<qreal>(p.height()) };
->>>>>>> Stashed changes
+
 }
 QPainterPath Minotaur::shape() const
 {

@@ -38,7 +38,12 @@ static Animacion loadSet(const QString& patt,int frames,bool mirror=false)
 }
 
 /* --------------- ctor --------------- */
-MutantWorm::MutantWorm(QObject* parent):Enemigo(parent)
+MutantWorm::MutantWorm(QObject* parent):Enemigo(parent), m_deadAnim(false)
+    , m_mode(Mode::Patrol)
+    , m_patrolDir(+1)
+    , m_patrolTime(0)
+    , m_faceRight(true)
+
 {
     addAnim(Estado::Idle  , loadSet(":/resources/1_Monster_Idle_%1.png"   ,18));
     addAnim(Estado::Walk  , loadSet(":/resources/1_Monster_Walking_%1.png",18));

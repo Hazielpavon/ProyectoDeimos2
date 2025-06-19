@@ -210,6 +210,7 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QGraphicsScene \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QGraphicsTextItem \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QGraphicsView \
+	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QGridLayout \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QLabel \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QMainWindow \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QProgressBar \
@@ -217,11 +218,15 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/QWidget \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qabstractbutton.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qabstractscrollarea.h \
+	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qboxlayout.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qframe.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qgraphicsitem.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qgraphicsscene.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qgraphicsview.h \
+	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qgridlayout.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qlabel.h \
+	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qlayout.h \
+	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qlayoutitem.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qmainwindow.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qprogressbar.h \
 	C:/Qt/6.7.3/llvm-mingw_64/include/QtWidgets/qpushbutton.h \
@@ -1276,6 +1281,8 @@ ProyectDeimos2_autogen/timestamp: \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/fireball.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/grafomapa.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/grafomapa.h \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/inventorywidget.cpp \
+	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/inventorywidget.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/jugador.cpp \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/jugador.h \
 	C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/main.cpp \

@@ -34,7 +34,12 @@ Animacion loadSet(const QString& pattern, int frames, bool mirror = false)
 
 /* ---------- ctor ---------- */
 Demon::Demon(QObject* parent)
-    : Enemigo(parent)
+    : Enemigo(parent), m_deathStarted(false)
+    , m_mode(Mode::Patrol)
+    , m_patrolDir(+1)
+    , m_patrolTime(0)
+    , m_facingRight(true)
+
 {
     addAnim(Estado::Idle  , loadSet(":/resources/demon_idle_%1.png"   ,  6));
     addAnim(Estado::Walk  , loadSet(":/resources/demon_walk_%1.png"   , 12));

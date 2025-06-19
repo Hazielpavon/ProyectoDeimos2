@@ -16,7 +16,14 @@ public:
     void takeDamage(int dmg) override;
     QRectF       boundingRect() const override;
     QPainterPath shape()        const override;
-
+protected:
+    void onRevive() override {
+        // llamamos al padre ya hecho, luego reseteamos lo propio
+        Enemigo::onRevive();
+        m_deadAnim = false;      // vuelve a procesar update()
+        m_patrolTime = 0;    // opcional, reinicio de patrulla
+        m_mode = Mode::Patrol;
+    }
 private:
     enum class Mode { None, Chase, Patrol, Attack, Jump };
 

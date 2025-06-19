@@ -14,7 +14,7 @@
 #include <QVector>
 #include "fireball.h"
 #include "ObjetosYColisiones.h"
-#include "enemigo.h"
+#include "Enemigo.h"
 #include "entidad.h"
 #include "bullet.h"
 #include "cannon.h"
@@ -31,26 +31,14 @@ struct MovingPlatform {
     int                   dir;      // +1 = derecha, -1 = izquierda
 };
 
-
-/* ===========================================================
- *  Clase del nivel “Raíces Olvidadas”
- * =========================================================== */
 class niveltorredelamarca : public QWidget
 {
     Q_OBJECT
 public:
-
-    explicit niveltorredelamarca(entidad*   jugador,
-                                  MainWindow* mainWindow,
-                                  QWidget*   parent = nullptr);
+    explicit niveltorredelamarca(entidad*jugador, MainWindow* mainWindow,QWidget*parent = nullptr);
     void lanzarHechizo();
-    void penalizarCañones();
-
-    /// Comprueba si el boss ya ha sido derrotado.
     bool isBossDefeated() const { return bossDefeated; }
-
-    /// Recompensa al jugador por matar al boss:
-    /// aumenta +5% el multiplicador de daño.
+    void penalizarCanones();
     void rewardPlayerExtraDamage();
 protected:
     void keyPressEvent   (QKeyEvent*  event) override;
@@ -58,10 +46,8 @@ protected:
     void mousePressEvent (QMouseEvent* event) override;
 
 private slots:
-    void onFrame();                                 // bucle 60 FPS
-
+    void onFrame();
 private:
-    /* ─────────── Gameplay ─────────── */
     QVector<QPointF> m_enemySpawnPos;
     Minotaur*       m_boss = nullptr;
     NPC *m_npc = nullptr;

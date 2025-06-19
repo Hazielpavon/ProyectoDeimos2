@@ -22,6 +22,8 @@ set(PROJECT_SOURCES
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    npc.cpp
+    npc.h
     pantallainicio.h
     drop.h
     drop.cpp

@@ -2,8 +2,7 @@
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
-#include "BringerOfDeath.h"
-#include "CombateManager.h"
+#include "combatemanager.h"
 #include <QRandomGenerator>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
@@ -17,11 +16,10 @@
 #include "mainwindow.h"
 #include "Demon.h"
 #include "Skeleton.h"
-#include "Minotaur.h"
 #include "monsterfly.h"
 #include "MutantWorm.h"
-#include "Carnivore.h"
-
+#include <iostream>
+using namespace std;
 
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
@@ -111,45 +109,14 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
 
 
     const QVector<QRectF> plataformas = {
-        // — Grupo 1 (grosor ×3) — startX = 3300
-        { 3300.0f, 520.0f, PLAT_W, PLAT_H * 3 },
-        { 4000.0f, 460.0f, PLAT_W, PLAT_H * 3 },
-        { 4700.0f, 530.0f, PLAT_W, PLAT_H * 3 },
-        { 5400.0f, 480.0f, PLAT_W, PLAT_H * 3 },
-        { 6100.0f, 550.0f, PLAT_W, PLAT_H * 3 },
-        { 6800.0f, 440.0f, PLAT_W, PLAT_H * 3 },
-        { 7500.0f, 500.0f, PLAT_W, PLAT_H * 3 },
-        { 8200.0f, 470.0f, PLAT_W, PLAT_H * 3 },
-
-        // — Grupo 2 (grosor ×4) — startX = 8900
-        { 8900.0f, 520.0f, PLAT_W, PLAT_H * 4 },
-        { 9600.0f, 460.0f, PLAT_W, PLAT_H * 4 },
-        {10300.0f, 530.0f, PLAT_W, PLAT_H * 4 },
-        {11000.0f, 480.0f, PLAT_W, PLAT_H * 4 },
-        {11700.0f, 550.0f, PLAT_W, PLAT_H * 4 },
-        {12400.0f, 440.0f, PLAT_W, PLAT_H * 4 },
-        {13100.0f, 500.0f, PLAT_W, PLAT_H * 4 },
-        {13800.0f, 470.0f, PLAT_W, PLAT_H * 4 },
-
-        // — Grupo 3 (grosor ×5) — startX = 14500
-        {14500.0f, 520.0f, PLAT_W, PLAT_H * 5 },
-        {15200.0f, 460.0f, PLAT_W, PLAT_H * 5 },
-        {15900.0f, 530.0f, PLAT_W, PLAT_H * 5 },
-        {16600.0f, 480.0f, PLAT_W, PLAT_H * 5 },
-        {17300.0f, 550.0f, PLAT_W, PLAT_H * 5 },
-        {18000.0f, 440.0f, PLAT_W, PLAT_H * 5 },
-        {18700.0f, 500.0f, PLAT_W, PLAT_H * 5 },
-        {19400.0f, 470.0f, PLAT_W, PLAT_H * 5 },
-
-        // — Grupo 4 (grosor ×6) — startX = 20100
-        {20100.0f, 520.0f, PLAT_W, PLAT_H * 6 },
-        {20800.0f, 460.0f, PLAT_W, PLAT_H * 6 },
-        {21500.0f, 530.0f, PLAT_W, PLAT_H * 6 },
-        {22200.0f, 480.0f, PLAT_W, PLAT_H * 6 },
-        {22900.0f, 550.0f, PLAT_W, PLAT_H * 6 },
-        {23600.0f, 440.0f, PLAT_W, PLAT_H * 6 },
-        {24300.0f, 500.0f, PLAT_W, PLAT_H * 6 },
-        {25000.0f, 470.0f, PLAT_W, PLAT_H * 6 }
+        // Δx ≈ 400, Δy ≤ 100
+        {  600.0f, 550.0f, PLAT_W, PLAT_H },  // Desde suelo
+        { 1000.0f, 500.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
+        { 1400.0f, 450.0f, PLAT_W, PLAT_H },  // Δx=400, Δy=50
+        { 1800.0f, 520.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 70
+        { 2200.0f, 430.0f, PLAT_W, PLAT_H },  // Δx=400, bajada de 90
+        { 2600.0f, 530.0f, PLAT_W, PLAT_H },  // Δx=400, subida de 100
+        { 3000.0f, 480.0f, PLAT_W, PLAT_H }   // Δx=400, bajada de 50
     };
 
     QPixmap lavaBrick(":/resources/plataforma_fuego.png");
@@ -172,7 +139,7 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
         m_colManager->addRect(r, Qt::NoBrush, /*collisionOnly=*/ false);
         // pasa `false` para que addRect cree también el QGraphicsRectItem visible
     }
-
+    m_scene->setSceneRect(m_scene->itemsBoundingRect());
 
 
     // ---- Jugador ----
@@ -189,56 +156,50 @@ NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
         auto jug = dynamic_cast<Jugador*>(m_player);
         if (jug) jug->setGraphicsItem(m_playerItem);
     }
-// Este ahora es miniboss
-    // ---- Enemigo (Bringer-of-Death) ----
-   // auto* boss = new BringerOfDeath(this);
-    //QSize bSz = boss->pixmap().size();
-   // boss->setPos(4072.33,651 );
-   // boss->setTarget(m_player);
-   // m_scene->addItem(boss);
-   // m_enemigos.append(boss);
 
     //demon
     auto* boss = new Demon(this);
-    boss->setPos(2000, 651);
+    QPointF bosspos = {4854.4, m_spawnPos.y()};
+    boss->setPos(bosspos);
     boss->setTarget(m_player);
     m_scene->addItem(boss);
     m_enemigos.append(boss);
+    m_enemySpawnPos.append(bosspos);
 
-    //skeleton
-    auto* sk = new Skeleton(this);
-    sk->setPos(600, 651);        // posición deseada
+    Skeleton* sk = new Skeleton(this);
+    QPointF skPos = {3731, m_spawnPos.y()};
+    sk->setPos(skPos);
     sk->setTarget(m_player);
     m_scene->addItem(sk);
     m_enemigos.append(sk);
 
-    //minotaur
-    auto* mina = new Minotaur(this);
-    mina->setPos(400, 651);      // coordenadas de aparición
-    mina->setTarget(m_player);
-    m_scene->addItem(mina);
-    m_enemigos.append(mina);
+    // **Añade también su spawnPos**:
+    m_enemySpawnPos.append(skPos);
+    // Fly
 
-    //fly enemy
+    QPointF flyPos{3900.0f, m_spawnPos.y()};
     auto* fly = new MonsterFly(this);
-    fly->setPos(300, 450);        // un poco por encima del suelo
+    fly->setPos(flyPos);
     fly->setTarget(m_player);
     m_scene->addItem(fly);
-    m_enemigos.append(fly);
 
-    //mutant worm
+    m_enemigos.append(fly);
+    m_enemySpawnPos.append(flyPos);
+
+
+    // Worm
+
+    QPointF wormPos{4000.0f, 480.0f};
     auto* worm = new MutantWorm(this);
-    worm->setPos(5200, 651);     // coordenadas iniciales
+    worm->setPos(wormPos);
     worm->setTarget(m_player);
     m_scene->addItem(worm);
-    m_enemigos.append(worm);
 
-    //carnivore
-    auto* carn = new Carnivore(this);
-    carn->setPos(800, 651);   // posición inicial
-    carn->setTarget(m_player);
-    m_scene->addItem(carn);
-    m_enemigos.append(carn);
+    m_enemigos.append(worm);
+    m_enemySpawnPos.append(wormPos);
+
+
+
 
 
     // debug hitbox en escena
@@ -454,6 +415,21 @@ void NivelRaicesOlvidadas::onFrame()
             jug->sprite().setState(SpriteState::Idle);
             jug->setHP(jug->maxHP());
             jug->Setmana(jug->maxMana());
+            for (int i = 0; i < m_enemigos.size(); ++i) {
+                Enemigo* e = m_enemigos[i];
+                e->revive(m_enemigos[i]->maxHP());       // o bien m_enemigos[i]->maxHP()
+                e->setPos(m_enemySpawnPos[i]);
+            }
+            bossDefeated     = false;
+            m_bossDropCreado = false;
+
+            // — Eliminar y destruir todos los drops viejos —
+            // — destruir los drops todavía vivos en escena —
+            for (Drop* d : m_drops)      delete d;
+
+            // — vaciar ambos contenedores —
+            m_drops.clear();
+            m_deadDrops.clear();
 
             m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
             m_playerItem->setVisible(true);
@@ -504,6 +480,23 @@ void NivelRaicesOlvidadas::onFrame()
                     m_playerItem->setVisible(true);
                     // permitir muertes futuras
                     m_deathScheduled = false;
+
+                    for (int i = 0; i < m_enemigos.size(); ++i) {
+                        Enemigo* e = m_enemigos[i];
+                        e->revive(m_enemigos[i]->maxHP());       // o bien m_enemigos[i]->maxHP()
+                        e->setPos(m_enemySpawnPos[i]);
+                    }
+                    bossDefeated     = false;
+                    m_bossDropCreado = false;
+
+                    // — Eliminar y destruir todos los drops viejos —
+                    // — destruir los drops todavía vivos en escena —
+                    for (Drop* d : m_drops)      delete d;
+
+                    // — vaciar ambos contenedores —
+                    m_drops.clear();
+                    m_deadDrops.clear();
+
                 });
 
                 // salimos de onFrame para no procesar nada más mientras morimos
@@ -512,6 +505,15 @@ void NivelRaicesOlvidadas::onFrame()
         }
     }
 
+    for (auto* e : m_enemigos) {
+        if (e != m_boss && e->isDead() && !m_deadDrops.contains(e)) {
+            m_deadDrops.insert(e);
+            QRectF sb = e->sceneBoundingRect();
+            m_drops.append(new Drop(Drop::Tipo::Vida,
+                                    QPointF(sb.left(), sb.bottom()),
+                                    m_scene));
+        }
+    }
     // ——— Entrada salto + movimiento horiz ———
     if (m_jumpRequested && m_player->isOnGround()) {
         constexpr float JUMP_VY = -500.0f;
@@ -566,7 +568,7 @@ void NivelRaicesOlvidadas::onFrame()
         }
     }
 
-
+    cout << m_player->transform().getPosition().x() << "eje x" << endl;
     if (bossDefeated) {
         m_bossHpBorder->setVisible(false);
         m_bossHpBar->setVisible(false);

@@ -1,75 +1,105 @@
-// ===========================================================
-//  Skeleton.cpp  – versión final
-//  • Cada hoja es de una sola fila
-//  • Ajuste vertical fijo: pies = (0,0)
-//    offset-y = −frameHeight + DY_FIX
-// ===========================================================
 
-#include "skeleton.h"
-#include "SpriteSheetLoader.h"
+#include "mutantWorm.h"
 #include "jugador.h"
-
+#include "skeleton.h"
 #include <QTransform>
 #include <QGraphicsScene>
+#include <QtMath>
+#include <QDebug>
 
-/* ----------------  Constantes generales  ---------------- */
+/* --------------- constantes --------------- */
 namespace {
-constexpr qreal  SCALE      = 1.6;   // agrandar sprites
-constexpr int    GAP_PX     = 30;    // margen vacío en el PNG original
-constexpr int    DY_FIX     = int(GAP_PX * SCALE + 0.5);   // ≃48px
+const float  GRAVITY        = 600.f;
 
-constexpr float  ATK_RANGE  = 45.f;
-constexpr float  DET_RANGE  = 260.f;
-constexpr float  Y_TOL      = 10.f;
-constexpr float  GRAV       = 600.f;
+const float  ATK_RANGE      = 55.f;
+const float  DET_RANGE      = 260.f;
+const float  Y_TOLERANCE    = 14.f;
+
+const float  JUMP_VY        = -350.f;
+const float  JUMP_CD        = 3.f;      // segundos
 }
 
-/* =========================================================
- *  Constructor
- * ========================================================= */
+/* ---------- helper para cargar secuencias numeradas ---------- */
+static Animacion loadSet(const QString& patt, int frames, bool mirror=false)
+{
+    Animacion a; a.fps = 9.f;
+    QTransform flip; flip.scale(-1,1);
+
+    for (int i = 1; i <= frames; ++i) {
+        QString file = patt.arg(i);
+        QPixmap p(file);
+        if (p.isNull()) {
+            qWarning() << "[Skeleton] Falta" << file;
+            continue;
+        }
+        p = p.scaled(p.size()*1.5, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        if (mirror) p = p.transformed(flip);
+        a.frames.append(p);
+    }
+    return a;
+}
+
+/* ---------- ctor revisado ---------- */
 Skeleton::Skeleton(QObject* parent)
     : Enemigo(parent)
+    , m_deadAnim(false)
+    , m_mode(Mode::Patrol)
+    , m_patrolDir(+1)
+    , m_patrolTime(0)
+    , m_faceRight(true)
 {
-    addAnim(Estado::Idle  , loadSheetRow(":/resources/skeleton_idle.png"     , 4 , SCALE));
-    addAnim(Estado::Walk  , loadSheetRow(":/resources/skeleton_walk.png"     , 4 , SCALE));
-    addAnim(Estado::Attack, loadSheetRow(":/resources/skeleton_cleave.png"   , 8 , SCALE, 10.f));
-    addAnim(Estado::Hurt  , loadSheetRow(":/resources/skeleton_take_hit.png" , 4 , SCALE));
-    addAnim(Estado::Death , loadSheetRow(":/resources/skeleton_death.png"    , 4 , SCALE, 12.f));
+    // Idle: idle_B1.png … idle_B6.png
+    addAnim(Estado::Idle,   loadSet(":/resources/idle_B%1.png", 6));
 
+    // Walk: walkB_(1).png … walkB_(10).png
+    addAnim(Estado::Walk,   loadSet(":/resources/walkB_ (%1).png", 10));
+
+    // Attack: 1_atk_1.png … 1_atk_14.png
+    addAnim(Estado::Attack, loadSet(":/resources/1_atk_%1.png",   14));
+
+    // Hurt: digamos que usas death para “Hurt” también (o crea un nuevo set)
+    addAnim(Estado::Hurt,   loadSet(":/resources/death_%1.png",   16));
+
+    // Death: death_1.png … death_16.png
+    addAnim(Estado::Death,  loadSet(":/resources/death_%1.png",   16));
+
+    // Centrar el ancla
     if (!animActual().frames.isEmpty()) {
-        const QPixmap& f = animActual().frames.first();
-
-        /* origen (0,0) = centro-X y pies */
-        setOffset(-f.width() / 2, -f.height() + DY_FIX);
-        setTransformOriginPoint(f.width() / 2, f.height() - DY_FIX);
+        QPixmap f = animActual().frames.first();
+        setOffset(-f.width()/2, -f.height()/2);
+        setTransformOriginPoint(f.width()/2, f.height()/2.0);
     }
 }
 
-/* =========================================================
- *  Geometría para colisiones
- * ========================================================= */
+
+/* --------------- geom --------------- */
 QRectF Skeleton::boundingRect() const
 {
-    const QPixmap& p = pixmap();
+    const auto& p = pixmap();
     return QRectF(
-        -p.width()  / 2.0,          // divide en double
-        -p.height() + DY_FIX,       // int → qreal se convierte aquí sin problema
+        -p.width()  / 2.0,  // qreal
+        -p.height() /2.0,  // qreal
         p.width(),
         p.height()
         );
 }
-
 
 QPainterPath Skeleton::shape() const
 {
     QPainterPath s;  s.addRect(boundingRect());  return s;
 }
 
-/* =========================================================
- *  IA (patrulla / persecución / ataque)
- * ========================================================= */
+/* --------------- IA --------------- */
 void Skeleton::updateAI(float dt)
 {
+    m_jumpCooldown -= dt;
+
+    /* salto periódico solo si patrulla y está en suelo */
+    if (m_mode == Mode::Patrol && isOnGround() && m_jumpCooldown<=0.f) {
+        startJump();
+        return;
+    }
+
     if (!target()) return;
 
     float dx = target()->transform().getPosition().x() - pos().x();
@@ -81,71 +111,80 @@ void Skeleton::updateAI(float dt)
             targFeet = gi->sceneBoundingRect().bottom();
 
     /* ataque */
-    if (qAbs(dx) < ATK_RANGE && qAbs(targFeet - selfFeet) < Y_TOL) {
-        setEstado(Estado::Attack);  m_velX = 0;
-        m_faceRight = dx >= 0;      return;
+    if (qAbs(dx)<ATK_RANGE && qAbs(targFeet-selfFeet)<Y_TOLERANCE) {
+        setEstado(Estado::Attack); m_velX = 0; m_faceRight = dx>=0;
+        m_mode = Mode::Attack; return;
     }
-
     /* persecución */
-    if (qAbs(dx) < DET_RANGE) {
+    if (qAbs(dx)<DET_RANGE) {
         setEstado(Estado::Walk);
-        m_velX = (dx > 0 ? 1 : -1) * 100.f;
-        m_faceRight = dx >= 0;      return;
+        m_velX = (dx>0?1:-1)*140.f;
+        m_faceRight = dx>=0; m_mode=Mode::Chase; return;
     }
-
     /* patrulla */
     setEstado(Estado::Walk);
     m_patrolTime += dt;
-    if (m_patrolTime > 2.5f) { m_patrolDir = -m_patrolDir; m_patrolTime = 0; }
-    m_velX = m_patrolDir * 70.f;
-    m_faceRight = m_patrolDir > 0;
+    if (m_patrolTime>2.5f){ m_patrolDir=-m_patrolDir; m_patrolTime=0; }
+    m_velX = m_patrolDir*90.f;
+    m_faceRight = m_patrolDir>0;  m_mode=Mode::Patrol;
 }
 
-/* =========================================================
- *  Daño / muerte
- * ========================================================= */
+/* --------------- salto --------------- */
+void Skeleton::startJump()
+{
+    setEstado(Estado::Jump);
+    m_velY = JUMP_VY;
+    m_jumping = true;
+    m_jumpCooldown = JUMP_CD;
+    m_mode = Mode::Jump;
+}
+
+/* --------------- daño / muerte --------------- */
 void Skeleton::takeDamage(int dmg)
 {
     if (isDead()) return;
     Enemigo::takeDamage(dmg);
-
-    if (isDead()) {
-        m_dying = true;
-        m_dieTimer = 0.f;
-        setEstado(Estado::Death);
-        auto& a = animActual();  a.idx = 0;  a.acum = 0;
-    }
+    if (isDead()) startDeath();
+}
+void Skeleton::startDeath()
+{
+    m_deadAnim = true; m_deadTimer=0.f;
+    setEstado(Estado::Death);
+    auto& a = animActual(); a.idx=0; a.acum=0;
 }
 
-/* =========================================================
- *  Update general (60 FPS)
- * ========================================================= */
+/* --------------- update --------------- */
 void Skeleton::update(float dt)
 {
-    /* IA + física mientras vive */
-    if (!m_dying) {
-        updateAI(dt);
-        m_velY += GRAV * dt;
+    /* IA + física */
+    if (!m_deadAnim) {
+        if (!m_jumping) updateAI(dt);
+        m_velY += GRAVITY * dt;
         moveBy(m_velX * dt, m_velY * dt);
+
+        /* aterrizaje */
+        if (m_jumping && isOnGround()) {
+            m_jumping = false;
+            setEstado(Estado::Idle);
+        }
     }
 
-    /* Animación */
+    /* animación */
     auto& a = animActual();
     a.avanzar(dt);
 
     QPixmap frame = a.actual();
     if (m_faceRight)
         frame = frame.transformed(QTransform().scale(-1,1));
-
-    /* Dibujar */
-    prepareGeometryChange();
     setPixmap(frame);
-    setOffset(-frame.width()/2, -frame.height() + DY_FIX);
+    setOffset(-frame.width()/2, -frame.height()/2);
 
-    /* Fin de muerte */
-    if (m_dying) {
-        m_dieTimer += dt;
-        if (m_dieTimer > 1.f / a.fps && a.idx == a.frames.size() - 1)
-            setVisible(false);           // escena lo eliminará más tarde
+    /* fin de muerte */
+    if (m_deadAnim) {
+        m_deadTimer += dt;
+        if (m_deadTimer > 1.f/a.fps && a.idx==a.frames.size()-1)
+            setVisible(false);
     }
 }
+
+

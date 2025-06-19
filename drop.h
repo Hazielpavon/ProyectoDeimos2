@@ -12,8 +12,7 @@ class entidad;
  *  Clase Drop
  *  (pequeños objetos que sueltan los enemigos/jefes)
  * ----------------------------------------------------------- */
-class Drop : public QObject
-{
+class Drop : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
     enum class Tipo { Vida, Mana, Llave };

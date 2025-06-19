@@ -2,6 +2,7 @@
 //  NIVELRAICESOLVIDADAS.H — CABECERA COMPLETA (con CombateManager)
 // ===========================================================
 #pragma once
+#include "Demon.h"
 #include "drop.h"
 #include <QWidget>
 #include <QTimer>
@@ -43,6 +44,9 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+    Demon* m_boss = nullptr;
+    QSet<Enemigo*>  m_deadDrops;
+    QVector<QPointF> m_enemySpawnPos;
     bool m_bossDropCreado = false;
     QVector<Drop*> m_drops;
     QGraphicsTextItem* m_manaText;

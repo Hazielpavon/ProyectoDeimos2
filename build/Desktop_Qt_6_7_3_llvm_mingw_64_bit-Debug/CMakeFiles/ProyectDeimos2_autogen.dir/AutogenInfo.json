@@ -468,6 +468,12 @@
 			null
 		],
 		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/inventorywidget.h",
+			"MU",
+			"EWIEGA46WW/moc_inventorywidget.cpp",
+			null
+		],
+		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/jugador.h",
 			"MU",
 			"EWIEGA46WW/moc_jugador.cpp",
@@ -716,6 +722,11 @@
 		],
 		[
 			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/grafomapa.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Administrador/Downloads/ProyectoDeimos2R/ProyectoDeimos2/inventorywidget.cpp",
 			"MU",
 			null
 		],

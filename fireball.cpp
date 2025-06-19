@@ -41,7 +41,7 @@ void Fireball::avanzar(float dt)
     // Colisión con enemigos
     for (Enemigo* e : m_enemigos) {
         if (e && !e->isDead() && collidesWithItem(e)) {
-            e->takeDamage(10);
+            e->takeDamage(4);
             m_scene->removeItem(this);
             m_alive = false;
             deleteLater();
