@@ -222,6 +222,7 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     sk->setTarget(m_player);
     m_scene->addItem(sk);
     m_enemigos.append(sk);
+    m_enemySpawnPos.append(sk->pos());
 
     //minotaur
     auto* boss = new Minotaur(this);
@@ -230,25 +231,29 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_scene->addItem(boss);
     m_enemigos.append(boss);
     m_boss = boss;
+     m_enemySpawnPos.append(boss->pos());
+
 
     auto* fly = new MonsterFly(this);
     fly->setPos(1800, 520);        // un poco por encima del suelo
     fly->setTarget(m_player);
     m_scene->addItem(fly);
     m_enemigos.append(fly);
+    m_enemySpawnPos.append(fly->pos());
 
     auto* worm = new MutantWorm(this);
     worm->setPos(3000, 480);     // coordenadas iniciales
     worm->setTarget(m_player);
     m_scene->addItem(worm);
     m_enemigos.append(worm);
+    m_enemySpawnPos.append(worm->pos());
 
     auto* carn = new Carnivore(this);
     carn->setPos(4200, 450);   // posición inicial
     carn->setTarget(m_player);
     m_scene->addItem(carn);
     m_enemigos.append(carn);
-
+    m_enemySpawnPos.append(carn->pos());
 
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
@@ -460,6 +465,25 @@ void niveltorredelamarca::onFrame()
             jug->setHP(jug->maxHP());
             jug->Setmana(jug->maxMana());
 
+            m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
+            m_playerItem->setVisible(true);
+            m_deathScheduled = false;
+            for (int i = 0; i < m_enemigos.size(); ++i) {
+                Enemigo* e = m_enemigos[i];
+                e->setPos( m_enemySpawnPos[i] );
+                e->setHP( e->maxHP() );
+                e->setEstado(Enemigo::Estado::Idle);
+                e->setVisible(true);           // ← asegúrate que vuelvan a verse
+                // si tienes método para “alive”:
+                // e->setAlive(true);
+            }
+            // limpia y reinicia flags…
+            m_drops.clear();
+            m_deadDrops.clear();
+            bossDefeated     = false;
+            m_bossDropCreado = false;
+
+            // ——— restablece input del jugador ———
             m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
             m_playerItem->setVisible(true);
             m_deathScheduled = false;

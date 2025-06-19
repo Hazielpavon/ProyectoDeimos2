@@ -63,6 +63,7 @@ private:
     /* ─────────── Gameplay ─────────── */
     Minotaur*       m_boss = nullptr;
     NPC *m_npc = nullptr;
+    QVector<QPointF>  m_enemySpawnPos;
     QVector<MovingPlatform> m_movingPlatforms;
     QVector<Cannon*> m_cannons;
     bool m_bossDropCreado = false;
