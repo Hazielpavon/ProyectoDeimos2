@@ -60,6 +60,30 @@ MapaWidget::MapaWidget(const QString &regionInicial, QWidget *parent)
         update();
     });
 
+    // Botón para mostrar/ocultar imagen de información
+    m_botonMostrarImagen = new QPushButton("?", this);
+    m_botonMostrarImagen->setGeometry(880, 520, 25, 20);
+    m_botonMostrarImagen->setStyleSheet("QPushButton { background-color: black; color: white; border: 1px solid white; }");
+    m_botonMostrarImagen->raise();
+    m_botonMostrarImagen->setEnabled(true);
+
+    connect(m_botonMostrarImagen, &QPushButton::clicked, this, [this]() {
+        if (m_imagenRutaLabel && m_imagenRutaLabel->isVisible()) {
+            // Si ya está visible, la ocultamos
+            m_imagenRutaLabel->hide();
+        } else {
+            // Si no existe o está oculta, la mostramos
+            if (!m_imagenRutaLabel) {
+                m_imagenRutaLabel = new QLabel(this);
+                m_imagenRutaLabel->setPixmap(QPixmap(":/resources/ruta_inf.PNG").scaled(300, 200, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+                m_imagenRutaLabel->setStyleSheet("background-color: rgba(0, 0, 0, 200); border: 2px solid white;");
+                m_imagenRutaLabel->setGeometry(500, 300, 300, 200);
+            }
+            m_imagenRutaLabel->show();
+            m_imagenRutaLabel->raise();
+        }
+    });
+
     m_rutaInfoLabel = new QLabel(this);
     m_rutaInfoLabel->setGeometry(770, 110, 160, 200);
     m_rutaInfoLabel->setStyleSheet("color: white; font-size: 14px;");
@@ -296,5 +320,7 @@ bool MapaWidget::eventFilter(QObject *obj, QEvent *event) {
     }
     return QWidget::eventFilter(obj, event);
 }
+
+
 
 

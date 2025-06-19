@@ -2,11 +2,8 @@
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
-<<<<<<< HEAD
 #include "enemigo.h"
 #include "BringerOfDeath.h"
-=======
->>>>>>> origin/Haziel
 #include "CombateManager.h"
 #include <QRandomGenerator>
 #include <QGraphicsPixmapItem>

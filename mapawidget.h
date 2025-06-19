@@ -64,6 +64,9 @@ private:
 
     void crearClickableLabel(const QString &region);
 
+    QPushButton* m_botonMostrarImagen;
+    QLabel* m_imagenRutaLabel = nullptr;
+
 };
 
 #endif // MAPAWIDGET_H

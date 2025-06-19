@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
+#include "npc_tutorial.h"
 
 
 // ---- Constantes generales --------------------------------
@@ -116,9 +117,9 @@ TutorialScene::TutorialScene(entidad*   jugador,
                                          // { 1020.0f, 250.0f, PLAT_W, PLAT_H },
                                          // { 1080.0f, 250.0f, PLAT_W, PLAT_H },
                                          // { 1120.0f, 250.0f, PLAT_W, PLAT_H },
-                                         { 2200.0f, 430.0f, PLAT_W, PLAT_H },
-                                         { 2600.0f, 530.0f, PLAT_W, PLAT_H },
-                                         { 3000.0f, 480.0f, PLAT_W, PLAT_H },
+                                         // { 2200.0f, 430.0f, PLAT_W, PLAT_H },
+                                         // { 2600.0f, 530.0f, PLAT_W, PLAT_H },
+                                         // { 3000.0f, 480.0f, PLAT_W, PLAT_H },
 
                                          // Plataformas pequeñas nuevas
                                          { 10.0f, 250.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT },
@@ -132,7 +133,7 @@ TutorialScene::TutorialScene(entidad*   jugador,
 
 
                                          // { 1011.0f, 250.0f, Mid_PLAT_WIDTH, Mid_PLAT_HEIGHT },
-                                         { 1200.0f, 250.0f, Mid_PLAT_WIDTH, Mid_PLAT_HEIGHT },
+                                      { 1200.0f, 250.0f, Mid_PLAT_WIDTH, Mid_PLAT_HEIGHT },
                            };
 
     QPixmap lavaBrick(":/resources/plataforma_normal.png");
@@ -155,6 +156,36 @@ TutorialScene::TutorialScene(entidad*   jugador,
         m_colManager->addRect(r, Qt::NoBrush, true);  // Solo colisión
     }
 
+    QRectF platMovilRect(1500.0f, 250.0f, MINI_PLAT_WIDTH, MINI_PLAT_HEIGHT);
+
+    QPixmap platMovilPix = lavaBrick.scaled(
+        int(platMovilRect.width()), int(platMovilRect.height()),
+        Qt::IgnoreAspectRatio, Qt::SmoothTransformation
+        );
+    auto* spriteMovil = new QGraphicsPixmapItem(platMovilPix);
+    spriteMovil->setPos(platMovilRect.topLeft());
+    spriteMovil->setZValue(1);
+    m_scene->addItem(spriteMovil);
+
+    // CORRECCIÓN AQUÍ
+    auto* hitboxMovil = new QGraphicsRectItem();
+    hitboxMovil->setRect(0, 0, platMovilRect.width(), platMovilRect.height());
+    hitboxMovil->setPos(platMovilRect.topLeft());
+    hitboxMovil->setBrush(Qt::NoBrush);
+    hitboxMovil->setPen(QPen(Qt::red));
+    hitboxMovil->setZValue(1);
+    m_scene->addItem(hitboxMovil);
+    // Guardar plataforma móvil
+    MovingPlatform mp;
+    mp.sprite = spriteMovil;
+    mp.hitbox = hitboxMovil;
+    mp.minY = platMovilRect.y() - 100.0f;
+    mp.maxY = platMovilRect.y() + 400.0f;
+    mp.speed = 80.0f;
+    mp.dir = +1;
+    m_movingPlatforms.append(mp);
+
+
 
     // ---- Jugador ----
     if(m_player){
@@ -169,6 +200,15 @@ TutorialScene::TutorialScene(entidad*   jugador,
         m_playerItem->setPos(m_spawnPos);
         auto jug = dynamic_cast<Jugador*>(m_player);
         if (jug) jug->setGraphicsItem(m_playerItem);
+    }
+
+
+    QPixmap img(":/resources/caminar.png");
+    if (!img.isNull()) {
+        QPixmap scaled = img.scaled(250, 150, Qt::KeepAspectRatio, Qt::SmoothTransformation);  // ajustá estos valores
+        m_tutorialItem = new QGraphicsPixmapItem(scaled);
+        m_tutorialItem->setZValue(99);
+        m_scene->addItem(m_tutorialItem);
     }
 
     // ---- Enemigo (Bringer-of-Death) ----
@@ -220,6 +260,11 @@ TutorialScene::TutorialScene(entidad*   jugador,
     m_manaText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_manaText);
 
+    float npcX = 1200.0f + Mid_PLAT_WIDTH / 2.0f;
+    float npcY = 250.0f;
+
+    m_npc = new npc_tutorial(this, dynamic_cast<Jugador*>(m_player), m_scene, QPointF(npcX, npcY), this);
+
     // ---- Gestor de Combate ----
     Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
     if (!jugadorPtr) {
@@ -229,7 +274,7 @@ TutorialScene::TutorialScene(entidad*   jugador,
     }
 
     // ---- Mapa + HUD (igual que antes) ----
-    m_mapaRegiones = new MapaWidget("Raices Olvidadas", this);
+    m_mapaRegiones = new MapaWidget("Templo del Silencio", this);
     connect(m_mapaRegiones,&MapaWidget::mapaCerrado,
             this,[this](){ activateWindow(); setFocus(); });
 
@@ -246,6 +291,7 @@ TutorialScene::TutorialScene(entidad*   jugador,
     m_hudBar->setZValue(101);
     m_hudBar->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudBar);
+
 
     m_hudText = new QGraphicsTextItem("100%");
     QFont f; f.setPointSize(14);
@@ -272,13 +318,38 @@ void TutorialScene::keyPressEvent(QKeyEvent* e)
     case Qt::Key_Shift: m_run       = true;  break;
     case Qt::Key_Q:
         if (m_player->Getmana() >= 10) {
-            m_player->Setmana(m_player->Getmana()-10);
+            m_player->Setmana(m_player->Getmana() - 10);
+
             SpriteState st = (m_player->getLastDirection() == SpriteState::WalkingLeft ||
                               m_player->getLastDirection() == SpriteState::RunningLeft)
                                  ? SpriteState::throwingLeft
                                  : SpriteState::throwing;
+
             m_player->reproducirAnimacionTemporal(st, 0.7f);
-            lanzarHechizo();  // función que haremos abajo
+            lanzarHechizo();  // ← Función ya implementada en tu juego
+
+            // ─── Detectar FIREBALL en tutorial ───
+            if (m_faseTutorial == FaseTutorial::Fireball && !m_yaFireball) {
+                m_yaFireball = true;
+
+                if (m_tutorialItem) {
+                    m_scene->removeItem(m_tutorialItem);
+                    delete m_tutorialItem;
+                    m_tutorialItem = nullptr;
+                }
+
+                // Mostrar cartel del MAPA
+                QPixmap img(":/resources/mapat.png");
+                if (!img.isNull()) {
+                    m_tutorialItem = new QGraphicsPixmapItem(
+                        img.scaled(240, 120, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+                    m_tutorialItem->setZValue(99);
+                    m_scene->addItem(m_tutorialItem);
+                }
+
+                m_faseTutorial = FaseTutorial::Mapa;
+                qDebug() << "[Tutorial] FIREBALL detectado. Mostrando cartel de MAPA.";
+            }
         }
         break;
     case Qt::Key_Space:
@@ -290,14 +361,28 @@ void TutorialScene::keyPressEvent(QKeyEvent* e)
 
     case Qt::Key_M:
         m_mapaRegiones->setVisible(!m_mapaRegiones->isVisible());
+
+        // ─── Detectar MAPA en tutorial ───
+        if (m_faseTutorial == FaseTutorial::Mapa) {
+            if (m_tutorialItem) {
+                m_scene->removeItem(m_tutorialItem);
+                delete m_tutorialItem;
+                m_tutorialItem = nullptr;
+            }
+            m_faseTutorial = FaseTutorial::Terminado;
+            qDebug() << "[Tutorial] MAPA abierto. Tutorial FINALIZADO.";
+        }
         break;
 
     case Qt::Key_C:
         if (m_player && m_player->isOnGround()) {
             float vx = m_player->fisica().velocity().x();
-            SpriteState st = vx>0.0f ? SpriteState::Slidding
-                                       : SpriteState::SliddingLeft;
-            m_player->reproducirAnimacionTemporal(st,0.5f);
+            SpriteState st = vx > 0.0f ? SpriteState::Slidding : SpriteState::SliddingLeft;
+            m_player->reproducirAnimacionTemporal(st, 0.5f);
+        }
+
+        if (m_faseTutorial == FaseTutorial::Dash && !m_yaDash) {
+            m_yaDash = true;
         }
         break;
 
@@ -327,12 +412,37 @@ void TutorialScene::keyReleaseEvent(QKeyEvent* e)
 }
 void TutorialScene::mousePressEvent(QMouseEvent*)
 {
-    if(!m_player || !m_player->isOnGround()) return;
-    SpriteState st = (m_player->getLastDirection()==SpriteState::WalkingLeft ||
-                      m_player->getLastDirection()==SpriteState::RunningLeft)
+    if (!m_player || !m_player->isOnGround()) return;
+
+    SpriteState st = (m_player->getLastDirection() == SpriteState::WalkingLeft ||
+                      m_player->getLastDirection() == SpriteState::RunningLeft)
                          ? SpriteState::SlashingLeft
                          : SpriteState::Slashing;
-    m_player->reproducirAnimacionTemporal(st,0.6f);
+    m_player->reproducirAnimacionTemporal(st, 0.6f);
+
+    // ─── Detectar GOLPE en tutorial ───
+    if (m_faseTutorial == FaseTutorial::Golpear && !m_yaGolpeo) {
+        m_yaGolpeo = true;
+
+        // Eliminar cartel de golpear
+        if (m_tutorialItem) {
+            m_scene->removeItem(m_tutorialItem);
+            delete m_tutorialItem;
+            m_tutorialItem = nullptr;
+        }
+
+        // Mostrar cartel de FIREBALL
+        QPixmap img(":/resources/fireball.png");
+        if (!img.isNull()) {
+            m_tutorialItem = new QGraphicsPixmapItem(
+                img.scaled(220, 110, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            m_tutorialItem->setZValue(99);
+            m_scene->addItem(m_tutorialItem);
+        }
+
+        m_faseTutorial = FaseTutorial::Fireball;
+        qDebug() << "[Tutorial] GOLPE detectado. Mostrando FIREBALL.";
+    }
 }
 
 /* =========================================================
@@ -418,6 +528,187 @@ void TutorialScene::onFrame()
         m_player->fisica().velocity().y()
         );
 
+    // ─── Tutorial: CAMINAR → SALTAR → CORRER → DASH → GOLPEAR → FIREBALL ───
+    if (m_faseTutorial == FaseTutorial::Caminar && (m_moveLeft || m_moveRight)) {
+        if (!m_yaCamino) {
+            m_yaCamino = true;
+            if (m_tutorialItem) {
+                m_scene->removeItem(m_tutorialItem);
+                delete m_tutorialItem;
+                m_tutorialItem = nullptr;
+            }
+            QPixmap img(":/resources/saltar.png");
+            if (!img.isNull()) {
+                m_tutorialItem = new QGraphicsPixmapItem(
+                    img.scaled(250, 150, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+                m_tutorialItem->setZValue(99);
+                m_scene->addItem(m_tutorialItem);
+            }
+            m_faseTutorial = FaseTutorial::Saltar;
+        }
+    }
+    else if (m_faseTutorial == FaseTutorial::Saltar &&
+             !m_yaSalto &&
+             !m_player->isOnGround() &&
+             m_player->fisica().velocity().y() < 0.0f)
+    {
+        m_yaSalto = true;
+        if (m_tutorialItem) {
+            m_scene->removeItem(m_tutorialItem);
+            delete m_tutorialItem;
+            m_tutorialItem = nullptr;
+        }
+        qDebug() << "[Tutorial] SALTO detectado. Esperando coordenada para mostrar CORRER...";
+    }
+    else if (m_faseTutorial == FaseTutorial::Saltar &&
+             m_yaSalto &&
+             m_player->transform().getPosition().x() > 1200.0f &&
+             !m_yaCorrio)
+    {
+        m_yaCorrio = true;
+        QPixmap img(":/resources/correr.png");
+        if (!img.isNull()) {
+            m_tutorialItem = new QGraphicsPixmapItem(
+                img.scaled(230, 120, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            m_tutorialItem->setZValue(99);
+            m_scene->addItem(m_tutorialItem);
+        }
+        m_faseTutorial = FaseTutorial::Correr;
+        qDebug() << "[Tutorial] Mostrando cartel de CORRER tras pasar por X=1200.";
+    }
+    else if (m_faseTutorial == FaseTutorial::Correr &&
+             (m_run && (m_moveLeft || m_moveRight)))
+    {
+        if (m_tutorialItem) {
+            m_scene->removeItem(m_tutorialItem);
+            delete m_tutorialItem;
+            m_tutorialItem = nullptr;
+        }
+        m_faseTutorial = FaseTutorial::Dash;
+        qDebug() << "[Tutorial] CORRER detectado. Mostrando DASH...";
+    }
+    else if (m_faseTutorial == FaseTutorial::Dash && !m_yaDash)
+    {
+        m_yaDash = true;
+
+        // Mostrar imagen de DASH
+        QPixmap imgDash(":/resources/dash.png");
+        if (!imgDash.isNull()) {
+            m_tutorialItem = new QGraphicsPixmapItem(
+                imgDash.scaled(220, 110, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            m_tutorialItem->setZValue(99);
+            m_scene->addItem(m_tutorialItem);
+        }
+
+        // Pasar a la fase de GOLPEAR
+        m_faseTutorial = FaseTutorial::Golpear;
+        qDebug() << "[Tutorial] Mostrando cartel de GOLPEAR...";
+
+        // Mostrar imagen de GOLPEAR inmediatamente
+        QPixmap imgGolpear(":/resources/golpear.png");
+        if (!imgGolpear.isNull()) {
+            m_tutorialItem = new QGraphicsPixmapItem(
+                imgGolpear.scaled(230, 180, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            m_tutorialItem->setZValue(99);
+            m_scene->addItem(m_tutorialItem);
+        }
+    }
+    else if (m_faseTutorial == FaseTutorial::Golpear && m_yaGolpeo)
+    {
+        // Ocultar cartel de golpear
+        if (m_tutorialItem) {
+            m_scene->removeItem(m_tutorialItem);
+            delete m_tutorialItem;
+            m_tutorialItem = nullptr;
+        }
+
+        // Mostrar cartel de FIREBALL
+        QPixmap img(":/resources/fireball.png");
+        if (!img.isNull()) {
+            m_tutorialItem = new QGraphicsPixmapItem(
+                img.scaled(220, 180, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            m_tutorialItem->setZValue(99);
+            m_scene->addItem(m_tutorialItem);
+        }
+        m_faseTutorial = FaseTutorial::Fireball;
+        qDebug() << "[Tutorial] Mostrando cartel de FIREBALL...";
+    }
+    else if (m_faseTutorial == FaseTutorial::Fireball && m_yaFireball)
+    {
+        if (m_tutorialItem) {
+            m_scene->removeItem(m_tutorialItem);
+            delete m_tutorialItem;
+            m_tutorialItem = nullptr;
+        }
+        m_faseTutorial = FaseTutorial::Terminado;
+        qDebug() << "[Tutorial] FIREBALL detectado. Tutorial COMPLETADO.";
+    }
+
+    else if (m_faseTutorial == FaseTutorial::Fireball && m_yaFireball)
+    {
+        if (m_tutorialItem) {
+            m_scene->removeItem(m_tutorialItem);
+            delete m_tutorialItem;
+            m_tutorialItem = nullptr;
+        }
+
+        // Mostrar cartel del MAPA
+        QPixmap img(":/resources/mapat.png");
+        if (!img.isNull()) {
+            m_tutorialItem = new QGraphicsPixmapItem(
+                img.scaled(240, 120, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            m_tutorialItem->setZValue(99);
+            m_scene->addItem(m_tutorialItem);
+        }
+
+        m_faseTutorial = FaseTutorial::Mapa;
+        qDebug() << "[Tutorial] FIREBALL detectado. Mostrando cartel de MAPA.";
+    }
+
+    // ─── Zona letal (lava) ───
+    if (!m_deathScheduled) {
+        if (auto* jug = dynamic_cast<Jugador*>(m_player)) {
+            QPointF footPos = m_player->transform().getPosition();
+            float x = footPos.x();
+            float y = footPos.y();
+            constexpr float epsY = 1.0f;
+            bool atY      = (y >= 651.0f - epsY && y <= 651.0f + epsY);
+            bool inZone   = (x >= 0.0f && x <= 1200.0f);
+
+            if (atY && inZone && jug->currentHP() > 0) {
+                // 1) Detener movimiento y asegurar en suelo
+                m_player->fisica().setVelocity(0, 0);
+                jug->setOnGround(true);
+
+                // 2) Aplicar daño total y animación
+                jug->aplicarDano(jug->currentHP());
+                jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
+                m_deathScheduled = true;
+
+                // 3) Ocultar sprite después de 1s
+                QTimer::singleShot(1000, this, [this]() {
+                    m_playerItem->setVisible(false);
+                });
+
+                // 4) Respawn a los 2s
+                QTimer::singleShot(2000, this, [this, jug]() {
+                    m_player->transform().setPosition(35, 0);
+                    m_player->fisica().setVelocity(0, 0);
+                    jug->setOnGround(true);
+                    jug->sprite().setState(SpriteState::Idle);
+                    jug->setHP(jug->maxHP());
+                    jug->Setmana(jug->maxMana());
+
+                    m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
+                    m_playerItem->setVisible(true);
+                    m_deathScheduled = false;
+                });
+
+                return;
+            }
+        }
+    }
+
     // ——— Actualizar jugador + colisiones ———
     m_player->actualizar(m_dt);
     QSize sprSz = m_player->sprite().getSize();
@@ -491,6 +782,12 @@ void TutorialScene::onFrame()
     m_playerItem->setPos(footPos);
     m_view->centerOn(footPos);
 
+    // Posicionar imagen del tutorial encima del jugador
+    if (m_tutorialItem) {
+        QPointF arribaJugador = footPos + QPointF(-40, -180);  // 📌 más alto y centrado
+        m_tutorialItem->setPos(arribaJugador);
+    }
+
     // ——— HUD ———
     QPointF tl = m_view->mapToScene(0,0);
     float hpFrac = float(m_player->currentHP()) / m_player->maxHP();
@@ -530,13 +827,64 @@ void TutorialScene::onFrame()
             f->avanzar(m_dt);
         }
     }
+        if (m_npc) m_npc->update(m_dt);
 
     for (int i = m_drops.size() - 1; i >= 0; --i) {
         Drop* drop = m_drops[i];
         if (!drop->isCollected() && drop->checkCollision(m_player)) {
             drop->aplicarEfecto(dynamic_cast<Jugador*>(m_player));
         }
+
     }
+     actualizarPlataformasMoviles();
+}
 
+void TutorialScene::actualizarPlataformasMoviles()
+{
+    for (MovingPlatform& mp : m_movingPlatforms) {
+        float dy = mp.dir * mp.speed * m_dt;
+        float newY = mp.sprite->y() + dy;
 
+        // Rebotar al llegar a los extremos
+        if (newY < mp.minY || newY > mp.maxY) {
+            mp.dir *= -1;
+            newY = std::clamp(newY, mp.minY, mp.maxY);
+        }
+
+        float delta = newY - mp.sprite->y();
+
+        // Mover sprite y hitbox
+        mp.sprite->setY(newY);
+        mp.hitbox->moveBy(0, delta);
+
+        // Obtener posición del pie del jugador
+        QPointF foot = m_player->transform().getPosition();
+        QRectF platRect = mp.sprite->sceneBoundingRect();
+
+        // Zona superior de la plataforma (ajustada con tolerancia)
+        QRectF platTop = platRect.adjusted(10, -2, -10, 6);
+        QRectF footBox(foot, QSizeF(1, 1)); // Pie como punto
+
+        // Si el jugador está sobre la plataforma y cayendo
+        if (platTop.contains(footBox.center()) && m_player->fisica().velocity().y() >= 0) {
+            // Colocarlo justo encima de la plataforma
+            float nuevaY = platRect.top();
+            m_player->transform().setPosition(foot.x(), nuevaY);
+            m_player->fisica().setVelocity(m_player->fisica().velocity().x(), 0);
+            m_player->setOnGround(true);
+            m_playerItem->setY(nuevaY);
+        }
+        // Si el jugador ya está parado sobre la plataforma, moverlo con ella
+        else {
+            bool encima = qAbs(foot.y() - platRect.top()) <= 2.0f &&
+                          foot.x() > platRect.left() + 10 &&
+                          foot.x() < platRect.right() - 10;
+
+            if (encima && m_player->isOnGround()) {
+                QPointF pos = m_player->transform().getPosition();
+                m_player->transform().setPosition(pos.x(), pos.y() + delta);
+                m_playerItem->moveBy(0, delta);
+            }
+        }
+    }
 }

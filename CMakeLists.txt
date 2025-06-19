@@ -123,6 +123,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         cannon.h cannon.cpp
         bullet.h bullet.cpp
         npc.h npc.cpp
+        npc_tutorial.h npc_tutorial.cpp
 
 
 

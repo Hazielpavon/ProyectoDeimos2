@@ -16,6 +16,7 @@
 #include "Enemigo.h"
 #include "entidad.h"
 #include "CombateManager.h"      // 👈 gestor de combate
+#include "npc_tutorial.h"
 
 class MainWindow;
 class MapaWidget;
@@ -42,6 +43,7 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+    npc_tutorial *m_npc = nullptr;
     bool m_bossDropCreado = false;
     QVector<Drop*> m_drops;
     QGraphicsTextItem* m_manaText;
@@ -101,4 +103,26 @@ private:
     /* ─────────── UI extra ─────────── */
     MapaWidget*          m_mapaRegiones   = nullptr;
     QString              m_currentRegion;
+
+    enum class FaseTutorial { Caminar, Saltar, Correr,  Dash, Golpear, Fireball,  Mapa,  Terminado };
+    FaseTutorial m_faseTutorial = FaseTutorial::Caminar;
+
+    QGraphicsPixmapItem* m_tutorialItem = nullptr;
+    bool m_yaCamino = false;
+    bool m_yaSalto = false;
+    bool m_yaCorrio = false;
+    bool m_yaDash = false;
+    bool m_yaGolpeo  = false;
+    bool m_yaFireball = false;
+
+    struct MovingPlatform {
+        QGraphicsPixmapItem* sprite;
+        QGraphicsRectItem* hitbox;
+        float minY, maxY;
+        float speed;
+        int dir;
+    };
+
+    QVector<MovingPlatform> m_movingPlatforms;
+    void actualizarPlataformasMoviles();  // ← Agrega esta línea
 };
