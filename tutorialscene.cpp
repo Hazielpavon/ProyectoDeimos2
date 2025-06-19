@@ -15,7 +15,7 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
-#include "plataforma_movil.h"
+
 
 // ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
@@ -132,7 +132,7 @@ TutorialScene::TutorialScene(entidad*   jugador,
 
 
                                          // { 1011.0f, 250.0f, Mid_PLAT_WIDTH, Mid_PLAT_HEIGHT },
-                           { 1200.0f, 250.0f, Mid_PLAT_WIDTH, Mid_PLAT_HEIGHT },
+                                         { 1200.0f, 250.0f, Mid_PLAT_WIDTH, Mid_PLAT_HEIGHT },
                            };
 
     QPixmap lavaBrick(":/resources/plataforma_normal.png");
@@ -154,17 +154,6 @@ TutorialScene::TutorialScene(entidad*   jugador,
         // hitbox
         m_colManager->addRect(r, Qt::NoBrush, true);  // Solo colisión
     }
-    auto* plataformaMovil = new PlataformaMovil(
-        1600.0f, 300.0f,         // posición inicial
-        PLAT_WIDTH, PLAT_HEIGHT, // tamaño
-        250.0f, 400.0f,          // minY, maxY
-        5.0f                    // Aumentá la velocidad aquí
-        );
-
-    m_scene->addItem(plataformaMovil);
-
-    // // Hitbox fija (opcional: si querés que no tenga colisión, quitá esta línea)
-    // m_colManager->addRect({1600.0f, 300.0f, PLAT_W, PLAT_H}, Qt::NoBrush, true);
 
 
     // ---- Jugador ----
@@ -548,4 +537,6 @@ void TutorialScene::onFrame()
             drop->aplicarEfecto(dynamic_cast<Jugador*>(m_player));
         }
     }
+
+
 }
