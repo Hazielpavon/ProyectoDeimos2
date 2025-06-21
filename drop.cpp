@@ -52,7 +52,6 @@ Drop::~Drop()
 bool Drop::checkCollision(entidad* player)
 {
     if (!m_sprite || !player) return false;
-<<<<<<< HEAD
 
     QRectF d = m_sprite->sceneBoundingRect();
     QRectF p(player->transform().getPosition().x() - 20,
@@ -60,12 +59,11 @@ bool Drop::checkCollision(entidad* player)
              40, 50);
 
     return d.intersects(p);
-=======
     QRectF dropRect = m_sprite->sceneBoundingRect();
     QRectF playerRect(player->transform().getPosition().x() - 20, player->transform().getPosition().y() - 50,
                       40, 50);
     return dropRect.intersects(playerRect);
->>>>>>> ana
+
 }
 
 /* ----------------------------------------------------------- */

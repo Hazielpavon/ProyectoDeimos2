@@ -1,3 +1,4 @@
+
 #include "ciudadinversa.h"
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
@@ -46,13 +47,7 @@ static QPixmap trimBottom(const QPixmap& pix)
 }
 
 /* ──────────────────────  ctor  ────────────────────── */
-ciudadinversa::ciudadinversa(entidad*   jugador,
-                             MainWindow* mainWindow,
-<<<<<<< HEAD
-                             QWidget*    parent)
-=======
-                             QWidget*   parent)
->>>>>>> ana
+ciudadinversa::ciudadinversa(entidad*   jugador, MainWindow* mainWindow, QWidget*    parent)
     : QWidget(parent)
     , m_player(jugador)
     , m_mainWindow(mainWindow)

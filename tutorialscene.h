@@ -2,6 +2,7 @@
 //  NIVELRAICESOLVIDADAS.H — CABECERA COMPLETA (con CombateManager)
 // ===========================================================
 #pragma once
+#include "BringerOfDeath.h"
 #include "drop.h"
 #include <QWidget>
 #include <QTimer>
@@ -13,7 +14,7 @@
 #include <QVector>
 #include "Fireball.h"
 #include "ObjetosYColisiones.h"
-#include "Enemigo.h"
+#include "enemigo.h"
 #include "entidad.h"
 #include "CombateManager.h"      // 👈 gestor de combate
 #include "npc_tutorial.h"
@@ -43,6 +44,9 @@ private slots:
 
 private:
     /* ─────────── Gameplay ─────────── */
+     QSet<Enemigo*>  m_deadDrops;
+    QVector<QPointF> m_enemySpawnPos;
+    BringerOfDeath*       m_boss = nullptr;
     npc_tutorial *m_npc = nullptr;
     bool m_bossDropCreado = false;
     QVector<Drop*> m_drops;

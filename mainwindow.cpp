@@ -25,7 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setFixedSize(950, 650);
     ui->setupUi(this);
-<<<<<<< HEAD
 
     /* ➊ instancia única del inventario (hijo de MainWindow) */
     m_inventario = InventoryWidget::instance(this);
@@ -71,45 +70,13 @@ MainWindow::MainWindow(QWidget *parent)
                                             spr.setSize(128,128);
                                             spr.setState(SpriteState::Idle);
                                             m_player->transform().setPosition(width()/2.0, height()/2.0);
-=======
-    // pantallaInicio = new PantallaInicio(this);
-    // connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado, this, [=]() {
-    //     if (!menuOpciones) {
-    //         menuOpciones = new MenuOpciones(this);
-    //         connect(menuOpciones, &MenuOpciones::nuevaPartida, this, [=]() {
-    //             pantallaCarga = new PantallaCarga(this);
-    //             connect(pantallaCarga, &PantallaCarga::cargaCompletada, this, [=]() {
-                    m_player = new Jugador();
-                    m_player->sprite().loadFrames(SpriteState::Walking,":/resources/0_Blood_Demon_Walking_",24);
-                    m_player->sprite().loadFrames(SpriteState::Idle,":/resources/0_Blood_Demon_Idle_",16);
-                    m_player->sprite().loadFrames(SpriteState::IdleLeft,":/resources/0_Blood_Demon_IdleL_",16);
-                    m_player->sprite().loadFrames(SpriteState::WalkingLeft,":/resources/0_Blood_Demon_WalkingL_",24);
-                    m_player->sprite().loadFrames(SpriteState::Jump,":/resources/0_Blood_Demon_Jump Loop_",6);
-                    m_player->sprite().generateMirroredFrames(SpriteState::Jump,     SpriteState::JumpLeft);
-                    m_player->sprite().loadFrames(SpriteState::Running,":/resources/0_Blood_Demon_Running_",12);
-                    m_player->sprite().generateMirroredFrames(SpriteState::Running,  SpriteState::RunningLeft);
-                    m_player->sprite().loadFrames(SpriteState::Slashing,":/resources/0_Blood_Demon_Slashing_",12);
-                    m_player->sprite().generateMirroredFrames(SpriteState::Slashing,  SpriteState::SlashingLeft);
-                    m_player->sprite().loadFrames(SpriteState::Slidding,":/resources/0_Blood_Demon_Sliding_",6);
-                    m_player->sprite().generateMirroredFrames(SpriteState::Slidding,  SpriteState::SliddingLeft);
-                    m_player->sprite().loadFrames(SpriteState::dead,":/resources/0_Blood_Demon_Dying_",15);
-                    m_player->sprite().generateMirroredFrames(SpriteState::dead,  SpriteState::deadleft);
-                    m_player->sprite().loadFrames(SpriteState::throwing,":/resources/0_Blood_Demon_Throwing_",12);
-                    m_player->sprite().generateMirroredFrames(SpriteState::throwing,  SpriteState::throwingLeft);
-                    m_player->sprite().setSize(128, 128);
-                    float centerX = width()  / 2.0f;
-                    float centerY = height() / 2.0f;
-                    m_player->transform().setPosition(centerX, centerY);
-                    m_player->sprite().setState(SpriteState::Idle);
->>>>>>> ana
+
+
 
 
                                             /* -> primer nivel */
-                                            cargarNivel("RaicesOlvidadas");
+                                            cargarNivel("Tutorial");
                                         });
-
-<<<<<<< HEAD
-                    cargarNivel("CiudadInversa");
 
 
                                 mostrarPantalla(pantallaCarga);
@@ -117,33 +84,7 @@ MainWindow::MainWindow(QWidget *parent)
                 }
                 mostrarPantalla(menuOpciones);
             });
-=======
-                   // connect(primerVideo, &VideoIntro::videoTerminado, this, [=]() {
-                    //     VideoIntro* segundoVideo = new VideoIntro(this);
-                   //     segundoVideo->setVideo("qrc:/resources/intro_silencion.mp4");
 
-                    //     connect(segundoVideo, &VideoIntro::videoTerminado, this, [=]() {
-
-                    cargarNivel("Tutorial");
-
-
-    //                     });
-
-    //                   //   mostrarPantalla(segundoVideo);
-    //               //  });
-
-    //              //  mostrarPantalla(primerVideo);
-
-    //         // });
-
-    //           // mostrarPantalla(pantallaCarga);
-    //         });
-    //     }
-    //     mostrarPantalla(menuOpciones);
-    // });
->>>>>>> ana
-
-    // mostrarPantalla(pantallaInicio);
 }
 
 /* ========================================================= */

@@ -1,4 +1,7 @@
 #include "tutorialscene.h"
+#include "Minotaur.h"
+#include "MutantWorm.h"
+#include "Skeleton.h"
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
@@ -15,6 +18,7 @@
 #include <algorithm>
 #include <QDebug>
 #include "mainwindow.h"
+#include "monsterfly.h"
 #include "npc_tutorial.h"
 
 
@@ -141,6 +145,10 @@ TutorialScene::TutorialScene(entidad*   jugador,
         qWarning() << "No se pudo cargar la textura de plataforma de fuego!";
     }
 
+
+
+
+
     for (const QRectF &r : plataformas) {
         // textura visual
         if (!lavaBrick.isNull()) {
@@ -203,6 +211,46 @@ TutorialScene::TutorialScene(entidad*   jugador,
     }
 
 
+    auto* boss = new BringerOfDeath(this);
+    QSize bSz = boss->pixmap().size();
+    boss->setPos(4072.33,651 );
+    boss->setTarget(m_player);
+    m_scene->addItem(boss);
+    m_enemigos.append(boss);
+    m_boss = boss;
+
+
+    Skeleton* sk = new Skeleton(this);
+    QPointF skPos = {1000, 500};
+    sk->setPos(skPos);
+    sk->setTarget(m_player);
+    m_scene->addItem(sk);
+    m_enemigos.append(sk);
+    m_enemySpawnPos.append(sk->pos());
+
+
+    QPointF flyPos{1800.0f, 520.0f};
+    auto* fly = new MonsterFly(this);
+    fly->setPos(flyPos);
+    fly->setTarget(m_player);
+    m_scene->addItem(fly);
+    m_enemigos.append(fly);
+    m_enemySpawnPos.append(fly->pos());
+
+
+
+    // Worm
+
+    QPointF wormPos{3000.0f, 480.0f};
+    auto* worm = new MutantWorm(this);
+    worm->setPos(wormPos);
+    worm->setTarget(m_player);
+    m_scene->addItem(worm);
+    m_enemigos.append(worm);
+    m_enemySpawnPos.append(wormPos);
+
+
+
     QPixmap img(":/resources/caminar.png");
     if (!img.isNull()) {
         QPixmap scaled = img.scaled(250, 150, Qt::KeepAspectRatio, Qt::SmoothTransformation);  // ajustá estos valores
@@ -210,14 +258,6 @@ TutorialScene::TutorialScene(entidad*   jugador,
         m_tutorialItem->setZValue(99);
         m_scene->addItem(m_tutorialItem);
     }
-
-    // ---- Enemigo (Bringer-of-Death) ----
-    auto* boss = new BringerOfDeath(this);
-    QSize bSz = boss->pixmap().size();
-    boss->setPos(4072.33,651 );
-    boss->setTarget(m_player);
-    m_scene->addItem(boss);
-    m_enemigos.append(boss);
 
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
@@ -466,7 +506,7 @@ void TutorialScene::onFrame()
     // 2) Si llega al tramo de la Torre de la Marca
     if (x >= 5467.0f && x <= 5693.67f && qFuzzyCompare(y, 651.0f) && bossDefeated) {
         m_timer->stop();
-        m_mainWindow->cargarNivel("TorreDeLaMarca");
+        m_mainWindow->cargarNivel("RaicesOlvidadas");
         return;
     }
 
@@ -684,7 +724,21 @@ void TutorialScene::onFrame()
                 jug->aplicarDano(jug->currentHP());
                 jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
                 m_deathScheduled = true;
+                for (int i = 0; i < m_enemigos.size(); ++i) {
+                    Enemigo* e = m_enemigos[i];
+                    e->revive(m_enemigos[i]->maxHP());       // o bien m_enemigos[i]->maxHP()
+                    e->setPos(m_enemySpawnPos[i]);
+                }
+                bossDefeated     = false;
+                m_bossDropCreado = false;
 
+                // — Eliminar y destruir todos los drops viejos —
+                // — destruir los drops todavía vivos en escena —
+                for (Drop* d : m_drops)      delete d;
+
+                // — vaciar ambos contenedores —
+                m_drops.clear();
+                m_deadDrops.clear();
                 // 3) Ocultar sprite después de 1s
                 QTimer::singleShot(1000, this, [this]() {
                     m_playerItem->setVisible(false);
@@ -742,31 +796,51 @@ void TutorialScene::onFrame()
             }
 
         }
+        for (auto* e : m_enemigos) {
+            if (e != m_boss && e->isDead() && !m_deadDrops.contains(e)) {
+                m_deadDrops.insert(e);
+                QRectF sb = e->sceneBoundingRect();
+                m_drops.append(new Drop(Drop::Tipo::Vida,
+                                        QPointF(sb.left(), sb.bottom()),
+                                        m_scene));
+            }
+        }
     }
 
-    if (bossDefeated) {
-        m_bossHpBorder->setVisible(false);
-        m_bossHpBar->setVisible(false);
-        m_debugBossHitbox->setVisible(false);
+    // ——— Barra de vida del boss ———
+    if (!m_enemigos.isEmpty() && m_boss) {
+        if (m_boss->isDead()) {
+            m_bossHpBorder->setVisible(false);
+            m_bossHpBar   ->setVisible(false);
+            m_debugBossHitbox->setVisible(false);
+        } else {
+            // Obtén el rectángulo del boss
+            QRectF sb = m_boss->sceneBoundingRect();
+
+            // (Opcional) Debug hitbox
+            m_debugBossHitbox->setRect(0,0,sb.width(), sb.height());
+            m_debugBossHitbox->setPos(sb.topLeft());
+
+            // Cálculo del porcentaje
+            float frac = float(m_boss->currentHP()) / m_boss->maxHP();
+
+            // Anchura y altura fijas de la barra
+            float bw = m_bossHpBorder->rect().width();
+            float bh = m_bossHpBorder->rect().height();
+
+            // Posiciona el borde centrado sobre el boss
+            float x0 = sb.left() + (sb.width() - bw) / 2.0f;
+            float y0 = sb.top()  - bh - 4.0f;
+
+            m_bossHpBorder->setRect(0, 0, bw, bh);
+            m_bossHpBorder->setPos(x0, y0);
+
+            // Redimensiona la barra interior según frac
+            m_bossHpBar->setRect(1, 1, (bw - 2) * frac, bh - 2);
+            m_bossHpBar->setPos(x0, y0);
+        }
     }
-    // ——— Debug hitbox y barra de vida del boss ———
-    if (!m_enemigos.isEmpty()) {
-        Enemigo* boss = m_enemigos.first();
-        QRectF sb = boss->sceneBoundingRect();
-        // hitbox
-        m_debugBossHitbox->setRect(0, 0, sb.width(), sb.height());
-        m_debugBossHitbox->setPos(sb.topLeft());
-        // barra
-        float frac = float(boss->currentHP()) / boss->maxHP();
-        float bw = m_bossHpBorder->rect().width();
-        float bh = m_bossHpBorder->rect().height();
-        float x0 = sb.left() + (sb.width() - bw)/2.0f;
-        float y0 = sb.top()  - bh - 4.0f;
-        m_bossHpBorder->setRect(0,0,bw,bh);
-        m_bossHpBorder->setPos(x0,y0);
-        m_bossHpBar->setRect(1,1,(bw-2)*frac, bh-2);
-        m_bossHpBar->setPos(x0,y0);
-    }
+
 
     // ——— Combate ———
     if (m_combate) m_combate->update(m_dt);

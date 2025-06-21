@@ -213,15 +213,6 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
 
 
 
-    QPointF bossPos{4500.0f, 520.0f};
-    auto* boss = new Minotaur(this);
-    boss->setPos(bossPos);
-    boss->setTarget(m_player);
-    m_scene->addItem(boss);
-    m_enemigos.append(boss);
-    m_enemySpawnPos.append(bossPos);
-    m_boss = boss;
-
     Skeleton* sk = new Skeleton(this);
     QPointF skPos = {1000, 500};
     sk->setPos(skPos);
@@ -230,11 +221,11 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_enemigos.append(sk);
     m_enemySpawnPos.append(sk->pos());
 
-<<<<<<< HEAD
+
     // **Añade también su spawnPos**:
     m_enemySpawnPos.append(skPos);
     // Fly
-=======
+
     //minotaur
     auto* boss = new Minotaur(this);
     boss->setPos(4500, 520);      // coordenadas de aparición
@@ -244,18 +235,15 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_boss = boss;
      m_enemySpawnPos.append(boss->pos());
 
->>>>>>> ana
 
     QPointF flyPos{1800.0f, 520.0f};
     auto* fly = new MonsterFly(this);
     fly->setPos(flyPos);
     fly->setTarget(m_player);
     m_scene->addItem(fly);
-<<<<<<< HEAD
-=======
     m_enemigos.append(fly);
     m_enemySpawnPos.append(fly->pos());
->>>>>>> ana
+
 
     m_enemigos.append(fly);
     m_enemySpawnPos.append(flyPos);
@@ -268,24 +256,17 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     worm->setPos(wormPos);
     worm->setTarget(m_player);
     m_scene->addItem(worm);
-<<<<<<< HEAD
+
 
     m_enemigos.append(worm);
     m_enemySpawnPos.append(wormPos);
 
 
 
-=======
     m_enemigos.append(worm);
     m_enemySpawnPos.append(worm->pos());
 
-    auto* carn = new Carnivore(this);
-    carn->setPos(4200, 450);   // posición inicial
-    carn->setTarget(m_player);
-    m_scene->addItem(carn);
-    m_enemigos.append(carn);
-    m_enemySpawnPos.append(carn->pos());
->>>>>>> ana
+
 
     // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
