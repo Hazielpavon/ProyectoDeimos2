@@ -16,8 +16,8 @@
 #include "mainwindow.h"
 #include "Demon.h"
 #include "Skeleton.h"
-#include "monsterfly.h"
 #include "MutantWorm.h"
+#include "monsterfly.h"
 #include <iostream>
 using namespace std;
 
@@ -332,7 +332,7 @@ void NivelRaicesOlvidadas::lanzarHechizo()
     bool izq = (m_player->getLastDirection() == SpriteState::WalkingLeft ||
                 m_player->getLastDirection() == SpriteState::RunningLeft);
     QPointF inicio = m_player->transform().getPosition();
-    auto* fb = new Fireball(izq, inicio, m_scene, m_enemigos);
+    auto* fb = new Fireball(izq, m_player->transform().getPosition(), m_scene,&m_enemigos);
     m_fireballs.append(fb);
 }
 

@@ -591,5 +591,6 @@
         <file>resources/mapat.png</file>
         <file>resources/informacion.png</file>
         <file>resources/ruta_inf.PNG</file>
+        <file>resources/MenteVacia.png</file>
     </qresource>
 </RCC>

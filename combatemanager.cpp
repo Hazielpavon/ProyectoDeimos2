@@ -57,10 +57,10 @@ void CombateManager::update(float dt)
 {
     if (!m_player) return;
 
-    // enfriamientos
+    // actualiza cooldowns...
     m_playerCd = qMax(0.0f, m_playerCd - dt);
     m_enemyCd  = qMax(0.0f, m_enemyCd  - dt);
-    m_bossCd  = qMax(0.0f, m_bossCd  - dt);
+    m_bossCd   = qMax(0.0f, m_bossCd   - dt);
 
     // 1) ATAQUE DEL JUGADOR
     if (m_playerCd <= 0.0f) {
@@ -69,14 +69,13 @@ void CombateManager::update(float dt)
             st == SpriteState::SlashingLeft)
         {
             QRectF hit = espadaRect(m_player);
-            int n = m_enemigos.size();
-            for (int i = 0; i < n; ++i) {
-                Enemigo* e = m_enemigos[i];
+            for (Enemigo* e : m_enemigos) {
                 if (!e || e->isDead()) continue;
-                QRectF rectE = e->sceneBoundingRect();
-                if (hit.intersects(rectE) && m_bossCd <= 0.0f) {
-                    int dañoReal = m_player->computeDamage(DMG_P2E);
-                    e->takeDamage(dañoReal);
+                if (hit.intersects(e->sceneBoundingRect()) && m_bossCd <= 0.0f) {
+                    // usa el daño actual del jugador
+                    int baseDmg = m_player->damage();                // su getter
+                    int realDmg = m_player->computeDamage(baseDmg);  // aplica multiplicador
+                    e->takeDamage(realDmg);
 
                     m_playerCd = COOLDOWN;
                     m_bossCd   = COOLDOWN;
@@ -88,28 +87,22 @@ void CombateManager::update(float dt)
 
     // 2) ATAQUE DEL ENEMIGO
     if (m_enemyCd <= 0.0f) {
-        // 1) Obtén el pixmap del jugador y comprueba nullptr
         QGraphicsPixmapItem* pItem = m_player->graphicsItem();
-        if (!pItem) {
-            qWarning() << "[CombateManager] graphicsItem del jugador no set!";
-            return;
-        }
+        if (!pItem) return;
         QRectF rectP = pItem->sceneBoundingRect();
 
-        // 2) Ahora el bucle por índices
-        int n = m_enemigos.size();
-        for (int i = 0; i < n; ++i) {
-            Enemigo* e = m_enemigos[i];
+        for (Enemigo* e : m_enemigos) {
             if (!e || e->isDead()) continue;
             if (e->estado() != Enemigo::Estado::Attack) continue;
 
-            int frame = e->frameIndex();
-
             if (garraRect(e).intersects(rectP)) {
-                m_player->aplicarDano(DMG_E2P);
+                // usa el daño actualizado del enemigo
+                int enemyDmg = e->damage();
+                m_player->aplicarDano(enemyDmg);
                 m_enemyCd = COOLDOWN;
                 break;
             }
         }
     }
 }
+

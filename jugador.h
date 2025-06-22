@@ -23,7 +23,10 @@ public:
     void setGraphicsItem(QGraphicsPixmapItem* it) { m_graphicsItem = it; }
     // Lo usamos luego en CombateManager:
     QGraphicsPixmapItem* graphicsItem() const { return m_graphicsItem; }
-
+    int damage() const
+    {
+        return m_baseDamage;
+    }
 
     // Dibuja la HUD (barra de vida) en la esquina superior izquierda
     void drawHUD(QPainter &painter, const QRect &viewportRect) const;
@@ -33,6 +36,7 @@ public:
         return int(std::round(base * m_damageMul));
     }
 private:
+    int         m_baseDamage       = 1;
     QGraphicsPixmapItem* m_graphicsItem = nullptr;
     QSet<QString>  m_keys;
     float  m_damageMul = 1.0f;

@@ -50,7 +50,7 @@ MutantWorm::MutantWorm(QObject* parent):Enemigo(parent), m_deadAnim(false)
     addAnim(Estado::Attack, loadSet(":/resources/1_Monster_Attack_%1.png" ,18));
     addAnim(Estado::Jump  , loadSet(":/resources/1_Monster_Jump_%1.png"  ,18));
     addAnim(Estado::Death , loadSet(":/resources/1_Monster_Dying_%1.png" ,18));
-
+ setDamage(8);
     if (!animActual().frames.isEmpty()) {
         QPixmap f = animActual().frames.first();
         setOffset(-f.width()/2, -f.height()/2);

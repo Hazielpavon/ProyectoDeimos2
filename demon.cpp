@@ -46,7 +46,7 @@ Demon::Demon(QObject* parent)
     addAnim(Estado::Attack, loadSet(":/resources/demon_cleave_%1.png" , 15));
     addAnim(Estado::Hurt  , loadSet(":/resources/demon_take_hit_%1.png", 5));
     addAnim(Estado::Death , loadSet(":/resources/demon_death_%1.png"  , 22));
-
+ setDamage(8);
     /* centre anchor */
     if (!animActual().frames.isEmpty()) {
         QPixmap f = animActual().frames.first();

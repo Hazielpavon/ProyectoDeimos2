@@ -62,7 +62,7 @@ BringerOfDeath::BringerOfDeath(QObject* parent)
     addAnim(Estado::Attack, cargar(":/resources/Bringer-of-Death_Attack_%1.png",4));
     addAnim(Estado::Hurt  , cargar(":/resources/Bringer-of-Death_Hurt_%1.png"  ,4));
     addAnim(Estado::Death , cargar(":/resources/Bringer-of-Death_Death_%1.png" ,4));
-
+ setDamage(8);
     Animacion& idleAnim = animActual();
     if (!idleAnim.frames.isEmpty()) {
         QPixmap first = idleAnim.frames.first();

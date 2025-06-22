@@ -11,7 +11,7 @@
 #include "ciudadinversa.h"
 #include "videointro.h"
 #include "jugador.h"
-
+#include "mentevacia.h"
 /* inventario */
 #include "InventoryWidget.h"
 
@@ -75,7 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
                                             /* -> primer nivel */
-                                            cargarNivel("Tutorial");
+                                            cargarNivel("MenteVacia");
                                         });
 
 
@@ -144,6 +144,8 @@ void MainWindow::cargarNivel(const QString &nombre)
         n->setFocus();
     }
     else if (nombre == "MenteVacia") {
-        /* … */
+        auto* n = new mentevacia(m_player, this);
+        mostrarPantalla(n);
+        n->setFocus();
     }
 }

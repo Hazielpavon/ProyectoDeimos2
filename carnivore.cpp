@@ -53,7 +53,7 @@ Carnivore::Carnivore(QObject* parent) : Enemigo(parent)
     addAnim(Estado::Jump  , loadSeq(":/resources/2_Monster_Jump_ (%1).png"));
     addAnim(Estado::Death , loadSeq(":/resources/2_Monster_Dying_ (%1).png"));
 
-    /* centra el ancla */
+  setDamage(8);
     if (!animActual().frames.isEmpty()) {
         const QPixmap& f = animActual().frames.first();
         setOffset(-f.width() / 2, -f.height() / 2);

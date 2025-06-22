@@ -8,11 +8,18 @@
 #include <QPointF>
 #include <QString>
 #include "enemigo.h"
+class Enemigo;
+class QGraphicsScene;
 
 class Fireball : public QObject, public QGraphicsPixmapItem {
-    Q_OBJECT
 public:
-    Fireball(bool haciaIzquierda, QPointF origen, QGraphicsScene* scene, QVector<Enemigo*>& enemigos);
+    // ahora recibe un puntero a la lista original de enemigos
+    Fireball(bool haciaIzquierda,
+             QPointF origen,
+             QGraphicsScene* scene,
+             QVector<Enemigo*>* enemigos);
+
+    // debe llamarse cada frame desde tu loop principal
     void avanzar(float dt);
     bool isAlive() const { return m_alive; }
 
@@ -22,6 +29,6 @@ private:
     float tiempoAcumulado = 0;
     float velX;
     QGraphicsScene* m_scene;
-    QVector<Enemigo*>& m_enemigos;
+    QVector<Enemigo*>* m_enemigos;
     bool m_alive = true;
 };

@@ -8,7 +8,7 @@ static constexpr int BAR_MARGIN = 10;
 Jugador::Jugador()
     : entidad()
 {
-    // Inicializar salud, animaciones, etc. (ya lo hace entidad en el constructor base)
+    m_baseDamage       = 1;
 }
 
 // Añade una llave

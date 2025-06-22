@@ -47,6 +47,7 @@ Skeleton::Skeleton(QObject* parent)
     , m_patrolDir(+1)
     , m_patrolTime(0)
     , m_faceRight(true)
+
 {
     // Idle: idle_B1.png … idle_B6.png
     addAnim(Estado::Idle,   loadSet(":/resources/idle_B%1.png", 6));
@@ -63,6 +64,7 @@ Skeleton::Skeleton(QObject* parent)
     // Death: death_1.png … death_16.png
     addAnim(Estado::Death,  loadSet(":/resources/death_%1.png",   16));
 
+    setDamage(8);
     // Centrar el ancla
     if (!animActual().frames.isEmpty()) {
         QPixmap f = animActual().frames.first();

@@ -46,8 +46,7 @@ Minotaur::Minotaur(QObject* parent) : Enemigo(parent), m_dead(false)
     addAnim(Estado::Idle  , loadSet(":/resources/idle_%1.png" ,16));
     addAnim(Estado::Walk  , loadSet(":/resources/walk_%1.png" ,12));
     addAnim(Estado::Attack, loadSet(":/resources/atk_1_%1.png",16));
-    /* sin Estado::Death (no hay sprites) */
-
+ setDamage(8);
     if(!animActual().frames.isEmpty()){
         const QPixmap& f = animActual().frames.first();
         setOffset(-f.width()/2, -f.height()/2);

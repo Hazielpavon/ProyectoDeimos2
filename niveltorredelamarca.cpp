@@ -2,9 +2,8 @@
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
-#include "enemigo.h"
-#include "BringerOfDeath.h"
-#include "CombateManager.h"
+#include "Enemigo.h"
+#include "combatemanager.h"
 #include <QRandomGenerator>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsRectItem>
@@ -20,7 +19,6 @@
 #include "Minotaur.h"
 #include "monsterfly.h"
 #include "MutantWorm.h"
-#include "Carnivore.h"
 
 
 // ---- Constantes generales --------------------------------
@@ -402,7 +400,7 @@ void niveltorredelamarca::lanzarHechizo()
     bool izq = (m_player->getLastDirection() == SpriteState::WalkingLeft ||
                 m_player->getLastDirection() == SpriteState::RunningLeft);
     QPointF inicio = m_player->transform().getPosition();
-    auto* fb = new Fireball(izq, inicio, m_scene, m_enemigos);
+    auto* fb = new Fireball(izq, inicio, m_scene, &m_enemigos);
     m_fireballs.append(fb);
 }
 

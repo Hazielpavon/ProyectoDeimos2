@@ -50,7 +50,7 @@ MonsterFly::MonsterFly(QObject* parent):Enemigo(parent),
     addAnim(Estado::Attack, loadSet(":/resources/0_Monster_Attack_%1.png",18));
     addAnim(Estado::Hurt  , loadSet(":/resources/0_Monster_Fall_%1.png"  ,18));
     addAnim(Estado::Death , loadSet(":/resources/0_Monster_Dying_%1.png" ,18));
-
+ setDamage(20);setDamage(8);
     if(!animActual().frames.isEmpty()){
         QPixmap f = animActual().frames.first();
         setOffset(-f.width()/2, -f.height()/2);

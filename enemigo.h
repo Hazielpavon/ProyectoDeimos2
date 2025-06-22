@@ -64,7 +64,8 @@ public:
 
     virtual void revive(int hp);
     explicit Enemigo(QObject* parent = nullptr);
-
+    int damage() const { return m_damage; }
+    void setDamage(int d) { m_damage = d; }
     /* ---------- Animación ---------- */
     void          addAnim(Estado st, const Animacion& a);
     void          setEstado(Estado st);
@@ -114,6 +115,7 @@ private:
     Estado  m_estado = Estado::Idle;
 
     /* Vida */
+    int m_damage = 1;
     int     m_maxHP  = 5;
     int     m_hp     = 5;
     bool   m_isDead = false;
