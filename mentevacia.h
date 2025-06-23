@@ -43,6 +43,9 @@ protected:
 private slots:
     void onFrame();
 private:
+    QGraphicsRectItem* m_leftWall   = nullptr;
+    QGraphicsRectItem* m_rightWall  = nullptr;
+
     int m_initialEnemies = 0;
     // --- Control de rondas ---
     int   m_currentRound    = 0;

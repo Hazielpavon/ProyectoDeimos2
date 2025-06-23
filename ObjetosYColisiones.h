@@ -31,7 +31,7 @@ public:
     void resolveCollisions(Enemigo* e,
                            const QSize& pixSize,
                            float dt);
-
+    void removeRect(QGraphicsRectItem* hitbox);
 private:
     QGraphicsScene* m_scene;
     QVector<ColObj> m_objetos;

@@ -147,5 +147,6 @@ void MainWindow::cargarNivel(const QString &nombre)
         auto* n = new mentevacia(m_player, this);
         mostrarPantalla(n);
         n->setFocus();
+    }else if (nombre == "MaquinaDelOlvido"){
     }
 }

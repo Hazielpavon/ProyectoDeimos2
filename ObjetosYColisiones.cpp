@@ -33,6 +33,25 @@ QGraphicsRectItem* ObjetosYColisiones::addRect(const QRectF& area,
     m_objetos.push_back({vis, hit});
     return hit;
 }
+// --- en ObjetosYColisiones.cpp ---
+void ObjetosYColisiones::removeRect(QGraphicsRectItem* hitboxToRemove)
+{
+    for (auto it = m_objetos.begin(); it != m_objetos.end(); ++it) {
+        if (it->hitbox == hitboxToRemove) {
+            // 1) borrar el visual, si lo hay
+            if (it->visual) {
+                m_scene->removeItem(it->visual);
+                delete it->visual;
+            }
+            // 2) borrar el hitbox
+            m_scene->removeItem(it->hitbox);
+            delete it->hitbox;
+            // 3) quitar del vector
+            m_objetos.erase(it);
+            return;
+        }
+    }
+}
 
 void ObjetosYColisiones::resolveCollisions(entidad* player,
                                            const QSize& pixSize,

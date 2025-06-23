@@ -109,24 +109,18 @@ mentevacia::mentevacia(entidad*   jugador,
     m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
     // muro izquierdo (impide salir por la izquierda)
-    m_colManager->addRect(
-        QRectF(0.0f,           // x
-               0.0f,           // y
-               1.0f,           // ancho muy fino
-               m_bgHeight),    // altura todo el nivel
-        Qt::NoBrush,
-        true
+    // muro izquierdo
+    m_leftWall = m_colManager->addRect(
+        QRectF(0, 0, 1.0f, m_bgHeight),
+        Qt::NoBrush, true
         );
 
-    // muro derecho (impide salir al final de la imagen)
-    m_colManager->addRect(
-        QRectF(m_bgWidth - 1.0f,  // justo en el límite derecho
-               0.0f,
-               1.0f,
-               m_bgHeight),
-        Qt::NoBrush,
-        true
+    // muro derecho
+    m_rightWall = m_colManager->addRect(
+        QRectF(m_bgWidth-1.0f, 0, 1.0f, m_bgHeight),
+        Qt::NoBrush, true
         );
+
 
     // ---- Jugador ----
     if(m_player){
@@ -286,8 +280,35 @@ void mentevacia::startNextRound()
         m_timer->stop();
         return; // completado
     }
-    // ... limpia drops si quieres ...
-    // marca la ronda como no iniciada y muestra el cartel
+
+    if (m_currentRound == 3) {
+        // 1) Muestro un mensaje informativo
+        m_roundLabel->setPlainText(QStringLiteral("¡RONDA 10! Ya puedes avanzar"));
+        m_roundLabel->setVisible(true);
+        m_roundLabelTimer->start(3000);  // dura 3s, por ejemplo
+
+        // 2) Quito los muros para que puedas salir
+        if (m_leftWall) {
+            m_colManager->removeRect(m_leftWall);
+            m_leftWall = nullptr;
+        }
+        if (m_rightWall) {
+            m_colManager->removeRect(m_rightWall);
+            m_rightWall = nullptr;
+        }
+
+        // 3) Le doy la llave al jugador
+        auto jug = dynamic_cast<Jugador*>(m_player);
+        if (jug) jug->addKey(QStringLiteral("MenteVacia"));
+
+        // No llamamos a spawnScaledEnemies: no habrá más enemigos.
+        return;
+    }
+
+
+
+
+
     m_roundActive = false;
     showRoundLabel(m_currentRound);
 }
@@ -466,14 +487,14 @@ void mentevacia::onFrame()
     // 1) Salir por la izquierda → tutorial
     if (x < 0.0f) {
         m_timer->stop();
-        m_mainWindow->cargarNivel("RaicesOlvidadas");
+        m_mainWindow->cargarNivel("TorreDeLaMarca");
         return;
     }
 
     // 2) Avanzar a la Ciudad Vacia si el boss ya fue derrotado
     if (x >= 6245.67f && bossDefeated) {
         m_timer->stop();
-        m_mainWindow->cargarNivel("MenteVacia");
+        m_mainWindow->cargarNivel("MaquinaDelOlvido");
         return;
     }
 
