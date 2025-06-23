@@ -66,43 +66,51 @@ void NPC::update(float dt)
     }
 }
 
-
 void NPC::talk()
 {
     if (m_state == Talking) return;
     m_state = Talking;
 
+    QString texto;
+
     if (!m_hasQuest) {
-        auto r = QMessageBox::question(
-            nullptr, "El Sabio",
-            "¿Podrías matar al Minotauro que acecha esta torre? ¡Te recompensaré!",
-            QMessageBox::Yes|QMessageBox::No);
-        m_hasQuest  = true;
-        m_accepted  = (r == QMessageBox::Yes);
-        if (!m_accepted)
-            m_level->penalizarCanones();
+        texto = "¿Podrías matar al Minotauro que acecha esta torre?";
+        m_hasQuest = true;
+        m_accepted = true;
     }
     else if (m_hasQuest && !m_accepted) {
-        // quien dijo NO
-        QMessageBox::information(
-            nullptr, "El Sabio",
-            "¡Oh, vaya! ¿Seguro que no cambias de opinión?");
+        texto = "¿Seguro que no cambias de opinión?";
     }
     else if (m_hasQuest && m_accepted && !m_rewardGiven) {
-        // quien dijo SÍ y aún no dio la recompensa
         if (m_level->isBossDefeated()) {
+            texto = "¡Gracias por tu valentía! Aquí tienes tu recompensa.";
             m_level->rewardPlayerExtraDamage();
             m_rewardGiven = true;
         } else {
-            QMessageBox::information(
-                nullptr, "El Sabio",
-                "¿Ya lo mataste? ¡Apresúrate!");
+            texto = "¿Ya lo mataste? ¡Apresúrate!";
         }
     }
 
-    m_state      = Idle;
+    // Mostrar texto y fondo
+    m_dialogoTexto->setPlainText(texto);
+    QRectF textRect = m_dialogoTexto->boundingRect();
+    QPointF npcPos = sceneBoundingRect().center();
+
+    // Alinear el texto y el fondo encima del NPC
+    QPointF textoPos(npcPos.x() - textRect.width() / 2, npcPos.y() - 120);
+    m_dialogoTexto->setPos(textoPos);
+
+    QRectF fondoRect = textRect.adjusted(-10, -10, 10, 10);
+    m_dialogoFondo->setRect(fondoRect);
+    m_dialogoFondo->setPos(textoPos);
+
+    m_dialogoTexto->setVisible(true);
+    m_dialogoFondo->setVisible(true);
+    m_timerOcultarTexto->start(3000);  // ocultar en 3 segundos
+
+    m_state = Idle;
     m_frameIndex = 0;
-    m_animTimer  = 0;
+    m_animTimer = 0;
 }
 void NPC::onBossDefeated()
 {

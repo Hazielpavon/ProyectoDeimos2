@@ -12,6 +12,7 @@
 #include "videointro.h"
 #include "jugador.h"
 #include "mentevacia.h"
+
 /* inventario */
 #include "InventoryWidget.h"
 
@@ -75,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
                                             /* -> primer nivel */
-                                            cargarNivel("MenteVacia");
+                                            cargarNivel("TorreDeLaMarca");
                                         });
 
 
