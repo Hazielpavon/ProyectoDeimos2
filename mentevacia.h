@@ -128,3 +128,5 @@ private:
     QLabel* m_inventario = nullptr; //inventario temporal
     bool    m_invVisible = false; //inventario temporal
 };
+
+
