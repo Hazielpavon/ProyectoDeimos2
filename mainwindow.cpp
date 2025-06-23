@@ -75,7 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
                                             /* -> primer nivel */
-                                            cargarNivel("MenteVacia");
+                                            cargarNivel("TorreDeLaMarca");
                                         });
 
 

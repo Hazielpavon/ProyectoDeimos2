@@ -281,7 +281,7 @@ void mentevacia::startNextRound()
         return; // completado
     }
 
-    if (m_currentRound == 3) {
+    if (m_currentRound == 10) {
         // 1) Muestro un mensaje informativo
         m_roundLabel->setPlainText(QStringLiteral("¡RONDA 10! Ya puedes avanzar"));
         m_roundLabel->setVisible(true);
@@ -304,11 +304,6 @@ void mentevacia::startNextRound()
         // No llamamos a spawnScaledEnemies: no habrá más enemigos.
         return;
     }
-
-
-
-
-
     m_roundActive = false;
     showRoundLabel(m_currentRound);
 }

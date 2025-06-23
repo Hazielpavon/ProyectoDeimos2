@@ -211,59 +211,49 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
 
 
 
-    Skeleton* sk = new Skeleton(this);
-    QPointF skPos = {1000, 500};
-    sk->setPos(skPos);
-    sk->setTarget(m_player);
-    m_scene->addItem(sk);
-    m_enemigos.append(sk);
-    m_enemySpawnPos.append(sk->pos());
+    {
+        QRectF p = plataformas[0];
+        auto* sk = new Skeleton(this);
+        sk->setPos(p.x() + p.width()/2, p.y() - sk->pixmap().height());  // encima
+        sk->setTarget(m_player);
+        m_scene->addItem(sk);
+        m_enemigos.append(sk);
+        m_enemySpawnPos.append(sk->pos());
+    }
 
+    // 2) MonsterFly
+    {
+        QRectF p = plataformas[1];
+        auto* fly = new MonsterFly(this);
+        fly->setPos(p.x() + p.width()/2, p.y() - fly->pixmap().height());
+        fly->setTarget(m_player);
+        m_scene->addItem(fly);
+        m_enemigos.append(fly);
+        m_enemySpawnPos.append(fly->pos());
+    }
 
-    // **Añade también su spawnPos**:
-    m_enemySpawnPos.append(skPos);
-    // Fly
+    // 3) MutantWorm
+    {
+        QRectF p = plataformas[2];
+        auto* worm = new MutantWorm(this);
+        worm->setPos(p.x() + p.width()/2, p.y() - worm->pixmap().height());
+        worm->setTarget(m_player);
+        m_scene->addItem(worm);
+        m_enemigos.append(worm);
+        m_enemySpawnPos.append(worm->pos());
+    }
 
-    //minotaur
-    auto* boss = new Minotaur(this);
-    boss->setPos(4500, 520);      // coordenadas de aparición
-    boss->setTarget(m_player);
-    m_scene->addItem(boss);
-    m_enemigos.append(boss);
-    m_boss = boss;
-     m_enemySpawnPos.append(boss->pos());
-
-
-    QPointF flyPos{1800.0f, 520.0f};
-    auto* fly = new MonsterFly(this);
-    fly->setPos(flyPos);
-    fly->setTarget(m_player);
-    m_scene->addItem(fly);
-    m_enemigos.append(fly);
-    m_enemySpawnPos.append(fly->pos());
-
-
-    m_enemigos.append(fly);
-    m_enemySpawnPos.append(flyPos);
-
-
-    // Worm
-
-    QPointF wormPos{3000.0f, 480.0f};
-    auto* worm = new MutantWorm(this);
-    worm->setPos(wormPos);
-    worm->setTarget(m_player);
-    m_scene->addItem(worm);
-
-
-    m_enemigos.append(worm);
-    m_enemySpawnPos.append(wormPos);
-
-
-
-    m_enemigos.append(worm);
-    m_enemySpawnPos.append(worm->pos());
-
+    // 4) Minotaur en la ÚLTIMA plataforma
+    {
+        QRectF p = plataformas.last();
+        auto* boss = new Minotaur(this);
+        boss->setPos(p.x() + p.width()/2, p.y() - boss->pixmap().height());
+        boss->setTarget(m_player);
+        m_scene->addItem(boss);
+        m_enemigos.append(boss);
+        m_boss = boss;
+        m_enemySpawnPos.append(boss->pos());
+    }
 
 
     // debug hitbox en escena
@@ -511,6 +501,9 @@ void niveltorredelamarca::onFrame()
             m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
             m_playerItem->setVisible(true);
             m_deathScheduled = false;
+            if (m_npc) {
+                m_npc->resetAfterRespawn();
+            }
         });
     }
 

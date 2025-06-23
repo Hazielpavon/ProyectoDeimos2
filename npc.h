@@ -16,6 +16,11 @@ public:
         QObject* parent=nullptr);
 
     void update(float dt);
+    void resetAfterRespawn() {
+        m_rewardGiven  = false;
+        m_keyDelivered = false;
+        m_talkCooldown = 0.0f;
+    }
 public slots:
     void onBossDefeated();
 private:
@@ -27,13 +32,13 @@ private:
     bool                 m_hasQuest      = false;
     bool                 m_accepted      = false;
     bool                 m_rewardGiven   = false;
-     float    m_talkCooldown = 1.0f;
+    float    m_talkCooldown = 1.0f;
     std::vector<QPixmap> m_idleFrames;
     std::vector<QPixmap> m_speakFrames;
 
     Jugador*             m_player;
     niveltorredelamarca* m_level;
-
+    bool  m_keyDelivered   = false;
     void loadAnimations();
     void talk();
 };
