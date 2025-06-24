@@ -592,5 +592,11 @@
         <file>resources/informacion.png</file>
         <file>resources/ruta_inf.PNG</file>
         <file>resources/MenteVacia.png</file>
+        <file>resources/maquina.png</file>
+        <file>resources/cuidad.mp4</file>
+        <file>resources/maquina.mp4</file>
+        <file>resources/raices.mp4</file>
+        <file>resources/templo_olvido_vid.mp4</file>
+        <file>resources/torre.mp4</file>
     </qresource>
 </RCC>
