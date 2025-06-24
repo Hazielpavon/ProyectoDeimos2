@@ -16,11 +16,6 @@ public:
         QObject* parent=nullptr);
 
     void update(float dt);
-    void resetAfterRespawn() {
-        m_rewardGiven  = false;
-        m_keyDelivered = false;
-        m_talkCooldown = 0.0f;
-    }
 public slots:
     void onBossDefeated();
 private:
@@ -38,7 +33,7 @@ private:
 
     Jugador*             m_player;
     niveltorredelamarca* m_level;
-    bool  m_keyDelivered   = false;
+
     void loadAnimations();
     void talk();
 };

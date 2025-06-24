@@ -72,51 +72,32 @@ void NPC::talk()
     if (m_state == Talking) return;
     m_state = Talking;
 
-    // 1) ¿Trajo la llave TRAS haber matado al boss?
-    if (m_hasQuest && m_accepted && m_rewardGiven && !m_keyDelivered &&
-        m_player->hasKey("Torre De La Marca"))
-    {
-        m_keyDelivered = true;
-        m_player->useKey("Torre De La Marca");
-        QMessageBox::information(
-            nullptr, "El Sabio",
-            "¡Excelente! Aquí tienes tu recompensa final por tu valentía.");
-    }
-    // 2) Ofrecer la misión si nunca la he ofrecido
-    else if (!m_hasQuest) {
+    if (!m_hasQuest) {
         auto r = QMessageBox::question(
             nullptr, "El Sabio",
             "¿Podrías matar al Minotauro que acecha esta torre? ¡Te recompensaré!",
             QMessageBox::Yes|QMessageBox::No);
-        m_hasQuest = true;
-        m_accepted = (r == QMessageBox::Yes);
+        m_hasQuest  = true;
+        m_accepted  = (r == QMessageBox::Yes);
         if (!m_accepted)
             m_level->penalizarCanones();
     }
-    // 3) Ya aceptó, pero aún no mata al boss
+    else if (m_hasQuest && !m_accepted) {
+        // quien dijo NO
+        QMessageBox::information(
+            nullptr, "El Sabio",
+            "¡Oh, vaya! ¿Seguro que no cambias de opinión?");
+    }
     else if (m_hasQuest && m_accepted && !m_rewardGiven) {
+        // quien dijo SÍ y aún no dio la recompensa
         if (m_level->isBossDefeated()) {
             m_level->rewardPlayerExtraDamage();
             m_rewardGiven = true;
-            QMessageBox::information(
-                nullptr, "El Sabio",
-                "¡Has vencido al Minotauro! Mi gratitud y un poder extra para ti.");
         } else {
             QMessageBox::information(
                 nullptr, "El Sabio",
                 "¿Ya lo mataste? ¡Apresúrate!");
         }
-    }
-    // 4) Ya mató al boss y recibió mejora, pero aún falta la llave
-    else if (m_hasQuest && m_accepted && m_rewardGiven && !m_keyDelivered) {
-        QMessageBox::information(
-            nullptr, "El Sabio",
-            "Bien hecho. Cuando traigas la llave que dejó el Minotauro, tendrás tu recompensa final.");
-    }
-    // 5) Ya entregada la llave: silencio o diálogo extra
-    else {
-        // Aquí podrías dejarle callado, o un mensaje breve:
-        // QMessageBox::information(nullptr, "El Sabio", "Gracias de nuevo.");
     }
 
     m_state      = Idle;
@@ -125,9 +106,11 @@ void NPC::talk()
 }
 void NPC::onBossDefeated()
 {
-    // Forzamos el diálogo apenas el boss caiga, si ya aceptó
+    // si aceptaste la misión y aún no diste la recompensa, forzamos el diálogo:
     if (m_hasQuest && m_accepted && !m_rewardGiven) {
+        // para ignorar cualquier cooldown pendiente:
         m_talkCooldown = 0.0f;
         talk();
     }
+
 }

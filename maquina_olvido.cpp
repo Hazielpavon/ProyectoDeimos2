@@ -1,4 +1,4 @@
-#include "niveltorredelamarca.h"
+#include "maquina_olvido.h"
 #include "mapawidget.h"
 #include "ObjetosYColisiones.h"
 #include "jugador.h"
@@ -16,7 +16,7 @@
 #include <QDebug>
 #include "mainwindow.h"
 #include "Skeleton.h"
-#include "Minotaur.h"
+#include "demon.h"
 #include "monsterfly.h"
 #include "MutantWorm.h"
 
@@ -46,20 +46,20 @@ static QPixmap trimBottom(const QPixmap& pix)
                ? pix.copy(0,0,pix.width(),maxY+1)
                : pix;
 }
-void niveltorredelamarca::penalizarCanones() {
+void maquina_olvido::penalizarCanones() {
     for (Cannon* c : m_cannons) {
         // divide por 2 el intervalo de disparo
         c->setFireRate( c->fireRate() * 0.5f );
     }
 }
 
-void niveltorredelamarca::rewardPlayerExtraDamage() {
+void maquina_olvido::rewardPlayerExtraDamage() {
     auto* jug = dynamic_cast<Jugador*>(m_player);
     if (!jug) return;
     jug->setDamageMultiplier( jug->damageMultiplier() * 1.05f );
 }
 // =========================================================
-niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
+maquina_olvido::maquina_olvido(entidad*   jugador,
                                          MainWindow* mainWindow,
                                          QWidget*   parent)
     : QWidget(parent)
@@ -74,7 +74,7 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
     // ---- Fondo ----
-    QPixmap bgOrig(":/resources/Torre_De_La_Marca.png");
+    QPixmap bgOrig(":/resources/maquina.png");
     QPixmap bg = bgOrig.scaled(bgOrig.size()*0.9,
                                Qt::KeepAspectRatioByExpanding,
                                Qt::SmoothTransformation);
@@ -87,7 +87,7 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
         auto* item = m_scene->addPixmap(bg);
         item->setZValue(0);  item->setPos(i*m_bgWidth,0);
     }
-    QPixmap bg2Orig(":/resources/Torre_De_La_Marca2.png");
+    QPixmap bg2Orig(":/resources/maquina.png");
     if(!bg2Orig.isNull()){
         m_bg2Item = m_scene->addPixmap(
             bg2Orig.scaled(m_bgWidth, m_bgHeight,
@@ -221,32 +221,32 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
         m_enemySpawnPos.append(sk->pos());
     }
 
-    // 2) MonsterFly
-    {
-        QRectF p = plataformas[1];
-        auto* fly = new MonsterFly(this);
-        fly->setPos(p.x() + p.width()/2, p.y() - fly->pixmap().height());
-        fly->setTarget(m_player);
-        m_scene->addItem(fly);
-        m_enemigos.append(fly);
-        m_enemySpawnPos.append(fly->pos());
-    }
+    // // 2) MonsterFly
+    // {
+    //     QRectF p = plataformas[1];
+    //     auto* fly = new MonsterFly(this);
+    //     fly->setPos(p.x() + p.width()/2, p.y() - fly->pixmap().height());
+    //     fly->setTarget(m_player);
+    //     m_scene->addItem(fly);
+    //     m_enemigos.append(fly);
+    //     m_enemySpawnPos.append(fly->pos());
+    // }
 
-    // 3) MutantWorm
-    {
-        QRectF p = plataformas[2];
-        auto* worm = new MutantWorm(this);
-        worm->setPos(p.x() + p.width()/2, p.y() - worm->pixmap().height());
-        worm->setTarget(m_player);
-        m_scene->addItem(worm);
-        m_enemigos.append(worm);
-        m_enemySpawnPos.append(worm->pos());
-    }
+    // // 3) MutantWorm
+    // {
+    //     QRectF p = plataformas[2];
+    //     auto* worm = new MutantWorm(this);
+    //     worm->setPos(p.x() + p.width()/2, p.y() - worm->pixmap().height());
+    //     worm->setTarget(m_player);
+    //     m_scene->addItem(worm);
+    //     m_enemigos.append(worm);
+    //     m_enemySpawnPos.append(worm->pos());
+    // }
 
     // 4) Minotaur en la ÚLTIMA plataforma
     {
         QRectF p = plataformas.last();
-        auto* boss = new Minotaur(this);
+        auto* boss = new Demon(this);
         boss->setPos(p.x() + p.width()/2, p.y() - boss->pixmap().height());
         boss->setTarget(m_player);
         m_scene->addItem(boss);
@@ -298,7 +298,7 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_scene->addItem(m_manaText);
 
     float npcX = 200.0f;
-    m_npc = new NPC(this,dynamic_cast<Jugador*>(m_player), m_scene,  QPointF(npcX, m_bgHeight - 40.0f), this);
+    m_npc = new npc_final(this,dynamic_cast<Jugador*>(m_player), m_scene,  QPointF(npcX, m_bgHeight - 40.0f), this);
 
     // ---- Gestor de Combate ----
     Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
@@ -335,14 +335,14 @@ niveltorredelamarca::niveltorredelamarca(entidad*   jugador,
     m_hudText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudText);
 
-    connect(m_timer,&QTimer::timeout,this,&niveltorredelamarca::onFrame);
+    connect(m_timer,&QTimer::timeout,this,&maquina_olvido::onFrame);
     m_timer->start(int(m_dt*1000));
 }
 
 /* =========================================================//---------------------------------------------------------------------------------------
  *  Entrada (no cambia)
  * ========================================================= */
-void niveltorredelamarca::keyPressEvent(QKeyEvent* e)
+void maquina_olvido::keyPressEvent(QKeyEvent* e)
 {
     if (m_deathScheduled) return;
 
@@ -385,7 +385,7 @@ void niveltorredelamarca::keyPressEvent(QKeyEvent* e)
         QWidget::keyPressEvent(e);
     }
 }
-void niveltorredelamarca::lanzarHechizo()
+void maquina_olvido::lanzarHechizo()
 {
     bool izq = (m_player->getLastDirection() == SpriteState::WalkingLeft ||
                 m_player->getLastDirection() == SpriteState::RunningLeft);
@@ -395,7 +395,7 @@ void niveltorredelamarca::lanzarHechizo()
 }
 
 
-void niveltorredelamarca::keyReleaseEvent(QKeyEvent* e)
+void maquina_olvido::keyReleaseEvent(QKeyEvent* e)
 {
     if(m_deathScheduled) return;
     switch(e->key()){
@@ -405,7 +405,7 @@ void niveltorredelamarca::keyReleaseEvent(QKeyEvent* e)
     default: QWidget::keyReleaseEvent(e);
     }
 }
-void niveltorredelamarca::mousePressEvent(QMouseEvent*)
+void maquina_olvido::mousePressEvent(QMouseEvent*)
 {
     if(!m_player) return;
     SpriteState st = (m_player->getLastDirection()==SpriteState::WalkingLeft ||
@@ -418,7 +418,7 @@ void niveltorredelamarca::mousePressEvent(QMouseEvent*)
 /* =========================================================
  *  Loop principal
  * ========================================================= */
-void niveltorredelamarca::onFrame()
+void maquina_olvido::onFrame()
 {
     if (!m_player) return;
     float dt = m_dt;
@@ -540,8 +540,8 @@ void niveltorredelamarca::onFrame()
     for (auto* c : m_cannons) c->update(dt);
     m_scene->advance();
 
-    // 8) NPC
-    if (m_npc) m_npc->update(dt);
+    // // 8) NPC
+     if (m_npc) m_npc->update(m_dt);
 
     // 9) Plataformas móviles
     for (auto &mp : m_movingPlatforms) {
@@ -572,7 +572,7 @@ void niveltorredelamarca::onFrame()
                 m_drops.append(new Drop(Drop::Tipo::Mana,  p+QPointF( 10,0), m_scene));
                 m_drops.append(new Drop(Drop::Tipo::Llave, p+QPointF(  0,-20), m_scene, "Torre De La Marca"));
             }
-            if (m_npc) m_npc->onBossDefeated();
+            // if (m_npc) m_npc->onBossDefeated();
         }
         // Minibosses
         for (auto* e : m_enemigos) {
@@ -659,6 +659,10 @@ void niveltorredelamarca::onFrame()
         if (!d->isCollected() && d->checkCollision(m_player))
             d->aplicarEfecto(dynamic_cast<Jugador*>(m_player));
     }
+}
+
+void maquina_olvido::setNPCFinal(npc_final* npc) {
+    m_npc = npc;
 }
 
 

@@ -2,7 +2,7 @@
 //  NIVELRAICESOLVIDADAS.H — CABECERA COMPLETA (con CombateManager)
 // ===========================================================
 #pragma once
-#include "Minotaur.h"
+#include "demon.h"
 #include "drop.h"
 #include <QWidget>
 #include <QTimer>
@@ -14,15 +14,14 @@
 #include <QVector>
 #include "fireball.h"
 #include "ObjetosYColisiones.h"
-#include "enemigo.h"
+#include "Enemigo.h"
 #include "entidad.h"
 #include "bullet.h"
 #include "cannon.h"
 #include "combatemanager.h"      // 👈 gestor de combate
 #include <QLabel>  //inventario temporal
-#include "npc.h"
+#include "npc_final.h"
 #include "plataforma_movil_shared.h"
-
 class MainWindow;
 class MapaWidget;
 // struct MovingPlatform {
@@ -33,15 +32,16 @@ class MapaWidget;
 //     int                   dir;      // +1 = derecha, -1 = izquierda
 // };
 
-class niveltorredelamarca : public QWidget
+class maquina_olvido : public QWidget
 {
     Q_OBJECT
 public:
-    explicit niveltorredelamarca(entidad*jugador, MainWindow* mainWindow,QWidget*parent = nullptr);
+    explicit maquina_olvido(entidad*jugador, MainWindow* mainWindow,QWidget*parent = nullptr);
     void lanzarHechizo();
     bool isBossDefeated() const { return bossDefeated; }
     void penalizarCanones();
     void rewardPlayerExtraDamage();
+    void setNPCFinal(npc_final* npc);
 protected:
     void keyPressEvent   (QKeyEvent*  event) override;
     void keyReleaseEvent (QKeyEvent*  event) override;
@@ -51,8 +51,8 @@ private slots:
     void onFrame();
 private:
     QVector<QPointF> m_enemySpawnPos;
-    Minotaur*       m_boss = nullptr;
-    NPC *m_npc = nullptr;
+    Demon*       m_boss = nullptr;
+      npc_final* m_npc = nullptr;
     QVector<MovingPlatform> m_movingPlatforms;
     QVector<Cannon*> m_cannons;
     bool m_bossDropCreado = false;

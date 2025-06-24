@@ -17,6 +17,9 @@ public:
 signals:
     void videoTerminado();
 
+protected:
+    void keyPressEvent(QKeyEvent *event) override;  // ← ¡Esto es lo nuevo!
+
 private:
     QMediaPlayer *player;
     QVideoWidget *videoWidget;
