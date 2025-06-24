@@ -1,24 +1,21 @@
 #pragma once
 #include "Enemigo.h"
 
-/*  Enemigo volador (Monster 0 – mosca)  */
 class MonsterFly : public Enemigo
 {
     Q_OBJECT
 public:
     explicit MonsterFly(QObject* parent = nullptr);
 
-    /* Enemigo overrides */
     void update(float dt) override;
     void takeDamage(int dmg) override;
     QRectF       boundingRect() const override;
     QPainterPath shape()        const override;
 protected:
     void onRevive() override {
-        // llamamos al padre ya hecho, luego reseteamos lo propio
         Enemigo::onRevive();
-        m_deadAnim = false;      // vuelve a procesar update()
-        m_patrolTime = 0;    // opcional, reinicio de patrulla
+        m_deadAnim = false;
+        m_patrolTime = 0;
         m_mode = Mode::Patrol;
     }
 private:
@@ -33,11 +30,9 @@ private:
     int   m_patrolDir   = +1;
     bool  m_faceRight   = true;
 
-    /* bobbing vertical */
     float m_bobTime     = 0.f;
-    float m_prevBob     = 0.f;     // <<——  NUEVO
+    float m_prevBob     = 0.f;
 
-    /* muerte */
     bool  m_deadAnim    = false;
     float m_deadTimer   = 0.f;
 };

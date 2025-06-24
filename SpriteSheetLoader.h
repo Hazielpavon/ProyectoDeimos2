@@ -4,12 +4,6 @@
 #include <QVector>
 #include <QDebug>
 
-/*  Carga un PNG sheet de UNA sola fila.
- *  sheetPath : ruta en el qrc
- *  frames    : nº de celdas horizontales
- *  scale     : factor de escala
- *  fps       : fotogramas por segundo
- */
 inline Animacion loadSheetRow(const QString& sheetPath,
                               int frames,
                               qreal scale = 1.0,
@@ -24,7 +18,7 @@ inline Animacion loadSheetRow(const QString& sheetPath,
     }
 
     int frameW = sheet.width()  / frames;
-    int frameH = sheet.height();          // una sola fila
+    int frameH = sheet.height();
 
     for (int i = 0; i < frames; ++i) {
         QPixmap frame = sheet.copy(i*frameW, 0, frameW, frameH);

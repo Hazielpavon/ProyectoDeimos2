@@ -14,8 +14,6 @@ public:
            Jugador*         target,
            QGraphicsScene*  scene,
            QObject*         parent = nullptr);
-
-    // Qt llamará advance(0) y luego advance(1) cada frame
     void advance(int phase) override;
 
 private:

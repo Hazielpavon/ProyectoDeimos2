@@ -25,19 +25,16 @@
 #include <QRect>
 #include <QPolygonF>
 
-// ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
 static constexpr float WINDOW_H    = 650.0f;
 static constexpr float FPS         = 60.0f;
 static constexpr float PLAT_WIDTH  = 200.0f;
 static constexpr float PLAT_HEIGHT = 20.0f;
 
-// HUD
 static constexpr float HUD_W = 350.0f;
 static constexpr float HUD_H = 35.0f;
 static constexpr float HUD_MARGIN = 10.0f;
 
-/* Auxiliar: recorta líneas transparentes inferiores */
 static QPixmap trimBottom(const QPixmap& pix)
 {
     QImage img = pix.toImage()
@@ -56,7 +53,6 @@ void mentevacia::rewardPlayerExtraDamage() {
     if (!jug) return;
     jug->setDamageMultiplier( jug->damageMultiplier() * 1.05f );
 }
-// =========================================================
 mentevacia::mentevacia(entidad*   jugador,
                                          MainWindow* mainWindow,
                                          QWidget*   parent)
@@ -74,17 +70,16 @@ mentevacia::mentevacia(entidad*   jugador,
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
-    // ---- Fondo ----
     QPixmap bgOrig(":/resources/MenteVacia.png");
     QPixmap bg = bgOrig.scaled(bgOrig.size()*0.9,
                                Qt::KeepAspectRatioByExpanding,
                                Qt::SmoothTransformation);
     m_bgWidth  = bg.width();
     m_bgHeight = bg.height();
-    float groundY = m_bgHeight;       // o m_bgHeight-40 si quieres justo encima del suelo
+    float groundY = m_bgHeight;
     float skyY    = 0;
 
-    QBrush brush(bg);                  // crea un brush “tileable”
+    QBrush brush(bg);
     m_scene->setBackgroundBrush(brush);
     m_scene->setSceneRect(0, 0, bg.width(), bg.height());
 
@@ -108,21 +103,17 @@ mentevacia::mentevacia(entidad*   jugador,
 
     m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
-    // muro izquierdo (impide salir por la izquierda)
-    // muro izquierdo
     m_leftWall = m_colManager->addRect(
         QRectF(0, 0, 1.0f, m_bgHeight),
         Qt::NoBrush, true
         );
 
-    // muro derecho
     m_rightWall = m_colManager->addRect(
         QRectF(m_bgWidth-1.0f, 0, 1.0f, m_bgHeight),
         Qt::NoBrush, true
         );
 
 
-    // ---- Jugador ----
     if(m_player){
         m_spawnPos = QPointF(35,0);
         m_player->transform().setPosition(
@@ -137,13 +128,6 @@ mentevacia::mentevacia(entidad*   jugador,
         if (jug) jug->setGraphicsItem(m_playerItem);
     }
 
-
-    // en niveltorredelamarca.cpp, constructor:
-
-
-
-
-    // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
     m_debugBossHitbox->setBrush(Qt::NoBrush);
@@ -184,7 +168,6 @@ mentevacia::mentevacia(entidad*   jugador,
     m_manaText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_manaText);
 
-    // ---- Gestor de Combate ----
     Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
     if (!jugadorPtr) {
         qCritical() << "[NivelRaicesOlvidadas] m_player no es Jugador!";
@@ -192,7 +175,6 @@ mentevacia::mentevacia(entidad*   jugador,
         m_combate = new CombateManager(jugadorPtr, m_enemigos, this);
     }
 
-    // ---- Mapa + HUD (igual que antes) ----
     m_mapaRegiones = new MapaWidget("Raices Olvidadas", this);
     connect(m_mapaRegiones,&MapaWidget::mapaCerrado,
             this,[this](){ activateWindow(); setFocus(); });
@@ -221,15 +203,10 @@ mentevacia::mentevacia(entidad*   jugador,
 
 
 
-
-
-    // Configura el label para las rondas
-    // Label grande “RONDA X”
     m_roundLabel = new QGraphicsTextItem;
     QFont fo; fo.setPointSize(48); fo.setBold(true);
     m_roundLabel->setFont(fo);
     m_roundLabel->setDefaultTextColor(QColor(200,180,0,220));
-    // PARA QUE NO SE MUEVA ni ESCALÉ con la cámara:
     m_roundLabel->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_roundLabel->setZValue(200);
     m_roundLabel->setVisible(false);
@@ -238,9 +215,9 @@ mentevacia::mentevacia(entidad*   jugador,
     m_roundLabelTimer = new QTimer(this);
     m_roundLabelTimer->setSingleShot(true);
     connect(m_roundLabelTimer, &QTimer::timeout, this, [this]() {
-        // Oculta el cartel
+
         m_roundLabel->setVisible(false);
-        // Lanza la oleada de enemigos
+
         spawnScaledEnemies(m_currentRound);
         m_roundActive = true;
         updateInfoText();
@@ -249,15 +226,12 @@ mentevacia::mentevacia(entidad*   jugador,
 
     QFont infoFont;
     m_infoText = new QGraphicsTextItem;
-    infoFont.setPointSize(12);  // antes usabas 16: lo hacemos más discreto
+    infoFont.setPointSize(12);
     m_infoText->setFont(infoFont);
     m_infoText->setDefaultTextColor(Qt::white);
     m_infoText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_infoText);
-    // Esto hace que no se escale/mueva con l   a cámara:
     m_infoText->setFlag(QGraphicsItem::ItemIgnoresTransformations);
-
-    // posición inicial arbitraria, se repondrá cada onFrame():
     m_infoText->setPos(10, HUD_MARGIN + HUD_H*2 + 4);
 
     m_scene->addItem(m_infoText);
@@ -270,24 +244,20 @@ mentevacia::mentevacia(entidad*   jugador,
     startNextRound();
     m_timer->start(int(m_dt*1000));
 }
-// 2) startNextRound (solo por completitud)
-// --- startNextRound(): prepara la ronda y arranca el timer de 2s ---
-// ------------------- 2) startNextRound -------------------
+
 void mentevacia::startNextRound()
 {
     ++m_currentRound;
     if (m_currentRound > m_maxRounds) {
         m_timer->stop();
-        return; // completado
+        return;
     }
 
     if (m_currentRound == 10) {
-        // 1) Muestro un mensaje informativo
         m_roundLabel->setPlainText(QStringLiteral("¡RONDA 10! Ya puedes avanzar"));
         m_roundLabel->setVisible(true);
-        m_roundLabelTimer->start(3000);  // dura 3s, por ejemplo
+        m_roundLabelTimer->start(3000);
 
-        // 2) Quito los muros para que puedas salir
         if (m_leftWall) {
             m_colManager->removeRect(m_leftWall);
             m_leftWall = nullptr;
@@ -297,28 +267,21 @@ void mentevacia::startNextRound()
             m_rightWall = nullptr;
         }
 
-        // 3) Le doy la llave al jugador
-        auto jug = dynamic_cast<Jugador*>(m_player);
-        if (jug) jug->addKey(QStringLiteral("MenteVacia"));
 
-        // No llamamos a spawnScaledEnemies: no habrá más enemigos.
-        return;
     }
     m_roundActive = false;
     showRoundLabel(m_currentRound);
 }
-// ------------------- 3) showRoundLabel -------------------
 void mentevacia::showRoundLabel(int round)
 {
     m_roundLabel->setPlainText(QStringLiteral("RONDA %1").arg(round));
     m_roundLabel->setDefaultTextColor(QColor(80,80,0,200));
 
-    // calcula el rectángulo de la vista (viewport) en coordenadas de escena
+
     QRectF viewRect = m_view->mapToScene(m_view->viewport()->rect())
                           .boundingRect();
     QPointF center = viewRect.center();
 
-    // ajusta posición del texto para que quede centrado en la vista
     QRectF tb = m_roundLabel->boundingRect();
     m_roundLabel->setPos(
         center.x() - tb.width()*0.5,
@@ -330,21 +293,18 @@ void mentevacia::showRoundLabel(int round)
 }
 
 void mentevacia::spawnScaledEnemies(int round) {
-  // limpia anteriores
   for (auto* e: m_enemigos) { m_scene->removeItem(e); delete e; }
   m_enemigos.clear();
 
-  // factor de escala: salud +10% por ronda, daño +5% por ronda
   qreal hFactor = 1.0f + round * 0.10f;
   qreal dFactor = 1.0f + round * 0.05f;
 
-  int num = 2 + round;               // p.ej. ronda 1→3 enemigos, ronda 5→7
-  m_initialEnemies = num;            // para el HUD
+  int num = 2 + round;
+  m_initialEnemies = num;
 
   for (int i = 0; i < num; ++i) {
     Enemigo* e = nullptr;
     if (i == 0 && round % 5 == 0) {
-      // miniboss cada 5 rondas
       auto* boss = new Minotaur(this);
       e = boss;
       m_boss = boss;
@@ -353,7 +313,6 @@ void mentevacia::spawnScaledEnemies(int round) {
                   : static_cast<Enemigo*>(new MonsterFly(this));
     }
 
-    // escala salud y daño (suponiendo que revive(int) y setDamage(int) existen)
     int baseHP = e->maxHP();
     e->revive(int(baseHP * hFactor));
     if (auto* sk = dynamic_cast<Skeleton*>(e)) {
@@ -364,7 +323,6 @@ void mentevacia::spawnScaledEnemies(int round) {
       boss->setDamage(int(boss->damage() * dFactor));
     }
 
-    // posición en X espaciada, Y fijo
     qreal x = 200 + i * 300;
     qreal y = m_bgHeight - 100;
     e->setPos(x, y);
@@ -388,7 +346,6 @@ void mentevacia::updateInfoText()
             .arg(restantes)
         );
 
-    // reposiciona bajo las barras de vida/mana
     QPointF tl = m_view->mapToScene(0,0);
     m_infoText->setPos(
         tl.x() + HUD_MARGIN,
@@ -412,11 +369,10 @@ void mentevacia::keyPressEvent(QKeyEvent* e)
                                  ? SpriteState::throwingLeft
                                  : SpriteState::throwing;
             m_player->reproducirAnimacionTemporal(st, 0.7f);
-            lanzarHechizo();  // función que haremos abajo
+            lanzarHechizo();
         }
         break;
     case Qt::Key_Space:
-        // sólo al primer evento, no auto‐repeat:
         if (!e->isAutoRepeat()) {
             m_jumpRequested = true;
         }
@@ -469,9 +425,6 @@ void mentevacia::mousePressEvent(QMouseEvent*)
     m_player->reproducirAnimacionTemporal(st,0.6f);
 }
 
-/* =========================================================
- *  Loop principal
- * ========================================================= */
 void mentevacia::onFrame()
 {
     if (!m_player) return;
@@ -479,36 +432,34 @@ void mentevacia::onFrame()
     QPointF footPos = m_player->transform().getPosition();
     float x = footPos.x();
 
-    // 1) Salir por la izquierda → tutorial
     if (x < 0.0f) {
         m_timer->stop();
         m_mainWindow->cargarNivel("TorreDeLaMarca");
         return;
     }
 
-    // 2) Avanzar a la Ciudad Vacia si el boss ya fue derrotado
+
     if (x >= 6245.67f && bossDefeated) {
         m_timer->stop();
         m_mainWindow->cargarNivel("MaquinaDelOlvido");
         return;
     }
 
-    // 3) Muerte del jugador → animación + respawn completo
+
     if (!m_deathScheduled && m_player->currentHP() <= 0) {
         auto* jug = dynamic_cast<Jugador*>(m_player);
-        // Detener física, animar muerte
+
         m_player->fisica().setVelocity(0,0);
         jug->setOnGround(true);
         jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
         m_deathScheduled = true;
 
-        // Después de 1s, ocultar al jugador
+
         QTimer::singleShot(1000, this, [this]() {
             m_playerItem->setVisible(false);
         });
-        // Después de 2s, respawnear jugador + enemigos
         QTimer::singleShot(2000, this, [this, jug]() {
-            // Respawn jugador
+
             m_player->transform().setPosition(m_spawnPos.x(), m_spawnPos.y());
             jug->setOnGround(true);
             jug->sprite().setState(SpriteState::Idle);
@@ -516,7 +467,7 @@ void mentevacia::onFrame()
             jug->Setmana(jug->maxMana());
             m_playerItem->setVisible(true);
 
-            // Limpia TODO el estado de la ronda actual
+
             qDeleteAll(m_enemigos);
             m_enemigos.clear();
             m_enemySpawnPos.clear();
@@ -524,18 +475,18 @@ void mentevacia::onFrame()
             m_drops.clear();
             m_deadDrops.clear();
 
-            // Reinicia rondas
+
             m_currentRound = 0;
             startNextRound();
 
-            // Reset de controles
+
             m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
             m_deathScheduled = false;
         });
     }
 
-    // Actualiza contador de información
-    int spawned = m_enemigos.size() + m_deadDrops.size();      // totales creados
+
+    int spawned = m_enemigos.size() + m_deadDrops.size();
     int remaining = m_enemigos.size();
     QString info = QString("Ronda %1    Creados: %2    Restan: %3")
                        .arg(m_currentRound)
@@ -553,7 +504,6 @@ void mentevacia::onFrame()
         return;
     }
 
-    // 4) Salto y movimiento horizontal
     if (m_jumpRequested && m_player->isOnGround()) {
         constexpr float JUMP_VY = -500.0f;
         auto v = m_player->fisica().velocity();
@@ -569,22 +519,21 @@ void mentevacia::onFrame()
     }
     m_player->fisica().setVelocity(vx, m_player->fisica().velocity().y());
 
-    // 5) Actualizar jugador y colisiones
+
     m_player->actualizar(dt);
     QSize sprSz = m_player->sprite().getSize();
     m_colManager->resolveCollisions(m_player, sprSz, dt);
 
 
-    // 10) Enemigos: update + colisiones
+
     for (auto* e : m_enemigos) {
         e->update(dt);
         QSize eSz = e->pixmap().size();
         m_colManager->resolveCollisions(e, eSz, dt);
     }
 
-    // 11) Drops al morir (boss + minibosses)
+
     if (!m_enemigos.isEmpty()) {
-        // Boss (solo si existe)
         if (m_boss && !bossDefeated && m_boss->isDead()) {
             bossDefeated = true;
             if (!m_bossDropCreado) {
@@ -596,8 +545,6 @@ void mentevacia::onFrame()
             }
 
         }
-
-        // Minibosses / enemigos normales
         for (auto* e : m_enemigos) {
             if (e != m_boss && e->isDead() && !m_deadDrops.contains(e)) {
                 m_deadDrops.insert(e);
@@ -611,15 +558,11 @@ void mentevacia::onFrame()
         }
     }
 
-
-    // 12) Barra de vida del boss
     if (!m_boss || bossDefeated) {
-        // no hay boss o ya muerto → ocultar barras y hitbox
         m_bossHpBorder   ->setVisible(false);
         m_bossHpBar      ->setVisible(false);
         m_debugBossHitbox->setVisible(false);
     } else {
-        // m_boss apuntando a un Minotaur vivo
         QRectF sb = m_boss->sceneBoundingRect();
         m_debugBossHitbox->setRect(0,0,sb.width(),sb.height());
         m_debugBossHitbox->setPos(sb.topLeft());
@@ -635,11 +578,7 @@ void mentevacia::onFrame()
         m_bossHpBar   ->setRect(1,1,(bw-2)*frac,bh-2);
         m_bossHpBar   ->setPos(x0,y0);
     }
-
-    // 13) Combate
     if (m_combate) m_combate->update(dt);
-
-    // 14) Render jugador + cámara
     QPixmap pix = trimBottom(
         m_player->sprite().currentFrame()
             .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
@@ -649,18 +588,12 @@ void mentevacia::onFrame()
     m_playerItem->setPos(footPos);
     m_view->centerOn(footPos);
     if (m_roundLabel->isVisible()) {
-        // esquina superior izquierda de la vista en coordenadas de escena
         QPointF tl = m_view->mapToScene(0, 0);
-        // tamaño del texto
         QRectF tb = m_roundLabel->boundingRect();
-        // calcula la posición para que quede centrado en pantalla
         qreal x = tl.x() + WINDOW_W*0.5f - tb.width()*0.5f;
         qreal y = tl.y() + WINDOW_H*0.5f - tb.height()*0.5f;
         m_roundLabel->setPos(x, y);
     }
-
-
-    // 15) HUD vida & mana
     QPointF tl = m_view->mapToScene(0,0);
     float hpFrac = float(m_player->currentHP())/m_player->maxHP();
     m_hudBorder->setPos(tl.x()+HUD_MARGIN, tl.y()+HUD_MARGIN);
@@ -684,14 +617,12 @@ void mentevacia::onFrame()
         tl.y()+HUD_MARGIN+HUD_H+5 + (HUD_H-m_manaText->boundingRect().height())/2
         );
 
-    // lo ponemos justo debajo de las dos barras (vida y mana):
     qreal x0 = tl.x() + HUD_MARGIN;
-    qreal y0 = tl.y() + HUD_MARGIN + HUD_H + 4   // barra de vida
-               + HUD_H + 4;              // barra de mana
+    qreal y0 = tl.y() + HUD_MARGIN + HUD_H + 4
+               + HUD_H + 4;
     m_infoText->setPos(x0, y0);
     updateInfoText();
 
-    // 16) Fireballs
     for (int i = m_fireballs.size()-1; i >= 0; --i) {
         Fireball* f = m_fireballs[i];
         if (!f || !f->isAlive()) {
@@ -701,7 +632,6 @@ void mentevacia::onFrame()
         }
     }
 
-    // 17) Recolectar drops
     for (int i = m_drops.size()-1; i >= 0; --i) {
         Drop* d = m_drops[i];
         if (!d->isCollected() && d->checkCollision(m_player))

@@ -7,7 +7,7 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsTextItem>
 #include <QVector>
-#include "drop.h"          // ← crea Vida / Llave
+#include "drop.h"
 #include <QSet>
 
 #include "ObjetosYColisiones.h"
@@ -18,8 +18,6 @@
 class MainWindow;
 class MapaWidget;
 
-/* ────────────────────────────────────────────── */
-/*  Struct local para plataformas móviles        */
 struct InvMovingPlatform
 {
     QGraphicsPixmapItem* sprite = nullptr;

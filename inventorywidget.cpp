@@ -9,9 +9,6 @@
 #include <QFrame>
 #include <QDebug>
 
-/* ════════════════════════════════════════════════════════ *
- *                       ItemSlot                           *
- * ════════════════════════════════════════════════════════ */
 ItemSlot::ItemSlot(QWidget* parent)
     : QLabel(parent)
 {
@@ -21,7 +18,6 @@ ItemSlot::ItemSlot(QWidget* parent)
     setAcceptDrops(true);
 }
 
-/* coloca un ítem con icono y su id interno */
 void ItemSlot::setItem(const QPixmap& pix, const QString& id)
 {
     setPixmap(pix.scaled(size(), Qt::KeepAspectRatio,
@@ -37,13 +33,11 @@ void ItemSlot::clearSlot()
     m_id.clear();
 }
 
-/* iniciar arrastre si hay objeto */
 void ItemSlot::mousePressEvent(QMouseEvent* ev)
 {
     if (m_empty || ev->button() != Qt::LeftButton)
         return;
 
-    /* empaquetamos id como texto */
     QMimeData* md = new QMimeData;
     md->setText(m_id);
 
@@ -51,9 +45,9 @@ void ItemSlot::mousePressEvent(QMouseEvent* ev)
     drag->setMimeData(md);
 
 #if QT_VERSION_MAJOR >= 6
-    QPixmap pm = pixmap(Qt::ReturnByValue);       // Qt 6 devuelve por valor
+    QPixmap pm = pixmap(Qt::ReturnByValue);
 #else
-    QPixmap pm = *pixmap();                       // Qt 5 devolvía puntero
+    QPixmap pm = *pixmap();
 #endif
     drag->setPixmap(pm);
     drag->setHotSpot(QPoint(pm.width() / 2, pm.height() / 2));

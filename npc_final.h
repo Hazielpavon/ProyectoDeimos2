@@ -29,7 +29,7 @@ public:
 private slots:
     void updateAnimacion();
     void mostrarTextoActual();
-    void verificarProximidad();  // ← AÑADIDO
+    void verificarProximidad();
 
 private:
     void loadAnimations();
@@ -44,8 +44,8 @@ private:
 
     QGraphicsTextItem* m_dialogoTexto = nullptr;
 
-    QTimer* m_animTimer = nullptr;   // ← AÑADIDO
-    QTimer* m_textoTimer = nullptr;  // ← AÑADIDO
+    QTimer* m_animTimer = nullptr;
+    QTimer* m_textoTimer = nullptr;
 
     maquina_olvido* m_level = nullptr;
     Jugador* m_player = nullptr;

@@ -21,19 +21,16 @@
 #include "MutantWorm.h"
 
 
-// ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
 static constexpr float WINDOW_H    = 650.0f;
 static constexpr float FPS         = 60.0f;
 static constexpr float PLAT_WIDTH  = 200.0f;
 static constexpr float PLAT_HEIGHT = 20.0f;
 
-// HUD
+
 static constexpr float HUD_W = 350.0f;
 static constexpr float HUD_H = 35.0f;
 static constexpr float HUD_MARGIN = 10.0f;
-
-/* Auxiliar: recorta líneas transparentes inferiores */
 static QPixmap trimBottom(const QPixmap& pix)
 {
     QImage img = pix.toImage()
@@ -48,7 +45,6 @@ static QPixmap trimBottom(const QPixmap& pix)
 }
 void maquina_olvido::penalizarCanones() {
     for (Cannon* c : m_cannons) {
-        // divide por 2 el intervalo de disparo
         c->setFireRate( c->fireRate() * 0.5f );
     }
 }
@@ -58,7 +54,6 @@ void maquina_olvido::rewardPlayerExtraDamage() {
     if (!jug) return;
     jug->setDamageMultiplier( jug->damageMultiplier() * 1.05f );
 }
-// =========================================================
 maquina_olvido::maquina_olvido(entidad*   jugador,
                                          MainWindow* mainWindow,
                                          QWidget*   parent)
@@ -73,14 +68,13 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
     setFixedSize(int(WINDOW_W), int(WINDOW_H));
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
-    // ---- Fondo ----
     QPixmap bgOrig(":/resources/maquina.png");
     QPixmap bg = bgOrig.scaled(bgOrig.size()*0.9,
                                Qt::KeepAspectRatioByExpanding,
                                Qt::SmoothTransformation);
     m_bgWidth  = bg.width();
     m_bgHeight = bg.height();
-    float groundY = m_bgHeight;       // o m_bgHeight-40 si quieres justo encima del suelo
+    float groundY = m_bgHeight;
     float skyY    = 0;
     m_scene->setSceneRect(0,0,m_bgWidth*2, m_bgHeight);
     for (int i=0;i<2;++i){
@@ -127,7 +121,7 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
 
 
     QPixmap lavaBrick(":/resources/plataforma.png");
-    // en el constructor o init:
+
     for (const QRectF& r : plataformas) {
         // 1) sprite
         QPixmap px = lavaBrick.scaled(
@@ -139,10 +133,9 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
         vis->setZValue(1);
         m_scene->addItem(vis);
 
-        // 2) hitbox+registro
-        auto* hit = m_colManager->addRect(r, Qt::NoBrush, /*collisionOnly=*/true);
+        auto* hit = m_colManager->addRect(r, Qt::NoBrush, true);
 
-        // 3) guardar en tu vector
+
         MovingPlatform mp;
         mp.sprite = vis;
         mp.hitbox = hit;
@@ -164,7 +157,7 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
 
     m_colManager->addRect({0.0f, m_bgHeight-40.0f,float(m_bgWidth*2),40.0f}, Qt::NoBrush, true);
 
-    // ---- Jugador ----
+
     if(m_player){
         m_spawnPos = QPointF(35,0);
         m_player->transform().setPosition(
@@ -180,12 +173,10 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
     }
 
 
-    // en niveltorredelamarca.cpp, constructor:
 
     float W = m_scene->sceneRect().width();
     Jugador* jug         = dynamic_cast<Jugador*>(m_player);
 
-    // Define 8 posiciones X equiespaciadas entre el 10% y el 90% de W
     QVector<qreal> xs = {
         W * 0.10f,
         W * 0.20f,
@@ -197,7 +188,7 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
         W * 0.80f
     };
     m_cannons.append(new Cannon(dynamic_cast<Jugador*>(m_player), m_scene, W*0.25f, Cannon::Top));
-    // Crea los 8 cañones siempre “Top”
+
     for (qreal x : xs) {
         m_cannons.append(
             new Cannon(
@@ -214,36 +205,14 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
     {
         QRectF p = plataformas[0];
         auto* sk = new Skeleton(this);
-        sk->setPos(p.x() + p.width()/2, p.y() - sk->pixmap().height());  // encima
+        sk->setPos(p.x() + p.width()/2, p.y() - sk->pixmap().height());
         sk->setTarget(m_player);
         m_scene->addItem(sk);
         m_enemigos.append(sk);
         m_enemySpawnPos.append(sk->pos());
     }
 
-    // // 2) MonsterFly
-    // {
-    //     QRectF p = plataformas[1];
-    //     auto* fly = new MonsterFly(this);
-    //     fly->setPos(p.x() + p.width()/2, p.y() - fly->pixmap().height());
-    //     fly->setTarget(m_player);
-    //     m_scene->addItem(fly);
-    //     m_enemigos.append(fly);
-    //     m_enemySpawnPos.append(fly->pos());
-    // }
 
-    // // 3) MutantWorm
-    // {
-    //     QRectF p = plataformas[2];
-    //     auto* worm = new MutantWorm(this);
-    //     worm->setPos(p.x() + p.width()/2, p.y() - worm->pixmap().height());
-    //     worm->setTarget(m_player);
-    //     m_scene->addItem(worm);
-    //     m_enemigos.append(worm);
-    //     m_enemySpawnPos.append(worm->pos());
-    // }
-
-    // 4) Minotaur en la ÚLTIMA plataforma
     {
         QRectF p = plataformas.last();
         auto* boss = new Demon(this);
@@ -256,7 +225,6 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
     }
 
 
-    // debug hitbox en escena
     m_debugBossHitbox = new QGraphicsRectItem;
     m_debugBossHitbox->setPen(QPen(Qt::red,2,Qt::DashLine));
     m_debugBossHitbox->setBrush(Qt::NoBrush);
@@ -284,7 +252,7 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
 
     m_hudManaBar = new QGraphicsRectItem(1, 1, HUD_W - 2, HUD_H - 2);
     m_hudManaBar->setPen(Qt::NoPen);
-    m_hudManaBar->setBrush(QColor(0, 0, 255));  // Azul
+    m_hudManaBar->setBrush(QColor(0, 0, 255));
     m_hudManaBar->setZValue(101);
     m_hudManaBar->setFlag(QGraphicsItem::ItemIgnoresTransformations);
     m_scene->addItem(m_hudManaBar);
@@ -300,7 +268,6 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
     float npcX = 200.0f;
     m_npc = new npc_final(this,dynamic_cast<Jugador*>(m_player), m_scene,  QPointF(npcX, m_bgHeight - 40.0f), this);
 
-    // ---- Gestor de Combate ----
     Jugador* jugadorPtr = dynamic_cast<Jugador*>(m_player);
     if (!jugadorPtr) {
         qCritical() << "[NivelRaicesOlvidadas] m_player no es Jugador!";
@@ -308,7 +275,6 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
         m_combate = new CombateManager(jugadorPtr, m_enemigos, this);
     }
 
-    // ---- Mapa + HUD (igual que antes) ----
     m_mapaRegiones = new MapaWidget("Raices Olvidadas", this);
     connect(m_mapaRegiones,&MapaWidget::mapaCerrado,
             this,[this](){ activateWindow(); setFocus(); });
@@ -339,9 +305,6 @@ maquina_olvido::maquina_olvido(entidad*   jugador,
     m_timer->start(int(m_dt*1000));
 }
 
-/* =========================================================//---------------------------------------------------------------------------------------
- *  Entrada (no cambia)
- * ========================================================= */
 void maquina_olvido::keyPressEvent(QKeyEvent* e)
 {
     if (m_deathScheduled) return;
@@ -358,11 +321,10 @@ void maquina_olvido::keyPressEvent(QKeyEvent* e)
                                  ? SpriteState::throwingLeft
                                  : SpriteState::throwing;
             m_player->reproducirAnimacionTemporal(st, 0.7f);
-            lanzarHechizo();  // función que haremos abajo
+            lanzarHechizo();
         }
         break;
     case Qt::Key_Space:
-        // sólo al primer evento, no auto‐repeat:
         if (!e->isAutoRepeat()) {
             m_jumpRequested = true;
         }
@@ -414,10 +376,6 @@ void maquina_olvido::mousePressEvent(QMouseEvent*)
                          : SpriteState::Slashing;
     m_player->reproducirAnimacionTemporal(st,0.6f);
 }
-
-/* =========================================================
- *  Loop principal
- * ========================================================= */
 void maquina_olvido::onFrame()
 {
     if (!m_player) return;
@@ -425,36 +383,29 @@ void maquina_olvido::onFrame()
     QPointF footPos = m_player->transform().getPosition();
     float x = footPos.x();
 
-    // 1) Salir por la izquierda → tutorial
     if (x < 0.0f) {
         m_timer->stop();
         m_mainWindow->cargarNivel("RaicesOlvidadas");
         return;
     }
 
-    // 2) Avanzar a la Ciudad Vacia si el boss ya fue derrotado
     if (x >= 6245.67f && bossDefeated) {
         m_timer->stop();
         m_mainWindow->cargarNivel("MenteVacia");
         return;
     }
 
-    // 3) Muerte del jugador → animación + respawn completo
     if (!m_deathScheduled && m_player->currentHP() <= 0) {
         auto* jug = dynamic_cast<Jugador*>(m_player);
-        // Detener física, animar muerte
         m_player->fisica().setVelocity(0,0);
         jug->setOnGround(true);
         jug->reproducirAnimacionTemporal(SpriteState::dead, 1.5f);
         m_deathScheduled = true;
-
-        // Después de 1s, ocultar al jugador
         QTimer::singleShot(1000, this, [this]() {
             m_playerItem->setVisible(false);
         });
-        // Después de 2s, respawnear jugador + enemigos
         QTimer::singleShot(2000, this, [this, jug]() {
-            // — Respawn jugador —
+
             m_player->transform().setPosition(m_spawnPos.x(),m_spawnPos.y());
             jug->setOnGround(true);
             jug->sprite().setState(SpriteState::Idle);
@@ -462,24 +413,19 @@ void maquina_olvido::onFrame()
             jug->Setmana(jug->maxMana());
             m_playerItem->setVisible(true);
 
-            // — Respawn ENEMIGOS —
             for (int i = 0; i < m_enemigos.size(); ++i) {
                 Enemigo* e = m_enemigos[i];
-                e->revive(m_enemigos[i]->maxHP());       // o bien m_enemigos[i]->maxHP()
+                e->revive(m_enemigos[i]->maxHP());
                 e->setPos(m_enemySpawnPos[i]);
             }
             bossDefeated     = false;
             m_bossDropCreado = false;
 
-            // — Eliminar y destruir todos los drops viejos —
-            // — destruir los drops todavía vivos en escena —
             for (Drop* d : m_drops)      delete d;
 
-            // — vaciar ambos contenedores —
             m_drops.clear();
             m_deadDrops.clear();
 
-            // — Reset controles y bandera —
             m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
             m_deathScheduled = false;
             for (int i = 0; i < m_enemigos.size(); ++i) {
@@ -487,27 +433,20 @@ void maquina_olvido::onFrame()
                 e->setPos( m_enemySpawnPos[i] );
                 e->setHP( e->maxHP() );
                 e->setEstado(Enemigo::Estado::Idle);
-                e->setVisible(true);           // ← asegúrate que vuelvan a verse
-                // si tienes método para “alive”:
-                // e->setAlive(true);
+                e->setVisible(true);
             }
-            // limpia y reinicia flags…
             m_drops.clear();
             m_deadDrops.clear();
             bossDefeated     = false;
             m_bossDropCreado = false;
 
-            // ——— restablece input del jugador ———
             m_moveLeft = m_moveRight = m_run = m_jumpRequested = false;
             m_playerItem->setVisible(true);
             m_deathScheduled = false;
-            // if (m_npc) {
-            //     m_npc->resetAfterRespawn();
-            // }
+
         });
     }
 
-    // 4) Salto y movimiento horizontal
     if (m_jumpRequested && m_player->isOnGround()) {
         constexpr float JUMP_VY = -500.0f;
         auto v = m_player->fisica().velocity();
@@ -523,12 +462,10 @@ void maquina_olvido::onFrame()
     }
     m_player->fisica().setVelocity(vx, m_player->fisica().velocity().y());
 
-    // 5) Actualizar jugador y colisiones
     m_player->actualizar(dt);
     QSize sprSz = m_player->sprite().getSize();
     m_colManager->resolveCollisions(m_player, sprSz, dt);
 
-    // 6) Mostrar segundo fondo (paralaje)
     if (!m_secondBgShown &&
         m_player->transform().getPosition().x() >= (m_bgWidth - WINDOW_W/2.0f))
     {
@@ -536,14 +473,11 @@ void maquina_olvido::onFrame()
         m_secondBgShown = true;
     }
 
-    // 7) Actualizar cañones y avanzar escena
     for (auto* c : m_cannons) c->update(dt);
     m_scene->advance();
 
-    // // 8) NPC
      if (m_npc) m_npc->update(m_dt);
 
-    // 9) Plataformas móviles
     for (auto &mp : m_movingPlatforms) {
         float nx = mp.sprite->x() + mp.speed*dt*mp.dir;
         if (nx < mp.minX) { nx = mp.minX; mp.dir = +1; }
@@ -553,16 +487,13 @@ void maquina_olvido::onFrame()
         mp.hitbox->setRect(nx, hb.y(), hb.width(), hb.height());
     }
 
-    // 10) Enemigos: update + colisiones
     for (auto* e : m_enemigos) {
         e->update(dt);
         QSize eSz = e->pixmap().size();
         m_colManager->resolveCollisions(e, eSz, dt);
     }
 
-    // 11) Drops al morir (boss + minibosses)
     if (!m_enemigos.isEmpty()) {
-        // Boss
         if (!bossDefeated && m_boss->isDead()) {
             bossDefeated = true;
             if (!m_bossDropCreado) {
@@ -572,9 +503,7 @@ void maquina_olvido::onFrame()
                 m_drops.append(new Drop(Drop::Tipo::Mana,  p+QPointF( 10,0), m_scene));
                 m_drops.append(new Drop(Drop::Tipo::Llave, p+QPointF(  0,-20), m_scene, "Torre De La Marca"));
             }
-            // if (m_npc) m_npc->onBossDefeated();
         }
-        // Minibosses
         for (auto* e : m_enemigos) {
             if (e != m_boss && e->isDead() && !m_deadDrops.contains(e)) {
                 m_deadDrops.insert(e);
@@ -585,8 +514,6 @@ void maquina_olvido::onFrame()
             }
         }
     }
-
-    // 12) Barra de vida del boss
     if (bossDefeated) {
         m_bossHpBorder  ->setVisible(false);
         m_bossHpBar     ->setVisible(false);
@@ -605,11 +532,8 @@ void maquina_olvido::onFrame()
         m_bossHpBar->setRect(1,1,(bw-2)*frac,bh-2);
         m_bossHpBar->setPos(x0,y0);
     }
-
-    // 13) Combate
     if (m_combate) m_combate->update(dt);
 
-    // 14) Render jugador + cámara
     QPixmap pix = trimBottom(
         m_player->sprite().currentFrame()
             .scaled(sprSz, Qt::KeepAspectRatio, Qt::SmoothTransformation)
@@ -619,7 +543,6 @@ void maquina_olvido::onFrame()
     m_playerItem->setPos(footPos);
     m_view->centerOn(footPos);
 
-    // 15) HUD vida & mana
     QPointF tl = m_view->mapToScene(0,0);
     float hpFrac = float(m_player->currentHP())/m_player->maxHP();
     m_hudBorder->setPos(tl.x()+HUD_MARGIN, tl.y()+HUD_MARGIN);
@@ -643,7 +566,6 @@ void maquina_olvido::onFrame()
         tl.y()+HUD_MARGIN+HUD_H+5 + (HUD_H-m_manaText->boundingRect().height())/2
         );
 
-    // 16) Fireballs
     for (int i = m_fireballs.size()-1; i >= 0; --i) {
         Fireball* f = m_fireballs[i];
         if (!f || !f->isAlive()) {
@@ -653,7 +575,6 @@ void maquina_olvido::onFrame()
         }
     }
 
-    // 17) Recolectar drops
     for (int i = m_drops.size()-1; i >= 0; --i) {
         Drop* d = m_drops[i];
         if (!d->isCollected() && d->checkCollision(m_player))

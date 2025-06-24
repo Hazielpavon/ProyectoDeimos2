@@ -16,16 +16,13 @@
 #include "ObjetosYColisiones.h"
 #include "enemigo.h"
 #include "entidad.h"
-#include "CombateManager.h"      // 👈 gestor de combate
-#include "combatemanager.h"      // 👈 gestor de combate
-#include <QLabel>  //inventario temporal
+#include "CombateManager.h"
+#include "combatemanager.h"
+#include <QLabel>
 
 class MainWindow;
 class MapaWidget;
 
-/* ===========================================================
- *  Clase del nivel “Raíces Olvidadas”
- * =========================================================== */
 class NivelRaicesOlvidadas : public QWidget
 {
     Q_OBJECT
@@ -41,10 +38,9 @@ protected:
     void mousePressEvent (QMouseEvent* event) override;
 
 private slots:
-    void onFrame();                                 // bucle 60 FPS
+    void onFrame();
 
 private:
-    /* ─────────── Gameplay ─────────── */
     Demon* m_boss = nullptr;
     QSet<Enemigo*>  m_deadDrops;
     QVector<QPointF> m_enemySpawnPos;
@@ -61,24 +57,17 @@ private:
     QGraphicsRectItem* m_bossHpBorder = nullptr;
     QGraphicsRectItem* m_bossHpBar    = nullptr;
     QGraphicsRectItem* m_hudManaBar = nullptr;
-    /* Enemigos y combate */
-    QVector<Enemigo*>    m_enemigos;                // enemigos vivos
-    CombateManager*      m_combate         = nullptr; // 👈 NUEVO
-
-    /* ─────────── Qt helpers ───────── */
+    QVector<Enemigo*>    m_enemigos;
+    CombateManager*      m_combate         = nullptr;
     QTimer*              m_timer           = nullptr;
     QGraphicsView*       m_view            = nullptr;
     QGraphicsScene*      m_scene           = nullptr;
-
-    /* ─────────── Elementos gráficos ───────── */
     QGraphicsPixmapItem* m_bg2Item         = nullptr;
     QGraphicsPixmapItem* m_fondoItem       = nullptr;
     QGraphicsPixmapItem* m_cartelItem      = nullptr;
     QGraphicsPixmapItem* m_playerItem      = nullptr;
     QGraphicsRectItem*   m_plataformaItem  = nullptr;
     QGraphicsRectItem*   m_sueloItem       = nullptr;
-
-    /* HUD */
     static constexpr int HUD_W      = 350;
     static constexpr int HUD_H      = 35;
     static constexpr int HUD_MARGIN = 10;
@@ -86,25 +75,17 @@ private:
     QGraphicsRectItem*   m_hudManaBorder = nullptr;
     QGraphicsRectItem*   m_hudBar     = nullptr;
     QGraphicsTextItem*   m_hudText    = nullptr;
-
-    /* ─────────── Colisiones ───────── */
     ObjetosYColisiones*  m_colManager      = nullptr;
-
-    /* ─────────── Flags de input ───── */
     bool  m_moveLeft        = false;
     bool  m_moveRight       = false;
     bool  m_run             = false;
     bool  m_jumpRequested   = false;
-
-    /* ─────────── Lógica general ───── */
     float m_dt              = 0.0f;
     int   m_repeatCount     = 1;
     int   m_bgWidth         = 0;
     int   m_bgHeight        = 0;
     bool  m_secondBgShown   = false;
     float m_limiteSueloCentroY = 0.0f;
-
-    /* ─────────── UI extra ─────────── */
     MapaWidget*          m_mapaRegiones   = nullptr;
     QString              m_currentRegion;
 };

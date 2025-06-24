@@ -21,7 +21,7 @@ public:
 
     void setRegionActual(const QString &region);
     void setRutaActual(const QList<QString> &ruta);
-    void setRutaActual(const QString &destino); // ← para calcular todas las rutas posibles al destino
+    void setRutaActual(const QString &destino);
 
 
 signals:
@@ -58,7 +58,6 @@ private:
     QVector<QPoint> m_rutaMasCortaPuntos;
     QVector<QVector<QPoint>> m_rutasAlternativasPuntos;
 
-    // 🔹 NUEVO PARA DIBUJAR TODAS LAS RUTAS:
     bool mostrarTodasRutas = false;
     QVector<QList<QString>> m_rutasParaDibujar;
 

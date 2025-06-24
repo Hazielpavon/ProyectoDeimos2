@@ -24,13 +24,10 @@ Bullet::Bullet(const QPointF&   start,
 
 void Bullet::advance(int phase) {
     if (phase == 0) return;
-    // 1) moverse
     moveBy(m_velocity.x()/60.0, m_velocity.y()/60.0);
-    // 2) rotar para que apunte hacia la dirección de la velocidad
     float ang = qRadiansToDegrees(std::atan2(m_velocity.y(), m_velocity.x()));
     setRotation(ang);
 
-    // 3) colisión con el jugador (usa el item gráfico)
     if (sceneBoundingRect()
             .intersects(m_target->graphicsItem()->sceneBoundingRect()))
     {
@@ -39,7 +36,7 @@ void Bullet::advance(int phase) {
         deleteLater();
         return;
     }
-    // 4) fuera de escena → destruir
+
     if (!scene()->sceneRect().contains(pos())) {
         scene()->removeItem(this);
         deleteLater();

@@ -60,7 +60,6 @@ MapaWidget::MapaWidget(const QString &regionInicial, QWidget *parent)
         update();
     });
 
-    // Botón para mostrar/ocultar imagen de información
     m_botonMostrarImagen = new QPushButton("?", this);
     m_botonMostrarImagen->setGeometry(880, 520, 25, 20);
     m_botonMostrarImagen->setStyleSheet("QPushButton { background-color: black; color: white; border: 1px solid white; }");
@@ -69,10 +68,9 @@ MapaWidget::MapaWidget(const QString &regionInicial, QWidget *parent)
 
     connect(m_botonMostrarImagen, &QPushButton::clicked, this, [this]() {
         if (m_imagenRutaLabel && m_imagenRutaLabel->isVisible()) {
-            // Si ya está visible, la ocultamos
+
             m_imagenRutaLabel->hide();
         } else {
-            // Si no existe o está oculta, la mostramos
             if (!m_imagenRutaLabel) {
                 m_imagenRutaLabel = new QLabel(this);
                 m_imagenRutaLabel->setPixmap(QPixmap(":/resources/ruta_inf.PNG").scaled(300, 200, Qt::KeepAspectRatio, Qt::SmoothTransformation));
@@ -144,7 +142,6 @@ QList<QList<QString>> todas = m_grafo.todasLasRutas(m_regionActual, destino);
 
             QVector<QPoint> subRuta = m_grafo.rutaManual(origen, destino);
 
-            // VALIDACIÓN FINAL: no deben ser menos de 2 puntos
             if (subRuta.size() < 2) {
                 qWarning() << "❌ Subruta entre" << origen << "y" << destino << "no tiene puntos suficientes.";
                 rutaValida = false;
@@ -154,7 +151,6 @@ QList<QList<QString>> todas = m_grafo.todasLasRutas(m_regionActual, destino);
             for (const QPoint &p : subRuta)
                 puntosRuta.append(p);
 
-            // Medir distancia solo si la subruta es válida
             for (int s = 0; s < subRuta.size() - 1; ++s) {
                 QPoint p1 = subRuta[s];
                 QPoint p2 = subRuta[s + 1];
@@ -167,7 +163,6 @@ QList<QList<QString>> todas = m_grafo.todasLasRutas(m_regionActual, destino);
 
         double distanciaKm = distanciaRuta * 0.01;
 
-        // Mostrar en label
         for (const QString &nombre : ruta)
             infoTexto += nombre + " → ";
         infoTexto.chop(3);
@@ -175,7 +170,7 @@ QList<QList<QString>> todas = m_grafo.todasLasRutas(m_regionActual, destino);
 
         if (distanciaKm < distanciaMasCorta) {
             if (!rutaMasCortaTemp.isEmpty()) {
-                m_rutasAlternativasPuntos.append(rutaMasCortaTemp); // anterior pasa a alternativas
+                m_rutasAlternativasPuntos.append(rutaMasCortaTemp);
             }
             distanciaMasCorta = distanciaKm;
             rutaMasCortaTemp = puntosRuta;
@@ -226,7 +221,6 @@ void MapaWidget::paintEvent(QPaintEvent *) {
         painter.drawPixmap(infoX, infoY, m_imagenInformacion);
     }
 
-    // ─── RUTA MÁS CORTA ─────────────
     if (m_rutaMasCortaPuntos.size() >= 2) {
         painter.save();
         painter.translate(offsetX, offsetY);
@@ -236,16 +230,14 @@ void MapaWidget::paintEvent(QPaintEvent *) {
         for (int i = 0; i < m_rutaMasCortaPuntos.size() - 1; ++i)
             painter.drawLine(m_rutaMasCortaPuntos[i], m_rutaMasCortaPuntos[i + 1]);
 
-        // 🔴 DEBUG: puntos reales como círculos rojos
         painter.setPen(Qt::NoPen);
         painter.setBrush(QColor(255, 60, 60, 220));
         for (const QPoint &p : m_rutaMasCortaPuntos)
-            painter.drawEllipse(p, 4, 4);  // radio del punto
+            painter.drawEllipse(p, 4, 4);
 
         painter.restore();
     }
 
-    // ─── RUTAS ALTERNATIVAS ─────────────
     if (!m_rutasAlternativasPuntos.isEmpty()) {
         painter.save();
         painter.translate(offsetX, offsetY);
@@ -259,7 +251,6 @@ void MapaWidget::paintEvent(QPaintEvent *) {
             }
         }
 
-        // 🔴 DEBUG: puntos de rutas alternativas
         painter.setPen(Qt::NoPen);
         painter.setBrush(QColor(255, 60, 60, 220));
         for (const QVector<QPoint> &ruta : m_rutasAlternativasPuntos)
@@ -269,7 +260,6 @@ void MapaWidget::paintEvent(QPaintEvent *) {
         painter.restore();
     }
 
-    // ─── Dibujar DISTANCIAS sobre líneas (solo ruta más corta) ───
     painter.setFont(QFont("Arial", 10));
     painter.setPen(QColor(255, 255, 255));
 
@@ -285,7 +275,6 @@ void MapaWidget::paintEvent(QPaintEvent *) {
         if (ruta.size() < 2)
             continue;
 
-        // Punto medio visual (aproximado)
         QPoint puntoInicio = ruta.first();
         QPoint puntoFin = ruta.last();
         QPoint centro = (puntoInicio + puntoFin) / 2;
@@ -293,10 +282,9 @@ void MapaWidget::paintEvent(QPaintEvent *) {
         double km = m_grafo.obtenerDistanciaVisual(origen, destino);
         QString texto = QString("%1 km").arg(QString::number(km, 'f', 1));
 
-        painter.drawText(centro + QPoint(0, -10), texto);  // pequeño desplazamiento hacia arriba
+        painter.drawText(centro + QPoint(0, -10), texto);
     }
 
-    // ─── SPRITE DEL JUGADOR ─────────────
     if (m_jugadorSprite)
         m_jugadorSprite->draw(painter);
 }

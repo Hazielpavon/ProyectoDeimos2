@@ -18,7 +18,7 @@ signals:
     void videoTerminado();
 
 protected:
-    void keyPressEvent(QKeyEvent *event) override;  // ← ¡Esto es lo nuevo!
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
     QMediaPlayer *player;

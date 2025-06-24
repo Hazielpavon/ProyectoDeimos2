@@ -21,19 +21,15 @@
 #include <iostream>
 using namespace std;
 
-// ---- Constantes generales --------------------------------
 static constexpr float WINDOW_W    = 950.0f;
 static constexpr float WINDOW_H    = 650.0f;
 static constexpr float FPS         = 60.0f;
 static constexpr float PLAT_WIDTH  = 200.0f;
 static constexpr float PLAT_HEIGHT = 20.0f;
 
-// HUD
 static constexpr float HUD_W = 350.0f;
 static constexpr float HUD_H = 35.0f;
 static constexpr float HUD_MARGIN = 10.0f;
-
-/* Auxiliar: recorta líneas transparentes inferiores */
 static QPixmap trimBottom(const QPixmap& pix)
 {
     QImage img = pix.toImage()
@@ -47,7 +43,6 @@ static QPixmap trimBottom(const QPixmap& pix)
                : pix;
 }
 
-// =========================================================
 NivelRaicesOlvidadas::NivelRaicesOlvidadas(entidad*   jugador,
                                            MainWindow* mainWindow,
                                            QWidget*   parent)

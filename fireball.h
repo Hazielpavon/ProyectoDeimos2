@@ -13,13 +13,11 @@ class QGraphicsScene;
 
 class Fireball : public QObject, public QGraphicsPixmapItem {
 public:
-    // ahora recibe un puntero a la lista original de enemigos
     Fireball(bool haciaIzquierda,
              QPointF origen,
              QGraphicsScene* scene,
              QVector<Enemigo*>* enemigos);
 
-    // debe llamarse cada frame desde tu loop principal
     void avanzar(float dt);
     bool isAlive() const { return m_alive; }
 

@@ -22,8 +22,7 @@ private:
     float               m_playerCd  = 0.0f;
     float               m_enemyCd   = 0.0f;
     float m_bossCd = 0.0f;
-    // helpers de hit-box
     QRectF espadaRect(Jugador* j) const;
     QRectF garraRect(Enemigo*  e) const;
 };
-//a
+

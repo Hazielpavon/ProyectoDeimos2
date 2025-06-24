@@ -23,7 +23,7 @@ private:
     State                m_state         = Idle;
     float                m_animTimer     = 0.0f;
     int                  m_frameIndex    = 0;
-    float                m_proximity     = 50.0f;   // distancia para iniciar diálogo
+    float                m_proximity     = 50.0f;
     bool                 m_hasQuest      = false;
     bool                 m_accepted      = false;
     bool                 m_rewardGiven   = false;

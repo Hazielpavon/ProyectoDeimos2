@@ -35,12 +35,13 @@ VideoIntro::VideoIntro(QWidget *parent)
 
 void VideoIntro::setVideo(const QString &ruta)
 {
-    QString rutaAbsoluta = QFileInfo(ruta).absoluteFilePath();
-    qDebug() << "[VideoIntro] Cargando:" << rutaAbsoluta;
-
-    player->setSource(QUrl::fromLocalFile(rutaAbsoluta));
+    // ruta debe venir como "qrc:/resources/historia.mp4"
+    QUrl url(ruta);
+    qDebug() << "[VideoIntro] Cargando URL de recurso:" << url;
+    player->setSource(url);
     player->play();
 }
+
 
 // Permitir saltar con Esc
 void VideoIntro::keyPressEvent(QKeyEvent* event)

@@ -18,8 +18,8 @@
 #include "entidad.h"
 #include "bullet.h"
 #include "cannon.h"
-#include "combatemanager.h"      // 👈 gestor de combate
-#include <QLabel>  //inventario temporal
+#include "combatemanager.h"
+#include <QLabel>
 #include "npc.h"
 
 class MainWindow;
@@ -47,16 +47,13 @@ private:
     QGraphicsRectItem* m_rightWall  = nullptr;
 
     int m_initialEnemies = 0;
-    // --- Control de rondas ---
     int   m_currentRound    = 0;
     const int m_maxRounds   = 10;
     bool  m_roundActive     = false;
     void updateInfoText();
-    // Para el aviso en pantalla:
     QGraphicsTextItem* m_roundLabel      = nullptr;
     QTimer*             m_roundLabelTimer = nullptr;
     QGraphicsTextItem* m_infoText = nullptr;
-    // Nuevos métodos:
     void startNextRound();
     void spawnScaledEnemies(int round);
     void showRoundLabel(int round);
@@ -78,16 +75,12 @@ private:
     QGraphicsRectItem* m_bossHpBorder = nullptr;
     QGraphicsRectItem* m_bossHpBar    = nullptr;
     QGraphicsRectItem* m_hudManaBar = nullptr;
-    /* Enemigos y combate */
-    QVector<Enemigo*>    m_enemigos;                // enemigos vivos
-    CombateManager*      m_combate         = nullptr; // 👈 NUEVO
-
-    /* ─────────── Qt helpers ───────── */
+    QVector<Enemigo*>    m_enemigos;
+    CombateManager*      m_combate         = nullptr;
     QTimer*              m_timer           = nullptr;
     QGraphicsView*       m_view            = nullptr;
     QGraphicsScene*      m_scene           = nullptr;
     QSet<Enemigo*>  m_deadDrops;
-    /* ─────────── Elementos gráficos ───────── */
     QGraphicsPixmapItem* m_bg2Item         = nullptr;
     QGraphicsPixmapItem* m_fondoItem       = nullptr;
     QGraphicsPixmapItem* m_cartelItem      = nullptr;
@@ -95,7 +88,6 @@ private:
     QGraphicsRectItem*   m_plataformaItem  = nullptr;
     QGraphicsRectItem*   m_sueloItem       = nullptr;
 
-    /* HUD */
     static constexpr int HUD_W      = 350;
     static constexpr int HUD_H      = 35;
     static constexpr int HUD_MARGIN = 10;
@@ -104,16 +96,13 @@ private:
     QGraphicsRectItem*   m_hudBar     = nullptr;
     QGraphicsTextItem*   m_hudText    = nullptr;
 
-    /* ─────────── Colisiones ───────── */
     ObjetosYColisiones*  m_colManager      = nullptr;
 
-    /* ─────────── Flags de input ───── */
     bool  m_moveLeft        = false;
     bool  m_moveRight       = false;
     bool  m_run             = false;
     bool  m_jumpRequested   = false;
 
-    /* ─────────── Lógica general ───── */
     float m_dt              = 0.0f;
     int   m_repeatCount     = 1;
     int   m_bgWidth         = 0;
@@ -121,12 +110,11 @@ private:
     bool  m_secondBgShown   = false;
     float m_limiteSueloCentroY = 0.0f;
 
-    /* ─────────── UI extra ─────────── */
     MapaWidget*          m_mapaRegiones   = nullptr;
     QString              m_currentRegion;
 
-    QLabel* m_inventario = nullptr; //inventario temporal
-    bool    m_invVisible = false; //inventario temporal
+    QLabel* m_inventario = nullptr;
+    bool    m_invVisible = false;
 };
 
 

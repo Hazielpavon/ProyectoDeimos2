@@ -2,15 +2,11 @@
 #include "entidad.h"
 #include <QtMath>
 
-/* ===========================================================
- *  Constructor: carga sprites por defecto
- * =========================================================== */
 entidad::entidad()
     : m_transformacion()
     , m_sprite()
     , m_componenteFisico(&m_transformacion)
 {
-    /* sprites Demon ------------------------------------------------ */
     m_sprite.loadFrames(SpriteState::Walking ,":/resources/0_Blood_Demon_Walking_" ,24);
     m_sprite.loadFrames(SpriteState::Idle    ,":/resources/0_Blood_Demon_Idle_"    ,16);
     m_sprite.loadFrames(SpriteState::IdleLeft,":/resources/0_Blood_Demon_IdleL_"   ,16);
@@ -35,15 +31,11 @@ entidad::entidad()
     m_componenteSalud.setHP(100);
 }
 
-/* ---------------- setters simples ---------------- */
 void entidad::setOnGround(bool g){ m_onGround = g; }
 bool entidad::isOnGround() const { return m_onGround; }
 void entidad::setLastDirection(SpriteState d){ m_lastDirection = d; }
 SpriteState entidad::getLastDirection() const{ return m_lastDirection; }
 
-/* ===========================================================
- *  Salto (multiplicado si se ha desbloqueado la habilidad)
- * =========================================================== */
 void entidad::startJump()
 {
     if (!m_onGround) return;
@@ -54,7 +46,6 @@ void entidad::startJump()
     m_sprite.setState(m_facingLeft ? SpriteState::JumpLeft : SpriteState::Jump);
 }
 
-/* Animación temporal ------------------------------------------------ */
 void entidad::reproducirAnimacionTemporal(SpriteState st, float seg)
 {
     m_animTemporal = st;
@@ -62,12 +53,8 @@ void entidad::reproducirAnimacionTemporal(SpriteState st, float seg)
     m_sprite.setState(st);
 }
 
-/* ===========================================================
- *  Bucle de actualización
- * =========================================================== */
 void entidad::actualizar(float dt)
 {
-    /* 1) animaciones */
     if (m_animTempTime > 0.f) {
         m_animTempTime -= dt;
         m_sprite.update(dt);
@@ -76,27 +63,22 @@ void entidad::actualizar(float dt)
         else            m_sprite.update(dt);
     }
 
-    /* 2) gravedad */
     if (!m_onGround) {
         float vy = m_componenteFisico.velocity().y() + GRAVITY*dt;
         m_componenteFisico.setVelocity(m_componenteFisico.velocity().x(), vy);
     }
 
-    /* 3) integrar posición */
     QPointF pos = m_transformacion.getPosition();
     pos.rx() += m_componenteFisico.velocity().x() * dt;
     pos.ry() += m_componenteFisico.velocity().y() * dt;
     m_transformacion.setPosition(pos.x(), pos.y());
 
-    /* 4) componentes */
     m_componenteFisico.actualizar(dt);
     m_componenteSalud.actualizar(dt);
 
-    /* 5) el nivel, al colisionar, volverá a poner m_onGround=true */
     m_onGround = false;
 }
 
-/* Animación en suelo ---------------------------------------- */
 void entidad::actualizarAnimacion(float dt)
 {
     const float vx = m_componenteFisico.velocity().x();

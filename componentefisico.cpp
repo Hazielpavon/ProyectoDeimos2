@@ -50,4 +50,3 @@ void componentefisico::actualizar(float dt)
         m_transform->setPosition(pos.x(), pos.y());
     }
 }
-//?????

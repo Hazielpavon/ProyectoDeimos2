@@ -14,7 +14,6 @@ public:
     int  maxHP() const;
     void aplicarDano(int dmg);
     void actualizar(float dt);
-    //Muestra La salud del personaje principal y a futuro el de los enemigos
     void dibujar(QPainter &painter, const QPoint &posSprite);
 
 private:

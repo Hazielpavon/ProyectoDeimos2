@@ -1,10 +1,9 @@
 #include "drop.h"
 #include "entidad.h"
-#include "InventoryWidget.h"          // ← necesario para el inventario
+#include "InventoryWidget.h"
 #include <QGraphicsScene>
 #include <QDebug>
 
-/* ----------------------------------------------------------- */
 Drop::Drop(Tipo tipo,
            const QPointF& pos,
            QGraphicsScene* scene,
@@ -14,7 +13,7 @@ Drop::Drop(Tipo tipo,
     , m_tipo(tipo)
     , m_nombreLlave(nombreLlave)
 {
-    /* ① imagen según tipo ---------------------------------- */
+
     QString path;
     switch (tipo) {
     case Tipo::Vida : path = ":/resources/drop_vida.png";   break;
@@ -32,15 +31,13 @@ Drop::Drop(Tipo tipo,
     m_sprite->setZValue(4);
     if (scene) scene->addItem(m_sprite);
 
-    /* ② conexión automática LLAVE → inventario -------------- */
     if (m_tipo == Tipo::Llave) {
         connect(this,  &Drop::llaveRecogida,
-                InventoryWidget::instance(),  // receptor único
+                InventoryWidget::instance(),
                 &InventoryWidget::addKey);
     }
 }
 
-/* ----------------------------------------------------------- */
 Drop::~Drop()
 {
     if (m_sprite && m_sprite->scene())
@@ -48,7 +45,6 @@ Drop::~Drop()
     delete m_sprite;
 }
 
-/* ----------------------------------------------------------- */
 bool Drop::checkCollision(entidad* player)
 {
     if (!m_sprite || !player) return false;
@@ -66,7 +62,6 @@ bool Drop::checkCollision(entidad* player)
 
 }
 
-/* ----------------------------------------------------------- */
 void Drop::aplicarEfecto(entidad* player)
 {
     if (!player) return;
@@ -80,7 +75,6 @@ void Drop::aplicarEfecto(entidad* player)
         break;
     }
 
-    /* eliminar el drop visualmente */
     m_collected = true;
     if (m_sprite && m_sprite->scene())
         m_sprite->scene()->removeItem(m_sprite);
@@ -88,7 +82,6 @@ void Drop::aplicarEfecto(entidad* player)
     m_sprite = nullptr;
 }
 
-/* getters */
 bool    Drop::isCollected () const { return m_collected; }
 Drop::Tipo Drop::tipo()     const { return m_tipo; }
 QString Drop::nombreLlave() const { return m_nombreLlave; }

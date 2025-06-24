@@ -4,17 +4,13 @@
 #pragma once
 #include "Enemigo.h"
 
-/* ════════════════════════════════════════════════════════ *
- *  Minotauro — jefe sin animación de muerte                *
- *  (al morir simplemente desaparece)                       *
- * ════════════════════════════════════════════════════════ */
+
 class Minotaur : public Enemigo
 {
     Q_OBJECT
 public:
     explicit Minotaur(QObject* parent = nullptr);
 
-    /* Enemigo overrides */
     void update(float dt) override;
     void takeDamage(int dmg) override;
 
@@ -25,10 +21,9 @@ public:
 
 protected:
     void onRevive() override {
-        // llamamos al padre ya hecho, luego reseteamos lo propio
         Enemigo::onRevive();
-        m_dead = false;      // vuelve a procesar update()
-        m_patrolTime = 0;    // opcional, reinicio de patrulla
+        m_dead = false;
+        m_patrolTime = 0;
         m_mode = Mode::Patrol;
     }
 private:

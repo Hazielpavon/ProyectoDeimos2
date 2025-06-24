@@ -1,11 +1,6 @@
 #pragma once
 #include "Enemigo.h"
 
-/* ════════════════════════════════════════════════════════
- *  Carnivore  (Monster 2)
- *  Sprites: 2_Monster_*  (“ ..._ (%n).png ”)
- *  Animaciones: Idle · Walk · Attack · Jump · Dying
- * ════════════════════════════════════════════════════════ */
 class Carnivore : public Enemigo
 {
     Q_OBJECT
@@ -21,7 +16,6 @@ public:
     QPainterPath shape()        const override;
 
 private:
-    /* IA */
     enum class Mode { None, Chase, Patrol, Attack, Jump };
     void updateAI(float dt);
     void startJump();
@@ -34,7 +28,7 @@ private:
 
     /* salto */
     bool  m_jumping   = false;
-    float m_jumpCD    = 0.f;      // enfriamiento
+    float m_jumpCD    = 0.f;
 
     /* muerte */
     bool  m_dying     = false;

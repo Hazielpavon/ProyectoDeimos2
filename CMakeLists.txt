@@ -21,6 +21,8 @@ set(PROJECT_SOURCES
   main.cpp
   mainwindow.cpp
   mainwindow.h
+  SkillTreeWidget.h
+  SkillTreeWidget.cpp
   mainwindow.ui
   pantallainicio.h
   drop.h

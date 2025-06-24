@@ -15,8 +15,7 @@ Cannon::Cannon(Jugador*        player,
     , m_player(player)
     , m_scene(scene)
 {
-    // —— cannon.cpp —— (constructor)
-    // …
+
     QPixmap tex(":/resources/Cannon.png");
     tex = tex.scaled(tex.width()/2, tex.height()/2,
                      Qt::KeepAspectRatio,
@@ -24,15 +23,11 @@ Cannon::Cannon(Jugador*        player,
 
     m_sprite = m_scene->addPixmap(tex);
 
-    // EN VEZ DE (ancla en el centro):
-    //    m_sprite->setTransformOriginPoint(tex.width()/2, tex.height()/2);
-
-    // ANCLA en el punto de bisagra:
-    qreal pivotX = tex.width() * 0.5f;    // centro horizontal
-    qreal pivotY = tex.height() * 0.75f;   // prueba valores entre 0.5–0.8 hasta ajustar
+    qreal pivotX = tex.width() * 0.5f;
+    qreal pivotY = tex.height() * 0.75f;
     m_sprite->setTransformOriginPoint(pivotX, pivotY);
 
-    // resto idéntico…
+
     qreal y = (pos == Top)
                   ? 0.0
                   : scene->sceneRect().height() - tex.height();
@@ -51,11 +46,9 @@ void Cannon::update(float dt)
     float     dist = d.length();
     if (dist > m_range) return;
 
-    // gira el cañón para que apunte al jugador
     float ang = qRadiansToDegrees(std::atan2(d.y(), d.x()));
     m_sprite->setRotation( ang + 90.0f );
 
-    // dispara
     if (m_cooldown <= 0.0f) {
         QVector2D dir = d.normalized();
         new Bullet(c, dir * m_bulletSpeed, m_player, m_scene);

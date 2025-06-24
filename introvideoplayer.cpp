@@ -15,16 +15,13 @@ IntroVideoPlayer::IntroVideoPlayer(const QString& videoPath, std::function<void(
 
     m_player->setVideoOutput(m_videoWidget);
 
-    // Establecer la ruta local al video
     QUrl videoUrl = QUrl::fromLocalFile(QFileInfo(videoPath).absoluteFilePath());
     m_player->setSource(videoUrl);
 
-    // Mostrar video y reproducir
     m_videoWidget->show();
     m_player->play();
     show();
 
-    // Cuando termine el video
     connect(m_player, &QMediaPlayer::mediaStatusChanged, this, [=](QMediaPlayer::MediaStatus status){
         if (status == QMediaPlayer::EndOfMedia) {
             m_player->stop();
@@ -33,5 +30,5 @@ IntroVideoPlayer::IntroVideoPlayer(const QString& videoPath, std::function<void(
         }
     });
 
-    setFixedSize(950, 650);  // Tamaño fijo como tu ventana de juego
+    setFixedSize(950, 650);
 }

@@ -8,7 +8,6 @@
 #include <QtMath>
 #include <QDebug>
 
-/* ----------------  constantes  ---------------- */
 namespace {
 const qreal SCALE         = 1.5;
 const float ATK_RANGE     = 75.f;
@@ -16,7 +15,6 @@ const float DET_RANGE     = 300.f;
 const float Y_TOLERANCE   = 12.f;
 const float GRAVITY       = 600.f;
 
-/* helper para cargar secuencias 1…n desde archivos sueltos */
 static Animacion loadSet(const QString& pat,int n,bool mirror=false)
 {
     Animacion a; a.fps = 8.f;
@@ -36,7 +34,6 @@ static Animacion loadSet(const QString& pat,int n,bool mirror=false)
 }
 } // anon
 
-/* ----------------  ctor  ---------------- */
 Minotaur::Minotaur(QObject* parent) : Enemigo(parent), m_dead(false)
     , m_mode(Mode::Patrol)
     , m_patrolDir(+1)

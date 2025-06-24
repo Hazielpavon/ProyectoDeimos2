@@ -105,7 +105,6 @@ QList<QString> GrafoMapa::rutaMasCorta(const QString &inicio, const QString &fin
             QString nombreVecino = vecino.first;
             int peso = vecino.second;
 
-            // 🔒 Solo permitimos conexiones que tengan ruta visual (manual)
             auto clave = qMakePair(actual, nombreVecino);
             if (!m_rutasManuales.contains(clave)) continue;
 
@@ -145,7 +144,6 @@ QList<QList<QString>> GrafoMapa::todasLasRutas(const QString &origen, const QStr
                 QString vecinoNombre = vecino.first;
                 auto clave = qMakePair(nodo, vecinoNombre);
 
-                // Validaciones estrictas:
                 bool noVisitado = !visitados.contains(vecinoNombre);
                 bool tieneRutaVisual = m_rutasManuales.contains(clave);
                 bool noRepetido = !rutaActual.contains(vecinoNombre);
@@ -166,7 +164,6 @@ QList<QList<QString>> GrafoMapa::todasLasRutas(const QString &origen, const QStr
 
     dfs(origen);
 
-    // 🔍 Debug final: imprime todas las rutas generadas
     qDebug() << "📌 Rutas generadas desde" << origen << "a" << destino << ":";
     for (const QList<QString> &ruta : resultados)
         qDebug() << "   · " << ruta;
@@ -226,7 +223,6 @@ void GrafoMapa::agregarRutaManual(const QString &origen, const QString &destino,
     m_rutasManuales[qMakePair(origen, destino)] = puntos;
     m_rutasManuales[qMakePair(destino, origen)] = puntos;
 
-    // Calcular distancia visual de la ruta
     double distancia = 0.0;
     for (int i = 0; i < puntos.size() - 1; ++i)
         distancia += std::hypot(puntos[i+1].x() - puntos[i].x(), puntos[i+1].y() - puntos[i].y());

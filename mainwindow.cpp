@@ -1,11 +1,5 @@
-/* ====================================================================
- *  MainWindow.cpp — versión con árbol de habilidades
- *                   “Super Salto I” (salto ×2) y 10 pts iniciales
- * =================================================================== */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
-/* ── pantallas / niveles ──────────────────────────────────────────── */
 #include "pantallainicio.h"
 #include "menuopciones.h"
 #include "pantallacarga.h"
@@ -16,15 +10,11 @@
 #include "mentevacia.h"
 #include "maquina_olvido.h"
 #include "jugador.h"
-
-/* ── widgets flotantes ────────────────────────────────────────────── */
 #include "InventoryWidget.h"
 #include "SkillTreeWidget.h"
-
 #include <QPainter>
 #include <QDebug>
-
-/* ==================================================================== */
+#include "videointro.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -32,15 +22,12 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(950, 650);
     ui->setupUi(this);
 
-    /* ───── inventario ───── */
     m_inventario = InventoryWidget::instance(this);
     m_inventario->hide();
 
-    /* ───── árbol de habilidades  (todavía sin jugador) ───── */
-    m_skillTree = new SkillTreeWidget(nullptr, this);   // ⬅ nullptr por ahora
+    m_skillTree = new SkillTreeWidget(nullptr, this);
     m_skillTree->hide();
 
-    /* señal: Super-Salto I */
     connect(m_skillTree, &SkillTreeWidget::superJump1Unlocked,
             this, [this]()
             {
@@ -50,7 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
                 }
             });
 
-    /* ───── flujo de pantallas inicial ───── */
     pantallaInicio = new PantallaInicio(this);
 
     connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado,
@@ -67,42 +53,39 @@ MainWindow::MainWindow(QWidget *parent)
                                 connect(pantallaCarga, &PantallaCarga::cargaCompletada,
                                         this, [=]()
                                         {
-                                            /* ▸▸ crear jugador ▸▸ */
                                             m_player = new Jugador();
+                                            m_skillTree->setPlayer(static_cast<Jugador*>(m_player));
 
-                                            /*  ahora el árbol ya puede usarlo  */
-                                            m_skillTree->setPlayer(static_cast<Jugador*>(m_player));   // cast seguro
-
-
-                                            /* posición de arranque */
                                             m_player->transform().setPosition(
                                                 width() / 2.0, height() / 2.0);
 
-                                            // /* ---- primer nivel ---- */
-                                            // cargarNivel("CiudadInversa");
 
-                                            /* -> primer nivel */
-                                            cargarNivel("Tutorial");
+                                            VideoIntro* primerVideo = new VideoIntro(this);
+                                            primerVideo->setVideo("qrc:/resources/historia.mp4");
+
+                                            mostrarPantalla(primerVideo);
+                                            primerVideo->setFocus();
+
+                                            connect(primerVideo, &VideoIntro::videoTerminado, this, [=]() {
+                                                cargarNivel("Tutorial");
+                                            });
+
                                         });
-
                                 mostrarPantalla(pantallaCarga);
                             });
                 }
                 mostrarPantalla(menuOpciones);
             });
 
-    /* pantalla inicial */
     mostrarPantalla(pantallaInicio);
 }
 
-/* ==================================================================== */
 MainWindow::~MainWindow()
 {
     delete m_player;
     delete ui;
 }
 
-/* ==================================================================== */
 void MainWindow::mostrarPantalla(QWidget *pantalla)
 {
     if (pantallaActual) pantallaActual->hide();
@@ -110,16 +93,12 @@ void MainWindow::mostrarPantalla(QWidget *pantalla)
     setCentralWidget(pantallaActual);
     pantallaActual->show();
 }
-
-/* ==================================================================== */
 void MainWindow::paintEvent(QPaintEvent*)
 {
     QPainter p(this);
-    p.fillRect(rect(), QColor(200, 200, 200));   // fondo gris neutro
+    p.fillRect(rect(), QColor(200, 200, 200));
 }
 
-/* ==================================================================== */
-/* helpers: mostrar / ocultar diálogos flotantes                        */
 void MainWindow::toggleInventory()
 {
     if (!m_inventario) return;
@@ -145,15 +124,12 @@ void MainWindow::toggleSkillTree()
     if (m_skillTree->isVisible())
         m_skillTree->hide();
     else {
-        /* el centrado lo hace el showEvent del widget */
         m_skillTree->show();
         m_skillTree->raise();
         m_skillTree->setFocus();
     }
 }
 
-/* ==================================================================== */
-/* entrada de teclas global (I = inventario, U = árbol)                 */
 void MainWindow::keyPressEvent(QKeyEvent *ev)
 {
     if (!ev->isAutoRepeat()) {
@@ -163,7 +139,6 @@ void MainWindow::keyPressEvent(QKeyEvent *ev)
     QMainWindow::keyPressEvent(ev);
 }
 
-/* ==================================================================== */
 void MainWindow::cargarNivel(const QString &nombre)
 {
     if (nombre == "Tutorial") {

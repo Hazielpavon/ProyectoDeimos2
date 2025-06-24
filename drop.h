@@ -8,10 +8,6 @@
 
 class entidad;
 
-/* -----------------------------------------------------------
- *  Clase Drop
- *  (pequeños objetos que sueltan los enemigos/jefes)
- * ----------------------------------------------------------- */
 class Drop : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
@@ -24,22 +20,19 @@ public:
          QObject* parent = nullptr);
     ~Drop();
 
-    /* lógica */
     bool  checkCollision(entidad* player);
     void  aplicarEfecto(entidad* player);
     bool  isCollected() const;
 
-    /* acceso */
     Tipo      tipo()         const;
     QString   nombreLlave()  const;
 
 signals:
-    /* se emite SOLO si el drop es Tipo::Llave */
     void llaveRecogida(const QString& id, const QPixmap& icon);
 
 private:
     Tipo                m_tipo;
-    QString             m_nombreLlave;      // clave identificadora
+    QString             m_nombreLlave;
     QGraphicsPixmapItem* m_sprite = nullptr;
     bool                m_collected = false;
 };
