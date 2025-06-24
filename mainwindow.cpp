@@ -1,7 +1,11 @@
+/* ====================================================================
+ *  MainWindow.cpp — versión con árbol de habilidades
+ *                   “Super Salto I” (salto ×2) y 10 pts iniciales
+ * =================================================================== */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-/* tus pantallas / niveles */
+/* ── pantallas / niveles ──────────────────────────────────────────── */
 #include "pantallainicio.h"
 #include "menuopciones.h"
 #include "pantallacarga.h"
@@ -9,17 +13,17 @@
 #include "nivelraicesolvidadas.h"
 #include "niveltorredelamarca.h"
 #include "ciudadinversa.h"
-#include "videointro.h"
-#include "jugador.h"
 #include "mentevacia.h"
+#include "jugador.h"
 
-/* inventario */
+/* ── widgets flotantes ────────────────────────────────────────────── */
 #include "InventoryWidget.h"
+#include "SkillTreeWidget.h"
 
 #include <QPainter>
 #include <QDebug>
 
-/* ========================================================= */
+/* ==================================================================== */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -27,58 +31,56 @@ MainWindow::MainWindow(QWidget *parent)
     setFixedSize(950, 650);
     ui->setupUi(this);
 
-    /* ➊ instancia única del inventario (hijo de MainWindow) */
+    /* ───── inventario ───── */
     m_inventario = InventoryWidget::instance(this);
+    m_inventario->hide();
 
-    /* ➋ tu flujo de pantallas original -------------------- */
+    /* ───── árbol de habilidades  (todavía sin jugador) ───── */
+    m_skillTree = new SkillTreeWidget(nullptr, this);   // ⬅ nullptr por ahora
+    m_skillTree->hide();
+
+    /* señal: Super-Salto I */
+    connect(m_skillTree, &SkillTreeWidget::superJump1Unlocked,
+            this, [this]()
+            {
+                if (m_player) {
+                    m_player->setJumpMultiplier(2.0f);   // salto ×2
+                    qDebug() << "[SkillTree] Super Salto I activado";
+                }
+            });
+
+    /* ───── flujo de pantallas inicial ───── */
     pantallaInicio = new PantallaInicio(this);
 
-    connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado, this,
-            [=]()
+    connect(pantallaInicio, &PantallaInicio::iniciarJuegoPresionado,
+            this, [=]()
             {
                 if (!menuOpciones) {
                     menuOpciones = new MenuOpciones(this);
 
-                    connect(menuOpciones, &MenuOpciones::nuevaPartida, this,
-                            [=]()
+                    connect(menuOpciones, &MenuOpciones::nuevaPartida,
+                            this, [=]()
                             {
-                                /* pantalla de carga */
                                 pantallaCarga = new PantallaCarga(this);
 
                                 connect(pantallaCarga, &PantallaCarga::cargaCompletada,
                                         this, [=]()
                                         {
-                                            /* ---------- creamos el jugador ---------- */
+                                            /* ▸▸ crear jugador ▸▸ */
                                             m_player = new Jugador();
-                                            auto& spr = m_player->sprite();
-                                            spr.loadFrames(SpriteState::Walking, ":/resources/0_Blood_Demon_Walking_", 24);
-                                            spr.loadFrames(SpriteState::Idle,    ":/resources/0_Blood_Demon_Idle_",    16);
-                                            spr.loadFrames(SpriteState::IdleLeft,":/resources/0_Blood_Demon_IdleL_",   16);
-                                            spr.loadFrames(SpriteState::WalkingLeft,":/resources/0_Blood_Demon_WalkingL_",24);
-                                            spr.loadFrames(SpriteState::Jump,":/resources/0_Blood_Demon_Jump Loop_",6);
-                                            spr.generateMirroredFrames(SpriteState::Jump, SpriteState::JumpLeft);
-                                            spr.loadFrames(SpriteState::Running,":/resources/0_Blood_Demon_Running_",12);
-                                            spr.generateMirroredFrames(SpriteState::Running, SpriteState::RunningLeft);
-                                            spr.loadFrames(SpriteState::Slashing,":/resources/0_Blood_Demon_Slashing_",12);
-                                            spr.generateMirroredFrames(SpriteState::Slashing, SpriteState::SlashingLeft);
-                                            spr.loadFrames(SpriteState::Slidding,":/resources/0_Blood_Demon_Sliding_",6);
-                                            spr.generateMirroredFrames(SpriteState::Slidding, SpriteState::SliddingLeft);
-                                            spr.loadFrames(SpriteState::dead,":/resources/0_Blood_Demon_Dying_",15);
-                                            spr.generateMirroredFrames(SpriteState::dead, SpriteState::deadleft);
-                                            spr.loadFrames(SpriteState::throwing,":/resources/0_Blood_Demon_Throwing_",12);
-                                            spr.generateMirroredFrames(SpriteState::throwing, SpriteState::throwingLeft);
 
-                                            spr.setSize(128,128);
-                                            spr.setState(SpriteState::Idle);
-                                            m_player->transform().setPosition(width()/2.0, height()/2.0);
+                                            /*  ahora el árbol ya puede usarlo  */
+                                            m_skillTree->setPlayer(static_cast<Jugador*>(m_player));   // cast seguro
 
 
+                                            /* posición de arranque */
+                                            m_player->transform().setPosition(
+                                                width() / 2.0, height() / 2.0);
 
+                                            /* ---- primer nivel ---- */
+                                            cargarNivel("CiudadInversa");
 
-                                            /* -> primer nivel */
-                                            cargarNivel("TorreDeLaMarca");
                                         });
-
 
                                 mostrarPantalla(pantallaCarga);
                             });
@@ -86,16 +88,18 @@ MainWindow::MainWindow(QWidget *parent)
                 mostrarPantalla(menuOpciones);
             });
 
+    /* pantalla inicial */
+    mostrarPantalla(pantallaInicio);
 }
 
-/* ========================================================= */
+/* ==================================================================== */
 MainWindow::~MainWindow()
 {
     delete m_player;
     delete ui;
 }
 
-/* ========================================================= */
+/* ==================================================================== */
 void MainWindow::mostrarPantalla(QWidget *pantalla)
 {
     if (pantallaActual) pantallaActual->hide();
@@ -104,49 +108,79 @@ void MainWindow::mostrarPantalla(QWidget *pantalla)
     pantallaActual->show();
 }
 
+/* ==================================================================== */
 void MainWindow::paintEvent(QPaintEvent*)
 {
     QPainter p(this);
-    p.fillRect(rect(), QColor(200,200,200));
+    p.fillRect(rect(), QColor(200, 200, 200));   // fondo gris neutro
 }
 
-/* ========================================================= */
+/* ==================================================================== */
+/* helpers: mostrar / ocultar diálogos flotantes                        */
+void MainWindow::toggleInventory()
+{
+    if (!m_inventario) return;
+
+    if (m_inventario->isVisible()) {
+        m_inventario->hide();
+    } else {
+        const int w = m_inventario->width();
+        const int h = m_inventario->height();
+        const int x = (width()  - w) / 2;
+        const int y = (height() - h) / 2;
+        m_inventario->setGeometry(x, y, w, h);
+        m_inventario->show();
+        m_inventario->raise();
+        m_inventario->setFocus();
+    }
+}
+
+void MainWindow::toggleSkillTree()
+{
+    if (!m_skillTree) return;
+
+    if (m_skillTree->isVisible())
+        m_skillTree->hide();
+    else {
+        /* el centrado lo hace el showEvent del widget */
+        m_skillTree->show();
+        m_skillTree->raise();
+        m_skillTree->setFocus();
+    }
+}
+
+/* ==================================================================== */
+/* entrada de teclas global (I = inventario, U = árbol)                 */
 void MainWindow::keyPressEvent(QKeyEvent *ev)
 {
-    /* tecla global: inventario */
-    if (ev->key() == Qt::Key_I) {
-        m_inventario->toggleVisible();
-        return;
+    if (!ev->isAutoRepeat()) {
+        if (ev->key() == Qt::Key_I) { toggleInventory();  return; }
+        if (ev->key() == Qt::Key_U) { toggleSkillTree(); return; }
     }
     QMainWindow::keyPressEvent(ev);
 }
 
-/* ========================================================= */
+/* ==================================================================== */
 void MainWindow::cargarNivel(const QString &nombre)
 {
     if (nombre == "Tutorial") {
-        auto* n = new TutorialScene(m_player, this);
-        mostrarPantalla(n);
-        n->setFocus();
+        auto *n = new TutorialScene(m_player, this);
+        mostrarPantalla(n); n->setFocus();
     }
     else if (nombre == "TorreDeLaMarca") {
-        auto* n = new niveltorredelamarca(m_player, this);
-        mostrarPantalla(n);
-        n->setFocus();
+        auto *n = new niveltorredelamarca(m_player, this);
+        mostrarPantalla(n); n->setFocus();
     }
     else if (nombre == "CiudadInversa") {
-        auto* n = new ciudadinversa(m_player, this);
-        mostrarPantalla(n);
-        n->setFocus();
+        auto *n = new ciudadinversa(m_player, this);
+        mostrarPantalla(n); n->setFocus();
     }
     else if (nombre == "RaicesOlvidadas") {
-        auto* n = new NivelRaicesOlvidadas(m_player, this);
-        mostrarPantalla(n);
-        n->setFocus();
+        auto *n = new NivelRaicesOlvidadas(m_player, this);
+        mostrarPantalla(n); n->setFocus();
     }
     else if (nombre == "MenteVacia") {
-        auto* n = new mentevacia(m_player, this);
-        mostrarPantalla(n);
-        n->setFocus();
+        auto *n = new mentevacia(m_player, this);
+        mostrarPantalla(n); n->setFocus();
     }
 }

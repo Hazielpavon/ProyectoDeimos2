@@ -91,6 +91,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     bullet.h bullet.cpp
     npc.h npc.cpp
     mentevacia.h mentevacia.cpp
+    skilltreewidget.h skilltreewidget.cpp
+
 
 
   )

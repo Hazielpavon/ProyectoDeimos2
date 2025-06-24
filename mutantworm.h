@@ -1,47 +1,62 @@
 #pragma once
 #include "enemigo.h"
 
-/* ══════════════════════════════════════════════════════ */
-/*  Mutant Worm – Monster 1                               */
-/*  Animaciones: Idle · Walk · Attack · Jump · Dying      */
-/* ══════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+ *  Mutant Worm – simple ground enemy
+ *    • Estados: Idle · Walk · Attack · Jump · Dying
+ *    • Ahora puede quedar “estacionario” si así lo desea el nivel
+ *      (p. ej. en Ciudad Inversa).
+ *      – Por defecto, sigue patrullando / atacando como siempre.
+ * ══════════════════════════════════════════════════════ */
 class MutantWorm : public Enemigo
 {
     Q_OBJECT
 public:
     explicit MutantWorm(QObject* parent = nullptr);
 
-    /* Enemigo overrides */
-    void update(float dt) override;
-    void takeDamage(int dmg) override;
-    QRectF       boundingRect() const override;
+    /* ------------- API extra (nuevo) ------------- */
+    /// Forza al gusano a quedar totalmente quieto (sin patrullar ni atacar).
+    /// Úsalo solo en los niveles que lo necesiten; en los demás, **NO** lo llames.
+    void setStationary(bool st) { m_stationary = st; }
+
+    /* ------------- Enemigo overrides ------------- */
+    void        update(float dt) override;
+    void        takeDamage(int dmg) override;
+    QRectF      boundingRect() const override;
     QPainterPath shape()        const override;
+
 protected:
-    void onRevive() override {
-        // llamamos al padre ya hecho, luego reseteamos lo propio
+    /* se llama cuando el enemigo revive después de morir */
+    void onRevive() override
+    {
         Enemigo::onRevive();
-        m_deadAnim = false;      // vuelve a procesar update()
-        m_patrolTime = 0;    // opcional, reinicio de patrulla
-        m_mode = Mode::Patrol;
+        m_deadAnim   = false;
+        m_patrolTime = 0.f;
+        m_mode       = Mode::Patrol;
     }
+
 private:
-    enum class Mode { None, Chase, Patrol, Attack, Jump };
+    /* ---------- IA interna ---------- */
+    enum class Mode { None, Patrol, Chase, Attack, Jump };
 
-    void updateAI(float dt);
-    void startJump();
-    void startDeath();
+    void  updateAI(float dt);
+    void  startJump();
+    void  startDeath();
 
-    /* IA */
+    /* estado de IA */
     Mode  m_mode        = Mode::None;
     float m_patrolTime  = 0.f;
     int   m_patrolDir   = +1;
     bool  m_faceRight   = true;
 
-    /* jump */
-    bool  m_jumping     = false;
-    float m_jumpCooldown= 0.f;
+    /* salto */
+    bool  m_jumping      = false;
+    float m_jumpCooldown = 0.f;
 
-    /* death */
-    bool  m_deadAnim    = false;
-    float m_deadTimer   = 0.f;
+    /* muerte */
+    bool  m_deadAnim     = false;
+    float m_deadTimer    = 0.f;
+
+    /* ---------- NUEVO ---------- */
+    bool  m_stationary   = false;   ///< si es true, update() sale inmediatamente
 };
