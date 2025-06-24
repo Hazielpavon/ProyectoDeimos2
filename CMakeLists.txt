@@ -91,10 +91,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     bullet.h bullet.cpp
     npc.h npc.cpp
     mentevacia.h mentevacia.cpp
+<<<<<<< HEAD
     maquina_olvido.h maquina_olvido.cpp
     plataforma_movil_shared.h
     npc_final.h npc_final.cpp
     introvideoplayer.h introvideoplayer.cpp
+=======
+    skilltreewidget.h skilltreewidget.cpp
+
+>>>>>>> origin/fix2
 
 
   )
