@@ -1,72 +1,49 @@
 #include "jugador.h"
-#include <QDebug>
+#include <QtMath>
 
-static constexpr int BAR_WIDTH  = 100;
-static constexpr int BAR_HEIGHT = 12;
-static constexpr int BAR_MARGIN = 10;
+/* === Dimensiones de la barra de vida (HUD) ================= */
+static constexpr int BAR_W = 100;
+static constexpr int BAR_H = 12;
+static constexpr int BAR_M = 10;
 
+/* ----------------------------------------------------------- */
 Jugador::Jugador()
     : entidad()
 {
-    m_baseDamage       = 1;
+    /* Otros inicializadores en el ctor base */
 }
 
-// Añade una llave
-void Jugador::addKey(const QString &keyId)
-{
-    m_keys.insert(keyId);
-}
+/* ---------- Inventario de llaves ---------- */
+void Jugador::addKey(const QString& id)  { m_keys.insert(id); }
+bool Jugador::hasKey(const QString& id) const { return m_keys.contains(id); }
+void Jugador::useKey(const QString& id)  { m_keys.remove(id); }
 
-// Comprueba si tiene la llave
-bool Jugador::hasKey(const QString &keyId) const
-{
-    return m_keys.contains(keyId);
-}
-
-// Usa (consume) la llave
-void Jugador::useKey(const QString &keyId)
-{
-    m_keys.remove(keyId);
-}
-
-// Sobrescribimos para, además de aplicar el daño,
-// si vida llega a 0 ponemos animación de muerte
+/* ---------- Aplicar daño ---------- */
 void Jugador::aplicarDano(int dmg)
 {
-    // primero aplicamos normalmente
-    m_componenteSalud.aplicarDano(dmg);
+    salud().aplicarDano(dmg);                    // usar el getter
 
-    // si se quedó a 0 => muere
-    if (m_componenteSalud.currentHP() == 0) {
-        // ponemos el sprite en estado de muerte
+    if (currentHP() == 0)                       // muerto → animación
         reproducirAnimacionTemporal(SpriteState::dead, 1.0f);
-    }
 }
 
-// Dibuja la barra de vida en la esquina superior izquierda
-void Jugador::drawHUD(QPainter &painter, const QRect &viewportRect) const
+/* ---------- Dibujar HUD ---------- */
+void Jugador::drawHUD(QPainter& p, const QRect& vp) const
 {
-    // Calculamos posición fija (siempre margen desde top-left)
-    int x0 = viewportRect.left() + BAR_MARGIN;
-    int y0 = viewportRect.top()  + BAR_MARGIN;
+    int x0 = vp.left() + BAR_M;
+    int y0 = vp.top()  + BAR_M;
 
-    // Fracción de vida
-    float frac = float(m_componenteSalud.currentHP())
-                 / float(m_componenteSalud.maxHP());
+    float frac = float(currentHP()) / float(maxHP());
 
-    // Dibujamos fondo y borde
-    painter.setPen(Qt::black);
-    painter.setBrush(Qt::NoBrush);
-    painter.drawRect(x0, y0, BAR_WIDTH, BAR_HEIGHT);
+    /* borde */
+    p.setPen(Qt::black);  p.setBrush(Qt::NoBrush);
+    p.drawRect(x0, y0, BAR_W, BAR_H);
 
-    // Barrita gris de "vacío"
-    painter.setPen(Qt::NoPen);
-    painter.setBrush(QColor(80,80,80));
-    painter.drawRect(x0+1, y0+1, BAR_WIDTH-2, BAR_HEIGHT-2);
+    /* vacío */
+    p.setPen(Qt::NoPen);  p.setBrush(QColor(80,80,80));
+    p.drawRect(x0+1, y0+1, BAR_W-2, BAR_H-2);
 
-    // Relleno verde
-    painter.setBrush(QColor(50,205,50));
-    painter.drawRect(x0+1, y0+1,
-                     int((BAR_WIDTH-2)*frac),
-                     BAR_HEIGHT-2);
+    /* vida */
+    p.setBrush(QColor(50,205,50));
+    p.drawRect(x0+1, y0+1, int((BAR_W-2)*frac), BAR_H-2);
 }

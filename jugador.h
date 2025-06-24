@@ -1,43 +1,49 @@
+/* ===========================================================
+ *  Jugador.h  —  Clase derivada de entidad que representa al
+ *                personaje controlado por el usuario.
+ * =========================================================== */
 #pragma once
 #include "entidad.h"
+
 #include <QPainter>
-#include <QString>
 #include <QSet>
-#include <QDebug>
-#include <QGraphicsPixmapItem>  // QGraphicsPixmapItem, sceneBoundingRect()
-#include <QRectF>                // QRectF
+#include <QString>
+#include <QGraphicsPixmapItem>
+#include <cmath>                   // std::round
 
 class Jugador : public entidad
 {
 public:
     Jugador();
 
-    // Inventario de llaves
-    void addKey(const QString &keyId);
-    bool hasKey(const QString &keyId) const;
-    void useKey(const QString &keyId);
+    /* ---------- Inventario de llaves ---------- */
+    void addKey   (const QString& keyId);
+    bool hasKey   (const QString& keyId) const;
+    void useKey   (const QString& keyId);
 
-    // Override aplicación de daño para disparar animación de muerte
-    void aplicarDano(int dmg);
+    /* ---------- Salud / daño ---------- */
+    void aplicarDano(int dmg);                     // aplica daño + animación
+    void setDamageMultiplier(float m) { m_damageMul = m; }
+    float damageMultiplier() const      { return m_damageMul; }
 
-    void setGraphicsItem(QGraphicsPixmapItem* it) { m_graphicsItem = it; }
-    // Lo usamos luego en CombateManager:
-    QGraphicsPixmapItem* graphicsItem() const { return m_graphicsItem; }
-    int damage() const
-    {
-        return m_baseDamage;
-    }
+    int  damage()              const { return m_baseDamage; }
+    int  computeDamage(int base)const { return int(std::round(base * m_damageMul)); }
 
-    // Dibuja la HUD (barra de vida) en la esquina superior izquierda
-    void drawHUD(QPainter &painter, const QRect &viewportRect) const;
-    void   setDamageMultiplier(float m) { m_damageMul = m; }
-    float  damageMultiplier() const     { return m_damageMul; }
-    int    computeDamage(int base) const {
-        return int(std::round(base * m_damageMul));
-    }
+    /* ---------- HUD ---------- */
+    void drawHUD(QPainter& painter, const QRect& viewportRect) const;
+
+    /* ---------- Enlace gráfico para colisiones ---------- */
+    void setGraphicsItem(QGraphicsPixmapItem* it)   { m_graphicsItem = it; }
+    QGraphicsPixmapItem* graphicsItem() const       { return m_graphicsItem; }
+
 private:
-    int         m_baseDamage       = 1;
+    /*  stats */
+    int   m_baseDamage  = 1;        // daño base (antes de multiplicador)
+    float m_damageMul   = 1.0f;     // multiplicador (mejoras de skill-tree)
+
+    /*  inventario sencillo de llaves */
+    QSet<QString> m_keys;
+
+    /*  puntero al item de la escena (lo usa CombateManager p.ej.) */
     QGraphicsPixmapItem* m_graphicsItem = nullptr;
-    QSet<QString>  m_keys;
-    float  m_damageMul = 1.0f;
 };

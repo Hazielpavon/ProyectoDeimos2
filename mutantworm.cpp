@@ -1,4 +1,11 @@
-#include "mutantWorm.h"
+/* =========================================================
+ *  MutantWorm.cpp — versión corregida
+ *    · “m_faceRight == true”  ➜  mira HACIA la DERECHA
+ *    · El sprite sólo se espeja cuando mira a la IZQUIERDA
+ *    · En IA (ataque / persecución / patrulla) se ajusta
+ *      la asignación de m_faceRight →  (dx < 0) etc.
+ * ========================================================= */
+#include "MutantWorm.h"
 #include "jugador.h"
 
 #include <QTransform>
@@ -6,126 +13,147 @@
 #include <QtMath>
 #include <QDebug>
 
-/* --------------- constantes --------------- */
+/* ---------- constantes internas ---------- */
 namespace {
-const qreal  SCALE          = 0.5;
-const float  GRAVITY        = 600.f;
+constexpr qreal  SCALE          = 0.5;
+constexpr float  GRAVITY        = 600.f;
 
-const float  ATK_RANGE      = 55.f;
-const float  DET_RANGE      = 260.f;
-const float  Y_TOLERANCE    = 14.f;
+constexpr float  ATK_RANGE      = 55.f;
+constexpr float  DET_RANGE      = 260.f;
+constexpr float  Y_TOLERANCE    = 14.f;
 
-const float  JUMP_VY        = -350.f;
-const float  JUMP_CD        = 3.f;      // segundos
+constexpr float  JUMP_VY        = -350.f;
+constexpr float  JUMP_CD        = 3.f;
 }
 
-/* helper: carga 000-017 */
-static Animacion loadSet(const QString& patt,int frames,bool mirror=false)
+/* helper: carga “000-017” (opcionalmente espejado) */
+static Animacion loadSet(const QString& patt, int frames, bool mirror = false)
 {
-    Animacion a; a.fps = 9.f;
-    QTransform flip; flip.scale(-1,1);
+    Animacion a;  a.fps = 9.f;
+    QTransform flip; flip.scale(-1, 1);
 
-    for (int i=0;i<frames;++i){
-        QString file = patt.arg(i,3,10,QChar('0'));
+    for (int i = 0; i < frames; ++i) {
+        QString file = patt.arg(i, 3, 10, QChar('0'));
         QPixmap p(file);
-        if (p.isNull()) { qWarning()<<"[MutantWorm] Falta"<<file; continue; }
-        p = p.scaled(p.size()*SCALE, Qt::KeepAspectRatio,
-                     Qt::SmoothTransformation);
+        if (p.isNull()) { qWarning() << "[MutantWorm] Falta" << file; continue; }
+        p = p.scaled(p.size() * SCALE, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         if (mirror) p = p.transformed(flip);
         a.frames.append(p);
     }
     return a;
 }
 
-/* --------------- ctor --------------- */
-MutantWorm::MutantWorm(QObject* parent):Enemigo(parent), m_deadAnim(false)
-    , m_mode(Mode::Patrol)
-    , m_patrolDir(+1)
-    , m_patrolTime(0)
-    , m_faceRight(true)
-
+/* ---------- ctor ---------- */
+MutantWorm::MutantWorm(QObject* parent)
+    : Enemigo(parent)
 {
-    addAnim(Estado::Idle  , loadSet(":/resources/1_Monster_Idle_%1.png"   ,18));
-    addAnim(Estado::Walk  , loadSet(":/resources/1_Monster_Walking_%1.png",18));
-    addAnim(Estado::Attack, loadSet(":/resources/1_Monster_Attack_%1.png" ,18));
-    addAnim(Estado::Jump  , loadSet(":/resources/1_Monster_Jump_%1.png"  ,18));
-    addAnim(Estado::Death , loadSet(":/resources/1_Monster_Dying_%1.png" ,18));
- setDamage(8);
+    addAnim(Estado::Idle  , loadSet(":/resources/1_Monster_Idle_%1.png"   , 18));
+    addAnim(Estado::Walk  , loadSet(":/resources/1_Monster_Walking_%1.png", 18));
+    addAnim(Estado::Attack, loadSet(":/resources/1_Monster_Attack_%1.png" , 18));
+    addAnim(Estado::Jump  , loadSet(":/resources/1_Monster_Jump_%1.png"   , 18));
+    addAnim(Estado::Death , loadSet(":/resources/1_Monster_Dying_%1.png"  , 18));
+
+    setDamage(8);
+
     if (!animActual().frames.isEmpty()) {
-        QPixmap f = animActual().frames.first();
-        setOffset(-f.width()/2, -f.height()/2);
-        setTransformOriginPoint(f.width()/2, f.height()/2);
+        const QPixmap& f = animActual().frames.first();
+        setOffset(-f.width() / 2, -f.height() / 2);
+        setTransformOriginPoint(f.width() / 2, f.height() / 2);
     }
 }
 
-/* --------------- geom --------------- */
+/* ---------- bounding / shape ---------- */
 QRectF MutantWorm::boundingRect() const
 {
-    const auto& p = pixmap();
-    return QRectF(
-        -p.width()  / 2.0,  // qreal
-        -p.height() / 2.0,  // qreal
-        p.width(),
-        p.height()
-        );
+    const QPixmap& p = pixmap();
+    return { -p.width() / 2.0, -p.height() / 2.0, p.width(), p.height() };
 }
-
 QPainterPath MutantWorm::shape() const
 {
     QPainterPath s;  s.addRect(boundingRect());  return s;
 }
 
-/* --------------- IA --------------- */
+/* ---------- IA principal ---------- */
 void MutantWorm::updateAI(float dt)
 {
+    /* ===== MODO QUIETO (estacionario) ===== */
+    if (m_stationary) {
+        if (target()) {
+            const float dx = target()->transform().getPosition().x() - pos().x();
+            m_faceRight = dx >= 0;                // mira al jugador
+            /* animación Idle/Attack según rango */
+            float selfFeet = sceneBoundingRect().bottom();
+            float targFeet = selfFeet;
+            if (auto* j = dynamic_cast<Jugador*>(target()))
+                if (auto* gi = j->graphicsItem())
+                    targFeet = gi->sceneBoundingRect().bottom();
+
+            if (qAbs(dx) < ATK_RANGE &&
+                qAbs(targFeet - selfFeet) < Y_TOLERANCE)
+                setEstado(Estado::Attack);
+            else
+                setEstado(Estado::Idle);
+        } else {
+            setEstado(Estado::Idle);
+        }
+        m_velX = 0.f;
+        return;
+    }
+
+    /* ===== IA NORMAL (patrulla / persecución) ===== */
     m_jumpCooldown -= dt;
 
-    /* salto periódico solo si patrulla y está en suelo */
-    if (m_mode == Mode::Patrol && isOnGround() && m_jumpCooldown<=0.f) {
+    if (m_mode == Mode::Patrol && isOnGround() && m_jumpCooldown <= 0.f) {
         startJump();
         return;
     }
 
     if (!target()) return;
 
-    float dx = target()->transform().getPosition().x() - pos().x();
+    const float dx = target()->transform().getPosition().x() - pos().x();
 
+    /* pies */
     float selfFeet = sceneBoundingRect().bottom();
     float targFeet = selfFeet;
     if (auto* j = dynamic_cast<Jugador*>(target()))
         if (auto* gi = j->graphicsItem())
             targFeet = gi->sceneBoundingRect().bottom();
 
-    /* ataque */
-    if (qAbs(dx)<ATK_RANGE && qAbs(targFeet-selfFeet)<Y_TOLERANCE) {
-        setEstado(Estado::Attack); m_velX = 0; m_faceRight = dx>=0;
-        m_mode = Mode::Attack; return;
+    /* --- ataque --- */
+    if (qAbs(dx) < ATK_RANGE && qAbs(targFeet - selfFeet) < Y_TOLERANCE) {
+        setEstado(Estado::Attack);
+        m_velX      = 0.f;
+        m_faceRight = dx < 0;          // ← CORREGIDO
+        m_mode      = Mode::Attack;
+        return;
     }
-    /* persecución */
-    if (qAbs(dx)<DET_RANGE) {
+    /* --- persecución --- */
+    if (qAbs(dx) < DET_RANGE) {
         setEstado(Estado::Walk);
-        m_velX = (dx>0?1:-1)*140.f;
-        m_faceRight = dx>=0; m_mode=Mode::Chase; return;
+        m_velX      = (dx > 0 ? +1 : -1) * 140.f;
+        m_faceRight = dx < 0;          // ← CORREGIDO
+        m_mode      = Mode::Chase;
+        return;
     }
-    /* patrulla */
+    /* --- patrulla --- */
     setEstado(Estado::Walk);
     m_patrolTime += dt;
-    if (m_patrolTime>2.5f){ m_patrolDir=-m_patrolDir; m_patrolTime=0; }
-    m_velX = m_patrolDir*90.f;
-    m_faceRight = m_patrolDir>0;  m_mode=Mode::Patrol;
+    if (m_patrolTime > 2.5f) { m_patrolDir = -m_patrolDir; m_patrolTime = 0.f; }
+    m_velX      = m_patrolDir * 90.f;
+    m_faceRight = m_patrolDir < 0;     // ← CORREGIDO
+    m_mode      = Mode::Patrol;
 }
 
-/* --------------- salto --------------- */
+/* ---------- salto / muerte ---------- */
 void MutantWorm::startJump()
 {
     setEstado(Estado::Jump);
-    m_velY = JUMP_VY;
-    m_jumping = true;
+    m_velY         = JUMP_VY;
+    m_jumping      = true;
     m_jumpCooldown = JUMP_CD;
-    m_mode = Mode::Jump;
+    m_mode         = Mode::Jump;
 }
 
-/* --------------- daño / muerte --------------- */
 void MutantWorm::takeDamage(int dmg)
 {
     if (isDead()) return;
@@ -134,18 +162,28 @@ void MutantWorm::takeDamage(int dmg)
 }
 void MutantWorm::startDeath()
 {
-    m_deadAnim = true; m_deadTimer=0.f;
+    m_deadAnim  = true;
+    m_deadTimer = 0.f;
     setEstado(Estado::Death);
-    auto& a = animActual(); a.idx=0; a.acum=0;
+    auto& a = animActual();  a.idx = 0; a.acum = 0.f;
 }
 
-/* --------------- update --------------- */
+/* ---------- bucle update ---------- */
 void MutantWorm::update(float dt)
 {
-    /* IA + física */
     if (!m_deadAnim) {
-        if (!m_jumping) updateAI(dt);
-        m_velY += GRAVITY * dt;
+
+        /* --- IA --- (esto ajusta m_velX, m_faceRight, etc.) */
+        updateAI(dt);
+
+        /* --- física vertical (GRAVEDAD) ---  */
+        m_velY += GRAVITY * dt;          // ❶ SIEMPRE cae
+
+        /* si es estacionario bloqueamos el movimiento horizontal */
+        if (m_stationary)
+            m_velX = 0.f;                // ❷ sigue sin patrullar
+
+        /* aplicar desplazamiento X / Y */
         moveBy(m_velX * dt, m_velY * dt);
 
         /* aterrizaje */
@@ -155,20 +193,23 @@ void MutantWorm::update(float dt)
         }
     }
 
-    /* animación */
+    /* ---------- animación ---------- */
     auto& a = animActual();
     a.avanzar(dt);
 
     QPixmap frame = a.actual();
-    if (m_faceRight)
-        frame = frame.transformed(QTransform().scale(-1,1));
-    setPixmap(frame);
-    setOffset(-frame.width()/2, -frame.height()/2);
 
-    /* fin de muerte */
+    // ⇩⇩ CAMBIO PRINCIPAL ⇩⇩
+    if (!m_faceRight)                   // solo espeja cuando mira a la IZQUIERDA
+        frame = frame.transformed(QTransform().scale(-1, 1));
+
+    setPixmap(frame);
+    setOffset(-frame.width() / 2, -frame.height() / 2);
+
+    /* ---------- fin animación de muerte ---------- */
     if (m_deadAnim) {
         m_deadTimer += dt;
-        if (m_deadTimer > 1.f/a.fps && a.idx==a.frames.size()-1)
+        if (m_deadTimer > 1.f / a.fps && a.idx == a.frames.size() - 1)
             setVisible(false);
     }
 }
