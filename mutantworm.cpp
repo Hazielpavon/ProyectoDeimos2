@@ -1,11 +1,5 @@
-/* =========================================================
- *  MutantWorm.cpp — versión corregida
- *    · “m_faceRight == true”  ➜  mira HACIA la DERECHA
- *    · El sprite sólo se espeja cuando mira a la IZQUIERDA
- *    · En IA (ataque / persecución / patrulla) se ajusta
- *      la asignación de m_faceRight →  (dx < 0) etc.
- * ========================================================= */
-#include "MutantWorm.h"
+
+#include "mutantWorm.h"
 #include "jugador.h"
 
 #include <QTransform>
@@ -26,7 +20,6 @@ constexpr float  JUMP_VY        = -350.f;
 constexpr float  JUMP_CD        = 3.f;
 }
 
-/* helper: carga “000-017” (opcionalmente espejado) */
 static Animacion loadSet(const QString& patt, int frames, bool mirror = false)
 {
     Animacion a;  a.fps = 9.f;
@@ -66,7 +59,9 @@ MutantWorm::MutantWorm(QObject* parent)
 QRectF MutantWorm::boundingRect() const
 {
     const QPixmap& p = pixmap();
-    return { -p.width() / 2.0, -p.height() / 2.0, p.width(), p.height() };
+    qreal w = static_cast<qreal>(p.width());
+    qreal h = static_cast<qreal>(p.height());
+    return QRectF(-w / 2.0, -h / 2.0, w, h);
 }
 QPainterPath MutantWorm::shape() const
 {
@@ -173,20 +168,15 @@ void MutantWorm::update(float dt)
 {
     if (!m_deadAnim) {
 
-        /* --- IA --- (esto ajusta m_velX, m_faceRight, etc.) */
         updateAI(dt);
 
-        /* --- física vertical (GRAVEDAD) ---  */
-        m_velY += GRAVITY * dt;          // ❶ SIEMPRE cae
+        m_velY += GRAVITY * dt;
 
-        /* si es estacionario bloqueamos el movimiento horizontal */
         if (m_stationary)
-            m_velX = 0.f;                // ❷ sigue sin patrullar
+            m_velX = 0.f;
 
-        /* aplicar desplazamiento X / Y */
         moveBy(m_velX * dt, m_velY * dt);
 
-        /* aterrizaje */
         if (m_jumping && isOnGround()) {
             m_jumping = false;
             setEstado(Estado::Idle);
@@ -199,8 +189,7 @@ void MutantWorm::update(float dt)
 
     QPixmap frame = a.actual();
 
-    // ⇩⇩ CAMBIO PRINCIPAL ⇩⇩
-    if (!m_faceRight)                   // solo espeja cuando mira a la IZQUIERDA
+    if (!m_faceRight)
         frame = frame.transformed(QTransform().scale(-1, 1));
 
     setPixmap(frame);

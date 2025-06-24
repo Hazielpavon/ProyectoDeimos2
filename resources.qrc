@@ -592,14 +592,12 @@
         <file>resources/informacion.png</file>
         <file>resources/ruta_inf.PNG</file>
         <file>resources/MenteVacia.png</file>
-<<<<<<< HEAD
         <file>resources/maquina.png</file>
         <file>resources/cuidad.mp4</file>
         <file>resources/maquina.mp4</file>
         <file>resources/raices.mp4</file>
         <file>resources/templo_olvido_vid.mp4</file>
         <file>resources/torre.mp4</file>
-=======
         <file>resources/damage2.png</file>
         <file>resources/damage1.png</file>
         <file>resources/resistance2.png</file>
@@ -609,6 +607,5 @@
         <file>resources/regen.png</file>
         <file>resources/fondociudadinversa1.jpg</file>
         <file>resources/fondociudadinversa2.jpg</file>
->>>>>>> origin/fix2
     </qresource>
 </RCC>

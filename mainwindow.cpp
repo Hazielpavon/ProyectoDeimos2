@@ -14,11 +14,8 @@
 #include "niveltorredelamarca.h"
 #include "ciudadinversa.h"
 #include "mentevacia.h"
-<<<<<<< HEAD
 #include "maquina_olvido.h"
-=======
 #include "jugador.h"
->>>>>>> origin/fix2
 
 /* ── widgets flotantes ────────────────────────────────────────────── */
 #include "InventoryWidget.h"
@@ -81,14 +78,11 @@ MainWindow::MainWindow(QWidget *parent)
                                             m_player->transform().setPosition(
                                                 width() / 2.0, height() / 2.0);
 
-                                            /* ---- primer nivel ---- */
-                                            cargarNivel("CiudadInversa");
+                                            // /* ---- primer nivel ---- */
+                                            // cargarNivel("CiudadInversa");
 
-<<<<<<< HEAD
                                             /* -> primer nivel */
                                             cargarNivel("Tutorial");
-=======
->>>>>>> origin/fix2
                                         });
 
                                 mostrarPantalla(pantallaCarga);
